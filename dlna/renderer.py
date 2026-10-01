@@ -48,6 +48,10 @@ class Renderer:
     async def pause(self) -> bool:
         return await self._safe(self._p.async_pause())
 
+    async def resume(self) -> bool:
+        # Resume from PAUSED without re-setting the transport URI (which restarts at 0:00).
+        return await self._safe(self._p.async_play())
+
     async def stop(self) -> bool:
         return await self._safe(self._p.async_stop())
 

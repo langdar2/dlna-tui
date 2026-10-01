@@ -37,7 +37,9 @@ class DlnaApp(App):
         self.renderer = renderer
         self.store = store
         self.queue = Queue()
-        self._node_obj: dict = {}
+        self._node_obj: dict = {}  # ponytail: grows unbounded on re-search; prune if it matters
+        self._last_state = ""
+        self._tasks: set = set()  # keep create_task refs alive (else GC can cancel them)
 
     def compose(self) -> ComposeResult:
         yield Header()
@@ -70,19 +72,32 @@ class DlnaApp(App):
             self.queue = Queue([obj])
             await self.renderer.play(obj)
 
+    def _spawn(self, coro) -> None:
+        task = asyncio.create_task(coro)
+        self._tasks.add(task)
+        task.add_done_callback(self._tasks.discard)
+
     def _refresh_state(self) -> None:
-        self.query_one("#now", NowPlaying).st = self.renderer.state()
-        if self.renderer.state().transport_state == "STOPPED":
+        st = self.renderer.state()
+        self.query_one("#now", NowPlaying).st = st
+        # Advance only on the PLAYING->STOPPED edge; level-triggering would skip
+        # tracks while the renderer sits in STOPPED for several ticks before the
+        # next one reports PLAYING.
+        if st.transport_state == "STOPPED" and self._last_state not in ("", "STOPPED"):
             nxt = self.queue.advance()
             if nxt:
-                asyncio.create_task(self.renderer.play(nxt))
+                self._spawn(self.renderer.play(nxt))
+        self._last_state = st.transport_state
 
     async def action_toggle(self) -> None:
         current = self.queue.current()
         if not current:
             return
-        if self.renderer.state().transport_state == "PLAYING":
+        state = self.renderer.state().transport_state
+        if state == "PLAYING":
             await self.renderer.pause()
+        elif state == "PAUSED_PLAYBACK":
+            await self.renderer.resume()
         else:
             await self.renderer.play(current)
 

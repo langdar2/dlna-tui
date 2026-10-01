@@ -29,8 +29,10 @@ async def discover(timeout: float = 3.0) -> tuple[list[DeviceInfo], list[DeviceI
     return servers, renderers
 
 
-async def build_device(info: DeviceInfo):
-    """DeviceInfo -> concrete UpnpDevice (for MusicServer/Renderer)."""
-    requester = AiohttpRequester()
-    factory = UpnpFactory(requester)
+async def build_device(info: DeviceInfo, requester=None):
+    """DeviceInfo -> concrete UpnpDevice (for MusicServer/Renderer).
+
+    Pass a shared requester to avoid leaking an aiohttp session per device.
+    """
+    factory = UpnpFactory(requester or AiohttpRequester())
     return await factory.async_create_device(info.location)

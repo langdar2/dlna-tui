@@ -35,26 +35,30 @@ async def main() -> None:
     srv_info = _pick(servers, "Server", store.last_server)
     rnd_info = _pick(renderers, "Renderer", store.last_renderer)
 
-    srv_dev = await build_device(srv_info)
-    rnd_dev = await build_device(rnd_info)
-
     # v0.46.2 API: UpnpEventHandler takes a UpnpNotifyServer (not a callback URL string).
     # AiohttpNotifyServer binds a local HTTP server for GENA event callbacks;
-    # source ("0.0.0.0", 0) lets the OS pick a free port.
+    # source ("0.0.0.0", 0) lets the OS pick a free port. One shared requester
+    # serves discovery, both devices, and events so we leak no extra sessions.
     requester = AiohttpRequester()
     notify_server = AiohttpNotifyServer(requester, ("0.0.0.0", 0))
     await notify_server.async_start_server()
     event_handler = UpnpEventHandler(notify_server, requester)
 
-    # DmsDevice / DmrDevice accept event_handler as a positional arg (not keyword).
-    server = MusicServer(DmsDevice(srv_dev, event_handler))
-    renderer = Renderer(DmrDevice(rnd_dev, event_handler))
+    try:
+        srv_dev = await build_device(srv_info, requester)
+        rnd_dev = await build_device(rnd_info, requester)
 
-    store.last_server = srv_info.udn
-    store.last_renderer = rnd_info.udn
-    store.save()
+        # DmsDevice / DmrDevice accept event_handler as a positional arg (not keyword).
+        server = MusicServer(DmsDevice(srv_dev, event_handler))
+        renderer = Renderer(DmrDevice(rnd_dev, event_handler))
 
-    await DlnaApp(server, renderer, store).run_async()
+        store.last_server = srv_info.udn
+        store.last_renderer = rnd_info.udn
+        store.save()
+
+        await DlnaApp(server, renderer, store).run_async()
+    finally:
+        await notify_server.async_stop_server()
 
 
 if __name__ == "__main__":

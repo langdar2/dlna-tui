@@ -232,7 +232,7 @@ def _http_get(url: str) -> bytes:
 class TrackInfoScreen(ModalScreen):
     BINDINGS = [("escape", "close", "Schließen"), ("i", "close", "Schließen")]
     CSS = ("TrackInfoScreen { align: center middle; } "
-           "#info_box { width: 60; height: auto; max-height: 90%; "
+           "#info_box { width: 80%; max-width: 100; height: auto; max-height: 90%; "
            "border: round $accent; padding: 1 2; } "
            "#info_box Static { width: 1fr; }")
 
@@ -256,9 +256,13 @@ class TrackInfoScreen(ModalScreen):
     async def on_mount(self) -> None:
         if not self.track.art_uri:
             return
+        # Match the cover to the box: 80% of the terminal (capped at 100), minus
+        # border + padding, so it fills the modal on any size without overflowing.
+        box_w = min(int(self.app.size.width * 0.8), 100)
+        cover_w = max(20, box_w - 6)
         try:
             data = await asyncio.to_thread(_http_get, self.track.art_uri)
-            art = to_ansi(data)
+            art = to_ansi(data, width=cover_w)
         except Exception as exc:  # ponytail: cover is best-effort, never fatal
             art = f"(Cover fehlgeschlagen: {exc})"
         self.query_one("#cover", Static).update(art)

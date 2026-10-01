@@ -64,24 +64,34 @@
       "norm_label": "art.py"
     },
     {
-      "label": "to_ascii()",
+      "label": "to_ansi()",
       "file_type": "code",
       "source_file": "dlna/art.py",
-      "source_location": "L12",
+      "source_location": "L9",
       "_origin": "ast",
-      "id": "dlna_art_to_ascii",
+      "id": "dlna_art_to_ansi",
       "community": 4,
-      "norm_label": "to_ascii()"
+      "norm_label": "to_ansi()"
     },
     {
-      "label": "Decode an image and render it as greyscale ASCII art.      Height is halved beca",
+      "label": "Text",
+      "file_type": "code",
+      "source_file": "dlna/art.py",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "text",
+      "community": 4,
+      "norm_label": "text"
+    },
+    {
+      "label": "Decode an image into a colored Rich renderable.      Each character cell is a '\u2580",
       "file_type": "rationale",
       "source_file": "dlna/art.py",
-      "source_location": "L13",
+      "source_location": "L10",
       "_origin": "ast",
-      "id": "dlna_art_rationale_13",
+      "id": "dlna_art_rationale_10",
       "community": 4,
-      "norm_label": "decode an image and render it as greyscale ascii art.      height is halved beca"
+      "norm_label": "decode an image into a colored rich renderable.      each character cell is a '\u2580"
     },
     {
       "label": "discovery.py",
@@ -220,7 +230,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "dlna_models_container",
-      "community": 8,
+      "community": 0,
       "norm_label": "container"
     },
     {
@@ -230,7 +240,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "dlna_models_track",
-      "community": 8,
+      "community": 0,
       "norm_label": "track"
     },
     {
@@ -340,7 +350,7 @@
       "source_location": "L130",
       "_origin": "ast",
       "id": "dlna_models_to_models",
-      "community": 8,
+      "community": 0,
       "norm_label": "to_models()"
     },
     {
@@ -370,7 +380,7 @@
       "source_location": "L131",
       "_origin": "ast",
       "id": "dlna_models_rationale_131",
-      "community": 8,
+      "community": 0,
       "norm_label": "already-parsed didl_lite objects -> our models (descriptors dropped)."
     },
     {
@@ -560,7 +570,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "dlna_server",
-      "community": 8,
+      "community": 0,
       "norm_label": "server.py"
     },
     {
@@ -590,7 +600,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "dlna_server_musicserver_browse",
-      "community": 8,
+      "community": 0,
       "norm_label": ".browse()"
     },
     {
@@ -600,7 +610,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "container",
-      "community": 8,
+      "community": 0,
       "norm_label": "container"
     },
     {
@@ -610,7 +620,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "dlna_server_py_track",
-      "community": 8,
+      "community": 0,
       "norm_label": "track"
     },
     {
@@ -620,7 +630,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "dlna_server_musicserver_search",
-      "community": 8,
+      "community": 0,
       "norm_label": ".search()"
     },
     {
@@ -1010,7 +1020,7 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "ui_app_dlnaapp_init",
-      "community": 1,
+      "community": 0,
       "norm_label": ".__init__()"
     },
     {
@@ -1020,7 +1030,7 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "store",
-      "community": 8,
+      "community": 0,
       "norm_label": "store"
     },
     {
@@ -1030,7 +1040,7 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "ui_app_dlnaapp_compose",
-      "community": 8,
+      "community": 1,
       "norm_label": ".compose()"
     },
     {
@@ -1040,7 +1050,7 @@
       "source_location": "L53",
       "_origin": "ast",
       "id": "composeresult",
-      "community": 8,
+      "community": 1,
       "norm_label": "composeresult"
     },
     {
@@ -1110,7 +1120,7 @@
       "source_location": "L102",
       "_origin": "ast",
       "id": "nodeexpanded",
-      "community": 8,
+      "community": 2,
       "norm_label": "nodeexpanded"
     },
     {
@@ -1130,7 +1140,7 @@
       "source_location": "L107",
       "_origin": "ast",
       "id": "nodeselected",
-      "community": 8,
+      "community": 0,
       "norm_label": "nodeselected"
     },
     {
@@ -1327,7 +1337,7 @@
       "label": ".__init__()",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L237",
+      "source_location": "L239",
       "_origin": "ast",
       "id": "ui_app_trackinfoscreen_init",
       "community": 1,
@@ -1337,27 +1347,27 @@
       "label": "Track",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L237",
+      "source_location": "L239",
       "_origin": "ast",
       "id": "ui_app_py_track",
-      "community": 8,
+      "community": 1,
       "norm_label": "track"
     },
     {
       "label": ".compose()",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L241",
+      "source_location": "L243",
       "_origin": "ast",
       "id": "ui_app_trackinfoscreen_compose",
-      "community": 8,
+      "community": 1,
       "norm_label": ".compose()"
     },
     {
       "label": ".on_mount()",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L254",
+      "source_location": "L256",
       "_origin": "ast",
       "id": "ui_app_trackinfoscreen_on_mount",
       "community": 1,
@@ -1367,7 +1377,7 @@
       "label": ".action_close()",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L264",
+      "source_location": "L266",
       "_origin": "ast",
       "id": "ui_app_trackinfoscreen_action_close",
       "community": 1,
@@ -1377,10 +1387,10 @@
       "label": "DeviceItem",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L268",
+      "source_location": "L270",
       "_origin": "ast",
       "id": "ui_app_deviceitem",
-      "community": 8,
+      "community": 1,
       "norm_label": "deviceitem"
     },
     {
@@ -1397,7 +1407,7 @@
       "label": ".__init__()",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L269",
+      "source_location": "L271",
       "_origin": "ast",
       "id": "ui_app_deviceitem_init",
       "community": 1,
@@ -1407,7 +1417,7 @@
       "label": "DeviceScreen",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L275",
+      "source_location": "L277",
       "_origin": "ast",
       "id": "ui_app_devicescreen",
       "community": 1,
@@ -1417,7 +1427,7 @@
       "label": ".__init__()",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L279",
+      "source_location": "L281",
       "_origin": "ast",
       "id": "ui_app_devicescreen_init",
       "community": 1,
@@ -1427,7 +1437,7 @@
       "label": ".compose()",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L283",
+      "source_location": "L285",
       "_origin": "ast",
       "id": "ui_app_devicescreen_compose",
       "community": 1,
@@ -1437,7 +1447,7 @@
       "label": ".on_mount()",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L290",
+      "source_location": "L292",
       "_origin": "ast",
       "id": "ui_app_devicescreen_on_mount",
       "community": 1,
@@ -1447,7 +1457,7 @@
       "label": ".on_list_view_selected()",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L299",
+      "source_location": "L301",
       "_origin": "ast",
       "id": "ui_app_devicescreen_on_list_view_selected",
       "community": 2,
@@ -1457,17 +1467,17 @@
       "label": "Selected",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L299",
+      "source_location": "L301",
       "_origin": "ast",
       "id": "selected",
-      "community": 8,
+      "community": 0,
       "norm_label": "selected"
     },
     {
       "label": ".action_close()",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L309",
+      "source_location": "L311",
       "_origin": "ast",
       "id": "ui_app_devicescreen_action_close",
       "community": 1,
@@ -1477,7 +1487,7 @@
       "label": "SearchScreen",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L313",
+      "source_location": "L315",
       "_origin": "ast",
       "id": "ui_app_searchscreen",
       "community": 1,
@@ -1487,7 +1497,7 @@
       "label": ".__init__()",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L314",
+      "source_location": "L316",
       "_origin": "ast",
       "id": "ui_app_searchscreen_init",
       "community": 1,
@@ -1497,7 +1507,7 @@
       "label": ".compose()",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L318",
+      "source_location": "L320",
       "_origin": "ast",
       "id": "ui_app_searchscreen_compose",
       "community": 1,
@@ -1507,7 +1517,7 @@
       "label": ".on_input_submitted()",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L321",
+      "source_location": "L323",
       "_origin": "ast",
       "id": "ui_app_searchscreen_on_input_submitted",
       "community": 1,
@@ -1517,10 +1527,10 @@
       "label": "Submitted",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L321",
+      "source_location": "L323",
       "_origin": "ast",
       "id": "submitted",
-      "community": 8,
+      "community": 1,
       "norm_label": "submitted"
     },
     {
@@ -1530,7 +1540,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_widgets",
-      "community": 3,
+      "community": 1,
       "norm_label": "widgets.py"
     },
     {
@@ -1540,7 +1550,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "ui_widgets_fmt",
-      "community": 3,
+      "community": 1,
       "norm_label": "_fmt()"
     },
     {
@@ -1550,7 +1560,7 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "ui_widgets_nowplaying",
-      "community": 8,
+      "community": 1,
       "norm_label": "nowplaying"
     },
     {
@@ -1560,7 +1570,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "static",
-      "community": 8,
+      "community": 1,
       "norm_label": "static"
     },
     {
@@ -1570,7 +1580,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "ui_widgets_nowplaying_render",
-      "community": 3,
+      "community": 1,
       "norm_label": ".render()"
     },
     {
@@ -2019,10 +2029,10 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "dlna/art.py",
-      "source_location": "L12",
+      "source_location": "L9",
       "weight": 1.0,
       "source": "dlna_art",
-      "target": "dlna_art_to_ascii",
+      "target": "dlna_art_to_ansi",
       "confidence_score": 1.0
     },
     {
@@ -2032,18 +2042,29 @@
       "source_file": "ui/app.py",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app",
-      "target": "dlna_art",
-      "confidence_score": 1.0
+      "target": "dlna_art"
     },
     {
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "dlna/art.py",
-      "source_location": "L13",
+      "source_location": "L10",
       "weight": 1.0,
-      "source": "dlna_art_rationale_13",
-      "target": "dlna_art_to_ascii",
+      "source": "dlna_art_rationale_10",
+      "target": "dlna_art_to_ansi",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "dlna/art.py",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "dlna_art_to_ansi",
+      "target": "text",
       "confidence_score": 1.0
     },
     {
@@ -2054,7 +2075,7 @@
       "source_location": "L11",
       "weight": 1.0,
       "source": "ui_app",
-      "target": "dlna_art_to_ascii",
+      "target": "dlna_art_to_ansi",
       "confidence_score": 1.0
     },
     {
@@ -2063,10 +2084,10 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "ui/app.py",
-      "source_location": "L259",
+      "source_location": "L261",
       "weight": 1.0,
       "source": "ui_app_trackinfoscreen_on_mount",
-      "target": "dlna_art_to_ascii"
+      "target": "dlna_art_to_ansi"
     },
     {
       "relation": "contains",
@@ -2679,9 +2700,9 @@
       "source_file": "ui/app.py",
       "source_location": "L13",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "ui_app_py_track",
-      "target": "dlna_models_container",
-      "confidence_score": 0.5
+      "target": "dlna_models_container"
     },
     {
       "relation": "uses",
@@ -2699,9 +2720,9 @@
       "source_file": "ui/app.py",
       "source_location": "L13",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "ui_app_trackinfoscreen",
-      "target": "dlna_models_container",
-      "confidence_score": 0.5
+      "target": "dlna_models_container"
     },
     {
       "relation": "uses",
@@ -3023,9 +3044,9 @@
       "source_file": "ui/app.py",
       "source_location": "L13",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "ui_app_py_track",
-      "target": "dlna_models_track",
-      "confidence_score": 0.5
+      "target": "dlna_models_track"
     },
     {
       "relation": "uses",
@@ -3043,9 +3064,9 @@
       "source_file": "ui/app.py",
       "source_location": "L13",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "ui_app_trackinfoscreen",
-      "target": "dlna_models_track",
-      "confidence_score": 0.5
+      "target": "dlna_models_track"
     },
     {
       "relation": "calls",
@@ -3108,9 +3129,9 @@
       "source_file": "dlna/models.py",
       "source_location": "L55",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_models_rationale_55",
-      "target": "dlna_models_media_info",
-      "confidence_score": 1.0
+      "target": "dlna_models_media_info"
     },
     {
       "relation": "calls",
@@ -3347,9 +3368,9 @@
       "source_file": "ui/app.py",
       "source_location": "L13",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "ui_app_py_track",
-      "target": "dlna_models_queue",
-      "confidence_score": 0.5
+      "target": "dlna_models_queue"
     },
     {
       "relation": "uses",
@@ -3367,9 +3388,9 @@
       "source_file": "ui/app.py",
       "source_location": "L13",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "ui_app_trackinfoscreen",
-      "target": "dlna_models_queue",
-      "confidence_score": 0.5
+      "target": "dlna_models_queue"
     },
     {
       "relation": "calls",
@@ -3388,9 +3409,9 @@
       "source_file": "dlna/models.py",
       "source_location": "L131",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_models_rationale_131",
-      "target": "dlna_models_to_models",
-      "confidence_score": 1.0
+      "target": "dlna_models_to_models"
     },
     {
       "relation": "imports",
@@ -3431,9 +3452,9 @@
       "source_file": "dlna/models.py",
       "source_location": "L137",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_models_rationale_137",
-      "target": "dlna_models_from_didl",
-      "confidence_score": 1.0
+      "target": "dlna_models_from_didl"
     },
     {
       "relation": "imports",
@@ -3876,9 +3897,9 @@
       "source_file": "ui/app.py",
       "source_location": "L14",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "ui_app_py_track",
-      "target": "dlna_renderer_renderer",
-      "confidence_score": 0.5
+      "target": "dlna_renderer_renderer"
     },
     {
       "relation": "uses",
@@ -3896,9 +3917,9 @@
       "source_file": "ui/app.py",
       "source_location": "L14",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "ui_app_trackinfoscreen",
-      "target": "dlna_renderer_renderer",
-      "confidence_score": 0.5
+      "target": "dlna_renderer_renderer"
     },
     {
       "relation": "calls",
@@ -4244,9 +4265,9 @@
       "source_file": "ui/app.py",
       "source_location": "L15",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "ui_app_py_track",
-      "target": "dlna_server_musicserver",
-      "confidence_score": 0.5
+      "target": "dlna_server_musicserver"
     },
     {
       "relation": "uses",
@@ -4264,9 +4285,9 @@
       "source_file": "ui/app.py",
       "source_location": "L15",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "ui_app_trackinfoscreen",
-      "target": "dlna_server_musicserver",
-      "confidence_score": 0.5
+      "target": "dlna_server_musicserver"
     },
     {
       "relation": "references",
@@ -4568,9 +4589,9 @@
       "source_file": "ui/app.py",
       "source_location": "L16",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "ui_app_py_track",
-      "target": "dlna_store_store",
-      "confidence_score": 0.5
+      "target": "dlna_store_store"
     },
     {
       "relation": "uses",
@@ -4588,9 +4609,9 @@
       "source_file": "ui/app.py",
       "source_location": "L16",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "ui_app_trackinfoscreen",
-      "target": "dlna_store_store",
-      "confidence_score": 0.5
+      "target": "dlna_store_store"
     },
     {
       "relation": "calls",
@@ -4936,9 +4957,9 @@
       "source_file": "ui/app.py",
       "source_location": "L224",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app",
-      "target": "ui_app_http_get",
-      "confidence_score": 1.0
+      "target": "ui_app_http_get"
     },
     {
       "relation": "contains",
@@ -4956,9 +4977,9 @@
       "source_file": "ui/app.py",
       "source_location": "L232",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app",
-      "target": "ui_app_trackinfoscreen",
-      "confidence_score": 1.0
+      "target": "ui_app_trackinfoscreen"
     },
     {
       "relation": "imports_from",
@@ -5038,9 +5059,9 @@
       "source_file": "ui/app.py",
       "source_location": "L206",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp",
-      "target": "ui_app_dlnaapp_action_info",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_action_info"
     },
     {
       "relation": "method",
@@ -5423,9 +5444,9 @@
       "source_file": "ui/app.py",
       "source_location": "L6",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "ui_app_py_track",
-      "target": "composeresult",
-      "confidence_score": 0.5
+      "target": "composeresult"
     },
     {
       "relation": "uses",
@@ -5454,9 +5475,9 @@
       "source_file": "ui/app.py",
       "source_location": "L6",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "ui_app_trackinfoscreen",
-      "target": "composeresult",
-      "confidence_score": 0.5
+      "target": "composeresult"
     },
     {
       "relation": "references",
@@ -5465,9 +5486,9 @@
       "source_file": "ui/app.py",
       "source_location": "L241",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_trackinfoscreen_compose",
-      "target": "composeresult",
-      "confidence_score": 1.0
+      "target": "composeresult"
     },
     {
       "relation": "calls",
@@ -5650,9 +5671,9 @@
       "source_file": "ui/app.py",
       "source_location": "L212",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp_action_info",
-      "target": "ui_app_trackinfoscreen",
-      "confidence_score": 1.0
+      "target": "ui_app_trackinfoscreen"
     },
     {
       "relation": "calls",
@@ -5671,9 +5692,9 @@
       "source_file": "ui/app.py",
       "source_location": "L232",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_trackinfoscreen",
-      "target": "modalscreen",
-      "confidence_score": 1.0
+      "target": "modalscreen"
     },
     {
       "relation": "method",
@@ -5681,9 +5702,9 @@
       "source_file": "ui/app.py",
       "source_location": "L264",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_trackinfoscreen",
-      "target": "ui_app_trackinfoscreen_action_close",
-      "confidence_score": 1.0
+      "target": "ui_app_trackinfoscreen_action_close"
     },
     {
       "relation": "method",
@@ -5691,9 +5712,9 @@
       "source_file": "ui/app.py",
       "source_location": "L241",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_trackinfoscreen",
-      "target": "ui_app_trackinfoscreen_compose",
-      "confidence_score": 1.0
+      "target": "ui_app_trackinfoscreen_compose"
     },
     {
       "relation": "method",
@@ -5701,9 +5722,9 @@
       "source_file": "ui/app.py",
       "source_location": "L237",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_trackinfoscreen",
-      "target": "ui_app_trackinfoscreen_init",
-      "confidence_score": 1.0
+      "target": "ui_app_trackinfoscreen_init"
     },
     {
       "relation": "method",
@@ -5711,9 +5732,9 @@
       "source_file": "ui/app.py",
       "source_location": "L254",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_trackinfoscreen",
-      "target": "ui_app_trackinfoscreen_on_mount",
-      "confidence_score": 1.0
+      "target": "ui_app_trackinfoscreen_on_mount"
     },
     {
       "relation": "uses",
@@ -5721,9 +5742,9 @@
       "source_file": "ui/app.py",
       "source_location": "L17",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "ui_app_trackinfoscreen",
-      "target": "ui_widgets_nowplaying",
-      "confidence_score": 0.5
+      "target": "ui_widgets_nowplaying"
     },
     {
       "relation": "inherits",
@@ -5752,9 +5773,9 @@
       "source_file": "ui/app.py",
       "source_location": "L237",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_trackinfoscreen_init",
-      "target": "ui_app_py_track",
-      "confidence_score": 1.0
+      "target": "ui_app_py_track"
     },
     {
       "relation": "calls",
@@ -5763,9 +5784,9 @@
       "source_file": "ui/app.py",
       "source_location": "L238",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_trackinfoscreen_init",
-      "target": "ui_app_searchscreen_init",
-      "confidence_score": 1.0
+      "target": "ui_app_searchscreen_init"
     },
     {
       "relation": "uses",
@@ -5773,9 +5794,9 @@
       "source_file": "ui/app.py",
       "source_location": "L17",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "ui_app_py_track",
-      "target": "ui_widgets_nowplaying",
-      "confidence_score": 0.5
+      "target": "ui_widgets_nowplaying"
     },
     {
       "relation": "calls",
@@ -6326,5 +6347,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "f3230cb18365d1e36d970cb7bee6cd2282a4d438"
+  "built_at_commit": "2adbea783611c0f72231c476a9a11722764cea70"
 }

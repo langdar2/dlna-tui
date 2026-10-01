@@ -241,8 +241,20 @@ class DlnaApp(App):
         tree.root.expand()
 
     async def on_input_submitted(self, event: Input.Submitted) -> None:
-        if event.input.id == "filter":  # Enter: hand control back to the browser
-            self.query_one("#browser", Tree).focus()
+        if event.input.id == "filter":  # Enter: jump into the filtered results
+            self._focus_results()
+
+    def _focus_results(self) -> None:
+        """Move focus from the filter box onto the first result so it's playable."""
+        tree = self.query_one("#browser", Tree)
+        tree.focus()
+        if tree.root.children:
+            tree.move_cursor(tree.root.children[0])
+
+    def on_key(self, event) -> None:
+        if event.key == "down" and getattr(self.focused, "id", None) == "filter":
+            event.stop()
+            self._focus_results()
 
     async def action_favorite(self) -> None:
         node = self.query_one("#browser", Tree).cursor_node

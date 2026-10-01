@@ -288,7 +288,7 @@ class DlnaApp(App):
         """Fetch similar tracks for seed and append to the queue, skipping ones
         already heard this session. Returns how many were actually added."""
         self._heard.update(t.id for t in self.queue.tracks)  # don't re-suggest what's queued
-        recs = await radio_tracks(seed.title, seed.artist, self.radio_limit)
+        recs = await radio_tracks(seed.title, seed.artist, self.radio_limit, seed.album)
         qview = self.query_one("#queue", ListView)
         added = 0
         for t in recs:

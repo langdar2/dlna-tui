@@ -23,17 +23,19 @@ def _basename(path: str) -> str:
     return path.rsplit("/", 1)[-1]
 
 
-def _pick_seed(candidates: list[dict], artist: str) -> str | None:
-    """Best /music/... path among title matches: prefer one whose path also
-    mentions the artist (title alone is ambiguous across albums)."""
-    if not candidates:
-        return None
-    a = (artist or "").lower()
-    if a:
-        for c in candidates:
-            if a in c["path"].lower():
-                return c["path"]
-    return candidates[0]["path"]
+def _rank_seeds(candidates: list[dict], artist: str, album: str) -> list[str]:
+    """Candidate /music/... paths ordered best-first: artist+album, then artist,
+    then the rest. Title alone is ambiguous across albums and re-releases, so we
+    try them in order until one is an analysed seed CrateMind accepts."""
+    a, al = (artist or "").lower(), (album or "").lower()
+    scored = []
+    for c in candidates:
+        p = c["path"].lower()
+        score = (2 if a and al and a in p and al in p else
+                 1 if a and a in p else 0)
+        scored.append((score, c["path"]))
+    scored.sort(key=lambda s: s[0], reverse=True)
+    return [p for _, p in scored]
 
 
 def _match_file(files: list[dict], basename: str) -> dict | None:
@@ -75,7 +77,18 @@ async def _resolve(session: aiohttp.ClientSession, path: str) -> Track | None:
     )
 
 
-async def radio_tracks(title: str, artist: str = "", limit: int = 10) -> list[Track]:
+async def _preview(s: aiohttp.ClientSession, seed: str, limit: int) -> list[dict]:
+    """Similarity recommendations for one seed path. [] if CrateMind can't seed it."""
+    async with s.post(f"{CRATE_URL}/api/playlists/preview",
+                      json={"mode": "seed", "seed_path": seed, "limit": limit}) as r:
+        if r.status == 404:  # seed not among analysed tracks -> let caller try the next
+            return []
+        r.raise_for_status()
+        return (await r.json()).get("tracks", [])
+
+
+async def radio_tracks(title: str, artist: str = "", limit: int = 10,
+                       album: str = "") -> list[Track]:
     """Tracks similar to the given one, as playable Tracks (unresolved ones dropped)."""
     async with aiohttp.ClientSession(raise_for_status=False,
                                      timeout=aiohttp.ClientTimeout(total=15)) as s:
@@ -83,13 +96,13 @@ async def radio_tracks(title: str, artist: str = "", limit: int = 10) -> list[Tr
                          params={"q": title, "limit": 20}) as r:
             r.raise_for_status()
             candidates = (await r.json()).get("tracks", [])
-        seed = _pick_seed(candidates, artist)
-        if seed is None:
-            return []
-        async with s.post(f"{CRATE_URL}/api/playlists/preview",
-                          json={"mode": "seed", "seed_path": seed, "limit": limit}) as r:
-            r.raise_for_status()
-            recs = (await r.json()).get("tracks", [])
+        seeds = _rank_seeds(candidates, artist, album)
+        seed, recs = None, []
+        for cand in seeds:  # first analysed seed that yields recommendations wins
+            recs = await _preview(s, cand, limit)
+            if recs:
+                seed = cand
+                break
         out = []
         for rec in recs:
             if rec["path"] == seed:  # don't recommend the seed back
@@ -102,11 +115,13 @@ async def radio_tracks(title: str, artist: str = "", limit: int = 10) -> list[Tr
 
 def _selfcheck() -> None:
     # Pure logic only (no network): seed pick + filename match.
-    cand = [{"path": "/music/A - X/01. A - Ruska.flac"},
-            {"path": "/music/B - Y/02. B - Ruska.flac"}]
-    assert _pick_seed(cand, "B") == "/music/B - Y/02. B - Ruska.flac"
-    assert _pick_seed(cand, "") == cand[0]["path"]
-    assert _pick_seed([], "B") is None
+    cand = [{"path": "/music/A - Gold/01. A - Win.flac"},
+            {"path": "/music/A - Singles/02. A - Win.flac"},
+            {"path": "/music/C - Mix/03. C - Win.flac"}]
+    # album match beats bare artist match beats nothing
+    assert _rank_seeds(cand, "A", "Singles")[0] == "/music/A - Singles/02. A - Win.flac"
+    assert _rank_seeds(cand, "A", "")[0].startswith("/music/A -")
+    assert _rank_seeds([], "A", "x") == []
     files = [{"filename": "other.flac"}, {"filename": "02. B - Ruska.flac"}]
     assert _match_file(files, "02. B - Ruska.flac")["filename"] == "02. B - Ruska.flac"
     assert _match_file(files, "missing.flac")["filename"] == "other.flac"

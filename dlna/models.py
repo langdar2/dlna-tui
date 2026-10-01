@@ -89,10 +89,12 @@ class Queue:
         self.tracks.append(track)
 
 
+def to_models(objs) -> list[Container | Track]:
+    """Already-parsed didl_lite objects -> our models (Descriptors dropped)."""
+    return [_to_model(o) for o in objs
+            if isinstance(o, (didl_lite.Container, didl_lite.Item))]
+
+
 def from_didl(didl_xml: str) -> list[Container | Track]:
     """DIDL-Lite XML -> list of our models (Descriptors dropped)."""
-    out: list[Container | Track] = []
-    for obj in didl_lite.from_xml_string(didl_xml, strict=False):
-        if isinstance(obj, (didl_lite.Container, didl_lite.Item)):
-            out.append(_to_model(obj))
-    return out
+    return to_models(didl_lite.from_xml_string(didl_xml, strict=False))

@@ -30,8 +30,9 @@ class Renderer:
             return False
 
     def state(self) -> RendererState:
+        ts = self._p.transport_state  # str-subclass enum; .value gives "PLAYING" etc.
         return RendererState(
-            transport_state=self._p.transport_state or "",
+            transport_state=getattr(ts, "value", ts) or "",
             position=int(self._p.media_position or 0),
             duration=int(self._p.media_duration or 0),
             volume=float(self._p.volume_level or 0.0),

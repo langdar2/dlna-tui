@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import asyncio
+import re
+import subprocess
 
 from async_upnp_client.aiohttp import AiohttpRequester
 from async_upnp_client.client_factory import UpnpFactory
@@ -9,14 +11,31 @@ from async_upnp_client.profiles.dlna import DmrDevice, DmsDevice
 from .models import DeviceInfo
 
 
+def _lan_sources() -> list[tuple[str, int]]:
+    """SSDP source addresses for broadcast-capable IPv4 interfaces.
+
+    Excludes loopback and point-to-point VPN tunnels (utun/ppp), which have no
+    broadcast address — binding there sends the multicast out the wrong link and
+    finds nothing. Empty list -> caller falls back to the default route.
+    """
+    # ponytail: macOS/BSD ifconfig; on Linux switch to `ip -4 -o addr`.
+    try:
+        out = subprocess.run(["ifconfig"], capture_output=True, text=True, timeout=5).stdout
+    except (OSError, subprocess.SubprocessError):
+        return []
+    return [(m, 0) for m in re.findall(r"inet (\d+\.\d+\.\d+\.\d+) netmask \S+ broadcast", out)]
+
+
 async def _discover_kind(profile, kind: str, timeout: float) -> list[DeviceInfo]:
     found: dict[str, DeviceInfo] = {}
-    for entry in await profile.async_discover():
-        location = entry.get("location")
-        udn = entry.get("usn", "").split("::")[0]
-        if not location or udn in found:
-            continue
-        found[udn] = DeviceInfo(udn=udn, name=udn, location=location, kind=kind)
+    sources = _lan_sources() or [None]
+    for src in sources:
+        for entry in await profile.async_search(source=src, timeout=int(timeout)):
+            location = entry.get("location")
+            udn = entry.get("usn", "").split("::")[0]
+            if not location or udn in found:
+                continue
+            found[udn] = DeviceInfo(udn=udn, name=udn, location=location, kind=kind)
     return list(found.values())
 
 

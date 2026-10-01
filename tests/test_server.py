@@ -1,4 +1,5 @@
 import types
+from didl_lite import didl_lite
 from dlna.server import MusicServer
 
 DIDL = """<DIDL-Lite xmlns="urn:schemas-upnp-org:metadata-1-0/DIDL-Lite/"
@@ -9,14 +10,17 @@ DIDL = """<DIDL-Lite xmlns="urn:schemas-upnp-org:metadata-1-0/DIDL-Lite/"
     <res protocolInfo="http-get:*:audio/mpeg:*">http://host/i1.mp3</res></item>
 </DIDL-Lite>"""
 
+# Real BrowseResult.result is an already-parsed list of didl_lite objects, not XML.
+PARSED = didl_lite.from_xml_string(DIDL, strict=False)
+
 
 class FakeProfile:
     async def async_browse_direct_children(self, object_id, **kw):
-        return types.SimpleNamespace(result=DIDL, number_returned=1,
+        return types.SimpleNamespace(result=PARSED, number_returned=1,
                                      total_matches=1, update_id=0)
 
     async def async_search_directory(self, container_id, search_criteria, **kw):
-        return types.SimpleNamespace(result=DIDL, number_returned=1,
+        return types.SimpleNamespace(result=PARSED, number_returned=1,
                                      total_matches=1, update_id=0)
 
 

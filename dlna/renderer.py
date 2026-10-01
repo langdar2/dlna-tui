@@ -42,6 +42,11 @@ class Renderer:
 
     async def play(self, track: Track) -> bool:
         async def _go():
+            # ponytail: stop-first. On end-of-track some renderers (Evo One) auto-
+            # restart the old URI ~1s after STOPPED, clobbering a bare SetAVTransportURI
+            # and freezing auto-advance. async_stop cancels that pending restart.
+            # Harmless no-op when already idle; resume() uses async_play directly.
+            await self._p.async_stop()
             await self._p.async_set_transport_uri(
                 track.media_url, track.title, track.didl or None)
             await self._p.async_play()

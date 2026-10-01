@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 
 import aiohttp
 
@@ -21,6 +22,23 @@ _MCP_VERSION = "2026-07-28"
 
 def _basename(path: str) -> str:
     return path.rsplit("/", 1)[-1]
+
+
+def _media_id(media_url: str) -> str:
+    """Numeric VuIO id from a stream/media URL (.../media/42380 or .../media/42380.m4a)."""
+    tail = media_url.rsplit("/", 1)[-1].split(".", 1)[0]
+    return tail if tail.isdigit() else ""
+
+
+def _crate_query(filename: str, title: str) -> str:
+    """CrateMind matches on the file PATH, so the basename is the reliable key;
+    the ID3 title often differs (punctuation like "What's Up?", "feat.", remaster
+    tags). Use the basename stem minus its leading track-number; fall back to title."""
+    if not filename:
+        return title
+    stem = filename.rsplit(".", 1)[0]
+    stem = re.sub(r"^\s*\d+\s*[.\-)]\s*", "", stem)  # "03. Artist - X" -> "Artist - X"
+    return stem or title
 
 
 def _rank_seeds(candidates: list[dict], artist: str, album: str) -> list[str]:
@@ -46,23 +64,36 @@ def _match_file(files: list[dict], basename: str) -> dict | None:
     return files[0] if files else None
 
 
-async def _vuio_search(session: aiohttp.ClientSession, query: str) -> list[dict]:
+async def _vuio_call(session: aiohttp.ClientSession, tool: str, args: dict) -> dict:
     body = {
         "jsonrpc": "2.0", "id": 1, "method": "tools/call",
         "params": {
-            "name": "search_media",
-            "arguments": {"query": query, "category": "audio", "limit": 10},
+            "name": tool, "arguments": args,
             "_meta": {"io.modelcontextprotocol/protocolVersion": _MCP_VERSION},
         },
     }
     headers = {"MCP-Protocol-Version": _MCP_VERSION,
-               "Mcp-Method": "tools/call", "Mcp-Name": "search_media"}
+               "Mcp-Method": "tools/call", "Mcp-Name": tool}
     async with session.post(f"{VUIO_URL}/mcp", json=body, headers=headers) as r:
         r.raise_for_status()
         payload = await r.json()
     result = payload["result"]
-    data = result.get("structuredContent") or json.loads(result["content"][0]["text"])
+    return result.get("structuredContent") or json.loads(result["content"][0]["text"])
+
+
+async def _vuio_search(session: aiohttp.ClientSession, query: str) -> list[dict]:
+    data = await _vuio_call(session, "search_media",
+                            {"query": query, "category": "audio", "limit": 10})
     return data.get("files", [])
+
+
+async def _vuio_filename(session: aiohttp.ClientSession, media_id: str) -> str:
+    """Exact file basename for a VuIO id — the key CrateMind indexes by (path)."""
+    try:
+        data = await _vuio_call(session, "get_media_info", {"file_id": int(media_id)})
+    except Exception:  # ponytail: seed-key lookup is best-effort; title stays the fallback
+        return ""
+    return data.get("filename", "")
 
 
 async def _resolve(session: aiohttp.ClientSession, path: str) -> Track | None:
@@ -88,12 +119,15 @@ async def _preview(s: aiohttp.ClientSession, seed: str, limit: int) -> list[dict
 
 
 async def radio_tracks(title: str, artist: str = "", limit: int = 10,
-                       album: str = "") -> list[Track]:
+                       album: str = "", media_url: str = "") -> list[Track]:
     """Tracks similar to the given one, as playable Tracks (unresolved ones dropped)."""
     async with aiohttp.ClientSession(raise_for_status=False,
                                      timeout=aiohttp.ClientTimeout(total=15)) as s:
+        mid = _media_id(media_url)
+        filename = await _vuio_filename(s, mid) if mid else ""
+        query = _crate_query(filename, title)  # basename beats ID3 title for path match
         async with s.get(f"{CRATE_URL}/api/tracks",
-                         params={"q": title, "limit": 20}) as r:
+                         params={"q": query, "limit": 20}) as r:
             r.raise_for_status()
             candidates = (await r.json()).get("tracks", [])
         seeds = _rank_seeds(candidates, artist, album)
@@ -126,6 +160,14 @@ def _selfcheck() -> None:
     assert _match_file(files, "02. B - Ruska.flac")["filename"] == "02. B - Ruska.flac"
     assert _match_file(files, "missing.flac")["filename"] == "other.flac"
     assert _match_file([], "x") is None
+    # media id extraction from stream/media URLs
+    assert _media_id("http://h/media/42380.m4a") == "42380"
+    assert _media_id("http://h/media/42380") == "42380"
+    assert _media_id("http://h/stream/foo.mp3") == ""
+    # crate query: basename stem (minus track number) beats the ID3 title
+    assert _crate_query("03. 4 Non Blondes - What's Up.m4a", "What's Up?") \
+        == "4 Non Blondes - What's Up"
+    assert _crate_query("", "Fallback Title") == "Fallback Title"
     print("ok")
 
 

@@ -120,6 +120,11 @@ class DlnaApp(App):
         if not self.renderer:
             return
         st = self.renderer.state()
+        # Many renderers don't echo media_title back via GENA; fall back to the
+        # track we queued so "nichts spielt" doesn't show while audio plays.
+        current = self.queue.current()
+        if not st.title and current:
+            st.title = current.title
         self.query_one("#now", NowPlaying).st = st
         # Advance only on the PLAYING->STOPPED edge; level-triggering would skip
         # tracks while the renderer sits in STOPPED for several ticks before the

@@ -127,10 +127,22 @@ class Queue:
         self.tracks.append(track)
 
 
+def _is_audio(obj) -> bool:
+    # upnp:class e.g. "object.item.audioItem.musicTrack". Video/image items are
+    # dropped; this is a music client.
+    return "audioitem" in (getattr(obj, "upnp_class", "") or "").lower()
+
+
 def to_models(objs) -> list[Container | Track]:
-    """Already-parsed didl_lite objects -> our models (Descriptors dropped)."""
+    """Already-parsed didl_lite objects -> our models (Descriptors dropped).
+
+    Containers are kept for navigation; only audio items pass through.
+    ponytail: a video-only container still shows (empty); hiding it would need
+    browsing it first. Acceptable clutter — revisit if libraries are mixed-heavy.
+    """
     return [_to_model(o) for o in objs
-            if isinstance(o, (didl_lite.Container, didl_lite.Item))]
+            if isinstance(o, didl_lite.Container)
+            or (isinstance(o, didl_lite.Item) and _is_audio(o))]
 
 
 def from_didl(didl_xml: str) -> list[Container | Track]:

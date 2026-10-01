@@ -45,6 +45,23 @@ def test_media_info_summary():
     assert track.info == "flac · 44.1kHz · 16bit · 2ch · 28.0 MB"
 
 
+DIDL_MIXED = """<DIDL-Lite xmlns="urn:schemas-upnp-org:metadata-1-0/DIDL-Lite/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:upnp="urn:schemas-upnp-org:metadata-1-0/upnp/">
+  <item id="a" parentID="0"><dc:title>Audio</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <res protocolInfo="http-get:*:audio/mpeg:*">http://h/a.mp3</res></item>
+  <item id="v" parentID="0"><dc:title>Movie</dc:title>
+    <upnp:class>object.item.videoItem.movie</upnp:class>
+    <res protocolInfo="http-get:*:video/mp4:*">http://h/v.mp4</res></item>
+</DIDL-Lite>"""
+
+
+def test_video_items_are_filtered_out():
+    objs = from_didl(DIDL_MIXED)
+    assert [o.title for o in objs] == ["Audio"]
+
+
 from dlna.models import Queue
 
 

@@ -160,7 +160,7 @@
       "source_location": "L71",
       "_origin": "ast",
       "id": "dlna_discovery_build_device",
-      "community": 4,
+      "community": 2,
       "norm_label": "build_device()"
     },
     {
@@ -200,7 +200,7 @@
       "source_location": "L72",
       "_origin": "ast",
       "id": "dlna_discovery_rationale_72",
-      "community": 4,
+      "community": 2,
       "norm_label": "deviceinfo -> concrete upnpdevice (for musicserver/renderer).      pass a shared"
     },
     {
@@ -600,7 +600,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "dlna_server_musicserver_browse",
-      "community": 0,
+      "community": 8,
       "norm_label": ".browse()"
     },
     {
@@ -620,7 +620,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "dlna_server_py_track",
-      "community": 0,
+      "community": 8,
       "norm_label": "track"
     },
     {
@@ -630,8 +630,18 @@
       "source_location": "L14",
       "_origin": "ast",
       "id": "dlna_server_musicserver_search",
-      "community": 0,
+      "community": 8,
       "norm_label": ".search()"
+    },
+    {
+      "label": "._browse_search()",
+      "file_type": "code",
+      "source_file": "dlna/server.py",
+      "source_location": "L28",
+      "_origin": "ast",
+      "id": "dlna_server_musicserver_browse_search",
+      "community": 8,
+      "norm_label": "._browse_search()"
     },
     {
       "label": "store.py",
@@ -934,6 +944,46 @@
       "norm_label": "test_search_returns_models()"
     },
     {
+      "label": "NoSearchProfile",
+      "file_type": "code",
+      "source_file": "tests/test_server.py",
+      "source_location": "L60",
+      "_origin": "ast",
+      "id": "tests_test_server_nosearchprofile",
+      "community": 8,
+      "norm_label": "nosearchprofile"
+    },
+    {
+      "label": ".async_browse_direct_children()",
+      "file_type": "code",
+      "source_file": "tests/test_server.py",
+      "source_location": "L61",
+      "_origin": "ast",
+      "id": "tests_test_server_nosearchprofile_async_browse_direct_children",
+      "community": 8,
+      "norm_label": ".async_browse_direct_children()"
+    },
+    {
+      "label": ".async_search_directory()",
+      "file_type": "code",
+      "source_file": "tests/test_server.py",
+      "source_location": "L65",
+      "_origin": "ast",
+      "id": "tests_test_server_nosearchprofile_async_search_directory",
+      "community": 8,
+      "norm_label": ".async_search_directory()"
+    },
+    {
+      "label": "test_search_recurses_when_no_search_action()",
+      "file_type": "code",
+      "source_file": "tests/test_server.py",
+      "source_location": "L69",
+      "_origin": "ast",
+      "id": "tests_test_server_test_search_recurses_when_no_search_action",
+      "community": 8,
+      "norm_label": "test_search_recurses_when_no_search_action()"
+    },
+    {
       "label": "test_store.py",
       "file_type": "code",
       "source_file": "tests/test_store.py",
@@ -1210,7 +1260,7 @@
       "source_location": "L176",
       "_origin": "ast",
       "id": "ui_app_dlnaapp_action_enqueue",
-      "community": 2,
+      "community": 1,
       "norm_label": ".action_enqueue()"
     },
     {
@@ -1400,7 +1450,7 @@
       "source_location": "",
       "_origin": "ast",
       "id": "listitem",
-      "community": 2,
+      "community": 1,
       "norm_label": "listitem"
     },
     {
@@ -1470,7 +1520,7 @@
       "source_location": "L311",
       "_origin": "ast",
       "id": "selected",
-      "community": 0,
+      "community": 2,
       "norm_label": "selected"
     },
     {
@@ -4098,6 +4148,16 @@
       "relation": "method",
       "confidence": "EXTRACTED",
       "source_file": "dlna/server.py",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "dlna_server_musicserver",
+      "target": "dlna_server_musicserver_browse_search",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "dlna/server.py",
       "source_location": "L7",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -4186,6 +4246,16 @@
       "target": "dlna_server_musicserver"
     },
     {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "tests/test_server.py",
+      "source_location": "L3",
+      "weight": 0.8,
+      "source": "tests_test_server_nosearchprofile",
+      "target": "dlna_server_musicserver",
+      "confidence_score": 0.5
+    },
+    {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
@@ -4195,6 +4265,17 @@
       "confidence_score": 1.0,
       "source": "tests_test_server_test_browse_returns_models",
       "target": "dlna_server_musicserver"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_server.py",
+      "source_location": "L70",
+      "weight": 1.0,
+      "source": "tests_test_server_test_search_recurses_when_no_search_action",
+      "target": "dlna_server_musicserver",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -4316,6 +4397,17 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "dlna/server.py",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "dlna_server_musicserver_browse_search",
+      "target": "dlna_server_musicserver_browse",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "dlna/server.py",
       "source_location": "L24",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -4327,11 +4419,33 @@
       "context": "generic_arg",
       "confidence": "EXTRACTED",
       "source_file": "dlna/server.py",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "dlna_server_musicserver_browse_search",
+      "target": "dlna_server_py_track",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "dlna/server.py",
       "source_location": "L14",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "dlna_server_musicserver_search",
       "target": "dlna_server_py_track"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "dlna/server.py",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "dlna_server_musicserver_search",
+      "target": "dlna_server_musicserver_browse_search",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -4833,11 +4947,31 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "tests/test_server.py",
+      "source_location": "L60",
+      "weight": 1.0,
+      "source": "tests_test_server",
+      "target": "tests_test_server_nosearchprofile",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_server.py",
       "source_location": "L27",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "tests_test_server",
       "target": "tests_test_server_test_browse_returns_models"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_server.py",
+      "source_location": "L69",
+      "weight": 1.0,
+      "source": "tests_test_server",
+      "target": "tests_test_server_test_search_recurses_when_no_search_action",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -4890,6 +5024,37 @@
       "confidence_score": 1.0,
       "source": "tests_test_server_test_search_returns_models",
       "target": "tests_test_server_fakeprofile"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_server.py",
+      "source_location": "L61",
+      "weight": 1.0,
+      "source": "tests_test_server_nosearchprofile",
+      "target": "tests_test_server_nosearchprofile_async_browse_direct_children",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_server.py",
+      "source_location": "L65",
+      "weight": 1.0,
+      "source": "tests_test_server_nosearchprofile",
+      "target": "tests_test_server_nosearchprofile_async_search_directory",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/test_server.py",
+      "source_location": "L70",
+      "weight": 1.0,
+      "source": "tests_test_server_test_search_recurses_when_no_search_action",
+      "target": "tests_test_server_nosearchprofile",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -6347,5 +6512,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "9fb93b08c92b8dd0f53b5e6ec120715479d81014"
+  "built_at_commit": "4069deded398f5def23b3940f46d5a7ef974d1c4"
 }

@@ -5,35 +5,29 @@ import sys
 
 from async_upnp_client.aiohttp import AiohttpNotifyServer, AiohttpRequester
 from async_upnp_client.event_handler import UpnpEventHandler
-from async_upnp_client.profiles.dlna import DmrDevice, DmsDevice
 
-from dlna.discovery import build_device, discover
-from dlna.renderer import Renderer
-from dlna.server import MusicServer
+from dlna.discovery import discover
 from dlna.store import Store
 from ui.app import DlnaApp
 
 
-def _pick(devices, label, preferred_udn):
+def _auto(devices, preferred_udn):
+    """Initial pick: last-used device if still present, else the first found."""
     if not devices:
-        print(f"Kein {label} gefunden.")
-        sys.exit(1)
+        return None
     for d in devices:
         if d.udn == preferred_udn:
             return d
-    if len(devices) == 1:
-        return devices[0]
-    for i, d in enumerate(devices):
-        print(f"[{i}] {label}: {d.name} ({d.location})")
-    return devices[int(input(f"{label} wählen: "))]
+    return devices[0]
 
 
 async def main() -> None:
     store = Store()
     print("Suche Geräte…")
     servers, renderers = await discover()
-    srv_info = _pick(servers, "Server", store.last_server)
-    rnd_info = _pick(renderers, "Renderer", store.last_renderer)
+    if not servers and not renderers:
+        print("Keine Geräte gefunden.")
+        sys.exit(1)
 
     # v0.46.2 API: UpnpEventHandler takes a UpnpNotifyServer (not a callback URL string).
     # AiohttpNotifyServer binds a local HTTP server for GENA event callbacks;
@@ -45,18 +39,12 @@ async def main() -> None:
     event_handler = UpnpEventHandler(notify_server, requester)
 
     try:
-        srv_dev = await build_device(srv_info, requester)
-        rnd_dev = await build_device(rnd_info, requester)
-
-        # DmsDevice / DmrDevice accept event_handler as a positional arg (not keyword).
-        server = MusicServer(DmsDevice(srv_dev, event_handler))
-        renderer = Renderer(DmrDevice(rnd_dev, event_handler))
-
-        store.last_server = srv_info.udn
-        store.last_renderer = rnd_info.udn
-        store.save()
-
-        await DlnaApp(server, renderer, store).run_async()
+        app = DlnaApp(
+            store, requester, event_handler,
+            srv_info=_auto(servers, store.last_server),
+            rnd_info=_auto(renderers, store.last_renderer),
+        )
+        await app.run_async()
     finally:
         await notify_server.async_stop_server()
 

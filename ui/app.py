@@ -49,7 +49,7 @@ class DlnaApp(App):
         self._node_obj: dict = {}  # ponytail: grows unbounded on re-search; prune if it matters
         self._last_state = ""
         self._tasks: set = set()  # keep create_task refs alive (else GC can cancel them)
-        self._filter_cid: str | None = None  # container being filtered; None = not filtering
+        self._filter_node = None  # tree node being filtered in place; None = not filtering
         self._filter_cache: dict[str, list] = {}  # cid -> children (one browse per folder)
 
     def compose(self) -> ComposeResult:
@@ -79,7 +79,7 @@ class DlnaApp(App):
         tree.root.remove_children()
         self._node_obj.clear()
         self._filter_cache.clear()
-        self._filter_cid = None
+        self._filter_node = None
         await self._load_children(tree.root, "0")
         tree.root.expand()
         self._update_subtitle()
@@ -206,39 +206,46 @@ class DlnaApp(App):
         if self.server:
             self.query_one("#filter", Input).focus()
 
-    def _current_container_id(self) -> str:
-        """Container whose children are 'the current folder' for filtering."""
-        node = self.query_one("#browser", Tree).cursor_node
-        obj = self._node_obj.get(node.id) if node else None
+    def _current_container_node(self):
+        """The tree node whose children are 'the current folder' for filtering."""
+        tree = self.query_one("#browser", Tree)
+        node = tree.cursor_node
+        if node is None:
+            return tree.root
+        obj = self._node_obj.get(node.id)
         if isinstance(obj, Container):
-            return obj.id
-        parent = self._node_obj.get(node.parent.id) if node and node.parent else None
-        return parent.id if isinstance(parent, Container) else "0"
+            return node  # cursor sits on a folder -> filter its contents
+        return node.parent or tree.root  # cursor on a leaf -> filter its folder
+
+    def _container_id_of(self, node) -> str:
+        obj = self._node_obj.get(node.id)
+        return obj.id if isinstance(obj, Container) else "0"
 
     async def _folder_items(self, cid: str) -> list:
         if cid not in self._filter_cache:
             self._filter_cache[cid] = await self.server.browse(cid)
         return self._filter_cache[cid]
 
+    async def _fill(self, node, cid: str, q: str = "") -> None:
+        node.remove_children()
+        for o in await self._folder_items(cid):
+            if q in o.title.lower():  # folders match too, not just tracks
+                child = node.add(o.title, allow_expand=isinstance(o, Container))
+                self._node_obj[child.id] = o
+        node.expand()
+
     async def on_input_changed(self, event: Input.Changed) -> None:
         if event.input.id != "filter" or not self.server:
             return
-        tree = self.query_one("#browser", Tree)
         q = event.value.strip().lower()
-        if not q:  # cleared: reload the folder we were filtering (or top level)
-            cid, self._filter_cid = self._filter_cid or "0", None
-            tree.root.remove_children()
-            await self._load_children(tree.root, cid)
-            tree.root.expand()
+        if not q:  # cleared: restore the folder's full contents in place
+            node, self._filter_node = self._filter_node, None
+            if node is not None:
+                await self._fill(node, self._container_id_of(node))
             return
-        if self._filter_cid is None:  # capture folder before we flatten the tree
-            self._filter_cid = self._current_container_id()
-        tree.root.remove_children()
-        for o in await self._folder_items(self._filter_cid):
-            if q in o.title.lower():  # folders (artists/albums) match too, not just tracks
-                child = tree.root.add(o.title, allow_expand=isinstance(o, Container))
-                self._node_obj[child.id] = o
-        tree.root.expand()
+        if self._filter_node is None:  # keep ancestors; filter only this folder's node
+            self._filter_node = self._current_container_node()
+        await self._fill(self._filter_node, self._container_id_of(self._filter_node), q)
 
     async def on_input_submitted(self, event: Input.Submitted) -> None:
         if event.input.id == "filter":  # Enter: jump into the filtered results
@@ -248,8 +255,9 @@ class DlnaApp(App):
         """Move focus from the filter box onto the first result so it's playable."""
         tree = self.query_one("#browser", Tree)
         tree.focus()
-        if tree.root.children:
-            tree.move_cursor(tree.root.children[0])
+        node = self._filter_node or tree.root
+        if node.children:
+            tree.move_cursor(node.children[0])
 
     def on_key(self, event) -> None:
         if event.key == "down" and getattr(self.focused, "id", None) == "filter":

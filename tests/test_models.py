@@ -26,3 +26,32 @@ def test_from_didl_parses_container_and_track():
     assert track.media_url == "http://host/i1.mp3"
     assert track.duration == "0:03:20.000"
     assert "<item id=\"i1\"" in track.didl
+
+
+from dlna.models import Queue
+
+
+def _t(i):
+    return Track(id=i, title=i)
+
+
+def test_queue_advance_moves_forward():
+    q = Queue([_t("a"), _t("b"), _t("c")])
+    assert q.current().id == "a"
+    assert q.advance().id == "b"
+    assert q.advance().id == "c"
+    assert q.advance() is None  # Ende
+
+
+def test_queue_prev_and_append():
+    q = Queue([_t("a")])
+    q.append(_t("b"))
+    q.advance()
+    assert q.current().id == "b"
+    assert q.prev().id == "a"
+
+
+def test_empty_queue():
+    q = Queue([])
+    assert q.current() is None
+    assert q.advance() is None

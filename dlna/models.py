@@ -63,6 +63,32 @@ def _to_model(obj):
     )
 
 
+@dataclass
+class Queue:
+    tracks: list[Track] = field(default_factory=list)
+    index: int = 0
+
+    def current(self) -> Track | None:
+        if 0 <= self.index < len(self.tracks):
+            return self.tracks[self.index]
+        return None
+
+    def advance(self) -> Track | None:
+        if self.index + 1 < len(self.tracks):
+            self.index += 1
+            return self.tracks[self.index]
+        return None
+
+    def prev(self) -> Track | None:
+        if self.index > 0:
+            self.index -= 1
+            return self.tracks[self.index]
+        return None
+
+    def append(self, track: Track) -> None:
+        self.tracks.append(track)
+
+
 def from_didl(didl_xml: str) -> list[Container | Track]:
     """DIDL-Lite XML -> list of our models (Descriptors dropped)."""
     out: list[Container | Track] = []

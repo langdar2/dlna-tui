@@ -235,8 +235,8 @@ class DlnaApp(App):
             self._filter_cid = self._current_container_id()
         tree.root.remove_children()
         for o in await self._folder_items(self._filter_cid):
-            if isinstance(o, Track) and q in o.title.lower():
-                child = tree.root.add(o.title, allow_expand=False)
+            if q in o.title.lower():  # folders (artists/albums) match too, not just tracks
+                child = tree.root.add(o.title, allow_expand=isinstance(o, Container))
                 self._node_obj[child.id] = o
         tree.root.expand()
 

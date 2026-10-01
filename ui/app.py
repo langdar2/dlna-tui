@@ -17,7 +17,7 @@ from .widgets import NowPlaying
 
 
 class DlnaApp(App):
-    CSS = "Tree { width: 50%; } ListView { width: 50%; }"
+    CSS = "Tree { width: 50%; } ListView { width: 50%; } NowPlaying { height: 2; }"
     BINDINGS = [
         ("space", "toggle", "Play/Pause"),
         ("n", "next", "Next"),

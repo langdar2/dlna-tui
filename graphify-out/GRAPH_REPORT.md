@@ -1,16 +1,16 @@
 # Graph Report - dlna TerminalClient  (2026-10-01)
 
 ## Corpus Check
-- 17 files · ~6,420 words
+- 17 files · ~6,606 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 172 nodes · 386 edges · 12 communities
-- Extraction: 75% EXTRACTED · 25% INFERRED · 0% AMBIGUOUS · INFERRED: 95 edges (avg confidence: 0.5)
+- 176 nodes · 395 edges · 12 communities
+- Extraction: 76% EXTRACTED · 24% INFERRED · 0% AMBIGUOUS · INFERRED: 95 edges (avg confidence: 0.5)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `edcfdc37`
+- Built from commit: `a20e8eb5`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -42,11 +42,11 @@
   ui/app.py → dlna/models.py
 - `NodeExpanded` --uses--> `Container`  [INFERRED]
   ui/app.py → dlna/models.py
+- `NodeSelected` --uses--> `Container`  [INFERRED]
+  ui/app.py → dlna/models.py
+- `Selected` --uses--> `Container`  [INFERRED]
+  ui/app.py → dlna/models.py
 - `Store` --uses--> `Container`  [INFERRED]
-  ui/app.py → dlna/models.py
-- `Submitted` --uses--> `Container`  [INFERRED]
-  ui/app.py → dlna/models.py
-- `DeviceItem` --uses--> `Container`  [INFERRED]
   ui/app.py → dlna/models.py
 
 ## Import Cycles
@@ -55,20 +55,20 @@
 ## Communities (12 total, 0 thin omitted)
 
 ### Community 0 - "Community 0"
-Cohesion: 0.17
-Nodes (19): Container, Container, _first_res_duration(), _first_res_uri(), from_didl(), Queue, Already-parsed didl_lite objects -> our models (Descriptors dropped)., DIDL-Lite XML -> list of our models (Descriptors dropped). (+11 more)
+Cohesion: 0.19
+Nodes (13): from_didl(), Queue, DIDL-Lite XML -> list of our models (Descriptors dropped)., Track, NodeSelected, Selected, Store, _t() (+5 more)
 
 ### Community 1 - "Community 1"
-Cohesion: 0.12
-Nodes (12): ComposeResult, RendererState, ListItem, ModalScreen, Static, Store, Submitted, DeviceItem (+4 more)
+Cohesion: 0.16
+Nodes (7): ComposeResult, ListItem, ModalScreen, Submitted, DeviceItem, DeviceScreen, SearchScreen
 
 ### Community 2 - "Community 2"
-Cohesion: 0.13
-Nodes (3): App, NodeExpanded, DlnaApp
+Cohesion: 0.11
+Nodes (6): App, NodeExpanded, Static, DlnaApp, _fmt(), NowPlaying
 
 ### Community 3 - "Community 3"
-Cohesion: 0.15
-Nodes (6): Track, Renderer, FakeProfile, test_play_sets_uri(), test_safe_call_swallows_errors_and_reports(), test_state_snapshot()
+Cohesion: 0.14
+Nodes (7): Track, Renderer, RendererState, FakeProfile, test_play_sets_uri(), test_safe_call_swallows_errors_and_reports(), test_state_snapshot()
 
 ### Community 4 - "Community 4"
 Cohesion: 0.21
@@ -87,8 +87,8 @@ Cohesion: 0.31
 Nodes (6): default_path(), Store, Path, test_corrupt_file_is_ignored(), test_missing_file(), test_roundtrip()
 
 ### Community 8 - "Community 8"
-Cohesion: 0.43
-Nodes (4): MusicServer, FakeProfile, test_browse_returns_models(), test_search_returns_models()
+Cohesion: 0.18
+Nodes (15): Container, Container, _first_res(), _first_res_duration(), _first_res_uri(), _media_info(), Already-parsed didl_lite objects -> our models (Descriptors dropped)., Summarise the first <res>: file type, sample rate, depth, channels, size. (+7 more)
 
 ## Knowledge Gaps
 - **24 isolated node(s):** `Task 0: Projekt-Setup`, `Task 1: Modelle + DIDL-Adapter`, `Task 2: Queue-Logik (rein)`, `Task 3: Store (Favoriten + Session)`, `Task 4: Discovery` (+19 more)
@@ -98,11 +98,11 @@ Nodes (4): MusicServer, FakeProfile, test_browse_returns_models(), test_search_r
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `DlnaApp` connect `Community 2` to `Community 0`, `Community 1`, `Community 3`, `Community 4`, `Community 7`, `Community 8`?**
-  _High betweenness centrality (0.194) - this node is a cross-community bridge._
-- **Why does `Renderer` connect `Community 3` to `Community 0`, `Community 1`, `Community 2`?**
-  _High betweenness centrality (0.150) - this node is a cross-community bridge._
-- **Why does `Track` connect `Community 0` to `Community 8`, `Community 1`, `Community 2`, `Community 3`?**
-  _High betweenness centrality (0.125) - this node is a cross-community bridge._
+  _High betweenness centrality (0.191) - this node is a cross-community bridge._
+- **Why does `Renderer` connect `Community 3` to `Community 0`, `Community 1`, `Community 2`, `Community 4`?**
+  _High betweenness centrality (0.147) - this node is a cross-community bridge._
+- **Why does `Track` connect `Community 0` to `Community 1`, `Community 2`, `Community 3`, `Community 4`, `Community 8`?**
+  _High betweenness centrality (0.131) - this node is a cross-community bridge._
 - **Are the 8 inferred relationships involving `DlnaApp` (e.g. with `ComposeResult` and `Container`) actually correct?**
   _`DlnaApp` has 8 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 17 inferred relationships involving `Track` (e.g. with `ComposeResult` and `Container`) actually correct?**

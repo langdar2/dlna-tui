@@ -57,10 +57,13 @@ def _media_info(obj) -> str:
         return ""
     parts: list[str] = []
     # protocolInfo looks like "http-get:*:audio/flac:*" -> take the subtype.
+    # Fall back to the URL's file extension when the server omits it.
     pi = getattr(res, "protocol_info", "") or ""
     fields = pi.split(":")
     if len(fields) >= 3 and "/" in fields[2]:
         parts.append(fields[2].split("/")[-1])
+    elif "." in (res.uri or "").rsplit("/", 1)[-1]:
+        parts.append(res.uri.rsplit(".", 1)[-1].split("?")[0].lower())
     freq = getattr(res, "sample_frequency", None)
     if freq:
         parts.append(f"{int(freq) / 1000:g}kHz")

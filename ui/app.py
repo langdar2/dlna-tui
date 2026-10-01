@@ -8,7 +8,7 @@ from textual.containers import Horizontal, Vertical
 from textual.screen import ModalScreen
 from textual.widgets import Footer, Header, Input, ListItem, ListView, Label, Static, Tree
 
-from dlna.art import to_ascii
+from dlna.art import to_ansi
 from dlna.discovery import build_device, discover
 from dlna.models import Container, Queue, Track
 from dlna.renderer import Renderer
@@ -232,7 +232,9 @@ def _http_get(url: str) -> bytes:
 class TrackInfoScreen(ModalScreen):
     BINDINGS = [("escape", "close", "Schließen"), ("i", "close", "Schließen")]
     CSS = ("TrackInfoScreen { align: center middle; } "
-           "#info_box { width: auto; height: auto; border: round $accent; padding: 1 2; }")
+           "#info_box { width: 60; height: auto; max-height: 90%; "
+           "border: round $accent; padding: 1 2; } "
+           "#info_box Static { width: 1fr; }")
 
     def __init__(self, track: Track):
         super().__init__()
@@ -249,14 +251,14 @@ class TrackInfoScreen(ModalScreen):
         with Vertical(id="info_box"):
             yield Static("\n".join(lines))
             yield Static("Cover lädt…" if t.art_uri else "(kein Cover)", id="cover")
-        yield Label("Esc / i schließt")
+            yield Label("[dim]Esc / i schließt[/]")
 
     async def on_mount(self) -> None:
         if not self.track.art_uri:
             return
         try:
             data = await asyncio.to_thread(_http_get, self.track.art_uri)
-            art = to_ascii(data)
+            art = to_ansi(data)
         except Exception as exc:  # ponytail: cover is best-effort, never fatal
             art = f"(Cover fehlgeschlagen: {exc})"
         self.query_one("#cover", Static).update(art)

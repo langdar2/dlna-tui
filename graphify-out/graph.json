@@ -1077,7 +1077,7 @@
       "label": ".action_toggle()",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L133",
+      "source_location": "L138",
       "_origin": "ast",
       "id": "ui_app_dlnaapp_action_toggle",
       "community": 2,
@@ -1087,7 +1087,7 @@
       "label": ".action_next()",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L145",
+      "source_location": "L150",
       "_origin": "ast",
       "id": "ui_app_dlnaapp_action_next",
       "community": 2,
@@ -1097,7 +1097,7 @@
       "label": ".action_prev()",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L150",
+      "source_location": "L155",
       "_origin": "ast",
       "id": "ui_app_dlnaapp_action_prev",
       "community": 2,
@@ -1107,7 +1107,7 @@
       "label": ".action_enqueue()",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L155",
+      "source_location": "L160",
       "_origin": "ast",
       "id": "ui_app_dlnaapp_action_enqueue",
       "community": 2,
@@ -1117,7 +1117,7 @@
       "label": ".action_vol_up()",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L162",
+      "source_location": "L167",
       "_origin": "ast",
       "id": "ui_app_dlnaapp_action_vol_up",
       "community": 2,
@@ -1127,7 +1127,7 @@
       "label": ".action_vol_down()",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L166",
+      "source_location": "L171",
       "_origin": "ast",
       "id": "ui_app_dlnaapp_action_vol_down",
       "community": 2,
@@ -1137,7 +1137,7 @@
       "label": ".action_seek_fwd()",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L170",
+      "source_location": "L175",
       "_origin": "ast",
       "id": "ui_app_dlnaapp_action_seek_fwd",
       "community": 2,
@@ -1147,7 +1147,7 @@
       "label": ".action_seek_back()",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L174",
+      "source_location": "L179",
       "_origin": "ast",
       "id": "ui_app_dlnaapp_action_seek_back",
       "community": 2,
@@ -1157,7 +1157,7 @@
       "label": ".action_search()",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L178",
+      "source_location": "L183",
       "_origin": "ast",
       "id": "ui_app_dlnaapp_action_search",
       "community": 1,
@@ -1167,7 +1167,7 @@
       "label": ".action_favorite()",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L182",
+      "source_location": "L187",
       "_origin": "ast",
       "id": "ui_app_dlnaapp_action_favorite",
       "community": 2,
@@ -1177,7 +1177,7 @@
       "label": ".action_devices()",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L191",
+      "source_location": "L196",
       "_origin": "ast",
       "id": "ui_app_dlnaapp_action_devices",
       "community": 1,
@@ -1187,7 +1187,7 @@
       "label": ".action_quit()",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L194",
+      "source_location": "L199",
       "_origin": "ast",
       "id": "ui_app_dlnaapp_action_quit",
       "community": 2,
@@ -1197,7 +1197,7 @@
       "label": "DeviceItem",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L199",
+      "source_location": "L204",
       "_origin": "ast",
       "id": "ui_app_deviceitem",
       "community": 1,
@@ -1217,7 +1217,7 @@
       "label": ".__init__()",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L200",
+      "source_location": "L205",
       "_origin": "ast",
       "id": "ui_app_deviceitem_init",
       "community": 1,
@@ -1227,7 +1227,7 @@
       "label": "DeviceScreen",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L206",
+      "source_location": "L211",
       "_origin": "ast",
       "id": "ui_app_devicescreen",
       "community": 1,
@@ -1247,7 +1247,7 @@
       "label": ".__init__()",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L210",
+      "source_location": "L215",
       "_origin": "ast",
       "id": "ui_app_devicescreen_init",
       "community": 1,
@@ -1257,7 +1257,7 @@
       "label": ".compose()",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L214",
+      "source_location": "L219",
       "_origin": "ast",
       "id": "ui_app_devicescreen_compose",
       "community": 1,
@@ -1267,7 +1267,7 @@
       "label": ".on_mount()",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L221",
+      "source_location": "L226",
       "_origin": "ast",
       "id": "ui_app_devicescreen_on_mount",
       "community": 1,
@@ -1277,7 +1277,7 @@
       "label": ".on_list_view_selected()",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L230",
+      "source_location": "L235",
       "_origin": "ast",
       "id": "ui_app_devicescreen_on_list_view_selected",
       "community": 2,
@@ -1287,7 +1287,7 @@
       "label": "Selected",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L230",
+      "source_location": "L235",
       "_origin": "ast",
       "id": "selected",
       "community": 2,
@@ -1297,7 +1297,7 @@
       "label": ".action_close()",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L240",
+      "source_location": "L245",
       "_origin": "ast",
       "id": "ui_app_devicescreen_action_close",
       "community": 1,
@@ -1307,7 +1307,7 @@
       "label": "SearchScreen",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L244",
+      "source_location": "L249",
       "_origin": "ast",
       "id": "ui_app_searchscreen",
       "community": 1,
@@ -1317,7 +1317,7 @@
       "label": ".__init__()",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L245",
+      "source_location": "L250",
       "_origin": "ast",
       "id": "ui_app_searchscreen_init",
       "community": 1,
@@ -1327,7 +1327,7 @@
       "label": ".compose()",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L249",
+      "source_location": "L254",
       "_origin": "ast",
       "id": "ui_app_searchscreen_compose",
       "community": 1,
@@ -1337,7 +1337,7 @@
       "label": ".on_input_submitted()",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L252",
+      "source_location": "L257",
       "_origin": "ast",
       "id": "ui_app_searchscreen_on_input_submitted",
       "community": 1,
@@ -1347,7 +1347,7 @@
       "label": "Submitted",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L252",
+      "source_location": "L257",
       "_origin": "ast",
       "id": "submitted",
       "community": 1,
@@ -1712,9 +1712,9 @@
       "source_file": "__main__.py",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main",
-      "target": "dlna_discovery",
-      "confidence_score": 1.0
+      "target": "dlna_discovery"
     },
     {
       "relation": "imports",
@@ -1723,9 +1723,9 @@
       "source_file": "__main__.py",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main",
-      "target": "dlna_discovery_discover",
-      "confidence_score": 1.0
+      "target": "dlna_discovery_discover"
     },
     {
       "relation": "imports_from",
@@ -1734,9 +1734,9 @@
       "source_file": "__main__.py",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main",
-      "target": "dlna_store",
-      "confidence_score": 1.0
+      "target": "dlna_store"
     },
     {
       "relation": "imports",
@@ -1745,9 +1745,9 @@
       "source_file": "__main__.py",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main",
-      "target": "dlna_store_store",
-      "confidence_score": 1.0
+      "target": "dlna_store_store"
     },
     {
       "relation": "contains",
@@ -1755,9 +1755,9 @@
       "source_file": "__main__.py",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main",
-      "target": "main_auto",
-      "confidence_score": 1.0
+      "target": "main_auto"
     },
     {
       "relation": "contains",
@@ -1765,9 +1765,9 @@
       "source_file": "__main__.py",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main",
-      "target": "main_main",
-      "confidence_score": 1.0
+      "target": "main_main"
     },
     {
       "relation": "imports_from",
@@ -1776,9 +1776,9 @@
       "source_file": "__main__.py",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main",
-      "target": "ui_app",
-      "confidence_score": 1.0
+      "target": "ui_app"
     },
     {
       "relation": "imports",
@@ -1787,9 +1787,9 @@
       "source_file": "__main__.py",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main",
-      "target": "ui_app_dlnaapp",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp"
     },
     {
       "relation": "calls",
@@ -1798,9 +1798,9 @@
       "source_file": "__main__.py",
       "source_location": "L44",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main_main",
-      "target": "main_auto",
-      "confidence_score": 1.0
+      "target": "main_auto"
     },
     {
       "relation": "rationale_for",
@@ -1808,9 +1808,9 @@
       "source_file": "__main__.py",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main_rationale_15",
-      "target": "main_auto",
-      "confidence_score": 1.0
+      "target": "main_auto"
     },
     {
       "relation": "calls",
@@ -1819,9 +1819,9 @@
       "source_file": "__main__.py",
       "source_location": "L27",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main_main",
-      "target": "dlna_discovery_discover",
-      "confidence_score": 1.0
+      "target": "dlna_discovery_discover"
     },
     {
       "relation": "calls",
@@ -1830,9 +1830,9 @@
       "source_file": "__main__.py",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main_main",
-      "target": "dlna_store_store",
-      "confidence_score": 1.0
+      "target": "dlna_store_store"
     },
     {
       "relation": "calls",
@@ -1841,9 +1841,9 @@
       "source_file": "__main__.py",
       "source_location": "L42",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "main_main",
-      "target": "ui_app_dlnaapp",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp"
     },
     {
       "relation": "contains",
@@ -1851,9 +1851,9 @@
       "source_file": "dlna/discovery.py",
       "source_location": "L71",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_discovery",
-      "target": "dlna_discovery_build_device",
-      "confidence_score": 1.0
+      "target": "dlna_discovery_build_device"
     },
     {
       "relation": "contains",
@@ -1861,9 +1861,9 @@
       "source_file": "dlna/discovery.py",
       "source_location": "L62",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_discovery",
-      "target": "dlna_discovery_discover",
-      "confidence_score": 1.0
+      "target": "dlna_discovery_discover"
     },
     {
       "relation": "contains",
@@ -1871,9 +1871,9 @@
       "source_file": "dlna/discovery.py",
       "source_location": "L43",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_discovery",
-      "target": "dlna_discovery_discover_kind",
-      "confidence_score": 1.0
+      "target": "dlna_discovery_discover_kind"
     },
     {
       "relation": "contains",
@@ -1881,9 +1881,9 @@
       "source_file": "dlna/discovery.py",
       "source_location": "L30",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_discovery",
-      "target": "dlna_discovery_friendly_name",
-      "confidence_score": 1.0
+      "target": "dlna_discovery_friendly_name"
     },
     {
       "relation": "contains",
@@ -1891,9 +1891,9 @@
       "source_file": "dlna/discovery.py",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_discovery",
-      "target": "dlna_discovery_lan_sources",
-      "confidence_score": 1.0
+      "target": "dlna_discovery_lan_sources"
     },
     {
       "relation": "imports_from",
@@ -1902,9 +1902,9 @@
       "source_file": "dlna/discovery.py",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_discovery",
-      "target": "dlna_models",
-      "confidence_score": 1.0
+      "target": "dlna_models"
     },
     {
       "relation": "imports",
@@ -1913,9 +1913,9 @@
       "source_file": "dlna/discovery.py",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_discovery",
-      "target": "dlna_models_deviceinfo",
-      "confidence_score": 1.0
+      "target": "dlna_models_deviceinfo"
     },
     {
       "relation": "imports_from",
@@ -1924,9 +1924,9 @@
       "source_file": "ui/app.py",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app",
-      "target": "dlna_discovery",
-      "confidence_score": 1.0
+      "target": "dlna_discovery"
     },
     {
       "relation": "calls",
@@ -1935,9 +1935,9 @@
       "source_file": "dlna/discovery.py",
       "source_location": "L45",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_discovery_discover_kind",
-      "target": "dlna_discovery_lan_sources",
-      "confidence_score": 1.0
+      "target": "dlna_discovery_lan_sources"
     },
     {
       "relation": "rationale_for",
@@ -1945,9 +1945,9 @@
       "source_file": "dlna/discovery.py",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_discovery_rationale_16",
-      "target": "dlna_discovery_lan_sources",
-      "confidence_score": 1.0
+      "target": "dlna_discovery_lan_sources"
     },
     {
       "relation": "calls",
@@ -1956,9 +1956,9 @@
       "source_file": "dlna/discovery.py",
       "source_location": "L56",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_discovery_discover_kind",
-      "target": "dlna_discovery_friendly_name",
-      "confidence_score": 1.0
+      "target": "dlna_discovery_friendly_name"
     },
     {
       "relation": "rationale_for",
@@ -1966,9 +1966,9 @@
       "source_file": "dlna/discovery.py",
       "source_location": "L31",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_discovery_rationale_31",
-      "target": "dlna_discovery_friendly_name",
-      "confidence_score": 1.0
+      "target": "dlna_discovery_friendly_name"
     },
     {
       "relation": "calls",
@@ -1977,9 +1977,9 @@
       "source_file": "dlna/discovery.py",
       "source_location": "L65",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_discovery_discover",
-      "target": "dlna_discovery_discover_kind",
-      "confidence_score": 1.0
+      "target": "dlna_discovery_discover_kind"
     },
     {
       "relation": "references",
@@ -1988,9 +1988,9 @@
       "source_file": "dlna/discovery.py",
       "source_location": "L43",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_discovery_discover_kind",
-      "target": "deviceinfo",
-      "confidence_score": 1.0
+      "target": "deviceinfo"
     },
     {
       "relation": "calls",
@@ -1999,9 +1999,9 @@
       "source_file": "dlna/discovery.py",
       "source_location": "L52",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_discovery_discover_kind",
-      "target": "dlna_models_deviceinfo",
-      "confidence_score": 1.0
+      "target": "dlna_models_deviceinfo"
     },
     {
       "relation": "uses",
@@ -2009,9 +2009,9 @@
       "source_file": "dlna/discovery.py",
       "source_location": "L12",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "deviceinfo",
-      "target": "dlna_models_deviceinfo",
-      "confidence_score": 0.5
+      "target": "dlna_models_deviceinfo"
     },
     {
       "relation": "references",
@@ -2020,9 +2020,9 @@
       "source_file": "dlna/discovery.py",
       "source_location": "L71",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_discovery_build_device",
-      "target": "deviceinfo",
-      "confidence_score": 1.0
+      "target": "deviceinfo"
     },
     {
       "relation": "references",
@@ -2031,9 +2031,9 @@
       "source_file": "dlna/discovery.py",
       "source_location": "L62",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_discovery_discover",
-      "target": "deviceinfo",
-      "confidence_score": 1.0
+      "target": "deviceinfo"
     },
     {
       "relation": "rationale_for",
@@ -2041,9 +2041,9 @@
       "source_file": "dlna/discovery.py",
       "source_location": "L63",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_discovery_rationale_63",
-      "target": "dlna_discovery_discover",
-      "confidence_score": 1.0
+      "target": "dlna_discovery_discover"
     },
     {
       "relation": "imports",
@@ -2052,9 +2052,9 @@
       "source_file": "ui/app.py",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app",
-      "target": "dlna_discovery_discover",
-      "confidence_score": 1.0
+      "target": "dlna_discovery_discover"
     },
     {
       "relation": "calls",
@@ -2073,9 +2073,9 @@
       "source_file": "dlna/discovery.py",
       "source_location": "L72",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_discovery_rationale_72",
-      "target": "dlna_discovery_build_device",
-      "confidence_score": 1.0
+      "target": "dlna_discovery_build_device"
     },
     {
       "relation": "imports",
@@ -2084,9 +2084,9 @@
       "source_file": "ui/app.py",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app",
-      "target": "dlna_discovery_build_device",
-      "confidence_score": 1.0
+      "target": "dlna_discovery_build_device"
     },
     {
       "relation": "calls",
@@ -2116,9 +2116,9 @@
       "source_file": "dlna/models.py",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_models",
-      "target": "dlna_models_container",
-      "confidence_score": 1.0
+      "target": "dlna_models_container"
     },
     {
       "relation": "contains",
@@ -2126,9 +2126,9 @@
       "source_file": "dlna/models.py",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_models",
-      "target": "dlna_models_deviceinfo",
-      "confidence_score": 1.0
+      "target": "dlna_models_deviceinfo"
     },
     {
       "relation": "contains",
@@ -2136,9 +2136,9 @@
       "source_file": "dlna/models.py",
       "source_location": "L40",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_models",
-      "target": "dlna_models_first_res_duration",
-      "confidence_score": 1.0
+      "target": "dlna_models_first_res_duration"
     },
     {
       "relation": "contains",
@@ -2146,9 +2146,9 @@
       "source_file": "dlna/models.py",
       "source_location": "L33",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_models",
-      "target": "dlna_models_first_res_uri",
-      "confidence_score": 1.0
+      "target": "dlna_models_first_res_uri"
     },
     {
       "relation": "contains",
@@ -2156,9 +2156,9 @@
       "source_file": "dlna/models.py",
       "source_location": "L98",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_models",
-      "target": "dlna_models_from_didl",
-      "confidence_score": 1.0
+      "target": "dlna_models_from_didl"
     },
     {
       "relation": "contains",
@@ -2166,9 +2166,9 @@
       "source_file": "dlna/models.py",
       "source_location": "L67",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_models",
-      "target": "dlna_models_queue",
-      "confidence_score": 1.0
+      "target": "dlna_models_queue"
     },
     {
       "relation": "contains",
@@ -2176,9 +2176,9 @@
       "source_file": "dlna/models.py",
       "source_location": "L47",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_models",
-      "target": "dlna_models_to_model",
-      "confidence_score": 1.0
+      "target": "dlna_models_to_model"
     },
     {
       "relation": "contains",
@@ -2186,9 +2186,9 @@
       "source_file": "dlna/models.py",
       "source_location": "L92",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_models",
-      "target": "dlna_models_to_models",
-      "confidence_score": 1.0
+      "target": "dlna_models_to_models"
     },
     {
       "relation": "contains",
@@ -2196,9 +2196,9 @@
       "source_file": "dlna/models.py",
       "source_location": "L23",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_models",
-      "target": "dlna_models_track",
-      "confidence_score": 1.0
+      "target": "dlna_models_track"
     },
     {
       "relation": "imports_from",
@@ -2207,9 +2207,9 @@
       "source_file": "dlna/renderer.py",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_renderer",
-      "target": "dlna_models",
-      "confidence_score": 1.0
+      "target": "dlna_models"
     },
     {
       "relation": "imports_from",
@@ -2218,9 +2218,9 @@
       "source_file": "dlna/server.py",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_server",
-      "target": "dlna_models",
-      "confidence_score": 1.0
+      "target": "dlna_models"
     },
     {
       "relation": "imports_from",
@@ -2229,9 +2229,9 @@
       "source_file": "tests/test_models.py",
       "source_location": "L31",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_models",
-      "target": "dlna_models",
-      "confidence_score": 1.0
+      "target": "dlna_models"
     },
     {
       "relation": "imports_from",
@@ -2240,9 +2240,9 @@
       "source_file": "ui/app.py",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app",
-      "target": "dlna_models",
-      "confidence_score": 1.0
+      "target": "dlna_models"
     },
     {
       "relation": "uses",
@@ -2250,9 +2250,9 @@
       "source_file": "ui/app.py",
       "source_location": "L12",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "composeresult",
-      "target": "dlna_models_container",
-      "confidence_score": 0.5
+      "target": "dlna_models_container"
     },
     {
       "relation": "uses",
@@ -2260,9 +2260,9 @@
       "source_file": "dlna/server.py",
       "source_location": "L3",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "container",
-      "target": "dlna_models_container",
-      "confidence_score": 0.5
+      "target": "dlna_models_container"
     },
     {
       "relation": "references",
@@ -2271,9 +2271,9 @@
       "source_file": "dlna/models.py",
       "source_location": "L98",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_models_from_didl",
-      "target": "dlna_models_container",
-      "confidence_score": 1.0
+      "target": "dlna_models_container"
     },
     {
       "relation": "calls",
@@ -2282,9 +2282,9 @@
       "source_file": "dlna/models.py",
       "source_location": "L50",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_models_to_model",
-      "target": "dlna_models_container",
-      "confidence_score": 1.0
+      "target": "dlna_models_container"
     },
     {
       "relation": "references",
@@ -2293,9 +2293,9 @@
       "source_file": "dlna/models.py",
       "source_location": "L92",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_models_to_models",
-      "target": "dlna_models_container",
-      "confidence_score": 1.0
+      "target": "dlna_models_container"
     },
     {
       "relation": "imports",
@@ -2304,9 +2304,9 @@
       "source_file": "dlna/server.py",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_server",
-      "target": "dlna_models_container",
-      "confidence_score": 1.0
+      "target": "dlna_models_container"
     },
     {
       "relation": "uses",
@@ -2314,9 +2314,9 @@
       "source_file": "dlna/server.py",
       "source_location": "L3",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "dlna_server_musicserver",
-      "target": "dlna_models_container",
-      "confidence_score": 0.5
+      "target": "dlna_models_container"
     },
     {
       "relation": "uses",
@@ -2324,9 +2324,9 @@
       "source_file": "dlna/server.py",
       "source_location": "L3",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "dlna_server_py_track",
-      "target": "dlna_models_container",
-      "confidence_score": 0.5
+      "target": "dlna_models_container"
     },
     {
       "relation": "uses",
@@ -2334,9 +2334,9 @@
       "source_file": "ui/app.py",
       "source_location": "L12",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "nodeexpanded",
-      "target": "dlna_models_container",
-      "confidence_score": 0.5
+      "target": "dlna_models_container"
     },
     {
       "relation": "uses",
@@ -2344,9 +2344,9 @@
       "source_file": "ui/app.py",
       "source_location": "L12",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "nodeselected",
-      "target": "dlna_models_container",
-      "confidence_score": 0.5
+      "target": "dlna_models_container"
     },
     {
       "relation": "uses",
@@ -2354,9 +2354,9 @@
       "source_file": "ui/app.py",
       "source_location": "L12",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "selected",
-      "target": "dlna_models_container",
-      "confidence_score": 0.5
+      "target": "dlna_models_container"
     },
     {
       "relation": "uses",
@@ -2364,9 +2364,9 @@
       "source_file": "ui/app.py",
       "source_location": "L12",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "store",
-      "target": "dlna_models_container",
-      "confidence_score": 0.5
+      "target": "dlna_models_container"
     },
     {
       "relation": "uses",
@@ -2374,9 +2374,9 @@
       "source_file": "ui/app.py",
       "source_location": "L12",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "submitted",
-      "target": "dlna_models_container",
-      "confidence_score": 0.5
+      "target": "dlna_models_container"
     },
     {
       "relation": "imports",
@@ -2385,9 +2385,9 @@
       "source_file": "tests/test_models.py",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_models",
-      "target": "dlna_models_container",
-      "confidence_score": 1.0
+      "target": "dlna_models_container"
     },
     {
       "relation": "imports",
@@ -2396,9 +2396,9 @@
       "source_file": "ui/app.py",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app",
-      "target": "dlna_models_container",
-      "confidence_score": 1.0
+      "target": "dlna_models_container"
     },
     {
       "relation": "uses",
@@ -2406,9 +2406,9 @@
       "source_file": "ui/app.py",
       "source_location": "L12",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "ui_app_deviceitem",
-      "target": "dlna_models_container",
-      "confidence_score": 0.5
+      "target": "dlna_models_container"
     },
     {
       "relation": "uses",
@@ -2416,9 +2416,9 @@
       "source_file": "ui/app.py",
       "source_location": "L12",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "ui_app_devicescreen",
-      "target": "dlna_models_container",
-      "confidence_score": 0.5
+      "target": "dlna_models_container"
     },
     {
       "relation": "uses",
@@ -2426,9 +2426,9 @@
       "source_file": "ui/app.py",
       "source_location": "L12",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "ui_app_dlnaapp",
-      "target": "dlna_models_container",
-      "confidence_score": 0.5
+      "target": "dlna_models_container"
     },
     {
       "relation": "uses",
@@ -2436,9 +2436,9 @@
       "source_file": "ui/app.py",
       "source_location": "L12",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "ui_app_searchscreen",
-      "target": "dlna_models_container",
-      "confidence_score": 0.5
+      "target": "dlna_models_container"
     },
     {
       "relation": "uses",
@@ -2446,9 +2446,9 @@
       "source_file": "ui/app.py",
       "source_location": "L12",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "composeresult",
-      "target": "dlna_models_track",
-      "confidence_score": 0.5
+      "target": "dlna_models_track"
     },
     {
       "relation": "uses",
@@ -2456,9 +2456,9 @@
       "source_file": "dlna/server.py",
       "source_location": "L3",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "container",
-      "target": "dlna_models_track",
-      "confidence_score": 0.5
+      "target": "dlna_models_track"
     },
     {
       "relation": "references",
@@ -2467,9 +2467,9 @@
       "source_file": "dlna/models.py",
       "source_location": "L98",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_models_from_didl",
-      "target": "dlna_models_track",
-      "confidence_score": 1.0
+      "target": "dlna_models_track"
     },
     {
       "relation": "references",
@@ -2478,9 +2478,9 @@
       "source_file": "dlna/models.py",
       "source_location": "L76",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_models_queue_advance",
-      "target": "dlna_models_track",
-      "confidence_score": 1.0
+      "target": "dlna_models_track"
     },
     {
       "relation": "references",
@@ -2489,9 +2489,9 @@
       "source_file": "dlna/models.py",
       "source_location": "L88",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_models_queue_append",
-      "target": "dlna_models_track",
-      "confidence_score": 1.0
+      "target": "dlna_models_track"
     },
     {
       "relation": "references",
@@ -2500,9 +2500,9 @@
       "source_file": "dlna/models.py",
       "source_location": "L71",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_models_queue_current",
-      "target": "dlna_models_track",
-      "confidence_score": 1.0
+      "target": "dlna_models_track"
     },
     {
       "relation": "references",
@@ -2511,9 +2511,9 @@
       "source_file": "dlna/models.py",
       "source_location": "L82",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_models_queue_prev",
-      "target": "dlna_models_track",
-      "confidence_score": 1.0
+      "target": "dlna_models_track"
     },
     {
       "relation": "calls",
@@ -2522,9 +2522,9 @@
       "source_file": "dlna/models.py",
       "source_location": "L55",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_models_to_model",
-      "target": "dlna_models_track",
-      "confidence_score": 1.0
+      "target": "dlna_models_track"
     },
     {
       "relation": "references",
@@ -2533,9 +2533,9 @@
       "source_file": "dlna/models.py",
       "source_location": "L92",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_models_to_models",
-      "target": "dlna_models_track",
-      "confidence_score": 1.0
+      "target": "dlna_models_track"
     },
     {
       "relation": "imports",
@@ -2544,9 +2544,9 @@
       "source_file": "dlna/renderer.py",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_renderer",
-      "target": "dlna_models_track",
-      "confidence_score": 1.0
+      "target": "dlna_models_track"
     },
     {
       "relation": "uses",
@@ -2554,9 +2554,9 @@
       "source_file": "dlna/renderer.py",
       "source_location": "L7",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "dlna_renderer_py_track",
-      "target": "dlna_models_track",
-      "confidence_score": 0.5
+      "target": "dlna_models_track"
     },
     {
       "relation": "uses",
@@ -2564,9 +2564,9 @@
       "source_file": "dlna/renderer.py",
       "source_location": "L7",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "dlna_renderer_renderer",
-      "target": "dlna_models_track",
-      "confidence_score": 0.5
+      "target": "dlna_models_track"
     },
     {
       "relation": "uses",
@@ -2574,9 +2574,9 @@
       "source_file": "dlna/renderer.py",
       "source_location": "L7",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "dlna_renderer_rendererstate",
-      "target": "dlna_models_track",
-      "confidence_score": 0.5
+      "target": "dlna_models_track"
     },
     {
       "relation": "imports",
@@ -2585,9 +2585,9 @@
       "source_file": "dlna/server.py",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_server",
-      "target": "dlna_models_track",
-      "confidence_score": 1.0
+      "target": "dlna_models_track"
     },
     {
       "relation": "uses",
@@ -2595,9 +2595,9 @@
       "source_file": "dlna/server.py",
       "source_location": "L3",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "dlna_server_musicserver",
-      "target": "dlna_models_track",
-      "confidence_score": 0.5
+      "target": "dlna_models_track"
     },
     {
       "relation": "uses",
@@ -2605,9 +2605,9 @@
       "source_file": "dlna/server.py",
       "source_location": "L3",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "dlna_server_py_track",
-      "target": "dlna_models_track",
-      "confidence_score": 0.5
+      "target": "dlna_models_track"
     },
     {
       "relation": "uses",
@@ -2615,9 +2615,9 @@
       "source_file": "ui/app.py",
       "source_location": "L12",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "nodeexpanded",
-      "target": "dlna_models_track",
-      "confidence_score": 0.5
+      "target": "dlna_models_track"
     },
     {
       "relation": "uses",
@@ -2625,9 +2625,9 @@
       "source_file": "ui/app.py",
       "source_location": "L12",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "nodeselected",
-      "target": "dlna_models_track",
-      "confidence_score": 0.5
+      "target": "dlna_models_track"
     },
     {
       "relation": "uses",
@@ -2635,9 +2635,9 @@
       "source_file": "ui/app.py",
       "source_location": "L12",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "selected",
-      "target": "dlna_models_track",
-      "confidence_score": 0.5
+      "target": "dlna_models_track"
     },
     {
       "relation": "uses",
@@ -2645,9 +2645,9 @@
       "source_file": "ui/app.py",
       "source_location": "L12",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "store",
-      "target": "dlna_models_track",
-      "confidence_score": 0.5
+      "target": "dlna_models_track"
     },
     {
       "relation": "uses",
@@ -2655,9 +2655,9 @@
       "source_file": "ui/app.py",
       "source_location": "L12",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "submitted",
-      "target": "dlna_models_track",
-      "confidence_score": 0.5
+      "target": "dlna_models_track"
     },
     {
       "relation": "imports",
@@ -2666,9 +2666,9 @@
       "source_file": "tests/test_models.py",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_models",
-      "target": "dlna_models_track",
-      "confidence_score": 1.0
+      "target": "dlna_models_track"
     },
     {
       "relation": "calls",
@@ -2677,9 +2677,9 @@
       "source_file": "tests/test_models.py",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_models_t",
-      "target": "dlna_models_track",
-      "confidence_score": 1.0
+      "target": "dlna_models_track"
     },
     {
       "relation": "imports",
@@ -2688,9 +2688,9 @@
       "source_file": "tests/test_renderer.py",
       "source_location": "L44",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_renderer",
-      "target": "dlna_models_track",
-      "confidence_score": 1.0
+      "target": "dlna_models_track"
     },
     {
       "relation": "uses",
@@ -2698,9 +2698,9 @@
       "source_file": "tests/test_renderer.py",
       "source_location": "L44",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "tests_test_renderer_fakeprofile",
-      "target": "dlna_models_track",
-      "confidence_score": 0.5
+      "target": "dlna_models_track"
     },
     {
       "relation": "calls",
@@ -2709,9 +2709,9 @@
       "source_file": "tests/test_renderer.py",
       "source_location": "L47",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_renderer_test_play_sets_uri",
-      "target": "dlna_models_track",
-      "confidence_score": 1.0
+      "target": "dlna_models_track"
     },
     {
       "relation": "imports",
@@ -2720,9 +2720,9 @@
       "source_file": "ui/app.py",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app",
-      "target": "dlna_models_track",
-      "confidence_score": 1.0
+      "target": "dlna_models_track"
     },
     {
       "relation": "uses",
@@ -2730,9 +2730,9 @@
       "source_file": "ui/app.py",
       "source_location": "L12",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "ui_app_deviceitem",
-      "target": "dlna_models_track",
-      "confidence_score": 0.5
+      "target": "dlna_models_track"
     },
     {
       "relation": "uses",
@@ -2740,9 +2740,9 @@
       "source_file": "ui/app.py",
       "source_location": "L12",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "ui_app_devicescreen",
-      "target": "dlna_models_track",
-      "confidence_score": 0.5
+      "target": "dlna_models_track"
     },
     {
       "relation": "uses",
@@ -2750,9 +2750,9 @@
       "source_file": "ui/app.py",
       "source_location": "L12",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "ui_app_dlnaapp",
-      "target": "dlna_models_track",
-      "confidence_score": 0.5
+      "target": "dlna_models_track"
     },
     {
       "relation": "uses",
@@ -2760,9 +2760,9 @@
       "source_file": "ui/app.py",
       "source_location": "L12",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "ui_app_searchscreen",
-      "target": "dlna_models_track",
-      "confidence_score": 0.5
+      "target": "dlna_models_track"
     },
     {
       "relation": "calls",
@@ -2771,9 +2771,9 @@
       "source_file": "dlna/models.py",
       "source_location": "L61",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_models_to_model",
-      "target": "dlna_models_first_res_uri",
-      "confidence_score": 1.0
+      "target": "dlna_models_first_res_uri"
     },
     {
       "relation": "calls",
@@ -2782,9 +2782,9 @@
       "source_file": "dlna/models.py",
       "source_location": "L60",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_models_to_model",
-      "target": "dlna_models_first_res_duration",
-      "confidence_score": 1.0
+      "target": "dlna_models_first_res_duration"
     },
     {
       "relation": "calls",
@@ -2793,9 +2793,9 @@
       "source_file": "dlna/models.py",
       "source_location": "L94",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_models_to_models",
-      "target": "dlna_models_to_model",
-      "confidence_score": 1.0
+      "target": "dlna_models_to_model"
     },
     {
       "relation": "uses",
@@ -2803,9 +2803,9 @@
       "source_file": "ui/app.py",
       "source_location": "L12",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "composeresult",
-      "target": "dlna_models_queue",
-      "confidence_score": 0.5
+      "target": "dlna_models_queue"
     },
     {
       "relation": "method",
@@ -2813,9 +2813,9 @@
       "source_file": "dlna/models.py",
       "source_location": "L76",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_models_queue",
-      "target": "dlna_models_queue_advance",
-      "confidence_score": 1.0
+      "target": "dlna_models_queue_advance"
     },
     {
       "relation": "method",
@@ -2823,9 +2823,9 @@
       "source_file": "dlna/models.py",
       "source_location": "L88",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_models_queue",
-      "target": "dlna_models_queue_append",
-      "confidence_score": 1.0
+      "target": "dlna_models_queue_append"
     },
     {
       "relation": "method",
@@ -2833,9 +2833,9 @@
       "source_file": "dlna/models.py",
       "source_location": "L71",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_models_queue",
-      "target": "dlna_models_queue_current",
-      "confidence_score": 1.0
+      "target": "dlna_models_queue_current"
     },
     {
       "relation": "method",
@@ -2843,9 +2843,9 @@
       "source_file": "dlna/models.py",
       "source_location": "L82",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_models_queue",
-      "target": "dlna_models_queue_prev",
-      "confidence_score": 1.0
+      "target": "dlna_models_queue_prev"
     },
     {
       "relation": "uses",
@@ -2853,9 +2853,9 @@
       "source_file": "ui/app.py",
       "source_location": "L12",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "nodeexpanded",
-      "target": "dlna_models_queue",
-      "confidence_score": 0.5
+      "target": "dlna_models_queue"
     },
     {
       "relation": "uses",
@@ -2863,9 +2863,9 @@
       "source_file": "ui/app.py",
       "source_location": "L12",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "nodeselected",
-      "target": "dlna_models_queue",
-      "confidence_score": 0.5
+      "target": "dlna_models_queue"
     },
     {
       "relation": "uses",
@@ -2873,9 +2873,9 @@
       "source_file": "ui/app.py",
       "source_location": "L12",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "selected",
-      "target": "dlna_models_queue",
-      "confidence_score": 0.5
+      "target": "dlna_models_queue"
     },
     {
       "relation": "uses",
@@ -2883,9 +2883,9 @@
       "source_file": "ui/app.py",
       "source_location": "L12",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "store",
-      "target": "dlna_models_queue",
-      "confidence_score": 0.5
+      "target": "dlna_models_queue"
     },
     {
       "relation": "uses",
@@ -2893,9 +2893,9 @@
       "source_file": "ui/app.py",
       "source_location": "L12",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "submitted",
-      "target": "dlna_models_queue",
-      "confidence_score": 0.5
+      "target": "dlna_models_queue"
     },
     {
       "relation": "imports",
@@ -2904,9 +2904,9 @@
       "source_file": "tests/test_models.py",
       "source_location": "L31",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_models",
-      "target": "dlna_models_queue",
-      "confidence_score": 1.0
+      "target": "dlna_models_queue"
     },
     {
       "relation": "calls",
@@ -2915,9 +2915,9 @@
       "source_file": "tests/test_models.py",
       "source_location": "L55",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_models_test_empty_queue",
-      "target": "dlna_models_queue",
-      "confidence_score": 1.0
+      "target": "dlna_models_queue"
     },
     {
       "relation": "calls",
@@ -2926,9 +2926,9 @@
       "source_file": "tests/test_models.py",
       "source_location": "L39",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_models_test_queue_advance_moves_forward",
-      "target": "dlna_models_queue",
-      "confidence_score": 1.0
+      "target": "dlna_models_queue"
     },
     {
       "relation": "calls",
@@ -2937,9 +2937,9 @@
       "source_file": "tests/test_models.py",
       "source_location": "L47",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_models_test_queue_prev_and_append",
-      "target": "dlna_models_queue",
-      "confidence_score": 1.0
+      "target": "dlna_models_queue"
     },
     {
       "relation": "imports",
@@ -2948,9 +2948,9 @@
       "source_file": "ui/app.py",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app",
-      "target": "dlna_models_queue",
-      "confidence_score": 1.0
+      "target": "dlna_models_queue"
     },
     {
       "relation": "uses",
@@ -2958,9 +2958,9 @@
       "source_file": "ui/app.py",
       "source_location": "L12",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "ui_app_deviceitem",
-      "target": "dlna_models_queue",
-      "confidence_score": 0.5
+      "target": "dlna_models_queue"
     },
     {
       "relation": "uses",
@@ -2968,9 +2968,9 @@
       "source_file": "ui/app.py",
       "source_location": "L12",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "ui_app_devicescreen",
-      "target": "dlna_models_queue",
-      "confidence_score": 0.5
+      "target": "dlna_models_queue"
     },
     {
       "relation": "uses",
@@ -2978,9 +2978,9 @@
       "source_file": "ui/app.py",
       "source_location": "L12",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "ui_app_dlnaapp",
-      "target": "dlna_models_queue",
-      "confidence_score": 0.5
+      "target": "dlna_models_queue"
     },
     {
       "relation": "calls",
@@ -3010,9 +3010,9 @@
       "source_file": "ui/app.py",
       "source_location": "L12",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "ui_app_searchscreen",
-      "target": "dlna_models_queue",
-      "confidence_score": 0.5
+      "target": "dlna_models_queue"
     },
     {
       "relation": "calls",
@@ -3021,9 +3021,9 @@
       "source_file": "dlna/models.py",
       "source_location": "L100",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_models_from_didl",
-      "target": "dlna_models_to_models",
-      "confidence_score": 1.0
+      "target": "dlna_models_to_models"
     },
     {
       "relation": "rationale_for",
@@ -3031,9 +3031,9 @@
       "source_file": "dlna/models.py",
       "source_location": "L93",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_models_rationale_93",
-      "target": "dlna_models_to_models",
-      "confidence_score": 1.0
+      "target": "dlna_models_to_models"
     },
     {
       "relation": "imports",
@@ -3042,9 +3042,9 @@
       "source_file": "dlna/server.py",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_server",
-      "target": "dlna_models_to_models",
-      "confidence_score": 1.0
+      "target": "dlna_models_to_models"
     },
     {
       "relation": "calls",
@@ -3074,9 +3074,9 @@
       "source_file": "dlna/models.py",
       "source_location": "L99",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_models_rationale_99",
-      "target": "dlna_models_from_didl",
-      "confidence_score": 1.0
+      "target": "dlna_models_from_didl"
     },
     {
       "relation": "imports",
@@ -3085,9 +3085,9 @@
       "source_file": "tests/test_models.py",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_models",
-      "target": "dlna_models_from_didl",
-      "confidence_score": 1.0
+      "target": "dlna_models_from_didl"
     },
     {
       "relation": "calls",
@@ -3096,9 +3096,9 @@
       "source_file": "tests/test_models.py",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_models_test_from_didl_parses_container_and_track",
-      "target": "dlna_models_from_didl",
-      "confidence_score": 1.0
+      "target": "dlna_models_from_didl"
     },
     {
       "relation": "contains",
@@ -3106,9 +3106,9 @@
       "source_file": "dlna/renderer.py",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_renderer",
-      "target": "dlna_renderer_renderer",
-      "confidence_score": 1.0
+      "target": "dlna_renderer_renderer"
     },
     {
       "relation": "contains",
@@ -3116,9 +3116,9 @@
       "source_file": "dlna/renderer.py",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_renderer",
-      "target": "dlna_renderer_rendererstate",
-      "confidence_score": 1.0
+      "target": "dlna_renderer_rendererstate"
     },
     {
       "relation": "imports_from",
@@ -3127,9 +3127,9 @@
       "source_file": "tests/test_renderer.py",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_renderer",
-      "target": "dlna_renderer",
-      "confidence_score": 1.0
+      "target": "dlna_renderer"
     },
     {
       "relation": "imports_from",
@@ -3138,9 +3138,9 @@
       "source_file": "ui/app.py",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app",
-      "target": "dlna_renderer",
-      "confidence_score": 1.0
+      "target": "dlna_renderer"
     },
     {
       "relation": "imports_from",
@@ -3149,9 +3149,9 @@
       "source_file": "ui/widgets.py",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_widgets",
-      "target": "dlna_renderer",
-      "confidence_score": 1.0
+      "target": "dlna_renderer"
     },
     {
       "relation": "references",
@@ -3160,9 +3160,9 @@
       "source_file": "dlna/renderer.py",
       "source_location": "L32",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_renderer_renderer_state",
-      "target": "dlna_renderer_rendererstate",
-      "confidence_score": 1.0
+      "target": "dlna_renderer_rendererstate"
     },
     {
       "relation": "imports",
@@ -3171,9 +3171,9 @@
       "source_file": "tests/test_renderer.py",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_renderer",
-      "target": "dlna_renderer_rendererstate",
-      "confidence_score": 1.0
+      "target": "dlna_renderer_rendererstate"
     },
     {
       "relation": "uses",
@@ -3181,9 +3181,9 @@
       "source_file": "tests/test_renderer.py",
       "source_location": "L2",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "tests_test_renderer_fakeprofile",
-      "target": "dlna_renderer_rendererstate",
-      "confidence_score": 0.5
+      "target": "dlna_renderer_rendererstate"
     },
     {
       "relation": "imports",
@@ -3192,9 +3192,9 @@
       "source_file": "ui/widgets.py",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_widgets",
-      "target": "dlna_renderer_rendererstate",
-      "confidence_score": 1.0
+      "target": "dlna_renderer_rendererstate"
     },
     {
       "relation": "uses",
@@ -3202,9 +3202,9 @@
       "source_file": "ui/widgets.py",
       "source_location": "L6",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "ui_widgets_nowplaying",
-      "target": "dlna_renderer_rendererstate",
-      "confidence_score": 0.5
+      "target": "dlna_renderer_rendererstate"
     },
     {
       "relation": "uses",
@@ -3212,9 +3212,9 @@
       "source_file": "ui/app.py",
       "source_location": "L13",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "composeresult",
-      "target": "dlna_renderer_renderer",
-      "confidence_score": 0.5
+      "target": "dlna_renderer_renderer"
     },
     {
       "relation": "method",
@@ -3222,9 +3222,9 @@
       "source_file": "dlna/renderer.py",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_renderer_renderer",
-      "target": "dlna_renderer_renderer_init",
-      "confidence_score": 1.0
+      "target": "dlna_renderer_renderer_init"
     },
     {
       "relation": "method",
@@ -3232,9 +3232,9 @@
       "source_file": "dlna/renderer.py",
       "source_location": "L59",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_renderer_renderer",
-      "target": "dlna_renderer_renderer_next",
-      "confidence_score": 1.0
+      "target": "dlna_renderer_renderer_next"
     },
     {
       "relation": "method",
@@ -3242,9 +3242,9 @@
       "source_file": "dlna/renderer.py",
       "source_location": "L49",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_renderer_renderer",
-      "target": "dlna_renderer_renderer_pause",
-      "confidence_score": 1.0
+      "target": "dlna_renderer_renderer_pause"
     },
     {
       "relation": "method",
@@ -3252,9 +3252,9 @@
       "source_file": "dlna/renderer.py",
       "source_location": "L42",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_renderer_renderer",
-      "target": "dlna_renderer_renderer_play",
-      "confidence_score": 1.0
+      "target": "dlna_renderer_renderer_play"
     },
     {
       "relation": "method",
@@ -3262,9 +3262,9 @@
       "source_file": "dlna/renderer.py",
       "source_location": "L62",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_renderer_renderer",
-      "target": "dlna_renderer_renderer_previous",
-      "confidence_score": 1.0
+      "target": "dlna_renderer_renderer_previous"
     },
     {
       "relation": "method",
@@ -3272,9 +3272,9 @@
       "source_file": "dlna/renderer.py",
       "source_location": "L52",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_renderer_renderer",
-      "target": "dlna_renderer_renderer_resume",
-      "confidence_score": 1.0
+      "target": "dlna_renderer_renderer_resume"
     },
     {
       "relation": "method",
@@ -3282,9 +3282,9 @@
       "source_file": "dlna/renderer.py",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_renderer_renderer",
-      "target": "dlna_renderer_renderer_safe",
-      "confidence_score": 1.0
+      "target": "dlna_renderer_renderer_safe"
     },
     {
       "relation": "method",
@@ -3292,9 +3292,9 @@
       "source_file": "dlna/renderer.py",
       "source_location": "L65",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_renderer_renderer",
-      "target": "dlna_renderer_renderer_seek",
-      "confidence_score": 1.0
+      "target": "dlna_renderer_renderer_seek"
     },
     {
       "relation": "method",
@@ -3302,9 +3302,9 @@
       "source_file": "dlna/renderer.py",
       "source_location": "L71",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_renderer_renderer",
-      "target": "dlna_renderer_renderer_set_volume",
-      "confidence_score": 1.0
+      "target": "dlna_renderer_renderer_set_volume"
     },
     {
       "relation": "method",
@@ -3312,9 +3312,9 @@
       "source_file": "dlna/renderer.py",
       "source_location": "L32",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_renderer_renderer",
-      "target": "dlna_renderer_renderer_state",
-      "confidence_score": 1.0
+      "target": "dlna_renderer_renderer_state"
     },
     {
       "relation": "method",
@@ -3322,9 +3322,9 @@
       "source_file": "dlna/renderer.py",
       "source_location": "L56",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_renderer_renderer",
-      "target": "dlna_renderer_renderer_stop",
-      "confidence_score": 1.0
+      "target": "dlna_renderer_renderer_stop"
     },
     {
       "relation": "method",
@@ -3332,9 +3332,9 @@
       "source_file": "dlna/renderer.py",
       "source_location": "L75",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_renderer_renderer",
-      "target": "dlna_renderer_renderer_subscribe",
-      "confidence_score": 1.0
+      "target": "dlna_renderer_renderer_subscribe"
     },
     {
       "relation": "uses",
@@ -3342,9 +3342,9 @@
       "source_file": "ui/app.py",
       "source_location": "L13",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "nodeexpanded",
-      "target": "dlna_renderer_renderer",
-      "confidence_score": 0.5
+      "target": "dlna_renderer_renderer"
     },
     {
       "relation": "uses",
@@ -3352,9 +3352,9 @@
       "source_file": "ui/app.py",
       "source_location": "L13",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "nodeselected",
-      "target": "dlna_renderer_renderer",
-      "confidence_score": 0.5
+      "target": "dlna_renderer_renderer"
     },
     {
       "relation": "uses",
@@ -3362,9 +3362,9 @@
       "source_file": "ui/app.py",
       "source_location": "L13",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "selected",
-      "target": "dlna_renderer_renderer",
-      "confidence_score": 0.5
+      "target": "dlna_renderer_renderer"
     },
     {
       "relation": "uses",
@@ -3372,9 +3372,9 @@
       "source_file": "ui/app.py",
       "source_location": "L13",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "store",
-      "target": "dlna_renderer_renderer",
-      "confidence_score": 0.5
+      "target": "dlna_renderer_renderer"
     },
     {
       "relation": "uses",
@@ -3382,9 +3382,9 @@
       "source_file": "ui/app.py",
       "source_location": "L13",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "submitted",
-      "target": "dlna_renderer_renderer",
-      "confidence_score": 0.5
+      "target": "dlna_renderer_renderer"
     },
     {
       "relation": "imports",
@@ -3393,9 +3393,9 @@
       "source_file": "tests/test_renderer.py",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_renderer",
-      "target": "dlna_renderer_renderer",
-      "confidence_score": 1.0
+      "target": "dlna_renderer_renderer"
     },
     {
       "relation": "uses",
@@ -3403,9 +3403,9 @@
       "source_file": "tests/test_renderer.py",
       "source_location": "L2",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "tests_test_renderer_fakeprofile",
-      "target": "dlna_renderer_renderer",
-      "confidence_score": 0.5
+      "target": "dlna_renderer_renderer"
     },
     {
       "relation": "calls",
@@ -3414,9 +3414,9 @@
       "source_file": "tests/test_renderer.py",
       "source_location": "L46",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_renderer_test_play_sets_uri",
-      "target": "dlna_renderer_renderer",
-      "confidence_score": 1.0
+      "target": "dlna_renderer_renderer"
     },
     {
       "relation": "calls",
@@ -3425,9 +3425,9 @@
       "source_file": "tests/test_renderer.py",
       "source_location": "L37",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_renderer_test_safe_call_swallows_errors_and_reports",
-      "target": "dlna_renderer_renderer",
-      "confidence_score": 1.0
+      "target": "dlna_renderer_renderer"
     },
     {
       "relation": "calls",
@@ -3436,9 +3436,9 @@
       "source_file": "tests/test_renderer.py",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_renderer_test_state_snapshot",
-      "target": "dlna_renderer_renderer",
-      "confidence_score": 1.0
+      "target": "dlna_renderer_renderer"
     },
     {
       "relation": "imports",
@@ -3447,9 +3447,9 @@
       "source_file": "ui/app.py",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app",
-      "target": "dlna_renderer_renderer",
-      "confidence_score": 1.0
+      "target": "dlna_renderer_renderer"
     },
     {
       "relation": "uses",
@@ -3457,9 +3457,9 @@
       "source_file": "ui/app.py",
       "source_location": "L13",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "ui_app_deviceitem",
-      "target": "dlna_renderer_renderer",
-      "confidence_score": 0.5
+      "target": "dlna_renderer_renderer"
     },
     {
       "relation": "uses",
@@ -3467,9 +3467,9 @@
       "source_file": "ui/app.py",
       "source_location": "L13",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "ui_app_devicescreen",
-      "target": "dlna_renderer_renderer",
-      "confidence_score": 0.5
+      "target": "dlna_renderer_renderer"
     },
     {
       "relation": "uses",
@@ -3477,9 +3477,9 @@
       "source_file": "ui/app.py",
       "source_location": "L13",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "ui_app_dlnaapp",
-      "target": "dlna_renderer_renderer",
-      "confidence_score": 0.5
+      "target": "dlna_renderer_renderer"
     },
     {
       "relation": "calls",
@@ -3498,9 +3498,9 @@
       "source_file": "ui/app.py",
       "source_location": "L13",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "ui_app_searchscreen",
-      "target": "dlna_renderer_renderer",
-      "confidence_score": 0.5
+      "target": "dlna_renderer_renderer"
     },
     {
       "relation": "calls",
@@ -3509,9 +3509,9 @@
       "source_file": "dlna/renderer.py",
       "source_location": "L60",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_renderer_renderer_next",
-      "target": "dlna_renderer_renderer_safe",
-      "confidence_score": 1.0
+      "target": "dlna_renderer_renderer_safe"
     },
     {
       "relation": "calls",
@@ -3520,9 +3520,9 @@
       "source_file": "dlna/renderer.py",
       "source_location": "L50",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_renderer_renderer_pause",
-      "target": "dlna_renderer_renderer_safe",
-      "confidence_score": 1.0
+      "target": "dlna_renderer_renderer_safe"
     },
     {
       "relation": "calls",
@@ -3531,9 +3531,9 @@
       "source_file": "dlna/renderer.py",
       "source_location": "L47",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_renderer_renderer_play",
-      "target": "dlna_renderer_renderer_safe",
-      "confidence_score": 1.0
+      "target": "dlna_renderer_renderer_safe"
     },
     {
       "relation": "calls",
@@ -3542,9 +3542,9 @@
       "source_file": "dlna/renderer.py",
       "source_location": "L63",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_renderer_renderer_previous",
-      "target": "dlna_renderer_renderer_safe",
-      "confidence_score": 1.0
+      "target": "dlna_renderer_renderer_safe"
     },
     {
       "relation": "calls",
@@ -3553,9 +3553,9 @@
       "source_file": "dlna/renderer.py",
       "source_location": "L54",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_renderer_renderer_resume",
-      "target": "dlna_renderer_renderer_safe",
-      "confidence_score": 1.0
+      "target": "dlna_renderer_renderer_safe"
     },
     {
       "relation": "calls",
@@ -3564,9 +3564,9 @@
       "source_file": "dlna/renderer.py",
       "source_location": "L67",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_renderer_renderer_seek",
-      "target": "dlna_renderer_renderer_safe",
-      "confidence_score": 1.0
+      "target": "dlna_renderer_renderer_safe"
     },
     {
       "relation": "calls",
@@ -3575,9 +3575,9 @@
       "source_file": "dlna/renderer.py",
       "source_location": "L73",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_renderer_renderer_set_volume",
-      "target": "dlna_renderer_renderer_safe",
-      "confidence_score": 1.0
+      "target": "dlna_renderer_renderer_safe"
     },
     {
       "relation": "calls",
@@ -3586,9 +3586,9 @@
       "source_file": "dlna/renderer.py",
       "source_location": "L57",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_renderer_renderer_stop",
-      "target": "dlna_renderer_renderer_safe",
-      "confidence_score": 1.0
+      "target": "dlna_renderer_renderer_safe"
     },
     {
       "relation": "calls",
@@ -3597,9 +3597,9 @@
       "source_file": "dlna/renderer.py",
       "source_location": "L77",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_renderer_renderer_subscribe",
-      "target": "dlna_renderer_renderer_safe",
-      "confidence_score": 1.0
+      "target": "dlna_renderer_renderer_safe"
     },
     {
       "relation": "references",
@@ -3608,9 +3608,9 @@
       "source_file": "dlna/renderer.py",
       "source_location": "L42",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_renderer_renderer_play",
-      "target": "dlna_renderer_py_track",
-      "confidence_score": 1.0
+      "target": "dlna_renderer_py_track"
     },
     {
       "relation": "contains",
@@ -3618,9 +3618,9 @@
       "source_file": "dlna/server.py",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_server",
-      "target": "dlna_server_musicserver",
-      "confidence_score": 1.0
+      "target": "dlna_server_musicserver"
     },
     {
       "relation": "imports_from",
@@ -3629,9 +3629,9 @@
       "source_file": "tests/test_server.py",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_server",
-      "target": "dlna_server",
-      "confidence_score": 1.0
+      "target": "dlna_server"
     },
     {
       "relation": "imports_from",
@@ -3640,9 +3640,9 @@
       "source_file": "ui/app.py",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app",
-      "target": "dlna_server",
-      "confidence_score": 1.0
+      "target": "dlna_server"
     },
     {
       "relation": "uses",
@@ -3650,9 +3650,9 @@
       "source_file": "ui/app.py",
       "source_location": "L14",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "composeresult",
-      "target": "dlna_server_musicserver",
-      "confidence_score": 0.5
+      "target": "dlna_server_musicserver"
     },
     {
       "relation": "method",
@@ -3660,9 +3660,9 @@
       "source_file": "dlna/server.py",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_server_musicserver",
-      "target": "dlna_server_musicserver_browse",
-      "confidence_score": 1.0
+      "target": "dlna_server_musicserver_browse"
     },
     {
       "relation": "method",
@@ -3670,9 +3670,9 @@
       "source_file": "dlna/server.py",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_server_musicserver",
-      "target": "dlna_server_musicserver_init",
-      "confidence_score": 1.0
+      "target": "dlna_server_musicserver_init"
     },
     {
       "relation": "method",
@@ -3680,9 +3680,9 @@
       "source_file": "dlna/server.py",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_server_musicserver",
-      "target": "dlna_server_musicserver_search",
-      "confidence_score": 1.0
+      "target": "dlna_server_musicserver_search"
     },
     {
       "relation": "uses",
@@ -3690,9 +3690,9 @@
       "source_file": "ui/app.py",
       "source_location": "L14",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "nodeexpanded",
-      "target": "dlna_server_musicserver",
-      "confidence_score": 0.5
+      "target": "dlna_server_musicserver"
     },
     {
       "relation": "uses",
@@ -3700,9 +3700,9 @@
       "source_file": "ui/app.py",
       "source_location": "L14",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "nodeselected",
-      "target": "dlna_server_musicserver",
-      "confidence_score": 0.5
+      "target": "dlna_server_musicserver"
     },
     {
       "relation": "uses",
@@ -3710,9 +3710,9 @@
       "source_file": "ui/app.py",
       "source_location": "L14",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "selected",
-      "target": "dlna_server_musicserver",
-      "confidence_score": 0.5
+      "target": "dlna_server_musicserver"
     },
     {
       "relation": "uses",
@@ -3720,9 +3720,9 @@
       "source_file": "ui/app.py",
       "source_location": "L14",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "store",
-      "target": "dlna_server_musicserver",
-      "confidence_score": 0.5
+      "target": "dlna_server_musicserver"
     },
     {
       "relation": "uses",
@@ -3730,9 +3730,9 @@
       "source_file": "ui/app.py",
       "source_location": "L14",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "submitted",
-      "target": "dlna_server_musicserver",
-      "confidence_score": 0.5
+      "target": "dlna_server_musicserver"
     },
     {
       "relation": "imports",
@@ -3741,9 +3741,9 @@
       "source_file": "tests/test_server.py",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_server",
-      "target": "dlna_server_musicserver",
-      "confidence_score": 1.0
+      "target": "dlna_server_musicserver"
     },
     {
       "relation": "uses",
@@ -3751,9 +3751,9 @@
       "source_file": "tests/test_server.py",
       "source_location": "L3",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "tests_test_server_fakeprofile",
-      "target": "dlna_server_musicserver",
-      "confidence_score": 0.5
+      "target": "dlna_server_musicserver"
     },
     {
       "relation": "calls",
@@ -3762,9 +3762,9 @@
       "source_file": "tests/test_server.py",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_server_test_browse_returns_models",
-      "target": "dlna_server_musicserver",
-      "confidence_score": 1.0
+      "target": "dlna_server_musicserver"
     },
     {
       "relation": "calls",
@@ -3773,9 +3773,9 @@
       "source_file": "tests/test_server.py",
       "source_location": "L36",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_server_test_search_returns_models",
-      "target": "dlna_server_musicserver",
-      "confidence_score": 1.0
+      "target": "dlna_server_musicserver"
     },
     {
       "relation": "imports",
@@ -3784,9 +3784,9 @@
       "source_file": "ui/app.py",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app",
-      "target": "dlna_server_musicserver",
-      "confidence_score": 1.0
+      "target": "dlna_server_musicserver"
     },
     {
       "relation": "uses",
@@ -3794,9 +3794,9 @@
       "source_file": "ui/app.py",
       "source_location": "L14",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "ui_app_deviceitem",
-      "target": "dlna_server_musicserver",
-      "confidence_score": 0.5
+      "target": "dlna_server_musicserver"
     },
     {
       "relation": "uses",
@@ -3804,9 +3804,9 @@
       "source_file": "ui/app.py",
       "source_location": "L14",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "ui_app_devicescreen",
-      "target": "dlna_server_musicserver",
-      "confidence_score": 0.5
+      "target": "dlna_server_musicserver"
     },
     {
       "relation": "uses",
@@ -3814,9 +3814,9 @@
       "source_file": "ui/app.py",
       "source_location": "L14",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "ui_app_dlnaapp",
-      "target": "dlna_server_musicserver",
-      "confidence_score": 0.5
+      "target": "dlna_server_musicserver"
     },
     {
       "relation": "calls",
@@ -3835,9 +3835,9 @@
       "source_file": "ui/app.py",
       "source_location": "L14",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "ui_app_searchscreen",
-      "target": "dlna_server_musicserver",
-      "confidence_score": 0.5
+      "target": "dlna_server_musicserver"
     },
     {
       "relation": "references",
@@ -3846,9 +3846,9 @@
       "source_file": "dlna/server.py",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_server_musicserver_browse",
-      "target": "container",
-      "confidence_score": 1.0
+      "target": "container"
     },
     {
       "relation": "references",
@@ -3857,9 +3857,9 @@
       "source_file": "dlna/server.py",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_server_musicserver_browse",
-      "target": "dlna_server_py_track",
-      "confidence_score": 1.0
+      "target": "dlna_server_py_track"
     },
     {
       "relation": "calls",
@@ -3868,9 +3868,9 @@
       "source_file": "dlna/server.py",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_server_musicserver_search",
-      "target": "dlna_server_musicserver_browse",
-      "confidence_score": 1.0
+      "target": "dlna_server_musicserver_browse"
     },
     {
       "relation": "references",
@@ -3879,9 +3879,9 @@
       "source_file": "dlna/server.py",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_server_musicserver_search",
-      "target": "dlna_server_py_track",
-      "confidence_score": 1.0
+      "target": "dlna_server_py_track"
     },
     {
       "relation": "contains",
@@ -3889,9 +3889,9 @@
       "source_file": "dlna/store.py",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_store",
-      "target": "dlna_store_default_path",
-      "confidence_score": 1.0
+      "target": "dlna_store_default_path"
     },
     {
       "relation": "contains",
@@ -3899,9 +3899,9 @@
       "source_file": "dlna/store.py",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_store",
-      "target": "dlna_store_store",
-      "confidence_score": 1.0
+      "target": "dlna_store_store"
     },
     {
       "relation": "imports_from",
@@ -3910,9 +3910,9 @@
       "source_file": "tests/test_store.py",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_store",
-      "target": "dlna_store",
-      "confidence_score": 1.0
+      "target": "dlna_store"
     },
     {
       "relation": "imports_from",
@@ -3921,9 +3921,9 @@
       "source_file": "ui/app.py",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app",
-      "target": "dlna_store",
-      "confidence_score": 1.0
+      "target": "dlna_store"
     },
     {
       "relation": "references",
@@ -3932,9 +3932,9 @@
       "source_file": "dlna/store.py",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_store_default_path",
-      "target": "path",
-      "confidence_score": 1.0
+      "target": "path"
     },
     {
       "relation": "calls",
@@ -3943,9 +3943,9 @@
       "source_file": "dlna/store.py",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_store_store_init",
-      "target": "dlna_store_default_path",
-      "confidence_score": 1.0
+      "target": "dlna_store_default_path"
     },
     {
       "relation": "references",
@@ -3954,9 +3954,9 @@
       "source_file": "dlna/store.py",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_store_store_init",
-      "target": "path",
-      "confidence_score": 1.0
+      "target": "path"
     },
     {
       "relation": "uses",
@@ -3964,9 +3964,9 @@
       "source_file": "ui/app.py",
       "source_location": "L15",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "composeresult",
-      "target": "dlna_store_store",
-      "confidence_score": 0.5
+      "target": "dlna_store_store"
     },
     {
       "relation": "method",
@@ -3974,9 +3974,9 @@
       "source_file": "dlna/store.py",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_store_store",
-      "target": "dlna_store_store_init",
-      "confidence_score": 1.0
+      "target": "dlna_store_store_init"
     },
     {
       "relation": "method",
@@ -3984,9 +3984,9 @@
       "source_file": "dlna/store.py",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_store_store",
-      "target": "dlna_store_store_load",
-      "confidence_score": 1.0
+      "target": "dlna_store_store_load"
     },
     {
       "relation": "method",
@@ -3994,9 +3994,9 @@
       "source_file": "dlna/store.py",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_store_store",
-      "target": "dlna_store_store_save",
-      "confidence_score": 1.0
+      "target": "dlna_store_store_save"
     },
     {
       "relation": "uses",
@@ -4004,9 +4004,9 @@
       "source_file": "ui/app.py",
       "source_location": "L15",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "nodeexpanded",
-      "target": "dlna_store_store",
-      "confidence_score": 0.5
+      "target": "dlna_store_store"
     },
     {
       "relation": "uses",
@@ -4014,9 +4014,9 @@
       "source_file": "ui/app.py",
       "source_location": "L15",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "nodeselected",
-      "target": "dlna_store_store",
-      "confidence_score": 0.5
+      "target": "dlna_store_store"
     },
     {
       "relation": "uses",
@@ -4024,9 +4024,9 @@
       "source_file": "ui/app.py",
       "source_location": "L15",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "selected",
-      "target": "dlna_store_store",
-      "confidence_score": 0.5
+      "target": "dlna_store_store"
     },
     {
       "relation": "uses",
@@ -4034,9 +4034,9 @@
       "source_file": "ui/app.py",
       "source_location": "L15",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "store",
-      "target": "dlna_store_store",
-      "confidence_score": 0.5
+      "target": "dlna_store_store"
     },
     {
       "relation": "uses",
@@ -4044,9 +4044,9 @@
       "source_file": "ui/app.py",
       "source_location": "L15",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "submitted",
-      "target": "dlna_store_store",
-      "confidence_score": 0.5
+      "target": "dlna_store_store"
     },
     {
       "relation": "imports",
@@ -4055,9 +4055,9 @@
       "source_file": "tests/test_store.py",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_store",
-      "target": "dlna_store_store",
-      "confidence_score": 1.0
+      "target": "dlna_store_store"
     },
     {
       "relation": "calls",
@@ -4066,9 +4066,9 @@
       "source_file": "tests/test_store.py",
       "source_location": "L21",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_store_test_corrupt_file_is_ignored",
-      "target": "dlna_store_store",
-      "confidence_score": 1.0
+      "target": "dlna_store_store"
     },
     {
       "relation": "calls",
@@ -4077,9 +4077,9 @@
       "source_file": "tests/test_store.py",
       "source_location": "L27",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_store_test_missing_file",
-      "target": "dlna_store_store",
-      "confidence_score": 1.0
+      "target": "dlna_store_store"
     },
     {
       "relation": "calls",
@@ -4088,9 +4088,9 @@
       "source_file": "tests/test_store.py",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_store_test_roundtrip",
-      "target": "dlna_store_store",
-      "confidence_score": 1.0
+      "target": "dlna_store_store"
     },
     {
       "relation": "imports",
@@ -4099,9 +4099,9 @@
       "source_file": "ui/app.py",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app",
-      "target": "dlna_store_store",
-      "confidence_score": 1.0
+      "target": "dlna_store_store"
     },
     {
       "relation": "uses",
@@ -4109,9 +4109,9 @@
       "source_file": "ui/app.py",
       "source_location": "L15",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "ui_app_deviceitem",
-      "target": "dlna_store_store",
-      "confidence_score": 0.5
+      "target": "dlna_store_store"
     },
     {
       "relation": "uses",
@@ -4119,9 +4119,9 @@
       "source_file": "ui/app.py",
       "source_location": "L15",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "ui_app_devicescreen",
-      "target": "dlna_store_store",
-      "confidence_score": 0.5
+      "target": "dlna_store_store"
     },
     {
       "relation": "uses",
@@ -4129,9 +4129,9 @@
       "source_file": "ui/app.py",
       "source_location": "L15",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "ui_app_dlnaapp",
-      "target": "dlna_store_store",
-      "confidence_score": 0.5
+      "target": "dlna_store_store"
     },
     {
       "relation": "uses",
@@ -4139,9 +4139,9 @@
       "source_file": "ui/app.py",
       "source_location": "L15",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "ui_app_searchscreen",
-      "target": "dlna_store_store",
-      "confidence_score": 0.5
+      "target": "dlna_store_store"
     },
     {
       "relation": "calls",
@@ -4150,9 +4150,9 @@
       "source_file": "dlna/store.py",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_store_store_init",
-      "target": "dlna_store_store_load",
-      "confidence_score": 1.0
+      "target": "dlna_store_store_load"
     },
     {
       "relation": "contains",
@@ -4160,9 +4160,9 @@
       "source_file": "tests/test_models.py",
       "source_location": "L34",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_models",
-      "target": "tests_test_models_t",
-      "confidence_score": 1.0
+      "target": "tests_test_models_t"
     },
     {
       "relation": "contains",
@@ -4170,9 +4170,9 @@
       "source_file": "tests/test_models.py",
       "source_location": "L54",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_models",
-      "target": "tests_test_models_test_empty_queue",
-      "confidence_score": 1.0
+      "target": "tests_test_models_test_empty_queue"
     },
     {
       "relation": "contains",
@@ -4180,9 +4180,9 @@
       "source_file": "tests/test_models.py",
       "source_location": "L15",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_models",
-      "target": "tests_test_models_test_from_didl_parses_container_and_track",
-      "confidence_score": 1.0
+      "target": "tests_test_models_test_from_didl_parses_container_and_track"
     },
     {
       "relation": "contains",
@@ -4190,9 +4190,9 @@
       "source_file": "tests/test_models.py",
       "source_location": "L38",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_models",
-      "target": "tests_test_models_test_queue_advance_moves_forward",
-      "confidence_score": 1.0
+      "target": "tests_test_models_test_queue_advance_moves_forward"
     },
     {
       "relation": "contains",
@@ -4200,9 +4200,9 @@
       "source_file": "tests/test_models.py",
       "source_location": "L46",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_models",
-      "target": "tests_test_models_test_queue_prev_and_append",
-      "confidence_score": 1.0
+      "target": "tests_test_models_test_queue_prev_and_append"
     },
     {
       "relation": "calls",
@@ -4211,9 +4211,9 @@
       "source_file": "tests/test_models.py",
       "source_location": "L39",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_models_test_queue_advance_moves_forward",
-      "target": "tests_test_models_t",
-      "confidence_score": 1.0
+      "target": "tests_test_models_t"
     },
     {
       "relation": "calls",
@@ -4222,9 +4222,9 @@
       "source_file": "tests/test_models.py",
       "source_location": "L47",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_models_test_queue_prev_and_append",
-      "target": "tests_test_models_t",
-      "confidence_score": 1.0
+      "target": "tests_test_models_t"
     },
     {
       "relation": "contains",
@@ -4232,9 +4232,9 @@
       "source_file": "tests/test_renderer.py",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_renderer",
-      "target": "tests_test_renderer_fakeprofile",
-      "confidence_score": 1.0
+      "target": "tests_test_renderer_fakeprofile"
     },
     {
       "relation": "contains",
@@ -4242,9 +4242,9 @@
       "source_file": "tests/test_renderer.py",
       "source_location": "L43",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_renderer",
-      "target": "tests_test_renderer_test_play_sets_uri",
-      "confidence_score": 1.0
+      "target": "tests_test_renderer_test_play_sets_uri"
     },
     {
       "relation": "contains",
@@ -4252,9 +4252,9 @@
       "source_file": "tests/test_renderer.py",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_renderer",
-      "target": "tests_test_renderer_test_safe_call_swallows_errors_and_reports",
-      "confidence_score": 1.0
+      "target": "tests_test_renderer_test_safe_call_swallows_errors_and_reports"
     },
     {
       "relation": "contains",
@@ -4262,9 +4262,9 @@
       "source_file": "tests/test_renderer.py",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_renderer",
-      "target": "tests_test_renderer_test_state_snapshot",
-      "confidence_score": 1.0
+      "target": "tests_test_renderer_test_state_snapshot"
     },
     {
       "relation": "method",
@@ -4272,9 +4272,9 @@
       "source_file": "tests/test_renderer.py",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_renderer_fakeprofile",
-      "target": "tests_test_renderer_fakeprofile_async_play",
-      "confidence_score": 1.0
+      "target": "tests_test_renderer_fakeprofile_async_play"
     },
     {
       "relation": "method",
@@ -4282,9 +4282,9 @@
       "source_file": "tests/test_renderer.py",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_renderer_fakeprofile",
-      "target": "tests_test_renderer_fakeprofile_async_set_transport_uri",
-      "confidence_score": 1.0
+      "target": "tests_test_renderer_fakeprofile_async_set_transport_uri"
     },
     {
       "relation": "method",
@@ -4292,9 +4292,9 @@
       "source_file": "tests/test_renderer.py",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_renderer_fakeprofile",
-      "target": "tests_test_renderer_fakeprofile_async_stop",
-      "confidence_score": 1.0
+      "target": "tests_test_renderer_fakeprofile_async_stop"
     },
     {
       "relation": "method",
@@ -4302,9 +4302,9 @@
       "source_file": "tests/test_renderer.py",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_renderer_fakeprofile",
-      "target": "tests_test_renderer_fakeprofile_init",
-      "confidence_score": 1.0
+      "target": "tests_test_renderer_fakeprofile_init"
     },
     {
       "relation": "calls",
@@ -4313,9 +4313,9 @@
       "source_file": "tests/test_renderer.py",
       "source_location": "L45",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_renderer_test_play_sets_uri",
-      "target": "tests_test_renderer_fakeprofile",
-      "confidence_score": 1.0
+      "target": "tests_test_renderer_fakeprofile"
     },
     {
       "relation": "calls",
@@ -4324,9 +4324,9 @@
       "source_file": "tests/test_renderer.py",
       "source_location": "L37",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_renderer_test_safe_call_swallows_errors_and_reports",
-      "target": "tests_test_renderer_fakeprofile",
-      "confidence_score": 1.0
+      "target": "tests_test_renderer_fakeprofile"
     },
     {
       "relation": "calls",
@@ -4335,9 +4335,9 @@
       "source_file": "tests/test_renderer.py",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_renderer_test_state_snapshot",
-      "target": "tests_test_renderer_fakeprofile",
-      "confidence_score": 1.0
+      "target": "tests_test_renderer_fakeprofile"
     },
     {
       "relation": "contains",
@@ -4345,9 +4345,9 @@
       "source_file": "tests/test_server.py",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_server",
-      "target": "tests_test_server_fakeprofile",
-      "confidence_score": 1.0
+      "target": "tests_test_server_fakeprofile"
     },
     {
       "relation": "contains",
@@ -4355,9 +4355,9 @@
       "source_file": "tests/test_server.py",
       "source_location": "L27",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_server",
-      "target": "tests_test_server_test_browse_returns_models",
-      "confidence_score": 1.0
+      "target": "tests_test_server_test_browse_returns_models"
     },
     {
       "relation": "contains",
@@ -4365,9 +4365,9 @@
       "source_file": "tests/test_server.py",
       "source_location": "L35",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_server",
-      "target": "tests_test_server_test_search_returns_models",
-      "confidence_score": 1.0
+      "target": "tests_test_server_test_search_returns_models"
     },
     {
       "relation": "method",
@@ -4375,9 +4375,9 @@
       "source_file": "tests/test_server.py",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_server_fakeprofile",
-      "target": "tests_test_server_fakeprofile_async_browse_direct_children",
-      "confidence_score": 1.0
+      "target": "tests_test_server_fakeprofile_async_browse_direct_children"
     },
     {
       "relation": "method",
@@ -4385,9 +4385,9 @@
       "source_file": "tests/test_server.py",
       "source_location": "L22",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_server_fakeprofile",
-      "target": "tests_test_server_fakeprofile_async_search_directory",
-      "confidence_score": 1.0
+      "target": "tests_test_server_fakeprofile_async_search_directory"
     },
     {
       "relation": "calls",
@@ -4396,9 +4396,9 @@
       "source_file": "tests/test_server.py",
       "source_location": "L28",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_server_test_browse_returns_models",
-      "target": "tests_test_server_fakeprofile",
-      "confidence_score": 1.0
+      "target": "tests_test_server_fakeprofile"
     },
     {
       "relation": "calls",
@@ -4407,9 +4407,9 @@
       "source_file": "tests/test_server.py",
       "source_location": "L36",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_server_test_search_returns_models",
-      "target": "tests_test_server_fakeprofile",
-      "confidence_score": 1.0
+      "target": "tests_test_server_fakeprofile"
     },
     {
       "relation": "contains",
@@ -4417,9 +4417,9 @@
       "source_file": "tests/test_store.py",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_store",
-      "target": "tests_test_store_test_corrupt_file_is_ignored",
-      "confidence_score": 1.0
+      "target": "tests_test_store_test_corrupt_file_is_ignored"
     },
     {
       "relation": "contains",
@@ -4427,9 +4427,9 @@
       "source_file": "tests/test_store.py",
       "source_location": "L26",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_store",
-      "target": "tests_test_store_test_missing_file",
-      "confidence_score": 1.0
+      "target": "tests_test_store_test_missing_file"
     },
     {
       "relation": "contains",
@@ -4437,9 +4437,9 @@
       "source_file": "tests/test_store.py",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_store",
-      "target": "tests_test_store_test_roundtrip",
-      "confidence_score": 1.0
+      "target": "tests_test_store_test_roundtrip"
     },
     {
       "relation": "contains",
@@ -4447,9 +4447,9 @@
       "source_file": "ui/app.py",
       "source_location": "L199",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app",
-      "target": "ui_app_deviceitem",
-      "confidence_score": 1.0
+      "target": "ui_app_deviceitem"
     },
     {
       "relation": "contains",
@@ -4457,9 +4457,9 @@
       "source_file": "ui/app.py",
       "source_location": "L206",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app",
-      "target": "ui_app_devicescreen",
-      "confidence_score": 1.0
+      "target": "ui_app_devicescreen"
     },
     {
       "relation": "contains",
@@ -4467,9 +4467,9 @@
       "source_file": "ui/app.py",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app",
-      "target": "ui_app_dlnaapp",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp"
     },
     {
       "relation": "contains",
@@ -4477,9 +4477,9 @@
       "source_file": "ui/app.py",
       "source_location": "L244",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app",
-      "target": "ui_app_searchscreen",
-      "confidence_score": 1.0
+      "target": "ui_app_searchscreen"
     },
     {
       "relation": "imports_from",
@@ -4488,9 +4488,9 @@
       "source_file": "ui/app.py",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app",
-      "target": "ui_widgets",
-      "confidence_score": 1.0
+      "target": "ui_widgets"
     },
     {
       "relation": "imports",
@@ -4499,9 +4499,9 @@
       "source_file": "ui/app.py",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app",
-      "target": "ui_widgets_nowplaying",
-      "confidence_score": 1.0
+      "target": "ui_widgets_nowplaying"
     },
     {
       "relation": "inherits",
@@ -4509,9 +4509,9 @@
       "source_file": "ui/app.py",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp",
-      "target": "app",
-      "confidence_score": 1.0
+      "target": "app"
     },
     {
       "relation": "uses",
@@ -4519,9 +4519,9 @@
       "source_file": "ui/app.py",
       "source_location": "L6",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "ui_app_dlnaapp",
-      "target": "composeresult",
-      "confidence_score": 0.5
+      "target": "composeresult"
     },
     {
       "relation": "method",
@@ -4529,9 +4529,9 @@
       "source_file": "ui/app.py",
       "source_location": "L191",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp",
-      "target": "ui_app_dlnaapp_action_devices",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_action_devices"
     },
     {
       "relation": "method",
@@ -4539,9 +4539,9 @@
       "source_file": "ui/app.py",
       "source_location": "L155",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp",
-      "target": "ui_app_dlnaapp_action_enqueue",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_action_enqueue"
     },
     {
       "relation": "method",
@@ -4549,9 +4549,9 @@
       "source_file": "ui/app.py",
       "source_location": "L182",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp",
-      "target": "ui_app_dlnaapp_action_favorite",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_action_favorite"
     },
     {
       "relation": "method",
@@ -4559,9 +4559,9 @@
       "source_file": "ui/app.py",
       "source_location": "L145",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp",
-      "target": "ui_app_dlnaapp_action_next",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_action_next"
     },
     {
       "relation": "method",
@@ -4569,9 +4569,9 @@
       "source_file": "ui/app.py",
       "source_location": "L150",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp",
-      "target": "ui_app_dlnaapp_action_prev",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_action_prev"
     },
     {
       "relation": "method",
@@ -4579,9 +4579,9 @@
       "source_file": "ui/app.py",
       "source_location": "L194",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp",
-      "target": "ui_app_dlnaapp_action_quit",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_action_quit"
     },
     {
       "relation": "method",
@@ -4589,9 +4589,9 @@
       "source_file": "ui/app.py",
       "source_location": "L178",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp",
-      "target": "ui_app_dlnaapp_action_search",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_action_search"
     },
     {
       "relation": "method",
@@ -4599,9 +4599,9 @@
       "source_file": "ui/app.py",
       "source_location": "L174",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp",
-      "target": "ui_app_dlnaapp_action_seek_back",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_action_seek_back"
     },
     {
       "relation": "method",
@@ -4609,9 +4609,9 @@
       "source_file": "ui/app.py",
       "source_location": "L170",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp",
-      "target": "ui_app_dlnaapp_action_seek_fwd",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_action_seek_fwd"
     },
     {
       "relation": "method",
@@ -4619,9 +4619,9 @@
       "source_file": "ui/app.py",
       "source_location": "L133",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp",
-      "target": "ui_app_dlnaapp_action_toggle",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_action_toggle"
     },
     {
       "relation": "method",
@@ -4629,9 +4629,9 @@
       "source_file": "ui/app.py",
       "source_location": "L166",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp",
-      "target": "ui_app_dlnaapp_action_vol_down",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_action_vol_down"
     },
     {
       "relation": "method",
@@ -4639,9 +4639,9 @@
       "source_file": "ui/app.py",
       "source_location": "L162",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp",
-      "target": "ui_app_dlnaapp_action_vol_up",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_action_vol_up"
     },
     {
       "relation": "method",
@@ -4649,9 +4649,9 @@
       "source_file": "ui/app.py",
       "source_location": "L51",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp",
-      "target": "ui_app_dlnaapp_compose",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_compose"
     },
     {
       "relation": "method",
@@ -4659,9 +4659,9 @@
       "source_file": "ui/app.py",
       "source_location": "L36",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp",
-      "target": "ui_app_dlnaapp_init",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_init"
     },
     {
       "relation": "method",
@@ -4669,9 +4669,9 @@
       "source_file": "ui/app.py",
       "source_location": "L95",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp",
-      "target": "ui_app_dlnaapp_load_children",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_load_children"
     },
     {
       "relation": "method",
@@ -4679,9 +4679,9 @@
       "source_file": "ui/app.py",
       "source_location": "L59",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp",
-      "target": "ui_app_dlnaapp_on_mount",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_on_mount"
     },
     {
       "relation": "method",
@@ -4689,9 +4689,9 @@
       "source_file": "ui/app.py",
       "source_location": "L100",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp",
-      "target": "ui_app_dlnaapp_on_tree_node_expanded",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_on_tree_node_expanded"
     },
     {
       "relation": "method",
@@ -4699,9 +4699,9 @@
       "source_file": "ui/app.py",
       "source_location": "L105",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp",
-      "target": "ui_app_dlnaapp_on_tree_node_selected",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_on_tree_node_selected"
     },
     {
       "relation": "method",
@@ -4709,9 +4709,9 @@
       "source_file": "ui/app.py",
       "source_location": "L119",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp",
-      "target": "ui_app_dlnaapp_refresh_state",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_refresh_state"
     },
     {
       "relation": "method",
@@ -4719,9 +4719,9 @@
       "source_file": "ui/app.py",
       "source_location": "L79",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp",
-      "target": "ui_app_dlnaapp_set_renderer",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_set_renderer"
     },
     {
       "relation": "method",
@@ -4729,9 +4729,9 @@
       "source_file": "ui/app.py",
       "source_location": "L66",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp",
-      "target": "ui_app_dlnaapp_set_server",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_set_server"
     },
     {
       "relation": "method",
@@ -4739,9 +4739,9 @@
       "source_file": "ui/app.py",
       "source_location": "L114",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp",
-      "target": "ui_app_dlnaapp_spawn",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_spawn"
     },
     {
       "relation": "method",
@@ -4749,9 +4749,9 @@
       "source_file": "ui/app.py",
       "source_location": "L90",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp",
-      "target": "ui_app_dlnaapp_update_subtitle",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_update_subtitle"
     },
     {
       "relation": "uses",
@@ -4759,9 +4759,9 @@
       "source_file": "ui/app.py",
       "source_location": "L16",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "ui_app_dlnaapp",
-      "target": "ui_widgets_nowplaying",
-      "confidence_score": 0.5
+      "target": "ui_widgets_nowplaying"
     },
     {
       "relation": "references",
@@ -4770,9 +4770,9 @@
       "source_file": "ui/app.py",
       "source_location": "L36",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp_init",
-      "target": "store",
-      "confidence_score": 1.0
+      "target": "store"
     },
     {
       "relation": "calls",
@@ -4781,9 +4781,9 @@
       "source_file": "ui/app.py",
       "source_location": "L38",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp_init",
-      "target": "ui_app_searchscreen_init",
-      "confidence_score": 1.0
+      "target": "ui_app_searchscreen_init"
     },
     {
       "relation": "uses",
@@ -4791,9 +4791,9 @@
       "source_file": "ui/app.py",
       "source_location": "L6",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "store",
-      "target": "composeresult",
-      "confidence_score": 0.5
+      "target": "composeresult"
     },
     {
       "relation": "uses",
@@ -4801,9 +4801,9 @@
       "source_file": "ui/app.py",
       "source_location": "L16",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "store",
-      "target": "ui_widgets_nowplaying",
-      "confidence_score": 0.5
+      "target": "ui_widgets_nowplaying"
     },
     {
       "relation": "references",
@@ -4812,9 +4812,9 @@
       "source_file": "ui/app.py",
       "source_location": "L51",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp_compose",
-      "target": "composeresult",
-      "confidence_score": 1.0
+      "target": "composeresult"
     },
     {
       "relation": "calls",
@@ -4843,9 +4843,9 @@
       "source_file": "ui/app.py",
       "source_location": "L16",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "composeresult",
-      "target": "ui_widgets_nowplaying",
-      "confidence_score": 0.5
+      "target": "ui_widgets_nowplaying"
     },
     {
       "relation": "uses",
@@ -4853,9 +4853,9 @@
       "source_file": "ui/app.py",
       "source_location": "L6",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "nodeexpanded",
-      "target": "composeresult",
-      "confidence_score": 0.5
+      "target": "composeresult"
     },
     {
       "relation": "uses",
@@ -4863,9 +4863,9 @@
       "source_file": "ui/app.py",
       "source_location": "L6",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "nodeselected",
-      "target": "composeresult",
-      "confidence_score": 0.5
+      "target": "composeresult"
     },
     {
       "relation": "uses",
@@ -4873,9 +4873,9 @@
       "source_file": "ui/app.py",
       "source_location": "L6",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "selected",
-      "target": "composeresult",
-      "confidence_score": 0.5
+      "target": "composeresult"
     },
     {
       "relation": "uses",
@@ -4883,9 +4883,9 @@
       "source_file": "ui/app.py",
       "source_location": "L6",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "submitted",
-      "target": "composeresult",
-      "confidence_score": 0.5
+      "target": "composeresult"
     },
     {
       "relation": "uses",
@@ -4893,9 +4893,9 @@
       "source_file": "ui/app.py",
       "source_location": "L6",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "ui_app_deviceitem",
-      "target": "composeresult",
-      "confidence_score": 0.5
+      "target": "composeresult"
     },
     {
       "relation": "uses",
@@ -4903,9 +4903,9 @@
       "source_file": "ui/app.py",
       "source_location": "L6",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "ui_app_devicescreen",
-      "target": "composeresult",
-      "confidence_score": 0.5
+      "target": "composeresult"
     },
     {
       "relation": "references",
@@ -4914,9 +4914,9 @@
       "source_file": "ui/app.py",
       "source_location": "L214",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_devicescreen_compose",
-      "target": "composeresult",
-      "confidence_score": 1.0
+      "target": "composeresult"
     },
     {
       "relation": "uses",
@@ -4924,9 +4924,9 @@
       "source_file": "ui/app.py",
       "source_location": "L6",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "ui_app_searchscreen",
-      "target": "composeresult",
-      "confidence_score": 0.5
+      "target": "composeresult"
     },
     {
       "relation": "references",
@@ -4935,9 +4935,9 @@
       "source_file": "ui/app.py",
       "source_location": "L249",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_searchscreen_compose",
-      "target": "composeresult",
-      "confidence_score": 1.0
+      "target": "composeresult"
     },
     {
       "relation": "calls",
@@ -4946,9 +4946,9 @@
       "source_file": "ui/app.py",
       "source_location": "L63",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp_on_mount",
-      "target": "ui_app_dlnaapp_set_renderer",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_set_renderer"
     },
     {
       "relation": "calls",
@@ -4957,9 +4957,9 @@
       "source_file": "ui/app.py",
       "source_location": "L61",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp_on_mount",
-      "target": "ui_app_dlnaapp_set_server",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_set_server"
     },
     {
       "relation": "calls",
@@ -4968,9 +4968,9 @@
       "source_file": "ui/app.py",
       "source_location": "L233",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_devicescreen_on_list_view_selected",
-      "target": "ui_app_dlnaapp_set_server",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_set_server"
     },
     {
       "relation": "calls",
@@ -4979,9 +4979,9 @@
       "source_file": "ui/app.py",
       "source_location": "L75",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp_set_server",
-      "target": "ui_app_dlnaapp_load_children",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_load_children"
     },
     {
       "relation": "calls",
@@ -4990,9 +4990,9 @@
       "source_file": "ui/app.py",
       "source_location": "L77",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp_set_server",
-      "target": "ui_app_dlnaapp_update_subtitle",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_update_subtitle"
     },
     {
       "relation": "calls",
@@ -5001,9 +5001,9 @@
       "source_file": "ui/app.py",
       "source_location": "L236",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_devicescreen_on_list_view_selected",
-      "target": "ui_app_dlnaapp_set_renderer",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_set_renderer"
     },
     {
       "relation": "calls",
@@ -5012,9 +5012,9 @@
       "source_file": "ui/app.py",
       "source_location": "L88",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp_set_renderer",
-      "target": "ui_app_dlnaapp_update_subtitle",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_update_subtitle"
     },
     {
       "relation": "calls",
@@ -5023,9 +5023,9 @@
       "source_file": "ui/app.py",
       "source_location": "L103",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp_on_tree_node_expanded",
-      "target": "ui_app_dlnaapp_load_children",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_load_children"
     },
     {
       "relation": "references",
@@ -5034,9 +5034,9 @@
       "source_file": "ui/app.py",
       "source_location": "L100",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp_on_tree_node_expanded",
-      "target": "nodeexpanded",
-      "confidence_score": 1.0
+      "target": "nodeexpanded"
     },
     {
       "relation": "uses",
@@ -5044,9 +5044,9 @@
       "source_file": "ui/app.py",
       "source_location": "L16",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "nodeexpanded",
-      "target": "ui_widgets_nowplaying",
-      "confidence_score": 0.5
+      "target": "ui_widgets_nowplaying"
     },
     {
       "relation": "references",
@@ -5055,9 +5055,9 @@
       "source_file": "ui/app.py",
       "source_location": "L105",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp_on_tree_node_selected",
-      "target": "nodeselected",
-      "confidence_score": 1.0
+      "target": "nodeselected"
     },
     {
       "relation": "uses",
@@ -5065,9 +5065,9 @@
       "source_file": "ui/app.py",
       "source_location": "L16",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "nodeselected",
-      "target": "ui_widgets_nowplaying",
-      "confidence_score": 0.5
+      "target": "ui_widgets_nowplaying"
     },
     {
       "relation": "calls",
@@ -5076,9 +5076,9 @@
       "source_file": "ui/app.py",
       "source_location": "L130",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp_refresh_state",
-      "target": "ui_app_dlnaapp_spawn",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_spawn"
     },
     {
       "relation": "calls",
@@ -5087,9 +5087,9 @@
       "source_file": "ui/app.py",
       "source_location": "L160",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp_action_enqueue",
-      "target": "listitem",
-      "confidence_score": 1.0
+      "target": "listitem"
     },
     {
       "relation": "calls",
@@ -5098,9 +5098,9 @@
       "source_file": "ui/app.py",
       "source_location": "L180",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp_action_search",
-      "target": "ui_app_searchscreen",
-      "confidence_score": 1.0
+      "target": "ui_app_searchscreen"
     },
     {
       "relation": "calls",
@@ -5109,9 +5109,9 @@
       "source_file": "ui/app.py",
       "source_location": "L192",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp_action_devices",
-      "target": "ui_app_devicescreen",
-      "confidence_score": 1.0
+      "target": "ui_app_devicescreen"
     },
     {
       "relation": "inherits",
@@ -5119,9 +5119,9 @@
       "source_file": "ui/app.py",
       "source_location": "L199",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_deviceitem",
-      "target": "listitem",
-      "confidence_score": 1.0
+      "target": "listitem"
     },
     {
       "relation": "method",
@@ -5129,9 +5129,9 @@
       "source_file": "ui/app.py",
       "source_location": "L200",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_deviceitem",
-      "target": "ui_app_deviceitem_init",
-      "confidence_score": 1.0
+      "target": "ui_app_deviceitem_init"
     },
     {
       "relation": "uses",
@@ -5139,9 +5139,9 @@
       "source_file": "ui/app.py",
       "source_location": "L16",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "ui_app_deviceitem",
-      "target": "ui_widgets_nowplaying",
-      "confidence_score": 0.5
+      "target": "ui_widgets_nowplaying"
     },
     {
       "relation": "calls",
@@ -5150,9 +5150,9 @@
       "source_file": "ui/app.py",
       "source_location": "L225",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_devicescreen_on_mount",
-      "target": "ui_app_deviceitem",
-      "confidence_score": 1.0
+      "target": "ui_app_deviceitem"
     },
     {
       "relation": "calls",
@@ -5161,9 +5161,9 @@
       "source_file": "ui/app.py",
       "source_location": "L201",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_deviceitem_init",
-      "target": "ui_app_searchscreen_init",
-      "confidence_score": 1.0
+      "target": "ui_app_searchscreen_init"
     },
     {
       "relation": "inherits",
@@ -5171,9 +5171,9 @@
       "source_file": "ui/app.py",
       "source_location": "L206",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_devicescreen",
-      "target": "modalscreen",
-      "confidence_score": 1.0
+      "target": "modalscreen"
     },
     {
       "relation": "method",
@@ -5181,9 +5181,9 @@
       "source_file": "ui/app.py",
       "source_location": "L240",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_devicescreen",
-      "target": "ui_app_devicescreen_action_close",
-      "confidence_score": 1.0
+      "target": "ui_app_devicescreen_action_close"
     },
     {
       "relation": "method",
@@ -5191,9 +5191,9 @@
       "source_file": "ui/app.py",
       "source_location": "L214",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_devicescreen",
-      "target": "ui_app_devicescreen_compose",
-      "confidence_score": 1.0
+      "target": "ui_app_devicescreen_compose"
     },
     {
       "relation": "method",
@@ -5201,9 +5201,9 @@
       "source_file": "ui/app.py",
       "source_location": "L210",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_devicescreen",
-      "target": "ui_app_devicescreen_init",
-      "confidence_score": 1.0
+      "target": "ui_app_devicescreen_init"
     },
     {
       "relation": "method",
@@ -5211,9 +5211,9 @@
       "source_file": "ui/app.py",
       "source_location": "L230",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_devicescreen",
-      "target": "ui_app_devicescreen_on_list_view_selected",
-      "confidence_score": 1.0
+      "target": "ui_app_devicescreen_on_list_view_selected"
     },
     {
       "relation": "method",
@@ -5221,9 +5221,9 @@
       "source_file": "ui/app.py",
       "source_location": "L221",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_devicescreen",
-      "target": "ui_app_devicescreen_on_mount",
-      "confidence_score": 1.0
+      "target": "ui_app_devicescreen_on_mount"
     },
     {
       "relation": "uses",
@@ -5231,9 +5231,9 @@
       "source_file": "ui/app.py",
       "source_location": "L16",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "ui_app_devicescreen",
-      "target": "ui_widgets_nowplaying",
-      "confidence_score": 0.5
+      "target": "ui_widgets_nowplaying"
     },
     {
       "relation": "inherits",
@@ -5241,9 +5241,9 @@
       "source_file": "ui/app.py",
       "source_location": "L244",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_searchscreen",
-      "target": "modalscreen",
-      "confidence_score": 1.0
+      "target": "modalscreen"
     },
     {
       "relation": "calls",
@@ -5252,9 +5252,9 @@
       "source_file": "ui/app.py",
       "source_location": "L211",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_devicescreen_init",
-      "target": "ui_app_searchscreen_init",
-      "confidence_score": 1.0
+      "target": "ui_app_searchscreen_init"
     },
     {
       "relation": "references",
@@ -5263,9 +5263,9 @@
       "source_file": "ui/app.py",
       "source_location": "L230",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_devicescreen_on_list_view_selected",
-      "target": "selected",
-      "confidence_score": 1.0
+      "target": "selected"
     },
     {
       "relation": "uses",
@@ -5273,9 +5273,9 @@
       "source_file": "ui/app.py",
       "source_location": "L16",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "selected",
-      "target": "ui_widgets_nowplaying",
-      "confidence_score": 0.5
+      "target": "ui_widgets_nowplaying"
     },
     {
       "relation": "method",
@@ -5283,9 +5283,9 @@
       "source_file": "ui/app.py",
       "source_location": "L249",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_searchscreen",
-      "target": "ui_app_searchscreen_compose",
-      "confidence_score": 1.0
+      "target": "ui_app_searchscreen_compose"
     },
     {
       "relation": "method",
@@ -5293,9 +5293,9 @@
       "source_file": "ui/app.py",
       "source_location": "L245",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_searchscreen",
-      "target": "ui_app_searchscreen_init",
-      "confidence_score": 1.0
+      "target": "ui_app_searchscreen_init"
     },
     {
       "relation": "method",
@@ -5303,9 +5303,9 @@
       "source_file": "ui/app.py",
       "source_location": "L252",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_searchscreen",
-      "target": "ui_app_searchscreen_on_input_submitted",
-      "confidence_score": 1.0
+      "target": "ui_app_searchscreen_on_input_submitted"
     },
     {
       "relation": "uses",
@@ -5313,9 +5313,9 @@
       "source_file": "ui/app.py",
       "source_location": "L16",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "ui_app_searchscreen",
-      "target": "ui_widgets_nowplaying",
-      "confidence_score": 0.5
+      "target": "ui_widgets_nowplaying"
     },
     {
       "relation": "references",
@@ -5324,9 +5324,9 @@
       "source_file": "ui/app.py",
       "source_location": "L252",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_searchscreen_on_input_submitted",
-      "target": "submitted",
-      "confidence_score": 1.0
+      "target": "submitted"
     },
     {
       "relation": "uses",
@@ -5334,9 +5334,9 @@
       "source_file": "ui/app.py",
       "source_location": "L16",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "submitted",
-      "target": "ui_widgets_nowplaying",
-      "confidence_score": 0.5
+      "target": "ui_widgets_nowplaying"
     },
     {
       "relation": "contains",
@@ -5344,9 +5344,9 @@
       "source_file": "ui/widgets.py",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_widgets",
-      "target": "ui_widgets_fmt",
-      "confidence_score": 1.0
+      "target": "ui_widgets_fmt"
     },
     {
       "relation": "contains",
@@ -5354,9 +5354,9 @@
       "source_file": "ui/widgets.py",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_widgets",
-      "target": "ui_widgets_nowplaying",
-      "confidence_score": 1.0
+      "target": "ui_widgets_nowplaying"
     },
     {
       "relation": "calls",
@@ -5365,9 +5365,9 @@
       "source_file": "ui/widgets.py",
       "source_location": "L21",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_widgets_nowplaying_render",
-      "target": "ui_widgets_fmt",
-      "confidence_score": 1.0
+      "target": "ui_widgets_fmt"
     },
     {
       "relation": "inherits",
@@ -5375,9 +5375,9 @@
       "source_file": "ui/widgets.py",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_widgets_nowplaying",
-      "target": "static",
-      "confidence_score": 1.0
+      "target": "static"
     },
     {
       "relation": "method",
@@ -5385,9 +5385,9 @@
       "source_file": "ui/widgets.py",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_widgets_nowplaying",
-      "target": "ui_widgets_nowplaying_render",
-      "confidence_score": 1.0
+      "target": "ui_widgets_nowplaying_render"
     },
     {
       "relation": "contains",
@@ -5395,9 +5395,9 @@
       "source_file": "docs/superpowers/plans/2026-10-01-dlna-tui.md",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_2026_10_01_dlna_tui",
-      "target": "plans_2026_10_01_dlna_tui_dlna_tui_implementation_plan",
-      "confidence_score": 1.0
+      "target": "plans_2026_10_01_dlna_tui_dlna_tui_implementation_plan"
     },
     {
       "relation": "contains",
@@ -5405,9 +5405,9 @@
       "source_file": "docs/superpowers/plans/2026-10-01-dlna-tui.md",
       "source_location": "L1047",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_2026_10_01_dlna_tui_dlna_tui_implementation_plan",
-      "target": "plans_2026_10_01_dlna_tui_bekannte_risiken_am_ger\u00e4t_verifizieren",
-      "confidence_score": 1.0
+      "target": "plans_2026_10_01_dlna_tui_bekannte_risiken_am_ger\u00e4t_verifizieren"
     },
     {
       "relation": "contains",
@@ -5415,9 +5415,9 @@
       "source_file": "docs/superpowers/plans/2026-10-01-dlna-tui.md",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_2026_10_01_dlna_tui_dlna_tui_implementation_plan",
-      "target": "plans_2026_10_01_dlna_tui_dateistruktur",
-      "confidence_score": 1.0
+      "target": "plans_2026_10_01_dlna_tui_dateistruktur"
     },
     {
       "relation": "contains",
@@ -5425,9 +5425,9 @@
       "source_file": "docs/superpowers/plans/2026-10-01-dlna-tui.md",
       "source_location": "L1037",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_2026_10_01_dlna_tui_dlna_tui_implementation_plan",
-      "target": "plans_2026_10_01_dlna_tui_self_review_durchgef\u00fchrt",
-      "confidence_score": 1.0
+      "target": "plans_2026_10_01_dlna_tui_self_review_durchgef\u00fchrt"
     },
     {
       "relation": "contains",
@@ -5435,9 +5435,9 @@
       "source_file": "docs/superpowers/plans/2026-10-01-dlna-tui.md",
       "source_location": "L41",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_2026_10_01_dlna_tui_dateistruktur",
-      "target": "plans_2026_10_01_dlna_tui_task_0_projekt_setup",
-      "confidence_score": 1.0
+      "target": "plans_2026_10_01_dlna_tui_task_0_projekt_setup"
     },
     {
       "relation": "contains",
@@ -5445,9 +5445,9 @@
       "source_file": "docs/superpowers/plans/2026-10-01-dlna-tui.md",
       "source_location": "L85",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_2026_10_01_dlna_tui_dateistruktur",
-      "target": "plans_2026_10_01_dlna_tui_task_1_modelle_didl_adapter",
-      "confidence_score": 1.0
+      "target": "plans_2026_10_01_dlna_tui_task_1_modelle_didl_adapter"
     },
     {
       "relation": "contains",
@@ -5455,9 +5455,9 @@
       "source_file": "docs/superpowers/plans/2026-10-01-dlna-tui.md",
       "source_location": "L226",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_2026_10_01_dlna_tui_dateistruktur",
-      "target": "plans_2026_10_01_dlna_tui_task_2_queue_logik_rein",
-      "confidence_score": 1.0
+      "target": "plans_2026_10_01_dlna_tui_task_2_queue_logik_rein"
     },
     {
       "relation": "contains",
@@ -5465,9 +5465,9 @@
       "source_file": "docs/superpowers/plans/2026-10-01-dlna-tui.md",
       "source_location": "L314",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_2026_10_01_dlna_tui_dateistruktur",
-      "target": "plans_2026_10_01_dlna_tui_task_3_store_favoriten_session",
-      "confidence_score": 1.0
+      "target": "plans_2026_10_01_dlna_tui_task_3_store_favoriten_session"
     },
     {
       "relation": "contains",
@@ -5475,9 +5475,9 @@
       "source_file": "docs/superpowers/plans/2026-10-01-dlna-tui.md",
       "source_location": "L415",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_2026_10_01_dlna_tui_dateistruktur",
-      "target": "plans_2026_10_01_dlna_tui_task_4_discovery",
-      "confidence_score": 1.0
+      "target": "plans_2026_10_01_dlna_tui_task_4_discovery"
     },
     {
       "relation": "contains",
@@ -5485,9 +5485,9 @@
       "source_file": "docs/superpowers/plans/2026-10-01-dlna-tui.md",
       "source_location": "L479",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_2026_10_01_dlna_tui_dateistruktur",
-      "target": "plans_2026_10_01_dlna_tui_task_5_musicserver_browse_search",
-      "confidence_score": 1.0
+      "target": "plans_2026_10_01_dlna_tui_task_5_musicserver_browse_search"
     },
     {
       "relation": "contains",
@@ -5495,9 +5495,9 @@
       "source_file": "docs/superpowers/plans/2026-10-01-dlna-tui.md",
       "source_location": "L580",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_2026_10_01_dlna_tui_dateistruktur",
-      "target": "plans_2026_10_01_dlna_tui_task_6_renderer_steuerung_zustand_sichere_calls",
-      "confidence_score": 1.0
+      "target": "plans_2026_10_01_dlna_tui_task_6_renderer_steuerung_zustand_sichere_calls"
     },
     {
       "relation": "contains",
@@ -5505,9 +5505,9 @@
       "source_file": "docs/superpowers/plans/2026-10-01-dlna-tui.md",
       "source_location": "L740",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_2026_10_01_dlna_tui_dateistruktur",
-      "target": "plans_2026_10_01_dlna_tui_task_7_tui_textual",
-      "confidence_score": 1.0
+      "target": "plans_2026_10_01_dlna_tui_task_7_tui_textual"
     },
     {
       "relation": "contains",
@@ -5515,9 +5515,9 @@
       "source_file": "docs/superpowers/plans/2026-10-01-dlna-tui.md",
       "source_location": "L949",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "plans_2026_10_01_dlna_tui_dateistruktur",
-      "target": "plans_2026_10_01_dlna_tui_task_8_einstieg_ger\u00e4teauswahl",
-      "confidence_score": 1.0
+      "target": "plans_2026_10_01_dlna_tui_task_8_einstieg_ger\u00e4teauswahl"
     },
     {
       "relation": "contains",
@@ -5525,9 +5525,9 @@
       "source_file": "docs/superpowers/specs/2026-10-01-dlna-tui-design.md",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "specs_2026_10_01_dlna_tui_design",
-      "target": "specs_2026_10_01_dlna_tui_design_dlna_tui_design",
-      "confidence_score": 1.0
+      "target": "specs_2026_10_01_dlna_tui_design_dlna_tui_design"
     },
     {
       "relation": "contains",
@@ -5535,9 +5535,9 @@
       "source_file": "docs/superpowers/specs/2026-10-01-dlna-tui-design.md",
       "source_location": "L27",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "specs_2026_10_01_dlna_tui_design_dlna_tui_design",
-      "target": "specs_2026_10_01_dlna_tui_design_architektur",
-      "confidence_score": 1.0
+      "target": "specs_2026_10_01_dlna_tui_design_architektur"
     },
     {
       "relation": "contains",
@@ -5545,9 +5545,9 @@
       "source_file": "docs/superpowers/specs/2026-10-01-dlna-tui-design.md",
       "source_location": "L78",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "specs_2026_10_01_dlna_tui_design_dlna_tui_design",
-      "target": "specs_2026_10_01_dlna_tui_design_datenfluss",
-      "confidence_score": 1.0
+      "target": "specs_2026_10_01_dlna_tui_design_datenfluss"
     },
     {
       "relation": "contains",
@@ -5555,9 +5555,9 @@
       "source_file": "docs/superpowers/specs/2026-10-01-dlna-tui-design.md",
       "source_location": "L88",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "specs_2026_10_01_dlna_tui_design_dlna_tui_design",
-      "target": "specs_2026_10_01_dlna_tui_design_fehlerbehandlung",
-      "confidence_score": 1.0
+      "target": "specs_2026_10_01_dlna_tui_design_fehlerbehandlung"
     },
     {
       "relation": "contains",
@@ -5565,9 +5565,9 @@
       "source_file": "docs/superpowers/specs/2026-10-01-dlna-tui-design.md",
       "source_location": "L104",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "specs_2026_10_01_dlna_tui_design_dlna_tui_design",
-      "target": "specs_2026_10_01_dlna_tui_design_keybindings",
-      "confidence_score": 1.0
+      "target": "specs_2026_10_01_dlna_tui_design_keybindings"
     },
     {
       "relation": "contains",
@@ -5575,9 +5575,9 @@
       "source_file": "docs/superpowers/specs/2026-10-01-dlna-tui-design.md",
       "source_location": "L45",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "specs_2026_10_01_dlna_tui_design_dlna_tui_design",
-      "target": "specs_2026_10_01_dlna_tui_design_komponenten",
-      "confidence_score": 1.0
+      "target": "specs_2026_10_01_dlna_tui_design_komponenten"
     },
     {
       "relation": "contains",
@@ -5585,9 +5585,9 @@
       "source_file": "docs/superpowers/specs/2026-10-01-dlna-tui-design.md",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "specs_2026_10_01_dlna_tui_design_dlna_tui_design",
-      "target": "specs_2026_10_01_dlna_tui_design_stack",
-      "confidence_score": 1.0
+      "target": "specs_2026_10_01_dlna_tui_design_stack"
     },
     {
       "relation": "contains",
@@ -5595,9 +5595,9 @@
       "source_file": "docs/superpowers/specs/2026-10-01-dlna-tui-design.md",
       "source_location": "L95",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "specs_2026_10_01_dlna_tui_design_dlna_tui_design",
-      "target": "specs_2026_10_01_dlna_tui_design_tests",
-      "confidence_score": 1.0
+      "target": "specs_2026_10_01_dlna_tui_design_tests"
     },
     {
       "relation": "contains",
@@ -5605,9 +5605,9 @@
       "source_file": "docs/superpowers/specs/2026-10-01-dlna-tui-design.md",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "specs_2026_10_01_dlna_tui_design_dlna_tui_design",
-      "target": "specs_2026_10_01_dlna_tui_design_ziel_umfang",
-      "confidence_score": 1.0
+      "target": "specs_2026_10_01_dlna_tui_design_ziel_umfang"
     },
     {
       "relation": "contains",
@@ -5615,9 +5615,9 @@
       "source_file": "docs/superpowers/specs/2026-10-01-dlna-tui-design.md",
       "source_location": "L53",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "specs_2026_10_01_dlna_tui_design_komponenten",
-      "target": "specs_2026_10_01_dlna_tui_design_discovery_py",
-      "confidence_score": 1.0
+      "target": "specs_2026_10_01_dlna_tui_design_discovery_py"
     },
     {
       "relation": "contains",
@@ -5625,9 +5625,9 @@
       "source_file": "docs/superpowers/specs/2026-10-01-dlna-tui-design.md",
       "source_location": "L47",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "specs_2026_10_01_dlna_tui_design_komponenten",
-      "target": "specs_2026_10_01_dlna_tui_design_models_py",
-      "confidence_score": 1.0
+      "target": "specs_2026_10_01_dlna_tui_design_models_py"
     },
     {
       "relation": "contains",
@@ -5635,9 +5635,9 @@
       "source_file": "docs/superpowers/specs/2026-10-01-dlna-tui-design.md",
       "source_location": "L62",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "specs_2026_10_01_dlna_tui_design_komponenten",
-      "target": "specs_2026_10_01_dlna_tui_design_renderer_py",
-      "confidence_score": 1.0
+      "target": "specs_2026_10_01_dlna_tui_design_renderer_py"
     },
     {
       "relation": "contains",
@@ -5645,9 +5645,9 @@
       "source_file": "docs/superpowers/specs/2026-10-01-dlna-tui-design.md",
       "source_location": "L57",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "specs_2026_10_01_dlna_tui_design_komponenten",
-      "target": "specs_2026_10_01_dlna_tui_design_server_py",
-      "confidence_score": 1.0
+      "target": "specs_2026_10_01_dlna_tui_design_server_py"
     },
     {
       "relation": "contains",
@@ -5655,9 +5655,9 @@
       "source_file": "docs/superpowers/specs/2026-10-01-dlna-tui-design.md",
       "source_location": "L69",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "specs_2026_10_01_dlna_tui_design_komponenten",
-      "target": "specs_2026_10_01_dlna_tui_design_store_py",
-      "confidence_score": 1.0
+      "target": "specs_2026_10_01_dlna_tui_design_store_py"
     },
     {
       "relation": "contains",
@@ -5665,11 +5665,11 @@
       "source_file": "docs/superpowers/specs/2026-10-01-dlna-tui-design.md",
       "source_location": "L74",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "specs_2026_10_01_dlna_tui_design_komponenten",
-      "target": "specs_2026_10_01_dlna_tui_design_ui",
-      "confidence_score": 1.0
+      "target": "specs_2026_10_01_dlna_tui_design_ui"
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "bd75d6e42dbbee8f84735a79a472ee3e43d97d4f"
+  "built_at_commit": "a582770e21937a1f615b9791f0c1732990718a90"
 }

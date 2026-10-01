@@ -61,7 +61,7 @@ class DlnaApp(App):
             await self.set_server(self._srv_info)
         if self._rnd_info:
             await self.set_renderer(self._rnd_info)
-        self.set_interval(1.0, self._refresh_state)
+        self.set_interval(1.0, self._poll)
 
     async def set_server(self, info) -> None:
         self.server = MusicServer(
@@ -115,6 +115,12 @@ class DlnaApp(App):
         task = asyncio.create_task(coro)
         self._tasks.add(task)
         task.add_done_callback(self._tasks.discard)
+
+    async def _poll(self) -> None:
+        # Interval tick: refresh cached position/volume, then redraw.
+        if self.renderer:
+            await self.renderer.update()
+        self._refresh_state()
 
     def _refresh_state(self) -> None:
         if not self.renderer:

@@ -1,7 +1,7 @@
 # Graph Report - dlna TerminalClient  (2026-10-01)
 
 ## Corpus Check
-- 17 files · ~6,339 words
+- 17 files · ~6,375 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `bd75d6e4`
+- Built from commit: `a582770e`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 

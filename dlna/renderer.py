@@ -72,6 +72,11 @@ class Renderer:
         level = max(0.0, min(1.0, level))
         return await self._safe(self._p.async_set_volume_level(level))
 
+    async def update(self) -> bool:
+        # Polls GetPositionInfo/GetVolume etc. GENA events don't tick position
+        # or report volume, so state() is stale without this.
+        return await self._safe(self._p.async_update())
+
     async def subscribe(self, on_event: Callable[[], None]) -> bool:
         self._p.on_event = lambda svc, vars: on_event()
         return await self._safe(self._p.async_subscribe_services(auto_resubscribe=True))

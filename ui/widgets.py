@@ -18,5 +18,6 @@ class NowPlaying(Static):
         if not self.st or not self.st.title:
             return "— nichts spielt —"
         s = self.st
-        return (f"▶ {s.title}   {_fmt(s.position)}/{_fmt(s.duration)}   "
+        line = (f"▶ {s.title}   {_fmt(s.position)}/{_fmt(s.duration)}   "
                 f"vol {int(s.volume * 100)}%   [{s.transport_state}]")
+        return f"{line}\n{s.info}" if s.info else line

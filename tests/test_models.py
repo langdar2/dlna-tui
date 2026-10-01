@@ -28,6 +28,23 @@ def test_from_didl_parses_container_and_track():
     assert "<item id=\"i1\"" in track.didl
 
 
+DIDL_FLAC = """<DIDL-Lite xmlns="urn:schemas-upnp-org:metadata-1-0/DIDL-Lite/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:upnp="urn:schemas-upnp-org:metadata-1-0/upnp/">
+  <item id="i2" parentID="c1"><dc:title>Song B</dc:title>
+    <upnp:class>object.item.audioItem.musicTrack</upnp:class>
+    <res protocolInfo="http-get:*:audio/flac:*" sampleFrequency="44100"
+      bitsPerSample="16" nrAudioChannels="2" size="29360128"
+      duration="0:03:20.000">http://host/i2.flac</res>
+  </item>
+</DIDL-Lite>"""
+
+
+def test_media_info_summary():
+    track = from_didl(DIDL_FLAC)[0]
+    assert track.info == "flac · 44.1kHz · 16bit · 2ch · 28.0 MB"
+
+
 from dlna.models import Queue
 
 

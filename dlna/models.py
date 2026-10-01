@@ -28,13 +28,19 @@ class Track:
     duration: str = ""
     media_url: str = ""
     didl: str = ""  # DIDL-Lite fragment for the renderer
+    info: str = ""  # human-readable media summary (type, rate, size, …)
+
+
+def _first_res(obj):
+    for res in getattr(obj, "res", []) or []:
+        if getattr(res, "uri", None):
+            return res
+    return None
 
 
 def _first_res_uri(obj) -> str:
-    for res in getattr(obj, "res", []) or []:
-        if getattr(res, "uri", None):
-            return res.uri
-    return ""
+    res = _first_res(obj)
+    return res.uri if res else ""
 
 
 def _first_res_duration(obj) -> str:
@@ -42,6 +48,32 @@ def _first_res_duration(obj) -> str:
         if getattr(res, "duration", None):
             return res.duration
     return ""
+
+
+def _media_info(obj) -> str:
+    """Summarise the first <res>: file type, sample rate, depth, channels, size."""
+    res = _first_res(obj)
+    if res is None:
+        return ""
+    parts: list[str] = []
+    # protocolInfo looks like "http-get:*:audio/flac:*" -> take the subtype.
+    pi = getattr(res, "protocol_info", "") or ""
+    fields = pi.split(":")
+    if len(fields) >= 3 and "/" in fields[2]:
+        parts.append(fields[2].split("/")[-1])
+    freq = getattr(res, "sample_frequency", None)
+    if freq:
+        parts.append(f"{int(freq) / 1000:g}kHz")
+    depth = getattr(res, "bits_per_sample", None)
+    if depth:
+        parts.append(f"{depth}bit")
+    ch = getattr(res, "nr_audio_channels", None)
+    if ch:
+        parts.append(f"{ch}ch")
+    size = getattr(res, "size", None)
+    if size:
+        parts.append(f"{int(size) / 1_048_576:.1f} MB")
+    return " · ".join(parts)
 
 
 def _to_model(obj):
@@ -60,6 +92,7 @@ def _to_model(obj):
         duration=_first_res_duration(obj),
         media_url=_first_res_uri(obj),
         didl=didl_lite.to_xml_string(obj).decode(),
+        info=_media_info(obj),
     )
 
 

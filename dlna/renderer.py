@@ -14,6 +14,7 @@ class RendererState:
     duration: int = 0
     volume: float = 0.0
     title: str = ""
+    info: str = ""  # set by the app from the queued track; renderers rarely report it
 
 
 class Renderer:

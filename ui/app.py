@@ -49,9 +49,12 @@ class DlnaApp(App):
         self._node_obj: dict = {}  # ponytail: grows unbounded on re-search; prune if it matters
         self._last_state = ""
         self._tasks: set = set()  # keep create_task refs alive (else GC can cancel them)
+        self._filter_cid: str | None = None  # container being filtered; None = not filtering
+        self._filter_cache: dict[str, list] = {}  # cid -> children (one browse per folder)
 
     def compose(self) -> ComposeResult:
         yield Header()
+        yield Input(placeholder="/ Ordner filtern…", id="filter")
         with Horizontal():
             yield Tree("Server", id="browser")
             yield ListView(id="queue")
@@ -63,6 +66,7 @@ class DlnaApp(App):
             await self.set_server(self._srv_info)
         if self._rnd_info:
             await self.set_renderer(self._rnd_info)
+        self.query_one("#browser", Tree).focus()  # keys drive playback, not the filter box
         self.set_interval(1.0, self._poll)
 
     async def set_server(self, info) -> None:
@@ -74,6 +78,8 @@ class DlnaApp(App):
         tree = self.query_one("#browser", Tree)
         tree.root.remove_children()
         self._node_obj.clear()
+        self._filter_cache.clear()
+        self._filter_cid = None
         await self._load_children(tree.root, "0")
         tree.root.expand()
         self._update_subtitle()
@@ -198,7 +204,7 @@ class DlnaApp(App):
 
     async def action_search(self) -> None:
         if self.server:
-            await self.push_screen(FilterScreen(self))
+            self.query_one("#filter", Input).focus()
 
     def _current_container_id(self) -> str:
         """Container whose children are 'the current folder' for filtering."""
@@ -209,18 +215,34 @@ class DlnaApp(App):
         parent = self._node_obj.get(node.parent.id) if node and node.parent else None
         return parent.id if isinstance(parent, Container) else "0"
 
-    async def filter_current(self, query: str) -> None:
-        if not self.server:
+    async def _folder_items(self, cid: str) -> list:
+        if cid not in self._filter_cache:
+            self._filter_cache[cid] = await self.server.browse(cid)
+        return self._filter_cache[cid]
+
+    async def on_input_changed(self, event: Input.Changed) -> None:
+        if event.input.id != "filter" or not self.server:
             return
-        items = await self.server.browse(self._current_container_id())
-        q = query.lower()
         tree = self.query_one("#browser", Tree)
+        q = event.value.strip().lower()
+        if not q:  # cleared: reload the folder we were filtering (or top level)
+            cid, self._filter_cid = self._filter_cid or "0", None
+            tree.root.remove_children()
+            await self._load_children(tree.root, cid)
+            tree.root.expand()
+            return
+        if self._filter_cid is None:  # capture folder before we flatten the tree
+            self._filter_cid = self._current_container_id()
         tree.root.remove_children()
-        for o in items:
+        for o in await self._folder_items(self._filter_cid):
             if isinstance(o, Track) and q in o.title.lower():
                 child = tree.root.add(o.title, allow_expand=False)
                 self._node_obj[child.id] = o
         tree.root.expand()
+
+    async def on_input_submitted(self, event: Input.Submitted) -> None:
+        if event.input.id == "filter":  # Enter: hand control back to the browser
+            self.query_one("#browser", Tree).focus()
 
     async def action_favorite(self) -> None:
         node = self.query_one("#browser", Tree).cursor_node
@@ -341,17 +363,4 @@ class DeviceScreen(ModalScreen):
         self.dismiss()
 
     def action_close(self) -> None:
-        self.dismiss()
-
-
-class FilterScreen(ModalScreen):
-    def __init__(self, app_ref: "DlnaApp"):
-        super().__init__()
-        self._app = app_ref
-
-    def compose(self) -> ComposeResult:
-        yield Input(placeholder="Im Ordner filtern…", id="q")
-
-    async def on_input_submitted(self, event: Input.Submitted) -> None:
-        await self._app.filter_current(event.value)
         self.dismiss()

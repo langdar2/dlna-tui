@@ -6,6 +6,7 @@ import subprocess
 
 from async_upnp_client.aiohttp import AiohttpRequester
 from async_upnp_client.client_factory import UpnpFactory
+from async_upnp_client.const import HttpRequest
 from async_upnp_client.profiles.dlna import DmrDevice, DmsDevice
 
 from .models import DeviceInfo
@@ -26,6 +27,19 @@ def _lan_sources() -> list[tuple[str, int]]:
     return [(m, 0) for m in re.findall(r"inet (\d+\.\d+\.\d+\.\d+) netmask \S+ broadcast", out)]
 
 
+async def _friendly_name(location: str, requester) -> str | None:
+    """Pull <friendlyName> from the device description XML. None on any failure."""
+    try:
+        resp = await requester.async_http_request(
+            HttpRequest("GET", location, {}, None))
+        if resp.status_code != 200 or not resp.body:
+            return None
+        m = re.search(r"<friendlyName>(.*?)</friendlyName>", resp.body, re.S)
+        return m.group(1).strip() if m else None
+    except Exception:
+        return None
+
+
 async def _discover_kind(profile, kind: str, timeout: float) -> list[DeviceInfo]:
     found: dict[str, DeviceInfo] = {}
     sources = _lan_sources() or [None]
@@ -36,6 +50,12 @@ async def _discover_kind(profile, kind: str, timeout: float) -> list[DeviceInfo]
             if not location or udn in found:
                 continue
             found[udn] = DeviceInfo(udn=udn, name=udn, location=location, kind=kind)
+
+    requester = AiohttpRequester()
+    names = await asyncio.gather(
+        *(_friendly_name(d.location, requester) for d in found.values()))
+    for d, name in zip(found.values(), names):
+        d.name = name or d.udn
     return list(found.values())
 
 

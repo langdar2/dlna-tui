@@ -28,7 +28,7 @@ class DlnaApp(App):
         ("minus", "vol_down", "Vol-"),
         ("right", "seek_fwd", "Seek+"),
         ("left", "seek_back", "Seek-"),
-        ("slash", "search", "Suche"),
+        ("slash", "search", "Filter"),
         ("f", "favorite", "Fav"),
         ("i", "info", "Info"),
         ("d", "devices", "Geräte"),
@@ -198,7 +198,29 @@ class DlnaApp(App):
 
     async def action_search(self) -> None:
         if self.server:
-            await self.push_screen(SearchScreen(self))
+            await self.push_screen(FilterScreen(self))
+
+    def _current_container_id(self) -> str:
+        """Container whose children are 'the current folder' for filtering."""
+        node = self.query_one("#browser", Tree).cursor_node
+        obj = self._node_obj.get(node.id) if node else None
+        if isinstance(obj, Container):
+            return obj.id
+        parent = self._node_obj.get(node.parent.id) if node and node.parent else None
+        return parent.id if isinstance(parent, Container) else "0"
+
+    async def filter_current(self, query: str) -> None:
+        if not self.server:
+            return
+        items = await self.server.browse(self._current_container_id())
+        q = query.lower()
+        tree = self.query_one("#browser", Tree)
+        tree.root.remove_children()
+        for o in items:
+            if isinstance(o, Track) and q in o.title.lower():
+                child = tree.root.add(o.title, allow_expand=False)
+                self._node_obj[child.id] = o
+        tree.root.expand()
 
     async def action_favorite(self) -> None:
         node = self.query_one("#browser", Tree).cursor_node
@@ -322,19 +344,14 @@ class DeviceScreen(ModalScreen):
         self.dismiss()
 
 
-class SearchScreen(ModalScreen):
+class FilterScreen(ModalScreen):
     def __init__(self, app_ref: "DlnaApp"):
         super().__init__()
         self._app = app_ref
 
     def compose(self) -> ComposeResult:
-        yield Input(placeholder="Suche…", id="q")
+        yield Input(placeholder="Im Ordner filtern…", id="q")
 
     async def on_input_submitted(self, event: Input.Submitted) -> None:
-        results = await self._app.server.search(event.value)
-        tree = self._app.query_one("#browser", Tree)
-        tree.root.remove_children()
-        for t in results:
-            child = tree.root.add(t.title, allow_expand=False)
-            self._app._node_obj[child.id] = t
+        await self._app.filter_current(event.value)
         self.dismiss()

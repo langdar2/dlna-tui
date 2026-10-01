@@ -1,16 +1,16 @@
 # Graph Report - dlna TerminalClient  (2026-10-01)
 
 ## Corpus Check
-- 18 files · ~7,338 words
+- 18 files · ~7,433 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 193 nodes · 441 edges · 12 communities
-- Extraction: 74% EXTRACTED · 26% INFERRED · 0% AMBIGUOUS · INFERRED: 113 edges (avg confidence: 0.5)
+- 195 nodes · 446 edges · 13 communities (12 shown, 1 thin omitted)
+- Extraction: 75% EXTRACTED · 25% INFERRED · 0% AMBIGUOUS · INFERRED: 113 edges (avg confidence: 0.5)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `4069dede`
+- Built from commit: `fcc6de16`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -24,6 +24,7 @@
 - [[_COMMUNITY_Community 6|Community 6]]
 - [[_COMMUNITY_Community 7|Community 7]]
 - [[_COMMUNITY_Community 8|Community 8]]
+- [[_COMMUNITY_Community 12|Community 12]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `DlnaApp` - 37 edges
@@ -42,37 +43,33 @@
   ui/app.py → dlna/models.py
 - `NodeExpanded` --uses--> `Container`  [INFERRED]
   ui/app.py → dlna/models.py
+- `NodeSelected` --uses--> `Container`  [INFERRED]
+  ui/app.py → dlna/models.py
 - `Selected` --uses--> `Container`  [INFERRED]
   ui/app.py → dlna/models.py
-- `Submitted` --uses--> `Container`  [INFERRED]
-  ui/app.py → dlna/models.py
-- `DeviceItem` --uses--> `Container`  [INFERRED]
+- `Store` --uses--> `Container`  [INFERRED]
   ui/app.py → dlna/models.py
 
 ## Import Cycles
 - None detected.
 
-## Communities (12 total, 0 thin omitted)
+## Communities (13 total, 1 thin omitted)
 
 ### Community 0 - "Community 0"
-Cohesion: 0.15
-Nodes (22): Container, Container, _first_res(), _first_res_duration(), _first_res_uri(), from_didl(), _media_info(), Queue (+14 more)
+Cohesion: 0.18
+Nodes (19): Container, _first_res(), _first_res_duration(), _first_res_uri(), from_didl(), _is_audio(), _media_info(), Already-parsed didl_lite objects -> our models (Descriptors dropped).      Conta (+11 more)
 
 ### Community 1 - "Community 1"
-Cohesion: 0.11
-Nodes (12): ComposeResult, ListItem, ModalScreen, Static, Submitted, DeviceItem, DeviceScreen, Track (+4 more)
-
-### Community 2 - "Community 2"
-Cohesion: 0.11
-Nodes (6): App, build_device(), DeviceInfo -> concrete UpnpDevice (for MusicServer/Renderer).      Pass a shared, NodeExpanded, Selected, DlnaApp
+Cohesion: 0.12
+Nodes (17): ComposeResult, Queue, Track, ListItem, ModalScreen, NodeExpanded, NodeSelected, Selected (+9 more)
 
 ### Community 3 - "Community 3"
-Cohesion: 0.14
-Nodes (7): Track, Renderer, RendererState, FakeProfile, test_play_sets_uri(), test_safe_call_swallows_errors_and_reports(), test_state_snapshot()
+Cohesion: 0.15
+Nodes (6): Track, Renderer, FakeProfile, test_play_sets_uri(), test_safe_call_swallows_errors_and_reports(), test_state_snapshot()
 
 ### Community 4 - "Community 4"
-Cohesion: 0.16
-Nodes (15): DeviceInfo, Decode an image into a colored Rich renderable.      Each character cell is a '▀, to_ansi(), discover(), _discover_kind(), _friendly_name(), _lan_sources(), SSDP source addresses for broadcast-capable IPv4 interfaces.      Excludes loopb (+7 more)
+Cohesion: 0.21
+Nodes (14): DeviceInfo, build_device(), discover(), _discover_kind(), _friendly_name(), _lan_sources(), SSDP source addresses for broadcast-capable IPv4 interfaces.      Excludes loopb, Pull <friendlyName> from the device description XML. None on any failure. (+6 more)
 
 ### Community 5 - "Community 5"
 Cohesion: 0.12
@@ -87,22 +84,27 @@ Cohesion: 0.31
 Nodes (6): default_path(), Store, Path, test_corrupt_file_is_ignored(), test_missing_file(), test_roundtrip()
 
 ### Community 8 - "Community 8"
-Cohesion: 0.23
-Nodes (7): MusicServer, Track, FakeProfile, NoSearchProfile, test_browse_returns_models(), test_search_recurses_when_no_search_action(), test_search_returns_models()
+Cohesion: 0.21
+Nodes (8): Container, MusicServer, Track, FakeProfile, NoSearchProfile, test_browse_returns_models(), test_search_recurses_when_no_search_action(), test_search_returns_models()
+
+### Community 12 - "Community 12"
+Cohesion: 0.19
+Nodes (5): Decode an image into a colored Rich renderable.      Each character cell is a '▀, to_ansi(), RendererState, Text, _fmt()
 
 ## Knowledge Gaps
 - **25 isolated node(s):** `Text`, `Task 0: Projekt-Setup`, `Task 1: Modelle + DIDL-Adapter`, `Task 2: Queue-Logik (rein)`, `Task 3: Store (Favoriten + Session)` (+20 more)
   These have ≤1 connection - possible missing edges or undocumented components.
+- **1 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `DlnaApp` connect `Community 2` to `Community 0`, `Community 1`, `Community 3`, `Community 4`, `Community 7`, `Community 8`?**
-  _High betweenness centrality (0.181) - this node is a cross-community bridge._
-- **Why does `Renderer` connect `Community 3` to `Community 0`, `Community 1`, `Community 2`, `Community 4`?**
-  _High betweenness centrality (0.140) - this node is a cross-community bridge._
-- **Why does `Track` connect `Community 0` to `Community 1`, `Community 2`, `Community 3`, `Community 4`, `Community 8`?**
-  _High betweenness centrality (0.124) - this node is a cross-community bridge._
+- **Why does `DlnaApp` connect `Community 2` to `Community 0`, `Community 1`, `Community 3`, `Community 4`, `Community 7`, `Community 8`, `Community 12`?**
+  _High betweenness centrality (0.180) - this node is a cross-community bridge._
+- **Why does `Renderer` connect `Community 3` to `Community 1`, `Community 2`, `Community 12`?**
+  _High betweenness centrality (0.139) - this node is a cross-community bridge._
+- **Why does `Track` connect `Community 1` to `Community 0`, `Community 2`, `Community 3`, `Community 8`, `Community 12`?**
+  _High betweenness centrality (0.128) - this node is a cross-community bridge._
 - **Are the 8 inferred relationships involving `DlnaApp` (e.g. with `ComposeResult` and `Container`) actually correct?**
   _`DlnaApp` has 8 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 19 inferred relationships involving `Track` (e.g. with `ComposeResult` and `Container`) actually correct?**

@@ -110,7 +110,13 @@ class DlnaApp(App):
             if not self.renderer:
                 self.notify("Kein Renderer gewählt (d)", severity="warning")
                 return
-            self.queue = Queue([obj])
+            # Queue every track in the same folder/album, starting at this one,
+            # so playback continues through the rest of the list automatically.
+            parent = event.node.parent
+            siblings = parent.children if parent else [event.node]
+            tracks = [t for t in (self._node_obj.get(n.id) for n in siblings)
+                      if isinstance(t, Track)]
+            self.queue = Queue(tracks, tracks.index(obj))
             await self.renderer.play(obj)
 
     def _spawn(self, coro) -> None:

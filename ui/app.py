@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import asyncio
+import os
 
 from async_upnp_client.profiles.dlna import DmrDevice, DmsDevice
 from textual.app import App, ComposeResult
@@ -55,6 +56,8 @@ class DlnaApp(App):
         self._filter_cache: dict[str, list] = {}  # cid -> children (one browse per folder)
         self.radio = False  # CrateMind auto-continue: keep queueing similar tracks when it empties
         self._radio_busy = False  # guard against overlapping radio fetches
+        self.radio_limit = int(os.environ.get("RADIO_LIMIT", "10"))  # tracks per radio fetch
+        self._heard: set[str] = set()  # track ids already queued; radio skips them
 
     def compose(self) -> ComposeResult:
         yield Header()
@@ -102,7 +105,8 @@ class DlnaApp(App):
     def _update_subtitle(self) -> None:
         srv = self._srv_info.name if self._srv_info else "—"
         rnd = self._rnd_info.name if self._rnd_info else "—"
-        self.sub_title = f"{srv} → {rnd}"
+        radio = "  📻 Radio" if self.radio else ""
+        self.sub_title = f"{srv} → {rnd}{radio}"
 
     async def _load_children(self, node, object_id: str) -> None:
         for obj in await self.server.browse(object_id):
@@ -130,6 +134,7 @@ class DlnaApp(App):
                 tracks, idx = [obj], 0
             self.queue = Queue(tracks, idx)
             self.radio = False  # user picked a track; stop auto-continuing
+            self._update_subtitle()
             await self.renderer.play(obj)
 
     def _spawn(self, coro) -> None:
@@ -280,13 +285,20 @@ class DlnaApp(App):
         return obj if isinstance(obj, Track) else self.queue.current()
 
     async def _append_radio(self, seed: Track) -> int:
-        """Fetch similar tracks for seed and append to the queue. Returns count."""
-        recs = await radio_tracks(seed.title, seed.artist)
+        """Fetch similar tracks for seed and append to the queue, skipping ones
+        already heard this session. Returns how many were actually added."""
+        self._heard.update(t.id for t in self.queue.tracks)  # don't re-suggest what's queued
+        recs = await radio_tracks(seed.title, seed.artist, self.radio_limit)
         qview = self.query_one("#queue", ListView)
+        added = 0
         for t in recs:
+            if t.id in self._heard:
+                continue
+            self._heard.add(t.id)
             self.queue.append(t)
             qview.append(ListItem(Label(t.title)))
-        return len(recs)
+            added += 1
+        return added
 
     async def action_crate_radio(self) -> None:
         seed = self._seed_track()
@@ -296,7 +308,8 @@ class DlnaApp(App):
         self.notify(f"Radio: suche Ähnliches zu {seed.title}…")
         n = await self._append_radio(seed)
         self.radio = True  # keep going automatically when the queue later empties
-        self.notify(f"Radio an – {n} Titel ergänzt" if n else "Radio: nichts gefunden",
+        self._update_subtitle()
+        self.notify(f"Radio an – {n} Titel ergänzt" if n else "Radio: nichts Neues gefunden",
                     severity="information" if n else "warning")
 
     async def _radio_continue(self) -> None:

@@ -9,6 +9,7 @@ from textual.screen import ModalScreen
 from textual.widgets import Footer, Header, Input, ListItem, ListView, Label, Static, Tree
 
 from dlna.art import to_ansi
+from dlna.crate import radio_tracks
 from dlna.discovery import build_device, discover
 from dlna.models import Container, Queue, Track
 from dlna.renderer import Renderer
@@ -29,6 +30,7 @@ class DlnaApp(App):
         ("right", "seek_fwd", "Seek+"),
         ("left", "seek_back", "Seek-"),
         ("slash", "search", "Filter"),
+        ("c", "crate_radio", "Radio"),
         ("f", "favorite", "Fav"),
         ("i", "info", "Info"),
         ("d", "devices", "Geräte"),
@@ -51,6 +53,8 @@ class DlnaApp(App):
         self._tasks: set = set()  # keep create_task refs alive (else GC can cancel them)
         self._filter_node = None  # tree node being filtered in place; None = not filtering
         self._filter_cache: dict[str, list] = {}  # cid -> children (one browse per folder)
+        self.radio = False  # CrateMind auto-continue: keep queueing similar tracks when it empties
+        self._radio_busy = False  # guard against overlapping radio fetches
 
     def compose(self) -> ComposeResult:
         yield Header()
@@ -125,6 +129,7 @@ class DlnaApp(App):
             if idx < 0:  # track not in that folder listing (e.g. root-level item)
                 tracks, idx = [obj], 0
             self.queue = Queue(tracks, idx)
+            self.radio = False  # user picked a track; stop auto-continuing
             await self.renderer.play(obj)
 
     def _spawn(self, coro) -> None:
@@ -157,6 +162,8 @@ class DlnaApp(App):
             nxt = self.queue.advance()
             if nxt:
                 self._spawn(self.renderer.play(nxt))
+            elif self.radio and not self._radio_busy:
+                self._spawn(self._radio_continue())  # queue ran dry -> fetch more
         self._last_state = st.transport_state
 
     async def action_toggle(self) -> None:
@@ -265,6 +272,45 @@ class DlnaApp(App):
         if event.key == "down" and getattr(self.focused, "id", None) == "filter":
             event.stop()
             self._focus_results()
+
+    def _seed_track(self) -> Track | None:
+        """What to base radio on: the cursor track, else what's playing."""
+        node = self.query_one("#browser", Tree).cursor_node
+        obj = self._node_obj.get(node.id) if node else None
+        return obj if isinstance(obj, Track) else self.queue.current()
+
+    async def _append_radio(self, seed: Track) -> int:
+        """Fetch similar tracks for seed and append to the queue. Returns count."""
+        recs = await radio_tracks(seed.title, seed.artist)
+        qview = self.query_one("#queue", ListView)
+        for t in recs:
+            self.queue.append(t)
+            qview.append(ListItem(Label(t.title)))
+        return len(recs)
+
+    async def action_crate_radio(self) -> None:
+        seed = self._seed_track()
+        if not seed:
+            self.notify("Kein Track für Radio (erst abspielen/auswählen)", severity="warning")
+            return
+        self.notify(f"Radio: suche Ähnliches zu {seed.title}…")
+        n = await self._append_radio(seed)
+        self.radio = True  # keep going automatically when the queue later empties
+        self.notify(f"Radio an – {n} Titel ergänzt" if n else "Radio: nichts gefunden",
+                    severity="information" if n else "warning")
+
+    async def _radio_continue(self) -> None:
+        self._radio_busy = True
+        try:
+            seed = self.queue.current()
+            if not (seed and self.renderer):
+                return
+            if await self._append_radio(seed):
+                nxt = self.queue.advance()
+                if nxt:
+                    await self.renderer.play(nxt)
+        finally:
+            self._radio_busy = False
 
     async def action_favorite(self) -> None:
         node = self.query_one("#browser", Tree).cursor_node

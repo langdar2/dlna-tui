@@ -247,7 +247,7 @@
       "label": "_to_model()",
       "file_type": "code",
       "source_file": "dlna/models.py",
-      "source_location": "L79",
+      "source_location": "L82",
       "_origin": "ast",
       "id": "dlna_models_to_model",
       "community": 8,
@@ -257,7 +257,7 @@
       "label": "Queue",
       "file_type": "code",
       "source_file": "dlna/models.py",
-      "source_location": "L100",
+      "source_location": "L103",
       "_origin": "ast",
       "id": "dlna_models_queue",
       "community": 0,
@@ -267,7 +267,7 @@
       "label": ".current()",
       "file_type": "code",
       "source_file": "dlna/models.py",
-      "source_location": "L104",
+      "source_location": "L107",
       "_origin": "ast",
       "id": "dlna_models_queue_current",
       "community": 0,
@@ -277,7 +277,7 @@
       "label": ".advance()",
       "file_type": "code",
       "source_file": "dlna/models.py",
-      "source_location": "L109",
+      "source_location": "L112",
       "_origin": "ast",
       "id": "dlna_models_queue_advance",
       "community": 0,
@@ -287,7 +287,7 @@
       "label": ".prev()",
       "file_type": "code",
       "source_file": "dlna/models.py",
-      "source_location": "L115",
+      "source_location": "L118",
       "_origin": "ast",
       "id": "dlna_models_queue_prev",
       "community": 0,
@@ -297,7 +297,7 @@
       "label": ".append()",
       "file_type": "code",
       "source_file": "dlna/models.py",
-      "source_location": "L121",
+      "source_location": "L124",
       "_origin": "ast",
       "id": "dlna_models_queue_append",
       "community": 0,
@@ -307,7 +307,7 @@
       "label": "to_models()",
       "file_type": "code",
       "source_file": "dlna/models.py",
-      "source_location": "L125",
+      "source_location": "L128",
       "_origin": "ast",
       "id": "dlna_models_to_models",
       "community": 8,
@@ -317,7 +317,7 @@
       "label": "from_didl()",
       "file_type": "code",
       "source_file": "dlna/models.py",
-      "source_location": "L131",
+      "source_location": "L134",
       "_origin": "ast",
       "id": "dlna_models_from_didl",
       "community": 0,
@@ -337,9 +337,9 @@
       "label": "Already-parsed didl_lite objects -> our models (Descriptors dropped).",
       "file_type": "rationale",
       "source_file": "dlna/models.py",
-      "source_location": "L126",
+      "source_location": "L129",
       "_origin": "ast",
-      "id": "dlna_models_rationale_126",
+      "id": "dlna_models_rationale_129",
       "community": 8,
       "norm_label": "already-parsed didl_lite objects -> our models (descriptors dropped)."
     },
@@ -347,9 +347,9 @@
       "label": "DIDL-Lite XML -> list of our models (Descriptors dropped).",
       "file_type": "rationale",
       "source_file": "dlna/models.py",
-      "source_location": "L132",
+      "source_location": "L135",
       "_origin": "ast",
-      "id": "dlna_models_rationale_132",
+      "id": "dlna_models_rationale_135",
       "community": 0,
       "norm_label": "didl-lite xml -> list of our models (descriptors dropped)."
     },
@@ -2196,9 +2196,9 @@
       "source_file": "dlna/models.py",
       "source_location": "L34",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_models",
-      "target": "dlna_models_first_res",
-      "confidence_score": 1.0
+      "target": "dlna_models_first_res"
     },
     {
       "relation": "contains",
@@ -2236,9 +2236,9 @@
       "source_file": "dlna/models.py",
       "source_location": "L53",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_models",
-      "target": "dlna_models_media_info",
-      "confidence_score": 1.0
+      "target": "dlna_models_media_info"
     },
     {
       "relation": "contains",
@@ -2851,9 +2851,9 @@
       "source_file": "dlna/models.py",
       "source_location": "L42",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_models_first_res_uri",
-      "target": "dlna_models_first_res",
-      "confidence_score": 1.0
+      "target": "dlna_models_first_res"
     },
     {
       "relation": "calls",
@@ -2862,9 +2862,9 @@
       "source_file": "dlna/models.py",
       "source_location": "L55",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_models_media_info",
-      "target": "dlna_models_first_res",
-      "confidence_score": 1.0
+      "target": "dlna_models_first_res"
     },
     {
       "relation": "calls",
@@ -2895,9 +2895,9 @@
       "source_file": "dlna/models.py",
       "source_location": "L63",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_models_media_info",
-      "target": "dlna_models_queue_append",
-      "confidence_score": 1.0
+      "target": "dlna_models_queue_append"
     },
     {
       "relation": "rationale_for",
@@ -2905,9 +2905,9 @@
       "source_file": "dlna/models.py",
       "source_location": "L54",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_models_rationale_54",
-      "target": "dlna_models_media_info",
-      "confidence_score": 1.0
+      "target": "dlna_models_media_info"
     },
     {
       "relation": "calls",
@@ -2916,9 +2916,9 @@
       "source_file": "dlna/models.py",
       "source_location": "L95",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_models_to_model",
-      "target": "dlna_models_media_info",
-      "confidence_score": 1.0
+      "target": "dlna_models_media_info"
     },
     {
       "relation": "calls",
@@ -3163,9 +3163,9 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "dlna/models.py",
-      "source_location": "L126",
+      "source_location": "L129",
       "weight": 1.0,
-      "source": "dlna_models_rationale_126",
+      "source": "dlna_models_rationale_129",
       "target": "dlna_models_to_models",
       "confidence_score": 1.0
     },
@@ -3206,9 +3206,9 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "dlna/models.py",
-      "source_location": "L132",
+      "source_location": "L135",
       "weight": 1.0,
-      "source": "dlna_models_rationale_132",
+      "source": "dlna_models_rationale_135",
       "target": "dlna_models_from_didl",
       "confidence_score": 1.0
     },
@@ -3241,9 +3241,9 @@
       "source_file": "tests/test_models.py",
       "source_location": "L44",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_models_test_media_info_summary",
-      "target": "dlna_models_from_didl",
-      "confidence_score": 1.0
+      "target": "dlna_models_from_didl"
     },
     {
       "relation": "contains",
@@ -4356,9 +4356,9 @@
       "source_file": "tests/test_models.py",
       "source_location": "L43",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_models",
-      "target": "tests_test_models_test_media_info_summary",
-      "confidence_score": 1.0
+      "target": "tests_test_models_test_media_info_summary"
     },
     {
       "relation": "contains",
@@ -5868,5 +5868,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "a20e8eb5c13b4adbd823361aad3c2dc472f92a1b"
+  "built_at_commit": "d9e3a7c1b272ed868619332a6219af8a4cd42c17"
 }

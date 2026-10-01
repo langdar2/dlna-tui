@@ -29,6 +29,7 @@ class Track:
     media_url: str = ""
     didl: str = ""  # DIDL-Lite fragment for the renderer
     info: str = ""  # human-readable media summary (type, rate, size, …)
+    art_uri: str = ""  # albumArtURI, if the server provides one
 
 
 def _first_res(obj):
@@ -96,6 +97,7 @@ def _to_model(obj):
         media_url=_first_res_uri(obj),
         didl=didl_lite.to_xml_string(obj).decode(),
         info=_media_info(obj),
+        art_uri=getattr(obj, "album_art_uri", "") or "",
     )
 
 

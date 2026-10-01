@@ -4,10 +4,11 @@ import asyncio
 
 from async_upnp_client.profiles.dlna import DmrDevice, DmsDevice
 from textual.app import App, ComposeResult
-from textual.containers import Horizontal
+from textual.containers import Horizontal, Vertical
 from textual.screen import ModalScreen
-from textual.widgets import Footer, Header, Input, ListItem, ListView, Label, Tree
+from textual.widgets import Footer, Header, Input, ListItem, ListView, Label, Static, Tree
 
+from dlna.art import to_ascii
 from dlna.discovery import build_device, discover
 from dlna.models import Container, Queue, Track
 from dlna.renderer import Renderer
@@ -29,6 +30,7 @@ class DlnaApp(App):
         ("left", "seek_back", "Seek-"),
         ("slash", "search", "Suche"),
         ("f", "favorite", "Fav"),
+        ("i", "info", "Info"),
         ("d", "devices", "Geräte"),
         ("q", "quit", "Quit"),
     ]
@@ -201,12 +203,66 @@ class DlnaApp(App):
             self.store.save()
             self.notify(f"Favorit: {obj.title}")
 
+    async def action_info(self) -> None:
+        node = self.query_one("#browser", Tree).cursor_node
+        obj = self._node_obj.get(node.id) if node else None
+        if not isinstance(obj, Track):
+            obj = self.queue.current()
+        if isinstance(obj, Track):
+            await self.push_screen(TrackInfoScreen(obj))
+        else:
+            self.notify("Kein Track ausgewählt", severity="warning")
+
     async def action_devices(self) -> None:
         await self.push_screen(DeviceScreen(self))
 
     async def action_quit(self) -> None:
         self.store.save()
         self.exit()
+
+
+def _http_get(url: str) -> bytes:
+    # Binary-safe, stdlib: AiohttpRequester decodes bodies to text, which
+    # corrupts image bytes. Run under asyncio.to_thread (blocking urlopen).
+    import urllib.request
+    with urllib.request.urlopen(url, timeout=5) as resp:
+        return resp.read()
+
+
+class TrackInfoScreen(ModalScreen):
+    BINDINGS = [("escape", "close", "Schließen"), ("i", "close", "Schließen")]
+    CSS = ("TrackInfoScreen { align: center middle; } "
+           "#info_box { width: auto; height: auto; border: round $accent; padding: 1 2; }")
+
+    def __init__(self, track: Track):
+        super().__init__()
+        self.track = track
+
+    def compose(self) -> ComposeResult:
+        t = self.track
+        lines = [f"Titel:  {t.title}"]
+        for label, val in (("Artist", t.artist), ("Album", t.album),
+                           ("Dauer", t.duration), ("Media", t.info)):
+            if val:
+                lines.append(f"{label}:{' ' * (7 - len(label))}{val}")
+        lines.append(f"URL:    {t.media_url}")
+        with Vertical(id="info_box"):
+            yield Static("\n".join(lines))
+            yield Static("Cover lädt…" if t.art_uri else "(kein Cover)", id="cover")
+        yield Label("Esc / i schließt")
+
+    async def on_mount(self) -> None:
+        if not self.track.art_uri:
+            return
+        try:
+            data = await asyncio.to_thread(_http_get, self.track.art_uri)
+            art = to_ascii(data)
+        except Exception as exc:  # ponytail: cover is best-effort, never fatal
+            art = f"(Cover fehlgeschlagen: {exc})"
+        self.query_one("#cover", Static).update(art)
+
+    def action_close(self) -> None:
+        self.dismiss()
 
 
 class DeviceItem(ListItem):

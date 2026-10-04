@@ -51,6 +51,7 @@ class DlnaApp(App):
         self.queue = Queue()
         self._node_obj: dict = {}  # ponytail: grows unbounded on re-search; prune if it matters
         self._last_state = ""
+        self._marked = -1  # queue row currently showing the ▶ marker
         self._tasks: set = set()  # keep create_task refs alive (else GC can cancel them)
         self._filter_node = None  # tree node being filtered in place; None = not filtering
         self._filter_cache: dict[str, list] = {}  # cid -> children (one browse per folder)
@@ -161,6 +162,7 @@ class DlnaApp(App):
                 st.title = current.title
             st.info = current.info
         self.query_one("#now", NowPlaying).st = st
+        self._mark_current()  # every index change lands here, whoever caused it
         # Advance only on the PLAYING->STOPPED edge; level-triggering would skip
         # tracks while the renderer sits in STOPPED for several ticks before the
         # next one reports PLAYING.
@@ -199,7 +201,8 @@ class DlnaApp(App):
         obj = self._node_obj.get(node.id) if node else None
         if isinstance(obj, Track):
             self.queue.append(obj)
-            self.query_one("#queue", ListView).append(ListItem(Label(obj.title)))
+            qview = self.query_one("#queue", ListView)
+            qview.append(ListItem(Label(self._queue_label(len(self.queue.tracks) - 1))))
 
     async def action_vol_up(self) -> None:
         if self.renderer:
@@ -285,11 +288,29 @@ class DlnaApp(App):
         obj = self._node_obj.get(node.id) if node else None
         return obj if isinstance(obj, Track) else self.queue.current()
 
+    def _queue_label(self, i: int) -> str:
+        # Pad the others so titles stay aligned when the marker moves.
+        return f"{'▶ ' if i == self.queue.index else '  '}{self.queue.tracks[i].title}"
+
     async def _sync_queue_view(self) -> None:
         qview = self.query_one("#queue", ListView)
         await qview.clear()
-        for t in self.queue.tracks:
-            qview.append(ListItem(Label(t.title)))
+        for i in range(len(self.queue.tracks)):
+            qview.append(ListItem(Label(self._queue_label(i))))
+        self._marked = self.queue.index
+
+    def _mark_current(self) -> None:
+        """Move the ▶ marker to the playing track. Touches only the two rows
+        that change, so browsing the queue isn't interrupted by a redraw."""
+        if self._marked == self.queue.index:
+            return
+        items = list(self.query_one("#queue", ListView).children)
+        if len(items) != len(self.queue.tracks):
+            return  # view not in sync (manual adds); next _sync_queue_view redraws
+        for i in (self._marked, self.queue.index):
+            if 0 <= i < len(items):
+                items[i].query_one(Label).update(self._queue_label(i))
+        self._marked = self.queue.index
 
     async def _append_radio(self, seed: Track) -> int:
         """Fetch similar tracks for seed and append to the queue, skipping ones

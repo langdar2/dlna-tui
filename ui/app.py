@@ -135,6 +135,7 @@ class DlnaApp(App):
             self.queue = Queue(tracks, idx)
             self.radio = False  # user picked a track; stop auto-continuing
             self._update_subtitle()
+            await self._sync_queue_view()  # show what's really queued, not just adds
             await self.renderer.play(obj)
 
     def _spawn(self, coro) -> None:
@@ -284,6 +285,12 @@ class DlnaApp(App):
         obj = self._node_obj.get(node.id) if node else None
         return obj if isinstance(obj, Track) else self.queue.current()
 
+    async def _sync_queue_view(self) -> None:
+        qview = self.query_one("#queue", ListView)
+        await qview.clear()
+        for t in self.queue.tracks:
+            qview.append(ListItem(Label(t.title)))
+
     async def _append_radio(self, seed: Track) -> int:
         """Fetch similar tracks for seed and append to the queue, skipping ones
         already heard this session. Returns how many were actually added."""
@@ -292,7 +299,6 @@ class DlnaApp(App):
         self._heard.update(song_key(t.artist, t.title) for t in self.queue.tracks)
         recs = await radio_tracks(seed.title, seed.artist, self.radio_limit,
                                   seed.album, seed.media_url)
-        qview = self.query_one("#queue", ListView)
         added = 0
         for t in recs:
             key = song_key(t.artist, t.title)
@@ -300,8 +306,9 @@ class DlnaApp(App):
                 continue
             self._heard.add(key)
             self.queue.append(t)
-            qview.append(ListItem(Label(t.title)))
             added += 1
+        if added:
+            await self._sync_queue_view()
         return added
 
     async def action_crate_radio(self) -> None:
@@ -310,9 +317,20 @@ class DlnaApp(App):
             self.notify("Kein Track für Radio (erst abspielen/auswählen)", severity="warning")
             return
         self.notify(f"Radio: suche Ähnliches zu {seed.title}…")
+        # Switching to radio means leaving the album: drop what the folder
+        # queued behind the current track, or the suggestions would only start
+        # playing after the whole rest of it. Those tracks count as heard, so
+        # radio doesn't hand straight back what was just skipped.
+        idle = self.queue.current() is None
+        self._heard.update(song_key(t.artist, t.title) for t in self.queue.tracks)
+        self.queue.drop_after_current()
         n = await self._append_radio(seed)
         self.radio = True  # keep going automatically when the queue later empties
         self._update_subtitle()
+        if n and idle and self.renderer:  # nothing was playing -> start the radio
+            nxt = self.queue.current()
+            if nxt:
+                await self.renderer.play(nxt)
         self.notify(f"Radio an – {n} Titel ergänzt" if n else "Radio: nichts Neues gefunden",
                     severity="information" if n else "warning")
 

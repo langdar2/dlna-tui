@@ -126,6 +126,12 @@ class Queue:
     def append(self, track: Track) -> None:
         self.tracks.append(track)
 
+    def drop_after_current(self) -> None:
+        """Forget what's queued behind the current track, keeping it playing.
+        Switching to radio uses this so suggestions play next instead of after
+        the rest of the album the folder happened to queue."""
+        del self.tracks[self.index + 1:]
+
 
 def _is_audio(obj) -> bool:
     # upnp:class e.g. "object.item.audioItem.musicTrack". Video/image items are

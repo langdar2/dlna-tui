@@ -89,3 +89,20 @@ def test_empty_queue():
     q = Queue([])
     assert q.current() is None
     assert q.advance() is None
+
+
+def test_drop_after_current_keeps_playing_track():
+    # switching to radio mid-album: the rest of the album goes, what plays stays
+    q = Queue([_t("a"), _t("b"), _t("c")], index=1)
+    q.drop_after_current()
+    assert [t.id for t in q.tracks] == ["a", "b"]
+    assert q.current().id == "b"
+    assert q.advance() is None  # nothing queued behind it any more
+    q.append(_t("radio"))
+    assert q.advance().id == "radio"  # suggestions are what play next
+
+
+def test_drop_after_current_on_empty_queue():
+    q = Queue([])
+    q.drop_after_current()
+    assert q.tracks == []

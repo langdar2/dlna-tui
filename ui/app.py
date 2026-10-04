@@ -10,7 +10,7 @@ from textual.screen import ModalScreen
 from textual.widgets import Footer, Header, Input, ListItem, ListView, Label, Static, Tree
 
 from dlna.art import to_ansi
-from dlna.crate import radio_tracks
+from dlna.crate import radio_tracks, song_key
 from dlna.discovery import build_device, discover
 from dlna.models import Container, Queue, Track
 from dlna.renderer import Renderer
@@ -287,15 +287,18 @@ class DlnaApp(App):
     async def _append_radio(self, seed: Track) -> int:
         """Fetch similar tracks for seed and append to the queue, skipping ones
         already heard this session. Returns how many were actually added."""
-        self._heard.update(t.id for t in self.queue.tracks)  # don't re-suggest what's queued
+        # Keyed by song, not file id: the same track off a compilation or as a
+        # remaster is a different id but the same thing to listen to.
+        self._heard.update(song_key(t.artist, t.title) for t in self.queue.tracks)
         recs = await radio_tracks(seed.title, seed.artist, self.radio_limit,
                                   seed.album, seed.media_url)
         qview = self.query_one("#queue", ListView)
         added = 0
         for t in recs:
-            if t.id in self._heard:
+            key = song_key(t.artist, t.title)
+            if key in self._heard:
                 continue
-            self._heard.add(t.id)
+            self._heard.add(key)
             self.queue.append(t)
             qview.append(ListItem(Label(t.title)))
             added += 1

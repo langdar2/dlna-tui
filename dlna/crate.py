@@ -23,17 +23,34 @@ def _basename(path: str) -> str:
     return path.rsplit("/", 1)[-1]
 
 
-def _tail(path: str, n: int = 2) -> str:
-    """Last n path components: album folder + filename.
+def _common_tail(a: str, b: str) -> int:
+    """How many trailing path components two paths share."""
+    n = 0
+    for x, y in zip(reversed(a.rstrip("/").split("/")),
+                    reversed(b.rstrip("/").split("/"))):
+        if x != y:
+            break
+        n += 1
+    return n
 
-    The two services mount the same library under different roots
-    (/Volumes/Platte/Musik here, /music in CrateMind), but everything below the
-    root is identical, so the tail identifies a file across both without either
-    side knowing the other's prefix. Two components, because the basename alone
-    collides whenever a song also sits on a compilation.
-    ponytail: no shared MUSIC_DIR config to drift out of sync between projects.
+
+def _best_match(paths: list[str], want: str) -> str | None:
+    """The path that is the same file as `want`, across differently-mounted roots.
+
+    The two services mount one library under different roots
+    (/Volumes/Platte/Musik here, /music in CrateMind) but agree on everything
+    below it, so the deepest matching tail wins — no side needs the other's
+    prefix, and nesting deeper than <album>/<file> just raises the bar.
+    Needs two components, since a bare filename collides with the same song on
+    a compilation. A tie is genuinely ambiguous (two albums of the same name),
+    so give up and let the caller fall back rather than pick arbitrarily.
     """
-    return "/".join(path.rstrip("/").split("/")[-n:])
+    scored = sorted(((_common_tail(p, want), p) for p in paths), reverse=True)
+    if not want or not scored or scored[0][0] < 2:
+        return None
+    if len(scored) > 1 and scored[1][0] == scored[0][0]:
+        return None
+    return scored[0][1]
 
 
 def _media_id(media_url: str) -> str:
@@ -53,6 +70,21 @@ def _crate_query(filename: str, title: str) -> str:
     return stem or title
 
 
+_QUALIFIER = re.compile(r"[(\[][^)\]]*[)\]]")  # "(2025 Remastered)", "(Edit)", …
+_NOISE = re.compile(r"[^a-z0-9]+")
+
+
+def song_key(artist: str, title: str, path: str = "") -> str:
+    """Identity of a song regardless of which album it came off.
+
+    Radio otherwise follows a track with its own copy from a compilation, or
+    with the remaster sitting next to it — different files, same thing to
+    listen to. Falls back to the filename when a file carries no tags.
+    """
+    base = f"{artist} {title}".strip() or _crate_query(_basename(path), "")
+    return _NOISE.sub("", _QUALIFIER.sub(" ", base.lower()))
+
+
 def _rank_seeds(candidates: list[dict], artist: str, album: str) -> list[str]:
     """Candidate /music/... paths ordered best-first: artist+album, then artist,
     then the rest. Title alone is ambiguous across albums and re-releases, so we
@@ -69,11 +101,11 @@ def _rank_seeds(candidates: list[dict], artist: str, album: str) -> list[str]:
 
 
 def _match_file(files: list[dict], crate_path: str) -> dict | None:
-    """VuIO search returns fuzzy hits. Take the one that is this exact file
-    (album folder + name), else any with the right name, else the first."""
-    for f in files:
-        if f.get("path") and _tail(f["path"]) == _tail(crate_path):
-            return f
+    """VuIO search returns fuzzy hits. Take the one that is this exact file,
+    else any with the right name, else the first."""
+    best = _best_match([f["path"] for f in files if f.get("path")], crate_path)
+    if best:
+        return next(f for f in files if f.get("path") == best)
     for f in files:
         if f.get("filename") == _basename(crate_path):
             return f
@@ -150,22 +182,27 @@ async def radio_tracks(title: str, artist: str = "", limit: int = 10,
                                  "limit": 20}) as r:
             r.raise_for_status()
             candidates = (await r.json()).get("tracks", [])
-        exact = [c["path"] for c in candidates
-                 if vuio_path and _tail(c["path"]) == _tail(vuio_path)]
+        exact = _best_match([c["path"] for c in candidates], vuio_path)
         # Fall back to other copies of the song (ranked) if CrateMind never
         # analysed this exact file; that seed 404s and yields nothing.
         seed, recs = None, []
-        for cand in exact + _rank_seeds(candidates, artist, album):
-            recs = await _preview(s, cand, limit)
+        for cand in ([exact] if exact else []) + _rank_seeds(candidates, artist, album):
+            # over-fetch: the seed and duplicate songs drop out below, and the
+            # caller asked for `limit` tracks to play, not `limit` candidates
+            recs = await _preview(s, cand, limit * 2)
             if recs:
                 seed = cand
                 break
         out = []
+        seen = {song_key(artist, title, vuio_path or seed or "")}
         for rec in recs:
-            if rec["path"] == seed:  # don't recommend the seed back
+            if len(out) == limit:
+                break
+            if rec["path"] == seed:  # the seed itself; skip before resolving it
                 continue
             t = await _resolve(s, rec["path"])
-            if t:
+            if t and song_key(t.artist, t.title, rec["path"]) not in seen:
+                seen.add(song_key(t.artist, t.title, rec["path"]))
                 out.append(t)
         return out
 
@@ -179,12 +216,29 @@ def _selfcheck() -> None:
     assert _rank_seeds(cand, "A", "Singles")[0] == "/music/A - Singles/02. A - Win.flac"
     assert _rank_seeds(cand, "A", "")[0].startswith("/music/A -")
     assert _rank_seeds([], "A", "x") == []
-    # the tail identifies a file across differently-mounted roots
-    assert _tail("/Volumes/Platte/Musik/A - Gold/01. x.flac") == "A - Gold/01. x.flac"
-    assert _tail("/music/A - Gold/01. x.flac") == "A - Gold/01. x.flac"
-    assert _tail("/music/x.flac") == "music/x.flac"  # shallow path: no crash
-    # exact file beats a same-named track on a compilation
+    # deepest shared tail identifies a file across differently-mounted roots
     v = "/Volumes/Platte/Musik"
+    assert _common_tail(v + "/A - Gold/01. x.flac", "/music/A - Gold/01. x.flac") == 2
+    assert _best_match([v + "/Comp - Hits/01. x.flac", v + "/A - Gold/01. x.flac"],
+                       "/music/A - Gold/01. x.flac").endswith("A - Gold/01. x.flac")
+    # deeper nesting just raises the bar rather than reaching into the root
+    assert _best_match([v + "/A/CD2/01. x.flac", v + "/A/CD1/01. x.flac"],
+                       "/music/A/CD1/01. x.flac").endswith("CD1/01. x.flac")
+    # filename alone is not enough, and a genuine tie stays unresolved
+    assert _best_match([v + "/Other - Hits/01. x.flac"], "/music/A - Gold/01. x.flac") is None
+    assert _best_match([v + "/A/01. x.flac", "/elsewhere/A/01. x.flac"],
+                       "/music/A/01. x.flac") is None
+    assert _best_match([v + "/A/01. x.flac"], "") is None
+    # one song, one key: compilation copy, remaster and edit all collapse
+    k = song_key("4 Non Blondes", "What's Up?")
+    assert song_key("4 Non Blondes", "what's up?") == k
+    assert song_key("The Cranberries", "The Icicle Melts (2025 Remastered)") \
+        == song_key("The Cranberries", "The Icicle Melts")
+    assert song_key("Madonna", "Crazy For You (Atmos Mix)") \
+        == song_key("Madonna", "Crazy for You (Edit)")
+    assert song_key("", "", "/music/A - Gold/03. 4 Non Blondes - What's Up.m4a") \
+        == song_key("4 Non Blondes", "What's Up")
+    assert song_key("ABBA", "Head Over Heels") != k
     files = [{"filename": "01. x.flac", "path": v + "/Comp - Hits/01. x.flac"},
              {"filename": "01. x.flac", "path": v + "/A - Gold/01. x.flac"}]
     assert _match_file(files, "/music/A - Gold/01. x.flac")["path"].endswith("A - Gold/01. x.flac")

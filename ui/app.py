@@ -57,6 +57,7 @@ class DlnaApp(App):
         self._filter_cache: dict[str, list] = {}  # cid -> children (one browse per folder)
         self.radio = False  # CrateMind auto-continue: keep queueing similar tracks when it empties
         self._radio_busy = False  # guard against overlapping radio fetches
+        self._queue_gen = 0  # bumped when the user replaces the queue; see _append_radio
         self.radio_limit = int(os.environ.get("RADIO_LIMIT", "10"))  # tracks per radio fetch
         self._heard: set[str] = set()  # track ids already queued; radio skips them
 
@@ -134,6 +135,7 @@ class DlnaApp(App):
             if idx < 0:  # track not in that folder listing (e.g. root-level item)
                 tracks, idx = [obj], 0
             self.queue = Queue(tracks, idx)
+            self._queue_gen += 1  # strand any radio fetch still running for the old song
             self.radio = False  # user picked a track; stop auto-continuing
             self._update_subtitle()
             await self._sync_queue_view()  # show what's really queued, not just adds
@@ -312,14 +314,18 @@ class DlnaApp(App):
                 items[i].query_one(Label).update(self._queue_label(i))
         self._marked = self.queue.index
 
-    async def _append_radio(self, seed: Track) -> int:
+    async def _append_radio(self, seed: Track) -> int | None:
         """Fetch similar tracks for seed and append to the queue, skipping ones
-        already heard this session. Returns how many were actually added."""
+        already heard this session. Returns how many were actually added, or
+        None if the user replaced the queue while the fetch was in flight."""
         # Keyed by song, not file id: the same track off a compilation or as a
         # remaster is a different id but the same thing to listen to.
         self._heard.update(song_key(t.artist, t.title) for t in self.queue.tracks)
+        gen = self._queue_gen
         recs = await radio_tracks(seed.title, seed.artist, self.radio_limit,
                                   seed.album, seed.media_url)
+        if gen != self._queue_gen:
+            return None  # these belong to a song the user has since moved on from
         added = 0
         for t in recs:
             key = song_key(t.artist, t.title)
@@ -346,6 +352,8 @@ class DlnaApp(App):
         self._heard.update(song_key(t.artist, t.title) for t in self.queue.tracks)
         self.queue.drop_after_current()
         n = await self._append_radio(seed)
+        if n is None:  # user picked another track meanwhile; don't hijack its queue
+            return
         self.radio = True  # keep going automatically when the queue later empties
         self._update_subtitle()
         if n and idle and self.renderer:  # nothing was playing -> start the radio

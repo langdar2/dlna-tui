@@ -19,6 +19,9 @@ from dlna.store import Store
 from .widgets import NowPlaying
 
 
+QUEUE_VIEW_MAX = 200  # queue rows to render; see _sync_queue_view
+
+
 class DlnaApp(App):
     CSS = "Tree { width: 50%; } ListView { width: 50%; } NowPlaying { height: 2; }"
     BINDINGS = [
@@ -138,8 +141,8 @@ class DlnaApp(App):
             self._queue_gen += 1  # strand any radio fetch still running for the old song
             self.radio = False  # user picked a track; stop auto-continuing
             self._update_subtitle()
-            await self._sync_queue_view()  # show what's really queued, not just adds
-            await self.renderer.play(obj)
+            await self.renderer.play(obj)  # start audio first; the pane can lag
+            await self._sync_queue_view()
 
     def _spawn(self, coro) -> None:
         task = asyncio.create_task(coro)
@@ -203,8 +206,10 @@ class DlnaApp(App):
         obj = self._node_obj.get(node.id) if node else None
         if isinstance(obj, Track):
             self.queue.append(obj)
+            last = len(self.queue.tracks) - 1
             qview = self.query_one("#queue", ListView)
-            qview.append(ListItem(Label(self._queue_label(len(self.queue.tracks) - 1))))
+            if len(qview.children) == last:  # view in sync and under the cap
+                qview.append(ListItem(Label(self._queue_label(last))))
 
     async def action_vol_up(self) -> None:
         if self.renderer:
@@ -297,7 +302,12 @@ class DlnaApp(App):
     async def _sync_queue_view(self) -> None:
         qview = self.query_one("#queue", ListView)
         await qview.clear()
-        for i in range(len(self.queue.tracks)):
+        # ponytail: cap the rows. An album plus radio stays far under this, but
+        # the server's flat "All Music" holds thousands, and mounting that many
+        # widgets freezes the UI for seconds. Past the cap the pane shows the
+        # head of the queue and _mark_current leaves the marker alone; paginate
+        # if browsing huge flat folders ever becomes a real workflow.
+        for i in range(min(len(self.queue.tracks), QUEUE_VIEW_MAX)):
             qview.append(ListItem(Label(self._queue_label(i))))
         self._marked = self.queue.index
 

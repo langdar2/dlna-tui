@@ -19,9 +19,29 @@ CRATE_URL = os.environ.get("CRATE_URL", "http://192.168.0.3:8008")
 VUIO_URL = os.environ.get("VUIO_URL", "http://192.168.0.3:8080")
 _MCP_VERSION = "2026-07-28"
 
+# The same files, mounted differently: CrateMind analysed them under MUSIC_DIR,
+# VuIO indexes them under their real host path. Mirrors CrateMind's own
+# vuio_client.to_vuio_path. ponytail: single prefix swap, like upstream; a real
+# mapping table only if either side ever serves multiple music roots.
+MUSIC_DIR = os.environ.get("MUSIC_DIR", "/music")
+VUIO_MUSIC_DIR = os.environ.get("VUIO_MUSIC_DIR", "/Volumes/Platte/Musik")
+
 
 def _basename(path: str) -> str:
     return path.rsplit("/", 1)[-1]
+
+
+def _to_crate_path(vuio_path: str) -> str:
+    """VuIO host path -> the /music/... path CrateMind keys its tracks by."""
+    if vuio_path.startswith(VUIO_MUSIC_DIR + "/"):
+        return MUSIC_DIR + vuio_path[len(VUIO_MUSIC_DIR):]
+    return vuio_path
+
+
+def _to_vuio_path(crate_path: str) -> str:
+    if crate_path.startswith(MUSIC_DIR + "/"):
+        return VUIO_MUSIC_DIR + crate_path[len(MUSIC_DIR):]
+    return crate_path
 
 
 def _media_id(media_url: str) -> str:
@@ -56,10 +76,16 @@ def _rank_seeds(candidates: list[dict], artist: str, album: str) -> list[str]:
     return [p for _, p in scored]
 
 
-def _match_file(files: list[dict], basename: str) -> dict | None:
-    """VuIO search returns fuzzy hits; take the exact filename, else the first."""
+def _match_file(files: list[dict], crate_path: str) -> dict | None:
+    """VuIO search returns fuzzy hits. Take the one whose path IS this track —
+    basename alone picks the wrong album when a song sits on a compilation too.
+    Fall back to basename, then first hit, so a moved file still resolves."""
+    want_path, want_name = _to_vuio_path(crate_path), _basename(crate_path)
     for f in files:
-        if f.get("filename") == basename:
+        if f.get("path") == want_path:
+            return f
+    for f in files:
+        if f.get("filename") == want_name:
             return f
     return files[0] if files else None
 
@@ -87,18 +113,19 @@ async def _vuio_search(session: aiohttp.ClientSession, query: str) -> list[dict]
     return data.get("files", [])
 
 
-async def _vuio_filename(session: aiohttp.ClientSession, media_id: str) -> str:
-    """Exact file basename for a VuIO id — the key CrateMind indexes by (path)."""
+async def _vuio_path(session: aiohttp.ClientSession, media_id: str) -> str:
+    """Exact host path for a VuIO id. Prefix-swapped this IS CrateMind's track key,
+    so the seed needs no searching or guessing by title."""
     try:
         data = await _vuio_call(session, "get_media_info", {"file_id": int(media_id)})
-    except Exception:  # ponytail: seed-key lookup is best-effort; title stays the fallback
+    except Exception:  # ponytail: best-effort; title search stays the fallback
         return ""
-    return data.get("filename", "")
+    return data.get("path", "")
 
 
 async def _resolve(session: aiohttp.ClientSession, path: str) -> Track | None:
     files = await _vuio_search(session, _basename(path))
-    f = _match_file(files, _basename(path))
+    f = _match_file(files, path)
     if not f:
         return None
     return Track(
@@ -123,20 +150,28 @@ async def radio_tracks(title: str, artist: str = "", limit: int = 10,
     """Tracks similar to the given one, as playable Tracks (unresolved ones dropped)."""
     async with aiohttp.ClientSession(raise_for_status=False,
                                      timeout=aiohttp.ClientTimeout(total=15)) as s:
+        # Exact seed first: the VuIO id gives this file's host path, which
+        # prefix-swapped is CrateMind's own key — no title search, no guessing
+        # which album. Only if CrateMind hasn't analysed that exact file do we
+        # fall back to finding another copy of the song by name.
         mid = _media_id(media_url)
-        filename = await _vuio_filename(s, mid) if mid else ""
-        query = _crate_query(filename, title)  # basename beats ID3 title for path match
-        async with s.get(f"{CRATE_URL}/api/tracks",
-                         params={"q": query, "limit": 20}) as r:
-            r.raise_for_status()
-            candidates = (await r.json()).get("tracks", [])
-        seeds = _rank_seeds(candidates, artist, album)
+        vuio_path = await _vuio_path(s, mid) if mid else ""
         seed, recs = None, []
-        for cand in seeds:  # first analysed seed that yields recommendations wins
-            recs = await _preview(s, cand, limit)
-            if recs:
-                seed = cand
-                break
+        if vuio_path:
+            seed_path = _to_crate_path(vuio_path)
+            recs = await _preview(s, seed_path, limit)
+            seed = seed_path if recs else None
+        if not recs:
+            async with s.get(f"{CRATE_URL}/api/tracks",
+                             params={"q": _crate_query(_basename(vuio_path), title),
+                                     "limit": 20}) as r:
+                r.raise_for_status()
+                candidates = (await r.json()).get("tracks", [])
+            for cand in _rank_seeds(candidates, artist, album):
+                recs = await _preview(s, cand, limit)
+                if recs:
+                    seed = cand
+                    break
         out = []
         for rec in recs:
             if rec["path"] == seed:  # don't recommend the seed back
@@ -156,10 +191,16 @@ def _selfcheck() -> None:
     assert _rank_seeds(cand, "A", "Singles")[0] == "/music/A - Singles/02. A - Win.flac"
     assert _rank_seeds(cand, "A", "")[0].startswith("/music/A -")
     assert _rank_seeds([], "A", "x") == []
-    files = [{"filename": "other.flac"}, {"filename": "02. B - Ruska.flac"}]
-    assert _match_file(files, "02. B - Ruska.flac")["filename"] == "02. B - Ruska.flac"
-    assert _match_file(files, "missing.flac")["filename"] == "other.flac"
-    assert _match_file([], "x") is None
+    # exact path beats same-basename hit from another album; prefix swap round-trips
+    v = VUIO_MUSIC_DIR
+    assert _to_crate_path(v + "/A - Gold/01. x.flac") == "/music/A - Gold/01. x.flac"
+    assert _to_crate_path("/elsewhere/x.flac") == "/elsewhere/x.flac"
+    assert _to_vuio_path(_to_crate_path(v + "/A/01. x.flac")) == v + "/A/01. x.flac"
+    files = [{"filename": "01. x.flac", "path": v + "/Comp - Hits/01. x.flac"},
+             {"filename": "01. x.flac", "path": v + "/A - Gold/01. x.flac"}]
+    assert _match_file(files, "/music/A - Gold/01. x.flac")["path"].endswith("A - Gold/01. x.flac")
+    assert _match_file(files, "/music/Moved - Elsewhere/01. x.flac")["filename"] == "01. x.flac"
+    assert _match_file([], "/music/x.flac") is None
     # media id extraction from stream/media URLs
     assert _media_id("http://h/media/42380.m4a") == "42380"
     assert _media_id("http://h/media/42380") == "42380"

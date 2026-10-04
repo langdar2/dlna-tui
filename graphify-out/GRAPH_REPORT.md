@@ -1,16 +1,16 @@
-# Graph Report - dlna TerminalClient  (2026-10-01)
+# Graph Report - dlna TerminalClient  (2026-10-04)
 
 ## Corpus Check
-- 19 files · ~8,652 words
+- 19 files · ~8,903 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 224 nodes · 507 edges · 14 communities (13 shown, 1 thin omitted)
+- 227 nodes · 516 edges · 13 communities (12 shown, 1 thin omitted)
 - Extraction: 78% EXTRACTED · 22% INFERRED · 0% AMBIGUOUS · INFERRED: 114 edges (avg confidence: 0.5)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `ca2b72a6`
+- Built from commit: `63d08964`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -23,7 +23,6 @@
 - [[_COMMUNITY_Community 5|Community 5]]
 - [[_COMMUNITY_Community 6|Community 6]]
 - [[_COMMUNITY_Community 7|Community 7]]
-- [[_COMMUNITY_Community 8|Community 8]]
 - [[_COMMUNITY_Community 12|Community 12]]
 - [[_COMMUNITY_Community 13|Community 13]]
 
@@ -54,7 +53,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (14 total, 1 thin omitted)
+## Communities (13 total, 1 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.17
@@ -73,8 +72,8 @@ Cohesion: 0.15
 Nodes (6): Track, Renderer, FakeProfile, test_play_sets_uri(), test_safe_call_swallows_errors_and_reports(), test_state_snapshot()
 
 ### Community 4 - "Community 4"
-Cohesion: 0.21
-Nodes (14): DeviceInfo, build_device(), discover(), _discover_kind(), _friendly_name(), _lan_sources(), SSDP source addresses for broadcast-capable IPv4 interfaces.      Excludes loopb, Pull <friendlyName> from the device description XML. None on any failure. (+6 more)
+Cohesion: 0.11
+Nodes (19): DeviceInfo, Decode an image into a colored Rich renderable.      Each character cell is a '▀, to_ansi(), build_device(), discover(), _discover_kind(), _friendly_name(), _lan_sources() (+11 more)
 
 ### Community 5 - "Community 5"
 Cohesion: 0.12
@@ -85,12 +84,8 @@ Cohesion: 0.14
 Nodes (13): Bekannte Risiken (am Gerät verifizieren), Dateistruktur, DLNA TUI Implementation Plan, Self-Review (durchgeführt), Task 0: Projekt-Setup, Task 1: Modelle + DIDL-Adapter, Task 2: Queue-Logik (rein), Task 3: Store (Favoriten + Session) (+5 more)
 
 ### Community 7 - "Community 7"
-Cohesion: 0.17
-Nodes (22): ClientSession, _basename(), _crate_query(), _match_file(), _media_id(), _preview(), Track, radio_tracks() (+14 more)
-
-### Community 8 - "Community 8"
-Cohesion: 0.19
-Nodes (5): Decode an image into a colored Rich renderable.      Each character cell is a '▀, to_ansi(), RendererState, Text, _fmt()
+Cohesion: 0.16
+Nodes (25): ClientSession, _basename(), _crate_query(), _match_file(), _media_id(), _preview(), Track, radio_tracks() (+17 more)
 
 ### Community 12 - "Community 12"
 Cohesion: 0.31
@@ -104,12 +99,12 @@ Nodes (6): default_path(), Store, Path, test_corrupt_file_is_ignored(), test_mis
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `DlnaApp` connect `Community 2` to `Community 1`, `Community 3`, `Community 4`, `Community 8`, `Community 12`?**
-  _High betweenness centrality (0.247) - this node is a cross-community bridge._
-- **Why does `Track` connect `Community 1` to `Community 0`, `Community 2`, `Community 3`, `Community 7`, `Community 8`?**
-  _High betweenness centrality (0.170) - this node is a cross-community bridge._
-- **Why does `Renderer` connect `Community 3` to `Community 8`, `Community 1`, `Community 2`?**
-  _High betweenness centrality (0.124) - this node is a cross-community bridge._
+- **Why does `DlnaApp` connect `Community 2` to `Community 1`, `Community 3`, `Community 4`, `Community 12`?**
+  _High betweenness centrality (0.244) - this node is a cross-community bridge._
+- **Why does `Track` connect `Community 1` to `Community 0`, `Community 2`, `Community 3`, `Community 4`, `Community 7`?**
+  _High betweenness centrality (0.172) - this node is a cross-community bridge._
+- **Why does `Renderer` connect `Community 3` to `Community 1`, `Community 2`, `Community 4`?**
+  _High betweenness centrality (0.123) - this node is a cross-community bridge._
 - **Are the 8 inferred relationships involving `DlnaApp` (e.g. with `ComposeResult` and `Container`) actually correct?**
   _`DlnaApp` has 8 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 21 inferred relationships involving `Track` (e.g. with `Changed` and `ClientSession`) actually correct?**

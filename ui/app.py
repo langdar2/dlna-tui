@@ -367,19 +367,20 @@ class DlnaApp(App):
             self.notify("Queue enthält Titel, die VuIO nicht kennt", severity="warning")
             return
         self.notify("Übergebe Queue an VuIO…")
+        # Set this before releasing the renderer: stopping it raises the
+        # PLAYING->STOPPED edge, and we must not treat that as "advance".
+        self.handed_off = True
         try:
-            # The DLNA renderer's UDN is also VuIO's id for it, so no lookup.
-            n = await handoff(self.queue.tracks, self._rnd_info.udn,
-                              self.queue.index, f"dlna-tui: {self.queue.current().title}")
-        except Exception as exc:  # report the failure; never claim a handoff that didn't happen
+            n, proto = await handoff(
+                self.queue.tracks, self._rnd_info.udn, self._rnd_info.location,
+                self.queue.index, f"dlna-tui: {self.queue.current().title}")
+        except Exception as exc:  # never claim a handoff that didn't happen
+            self.handed_off = False
             self.notify(f"Übergabe fehlgeschlagen: {exc}", severity="error")
             return
-        # VuIO advances the playlist from here; two schedulers on one renderer
-        # would fight over it.
-        self.handed_off = True
-        self.radio = False
+        self.radio = False  # VuIO owns the playlist now
         self._update_subtitle()
-        self.notify(f"{n} Titel an VuIO übergeben – läuft ohne die App weiter")
+        self.notify(f"{n} Titel an VuIO übergeben ({proto}) – läuft ohne die App weiter")
 
     async def action_crate_radio(self) -> None:
         seed = self._seed_track()

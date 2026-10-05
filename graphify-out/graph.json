@@ -490,7 +490,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "dlna_models",
-      "community": 0,
+      "community": 8,
       "norm_label": "models.py"
     },
     {
@@ -510,7 +510,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "dlna_models_container",
-      "community": 1,
+      "community": 8,
       "norm_label": "container"
     },
     {
@@ -520,7 +520,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "dlna_models_track",
-      "community": 3,
+      "community": 0,
       "norm_label": "track"
     },
     {
@@ -530,7 +530,7 @@
       "source_location": "L35",
       "_origin": "ast",
       "id": "dlna_models_first_res",
-      "community": 0,
+      "community": 8,
       "norm_label": "_first_res()"
     },
     {
@@ -540,7 +540,7 @@
       "source_location": "L42",
       "_origin": "ast",
       "id": "dlna_models_first_res_uri",
-      "community": 0,
+      "community": 8,
       "norm_label": "_first_res_uri()"
     },
     {
@@ -550,7 +550,7 @@
       "source_location": "L47",
       "_origin": "ast",
       "id": "dlna_models_first_res_duration",
-      "community": 0,
+      "community": 8,
       "norm_label": "_first_res_duration()"
     },
     {
@@ -560,7 +560,7 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "dlna_models_media_info",
-      "community": 0,
+      "community": 8,
       "norm_label": "_media_info()"
     },
     {
@@ -570,7 +570,7 @@
       "source_location": "L83",
       "_origin": "ast",
       "id": "dlna_models_to_model",
-      "community": 0,
+      "community": 8,
       "norm_label": "_to_model()"
     },
     {
@@ -620,7 +620,7 @@
       "source_location": "L126",
       "_origin": "ast",
       "id": "dlna_models_queue_append",
-      "community": 0,
+      "community": 8,
       "norm_label": ".append()"
     },
     {
@@ -640,7 +640,7 @@
       "source_location": "L136",
       "_origin": "ast",
       "id": "dlna_models_is_audio",
-      "community": 0,
+      "community": 8,
       "norm_label": "_is_audio()"
     },
     {
@@ -650,7 +650,7 @@
       "source_location": "L142",
       "_origin": "ast",
       "id": "dlna_models_to_models",
-      "community": 0,
+      "community": 8,
       "norm_label": "to_models()"
     },
     {
@@ -670,7 +670,7 @@
       "source_location": "L55",
       "_origin": "ast",
       "id": "dlna_models_rationale_55",
-      "community": 0,
+      "community": 8,
       "norm_label": "summarise the first <res>: file type, sample rate, depth, channels, size."
     },
     {
@@ -690,7 +690,7 @@
       "source_location": "L143",
       "_origin": "ast",
       "id": "dlna_models_rationale_143",
-      "community": 0,
+      "community": 8,
       "norm_label": "already-parsed didl_lite objects -> our models (descriptors dropped).      conta"
     },
     {
@@ -710,7 +710,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "dlna_renderer",
-      "community": 3,
+      "community": 1,
       "norm_label": "renderer.py"
     },
     {
@@ -720,7 +720,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "dlna_renderer_rendererstate",
-      "community": 3,
+      "community": 1,
       "norm_label": "rendererstate"
     },
     {
@@ -760,7 +760,7 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "dlna_renderer_renderer_state",
-      "community": 3,
+      "community": 1,
       "norm_label": ".state()"
     },
     {
@@ -880,7 +880,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "dlna_server",
-      "community": 1,
+      "community": 8,
       "norm_label": "server.py"
     },
     {
@@ -890,7 +890,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "dlna_server_musicserver",
-      "community": 1,
+      "community": 8,
       "norm_label": "musicserver"
     },
     {
@@ -900,7 +900,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "dlna_server_musicserver_init",
-      "community": 1,
+      "community": 8,
       "norm_label": ".__init__()"
     },
     {
@@ -910,7 +910,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "dlna_server_musicserver_browse",
-      "community": 1,
+      "community": 8,
       "norm_label": ".browse()"
     },
     {
@@ -920,7 +920,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "container",
-      "community": 1,
+      "community": 8,
       "norm_label": "container"
     },
     {
@@ -930,7 +930,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "dlna_server_py_track",
-      "community": 1,
+      "community": 8,
       "norm_label": "track"
     },
     {
@@ -940,7 +940,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "dlna_store",
-      "community": 4,
+      "community": 12,
       "norm_label": "store.py"
     },
     {
@@ -950,7 +950,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "dlna_store_default_path",
-      "community": 4,
+      "community": 12,
       "norm_label": "default_path()"
     },
     {
@@ -960,7 +960,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "path",
-      "community": 4,
+      "community": 12,
       "norm_label": "path"
     },
     {
@@ -970,7 +970,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "dlna_store_store",
-      "community": 4,
+      "community": 12,
       "norm_label": "store"
     },
     {
@@ -980,7 +980,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "dlna_store_store_init",
-      "community": 4,
+      "community": 12,
       "norm_label": ".__init__()"
     },
     {
@@ -990,7 +990,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "dlna_store_store_load",
-      "community": 4,
+      "community": 12,
       "norm_label": "._load()"
     },
     {
@@ -1000,7 +1000,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "dlna_store_store_save",
-      "community": 4,
+      "community": 12,
       "norm_label": ".save()"
     },
     {
@@ -1010,57 +1010,67 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "dlna_vuio",
-      "community": 7,
+      "community": 13,
       "norm_label": "vuio.py"
     },
     {
       "label": "call()",
       "file_type": "code",
       "source_file": "dlna/vuio.py",
-      "source_location": "L18",
+      "source_location": "L20",
       "_origin": "ast",
       "id": "dlna_vuio_call",
-      "community": 7,
+      "community": 13,
       "norm_label": "call()"
     },
     {
       "label": "ClientSession",
       "file_type": "code",
       "source_file": "dlna/vuio.py",
-      "source_location": "L18",
+      "source_location": "L20",
       "_origin": "ast",
       "id": "dlna_vuio_py_clientsession",
-      "community": 7,
+      "community": 13,
       "norm_label": "clientsession"
     },
     {
       "label": "media_ids()",
       "file_type": "code",
       "source_file": "dlna/vuio.py",
-      "source_location": "L38",
+      "source_location": "L46",
       "_origin": "ast",
       "id": "dlna_vuio_media_ids",
-      "community": 7,
+      "community": 13,
       "norm_label": "media_ids()"
+    },
+    {
+      "label": "pick_renderer()",
+      "file_type": "code",
+      "source_file": "dlna/vuio.py",
+      "source_location": "L68",
+      "_origin": "ast",
+      "id": "dlna_vuio_pick_renderer",
+      "community": 13,
+      "norm_label": "pick_renderer()"
     },
     {
       "label": "handoff()",
       "file_type": "code",
       "source_file": "dlna/vuio.py",
-      "source_location": "L53",
+      "source_location": "L82",
       "_origin": "ast",
       "id": "dlna_vuio_handoff",
-      "community": 7,
+      "community": 13,
       "norm_label": "handoff()"
     },
     {
       "label": "_selfcheck()",
       "file_type": "code",
       "source_file": "dlna/vuio.py",
-      "source_location": "L74",
+      "source_location": "L112",
       "_origin": "ast",
       "id": "dlna_vuio_selfcheck",
-      "community": 7,
+      "community": 13,
       "norm_label": "_selfcheck()"
     },
     {
@@ -1070,38 +1080,48 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "dlna_vuio_rationale_1",
-      "community": 7,
+      "community": 13,
       "norm_label": "talking to vuio over its mcp endpoint, and handing playback over to it.  vuio se"
     },
     {
       "label": "Invoke one VuIO MCP tool over HTTP and return its parsed result.",
       "file_type": "rationale",
       "source_file": "dlna/vuio.py",
-      "source_location": "L19",
+      "source_location": "L21",
       "_origin": "ast",
-      "id": "dlna_vuio_rationale_19",
-      "community": 7,
+      "id": "dlna_vuio_rationale_21",
+      "community": 13,
       "norm_label": "invoke one vuio mcp tool over http and return its parsed result."
     },
     {
       "label": "Queue as VuIO file ids, or None if any track isn't one of VuIO's.      A DLNA ob",
       "file_type": "rationale",
       "source_file": "dlna/vuio.py",
-      "source_location": "L39",
+      "source_location": "L47",
       "_origin": "ast",
-      "id": "dlna_vuio_rationale_39",
-      "community": 7,
+      "id": "dlna_vuio_rationale_47",
+      "community": 13,
       "norm_label": "queue as vuio file ids, or none if any track isn't one of vuio's.      a dlna ob"
     },
     {
-      "label": "Put `tracks` into a VuIO playlist and cast it from `index`.      Returns the num",
+      "label": "VuIO's best id for the renderer this app is playing to.",
       "file_type": "rationale",
       "source_file": "dlna/vuio.py",
-      "source_location": "L55",
+      "source_location": "L70",
       "_origin": "ast",
-      "id": "dlna_vuio_rationale_55",
-      "community": 7,
-      "norm_label": "put `tracks` into a vuio playlist and cast it from `index`.      returns the num"
+      "id": "dlna_vuio_rationale_70",
+      "community": 13,
+      "norm_label": "vuio's best id for the renderer this app is playing to."
+    },
+    {
+      "label": "Put `tracks` into a VuIO playlist and cast it from `index`.      Returns (tracks",
+      "file_type": "rationale",
+      "source_file": "dlna/vuio.py",
+      "source_location": "L84",
+      "_origin": "ast",
+      "id": "dlna_vuio_rationale_84",
+      "community": 13,
+      "norm_label": "put `tracks` into a vuio playlist and cast it from `index`.      returns (tracks"
     },
     {
       "label": "__init__.py",
@@ -1220,7 +1240,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_test_radio_queue",
-      "community": 3,
+      "community": 0,
       "norm_label": "test_radio_queue.py"
     },
     {
@@ -1230,7 +1250,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "tests_test_radio_queue_app",
-      "community": 3,
+      "community": 0,
       "norm_label": "_app()"
     },
     {
@@ -1240,7 +1260,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "tests_test_radio_queue_test_radio_results_dropped_when_user_picks_another_track",
-      "community": 3,
+      "community": 0,
       "norm_label": "test_radio_results_dropped_when_user_picks_another_track()"
     },
     {
@@ -1250,7 +1270,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "tests_test_radio_queue_test_radio_results_kept_when_queue_untouched",
-      "community": 3,
+      "community": 0,
       "norm_label": "test_radio_results_kept_when_queue_untouched()"
     },
     {
@@ -1260,7 +1280,7 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "tests_test_radio_queue_recs",
-      "community": 3,
+      "community": 0,
       "norm_label": "_recs()"
     },
     {
@@ -1270,7 +1290,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "tests_test_radio_queue_noop",
-      "community": 3,
+      "community": 0,
       "norm_label": "_noop()"
     },
     {
@@ -1280,7 +1300,7 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "tests_test_radio_queue_test_handoff_stops_the_app_advancing",
-      "community": 3,
+      "community": 0,
       "norm_label": "test_handoff_stops_the_app_advancing()"
     },
     {
@@ -1290,7 +1310,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "tests_test_radio_queue_rationale_13",
-      "community": 3,
+      "community": 0,
       "norm_label": "a radio fetch takes a second or two. if the user picks a new song while     it r"
     },
     {
@@ -1300,7 +1320,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "tests_test_radio_queue_rationale_46",
-      "community": 3,
+      "community": 0,
       "norm_label": "once vuio drives the playlist, this app must not also push tracks at the     ren"
     },
     {
@@ -1400,7 +1420,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_test_server",
-      "community": 1,
+      "community": 8,
       "norm_label": "test_server.py"
     },
     {
@@ -1410,7 +1430,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "tests_test_server_fakeprofile",
-      "community": 1,
+      "community": 8,
       "norm_label": "fakeprofile"
     },
     {
@@ -1420,7 +1440,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "tests_test_server_fakeprofile_async_browse_direct_children",
-      "community": 1,
+      "community": 8,
       "norm_label": ".async_browse_direct_children()"
     },
     {
@@ -1430,7 +1450,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "tests_test_server_fakeprofile_async_search_directory",
-      "community": 1,
+      "community": 8,
       "norm_label": ".async_search_directory()"
     },
     {
@@ -1440,7 +1460,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "tests_test_server_test_browse_returns_models",
-      "community": 1,
+      "community": 8,
       "norm_label": "test_browse_returns_models()"
     },
     {
@@ -1450,7 +1470,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_test_store",
-      "community": 4,
+      "community": 12,
       "norm_label": "test_store.py"
     },
     {
@@ -1460,7 +1480,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "tests_test_store_test_roundtrip",
-      "community": 4,
+      "community": 12,
       "norm_label": "test_roundtrip()"
     },
     {
@@ -1470,7 +1490,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "tests_test_store_test_corrupt_file_is_ignored",
-      "community": 4,
+      "community": 12,
       "norm_label": "test_corrupt_file_is_ignored()"
     },
     {
@@ -1480,7 +1500,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "tests_test_store_test_missing_file",
-      "community": 4,
+      "community": 12,
       "norm_label": "test_missing_file()"
     },
     {
@@ -1630,7 +1650,7 @@
       "source_location": "L126",
       "_origin": "ast",
       "id": "nodeexpanded",
-      "community": 1,
+      "community": 2,
       "norm_label": "nodeexpanded"
     },
     {
@@ -1650,7 +1670,7 @@
       "source_location": "L131",
       "_origin": "ast",
       "id": "nodeselected",
-      "community": 1,
+      "community": 2,
       "norm_label": "nodeselected"
     },
     {
@@ -1830,7 +1850,7 @@
       "source_location": "L269",
       "_origin": "ast",
       "id": "changed",
-      "community": 1,
+      "community": 2,
       "norm_label": "changed"
     },
     {
@@ -1840,7 +1860,7 @@
       "source_location": "L282",
       "_origin": "ast",
       "id": "ui_app_dlnaapp_on_input_submitted",
-      "community": 2,
+      "community": 12,
       "norm_label": ".on_input_submitted()"
     },
     {
@@ -1850,7 +1870,7 @@
       "source_location": "L282",
       "_origin": "ast",
       "id": "submitted",
-      "community": 1,
+      "community": 12,
       "norm_label": "submitted"
     },
     {
@@ -1860,7 +1880,7 @@
       "source_location": "L286",
       "_origin": "ast",
       "id": "ui_app_dlnaapp_focus_results",
-      "community": 2,
+      "community": 12,
       "norm_label": "._focus_results()"
     },
     {
@@ -1870,7 +1890,7 @@
       "source_location": "L294",
       "_origin": "ast",
       "id": "ui_app_dlnaapp_on_key",
-      "community": 2,
+      "community": 12,
       "norm_label": ".on_key()"
     },
     {
@@ -1940,14 +1960,14 @@
       "source_location": "L358",
       "_origin": "ast",
       "id": "ui_app_dlnaapp_action_handoff",
-      "community": 2,
+      "community": 13,
       "norm_label": ".action_handoff()"
     },
     {
       "label": ".action_crate_radio()",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L384",
+      "source_location": "L385",
       "_origin": "ast",
       "id": "ui_app_dlnaapp_action_crate_radio",
       "community": 2,
@@ -1957,7 +1977,7 @@
       "label": "._radio_continue()",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L409",
+      "source_location": "L410",
       "_origin": "ast",
       "id": "ui_app_dlnaapp_radio_continue",
       "community": 2,
@@ -1967,7 +1987,7 @@
       "label": ".action_favorite()",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L422",
+      "source_location": "L423",
       "_origin": "ast",
       "id": "ui_app_dlnaapp_action_favorite",
       "community": 2,
@@ -1977,17 +1997,17 @@
       "label": ".action_info()",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L431",
+      "source_location": "L432",
       "_origin": "ast",
       "id": "ui_app_dlnaapp_action_info",
-      "community": 2,
+      "community": 1,
       "norm_label": ".action_info()"
     },
     {
       "label": ".action_devices()",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L441",
+      "source_location": "L442",
       "_origin": "ast",
       "id": "ui_app_dlnaapp_action_devices",
       "community": 1,
@@ -1997,7 +2017,7 @@
       "label": ".action_quit()",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L444",
+      "source_location": "L445",
       "_origin": "ast",
       "id": "ui_app_dlnaapp_action_quit",
       "community": 2,
@@ -2007,7 +2027,7 @@
       "label": "_http_get()",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L449",
+      "source_location": "L450",
       "_origin": "ast",
       "id": "ui_app_http_get",
       "community": 4,
@@ -2017,7 +2037,7 @@
       "label": "TrackInfoScreen",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L457",
+      "source_location": "L458",
       "_origin": "ast",
       "id": "ui_app_trackinfoscreen",
       "community": 1,
@@ -2037,7 +2057,7 @@
       "label": ".__init__()",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L464",
+      "source_location": "L465",
       "_origin": "ast",
       "id": "ui_app_trackinfoscreen_init",
       "community": 1,
@@ -2047,7 +2067,7 @@
       "label": ".compose()",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L468",
+      "source_location": "L469",
       "_origin": "ast",
       "id": "ui_app_trackinfoscreen_compose",
       "community": 1,
@@ -2057,17 +2077,17 @@
       "label": ".on_mount()",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L481",
+      "source_location": "L482",
       "_origin": "ast",
       "id": "ui_app_trackinfoscreen_on_mount",
-      "community": 4,
+      "community": 1,
       "norm_label": ".on_mount()"
     },
     {
       "label": ".action_close()",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L495",
+      "source_location": "L496",
       "_origin": "ast",
       "id": "ui_app_trackinfoscreen_action_close",
       "community": 1,
@@ -2077,7 +2097,7 @@
       "label": "DeviceItem",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L499",
+      "source_location": "L500",
       "_origin": "ast",
       "id": "ui_app_deviceitem",
       "community": 1,
@@ -2097,7 +2117,7 @@
       "label": ".__init__()",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L500",
+      "source_location": "L501",
       "_origin": "ast",
       "id": "ui_app_deviceitem_init",
       "community": 1,
@@ -2107,7 +2127,7 @@
       "label": "DeviceScreen",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L506",
+      "source_location": "L507",
       "_origin": "ast",
       "id": "ui_app_devicescreen",
       "community": 1,
@@ -2117,7 +2137,7 @@
       "label": ".__init__()",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L510",
+      "source_location": "L511",
       "_origin": "ast",
       "id": "ui_app_devicescreen_init",
       "community": 1,
@@ -2127,7 +2147,7 @@
       "label": ".compose()",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L514",
+      "source_location": "L515",
       "_origin": "ast",
       "id": "ui_app_devicescreen_compose",
       "community": 1,
@@ -2137,7 +2157,7 @@
       "label": ".on_mount()",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L521",
+      "source_location": "L522",
       "_origin": "ast",
       "id": "ui_app_devicescreen_on_mount",
       "community": 1,
@@ -2147,7 +2167,7 @@
       "label": ".on_list_view_selected()",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L530",
+      "source_location": "L531",
       "_origin": "ast",
       "id": "ui_app_devicescreen_on_list_view_selected",
       "community": 2,
@@ -2157,17 +2177,17 @@
       "label": "Selected",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L530",
+      "source_location": "L531",
       "_origin": "ast",
       "id": "selected",
-      "community": 1,
+      "community": 2,
       "norm_label": "selected"
     },
     {
       "label": ".action_close()",
       "file_type": "code",
       "source_file": "ui/app.py",
-      "source_location": "L540",
+      "source_location": "L541",
       "_origin": "ast",
       "id": "ui_app_devicescreen_action_close",
       "community": 1,
@@ -2190,7 +2210,7 @@
       "source_location": "L287",
       "_origin": "ast",
       "id": "ui_app_rationale_287",
-      "community": 2,
+      "community": 12,
       "norm_label": "move focus from the filter box onto the first result so it's playable."
     },
     {
@@ -2230,7 +2250,7 @@
       "source_location": "L359",
       "_origin": "ast",
       "id": "ui_app_rationale_359",
-      "community": 2,
+      "community": 13,
       "norm_label": "give the queue to vuio so it survives this app closing."
     },
     {
@@ -2240,7 +2260,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_widgets",
-      "community": 3,
+      "community": 1,
       "norm_label": "widgets.py"
     },
     {
@@ -2250,7 +2270,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "ui_widgets_fmt",
-      "community": 3,
+      "community": 1,
       "norm_label": "_fmt()"
     },
     {
@@ -2280,7 +2300,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "ui_widgets_nowplaying_render",
-      "community": 3,
+      "community": 1,
       "norm_label": ".render()"
     },
     {
@@ -2958,9 +2978,9 @@
       "source_file": "dlna/crate.py",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_crate",
-      "target": "dlna_vuio",
-      "confidence_score": 1.0
+      "target": "dlna_vuio"
     },
     {
       "relation": "imports",
@@ -2969,9 +2989,9 @@
       "source_file": "dlna/crate.py",
       "source_location": "L16",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_crate",
-      "target": "dlna_vuio_call",
-      "confidence_score": 1.0
+      "target": "dlna_vuio_call"
     },
     {
       "relation": "rationale_for",
@@ -3055,9 +3075,9 @@
       "source_file": "dlna/crate.py",
       "source_location": "L26",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_crate_rationale_26",
-      "target": "dlna_crate_common_tail",
-      "confidence_score": 1.0
+      "target": "dlna_crate_common_tail"
     },
     {
       "relation": "calls",
@@ -3098,9 +3118,9 @@
       "source_file": "dlna/crate.py",
       "source_location": "L37",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_crate_rationale_37",
-      "target": "dlna_crate_best_match",
-      "confidence_score": 1.0
+      "target": "dlna_crate_best_match"
     },
     {
       "relation": "calls",
@@ -3130,9 +3150,9 @@
       "source_file": "dlna/crate.py",
       "source_location": "L56",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_crate_rationale_56",
-      "target": "dlna_crate_media_id",
-      "confidence_score": 1.0
+      "target": "dlna_crate_media_id"
     },
     {
       "relation": "calls",
@@ -3162,9 +3182,9 @@
       "source_file": "dlna/crate.py",
       "source_location": "L62",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_crate_rationale_62",
-      "target": "dlna_crate_crate_query",
-      "confidence_score": 1.0
+      "target": "dlna_crate_crate_query"
     },
     {
       "relation": "calls",
@@ -3205,9 +3225,9 @@
       "source_file": "dlna/crate.py",
       "source_location": "L77",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_crate_rationale_77",
-      "target": "dlna_crate_song_key",
-      "confidence_score": 1.0
+      "target": "dlna_crate_song_key"
     },
     {
       "relation": "calls",
@@ -3270,9 +3290,9 @@
       "source_file": "dlna/crate.py",
       "source_location": "L88",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_crate_rationale_88",
-      "target": "dlna_crate_rank_seeds",
-      "confidence_score": 1.0
+      "target": "dlna_crate_rank_seeds"
     },
     {
       "relation": "calls",
@@ -3291,9 +3311,9 @@
       "source_file": "dlna/crate.py",
       "source_location": "L103",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_crate_rationale_103",
-      "target": "dlna_crate_match_file",
-      "confidence_score": 1.0
+      "target": "dlna_crate_match_file"
     },
     {
       "relation": "calls",
@@ -3335,9 +3355,9 @@
       "source_file": "dlna/crate.py",
       "source_location": "L114",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_crate_vuio_search",
-      "target": "dlna_crate_py_clientsession",
-      "confidence_score": 1.0
+      "target": "dlna_crate_py_clientsession"
     },
     {
       "relation": "calls",
@@ -3346,9 +3366,9 @@
       "source_file": "dlna/crate.py",
       "source_location": "L115",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_crate_vuio_search",
-      "target": "dlna_vuio_call",
-      "confidence_score": 1.0
+      "target": "dlna_vuio_call"
     },
     {
       "relation": "references",
@@ -3357,9 +3377,9 @@
       "source_file": "dlna/crate.py",
       "source_location": "L142",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_crate_preview",
-      "target": "dlna_crate_py_clientsession",
-      "confidence_score": 1.0
+      "target": "dlna_crate_py_clientsession"
     },
     {
       "relation": "uses",
@@ -3367,9 +3387,9 @@
       "source_file": "dlna/crate.py",
       "source_location": "L15",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "dlna_crate_py_clientsession",
-      "target": "dlna_models_track",
-      "confidence_score": 0.5
+      "target": "dlna_models_track"
     },
     {
       "relation": "calls",
@@ -3378,9 +3398,9 @@
       "source_file": "dlna/crate.py",
       "source_location": "L155",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_crate_radio_tracks",
-      "target": "dlna_crate_py_clientsession",
-      "confidence_score": 1.0
+      "target": "dlna_crate_py_clientsession"
     },
     {
       "relation": "references",
@@ -3389,9 +3409,9 @@
       "source_file": "dlna/crate.py",
       "source_location": "L130",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_crate_resolve",
-      "target": "dlna_crate_py_clientsession",
-      "confidence_score": 1.0
+      "target": "dlna_crate_py_clientsession"
     },
     {
       "relation": "references",
@@ -3400,9 +3420,9 @@
       "source_file": "dlna/crate.py",
       "source_location": "L120",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_crate_vuio_path",
-      "target": "dlna_crate_py_clientsession",
-      "confidence_score": 1.0
+      "target": "dlna_crate_py_clientsession"
     },
     {
       "relation": "calls",
@@ -3421,9 +3441,9 @@
       "source_file": "dlna/crate.py",
       "source_location": "L121",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_crate_rationale_121",
-      "target": "dlna_crate_vuio_path",
-      "confidence_score": 1.0
+      "target": "dlna_crate_vuio_path"
     },
     {
       "relation": "calls",
@@ -3432,9 +3452,9 @@
       "source_file": "dlna/crate.py",
       "source_location": "L124",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_crate_vuio_path",
-      "target": "dlna_vuio_call",
-      "confidence_score": 1.0
+      "target": "dlna_vuio_call"
     },
     {
       "relation": "calls",
@@ -3507,9 +3527,9 @@
       "source_file": "dlna/crate.py",
       "source_location": "L143",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_crate_rationale_143",
-      "target": "dlna_crate_preview",
-      "confidence_score": 1.0
+      "target": "dlna_crate_preview"
     },
     {
       "relation": "rationale_for",
@@ -3517,9 +3537,9 @@
       "source_file": "dlna/crate.py",
       "source_location": "L154",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_crate_rationale_154",
-      "target": "dlna_crate_radio_tracks",
-      "confidence_score": 1.0
+      "target": "dlna_crate_radio_tracks"
     },
     {
       "relation": "imports",
@@ -4479,9 +4499,9 @@
       "source_file": "tests/test_radio_queue.py",
       "source_location": "L78",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_radio_queue_test_handoff_stops_the_app_advancing",
-      "target": "dlna_models_track",
-      "confidence_score": 1.0
+      "target": "dlna_models_track"
     },
     {
       "relation": "calls",
@@ -4900,9 +4920,9 @@
       "source_file": "tests/test_radio_queue.py",
       "source_location": "L78",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_radio_queue_test_handoff_stops_the_app_advancing",
-      "target": "dlna_models_queue",
-      "confidence_score": 1.0
+      "target": "dlna_models_queue"
     },
     {
       "relation": "imports",
@@ -5176,9 +5196,9 @@
       "source_file": "tests/test_radio_queue.py",
       "source_location": "L52",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_radio_queue",
-      "target": "dlna_renderer_rendererstate",
-      "confidence_score": 1.0
+      "target": "dlna_renderer_rendererstate"
     },
     {
       "relation": "calls",
@@ -5187,9 +5207,9 @@
       "source_file": "tests/test_radio_queue.py",
       "source_location": "L53",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_radio_queue_test_handoff_stops_the_app_advancing",
-      "target": "dlna_renderer_rendererstate",
-      "confidence_score": 1.0
+      "target": "dlna_renderer_rendererstate"
     },
     {
       "relation": "imports",
@@ -6225,9 +6245,9 @@
       "source_file": "dlna/vuio.py",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_vuio",
-      "target": "dlna_vuio_call",
-      "confidence_score": 1.0
+      "target": "dlna_vuio_call"
     },
     {
       "relation": "contains",
@@ -6235,9 +6255,9 @@
       "source_file": "dlna/vuio.py",
       "source_location": "L53",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_vuio",
-      "target": "dlna_vuio_handoff",
-      "confidence_score": 1.0
+      "target": "dlna_vuio_handoff"
     },
     {
       "relation": "contains",
@@ -6245,8 +6265,18 @@
       "source_file": "dlna/vuio.py",
       "source_location": "L38",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_vuio",
-      "target": "dlna_vuio_media_ids",
+      "target": "dlna_vuio_media_ids"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "dlna/vuio.py",
+      "source_location": "L68",
+      "weight": 1.0,
+      "source": "dlna_vuio",
+      "target": "dlna_vuio_pick_renderer",
       "confidence_score": 1.0
     },
     {
@@ -6255,9 +6285,9 @@
       "source_file": "dlna/vuio.py",
       "source_location": "L74",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_vuio",
-      "target": "dlna_vuio_selfcheck",
-      "confidence_score": 1.0
+      "target": "dlna_vuio_selfcheck"
     },
     {
       "relation": "rationale_for",
@@ -6265,9 +6295,9 @@
       "source_file": "dlna/vuio.py",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_vuio_rationale_1",
-      "target": "dlna_vuio",
-      "confidence_score": 1.0
+      "target": "dlna_vuio"
     },
     {
       "relation": "imports_from",
@@ -6276,9 +6306,9 @@
       "source_file": "ui/app.py",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app",
-      "target": "dlna_vuio",
-      "confidence_score": 1.0
+      "target": "dlna_vuio"
     },
     {
       "relation": "references",
@@ -6287,9 +6317,9 @@
       "source_file": "dlna/vuio.py",
       "source_location": "L18",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_vuio_call",
-      "target": "dlna_vuio_py_clientsession",
-      "confidence_score": 1.0
+      "target": "dlna_vuio_py_clientsession"
     },
     {
       "relation": "calls",
@@ -6298,7 +6328,18 @@
       "source_file": "dlna/vuio.py",
       "source_location": "L64",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_vuio_handoff",
+      "target": "dlna_vuio_call"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "dlna/vuio.py",
+      "source_location": "L72",
+      "weight": 1.0,
+      "source": "dlna_vuio_pick_renderer",
       "target": "dlna_vuio_call",
       "confidence_score": 1.0
     },
@@ -6306,9 +6347,9 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "dlna/vuio.py",
-      "source_location": "L19",
+      "source_location": "L21",
       "weight": 1.0,
-      "source": "dlna_vuio_rationale_19",
+      "source": "dlna_vuio_rationale_21",
       "target": "dlna_vuio_call",
       "confidence_score": 1.0
     },
@@ -6319,7 +6360,18 @@
       "source_file": "dlna/vuio.py",
       "source_location": "L63",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_vuio_handoff",
+      "target": "dlna_vuio_py_clientsession"
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "dlna/vuio.py",
+      "source_location": "L68",
+      "weight": 1.0,
+      "source": "dlna_vuio_pick_renderer",
       "target": "dlna_vuio_py_clientsession",
       "confidence_score": 1.0
     },
@@ -6330,17 +6382,17 @@
       "source_file": "dlna/vuio.py",
       "source_location": "L60",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_vuio_handoff",
-      "target": "dlna_vuio_media_ids",
-      "confidence_score": 1.0
+      "target": "dlna_vuio_media_ids"
     },
     {
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "dlna/vuio.py",
-      "source_location": "L39",
+      "source_location": "L47",
       "weight": 1.0,
-      "source": "dlna_vuio_rationale_39",
+      "source": "dlna_vuio_rationale_47",
       "target": "dlna_vuio_media_ids",
       "confidence_score": 1.0
     },
@@ -6351,9 +6403,9 @@
       "source_file": "dlna/vuio.py",
       "source_location": "L79",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_vuio_selfcheck",
-      "target": "dlna_vuio_media_ids",
-      "confidence_score": 1.0
+      "target": "dlna_vuio_media_ids"
     },
     {
       "relation": "imports",
@@ -6362,9 +6414,9 @@
       "source_file": "ui/app.py",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app",
-      "target": "dlna_vuio_media_ids",
-      "confidence_score": 1.0
+      "target": "dlna_vuio_media_ids"
     },
     {
       "relation": "calls",
@@ -6378,12 +6430,44 @@
       "target": "dlna_vuio_media_ids"
     },
     {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "dlna/vuio.py",
+      "source_location": "L93",
+      "weight": 1.0,
+      "source": "dlna_vuio_handoff",
+      "target": "dlna_vuio_pick_renderer",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "dlna/vuio.py",
-      "source_location": "L55",
+      "source_location": "L70",
       "weight": 1.0,
-      "source": "dlna_vuio_rationale_55",
+      "source": "dlna_vuio_rationale_70",
+      "target": "dlna_vuio_pick_renderer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "dlna/vuio.py",
+      "source_location": "L138",
+      "weight": 1.0,
+      "source": "dlna_vuio_selfcheck",
+      "target": "dlna_vuio_pick_renderer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "dlna/vuio.py",
+      "source_location": "L84",
+      "weight": 1.0,
+      "source": "dlna_vuio_rationale_84",
       "target": "dlna_vuio_handoff",
       "confidence_score": 1.0
     },
@@ -6394,9 +6478,9 @@
       "source_file": "ui/app.py",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app",
-      "target": "dlna_vuio_handoff",
-      "confidence_score": 1.0
+      "target": "dlna_vuio_handoff"
     },
     {
       "relation": "calls",
@@ -6568,9 +6652,9 @@
       "source_file": "tests/test_radio_queue.py",
       "source_location": "L45",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_radio_queue",
-      "target": "tests_test_radio_queue_test_handoff_stops_the_app_advancing",
-      "confidence_score": 1.0
+      "target": "tests_test_radio_queue_test_handoff_stops_the_app_advancing"
     },
     {
       "relation": "contains",
@@ -6674,9 +6758,9 @@
       "source_file": "tests/test_radio_queue.py",
       "source_location": "L46",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_radio_queue_rationale_46",
-      "target": "tests_test_radio_queue_test_handoff_stops_the_app_advancing",
-      "confidence_score": 1.0
+      "target": "tests_test_radio_queue_test_handoff_stops_the_app_advancing"
     },
     {
       "relation": "contains",
@@ -7010,9 +7094,9 @@
       "source_file": "ui/app.py",
       "source_location": "L358",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp",
-      "target": "ui_app_dlnaapp_action_handoff",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_action_handoff"
     },
     {
       "relation": "method",
@@ -7675,9 +7759,9 @@
       "source_file": "ui/app.py",
       "source_location": "L381",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp_action_handoff",
-      "target": "ui_app_dlnaapp_update_subtitle",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_update_subtitle"
     },
     {
       "relation": "calls",
@@ -7870,9 +7954,9 @@
       "source_file": "ui/app.py",
       "source_location": "L242",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_rationale_242",
-      "target": "ui_app_dlnaapp_current_container_node",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_current_container_node"
     },
     {
       "relation": "calls",
@@ -7988,9 +8072,9 @@
       "source_file": "ui/app.py",
       "source_location": "L287",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_rationale_287",
-      "target": "ui_app_dlnaapp_focus_results",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_focus_results"
     },
     {
       "relation": "calls",
@@ -8020,9 +8104,9 @@
       "source_file": "ui/app.py",
       "source_location": "L300",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_rationale_300",
-      "target": "ui_app_dlnaapp_seed_track",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_seed_track"
     },
     {
       "relation": "references",
@@ -8106,9 +8190,9 @@
       "source_file": "ui/app.py",
       "source_location": "L322",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_rationale_322",
-      "target": "ui_app_dlnaapp_mark_current",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_mark_current"
     },
     {
       "relation": "calls",
@@ -8149,9 +8233,9 @@
       "source_file": "ui/app.py",
       "source_location": "L335",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_rationale_335",
-      "target": "ui_app_dlnaapp_append_radio",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_append_radio"
     },
     {
       "relation": "rationale_for",
@@ -8159,9 +8243,9 @@
       "source_file": "ui/app.py",
       "source_location": "L359",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_rationale_359",
-      "target": "ui_app_dlnaapp_action_handoff",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_action_handoff"
     },
     {
       "relation": "calls",
@@ -8743,5 +8827,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "72c70a0ba68ccc29136c22f7077c85d8a8a0ce7c"
+  "built_at_commit": "6ec08d4856c02d87281c10fb4c5c6af1ac270fac"
 }

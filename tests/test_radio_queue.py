@@ -62,10 +62,11 @@ async def test_handoff_stops_the_app_advancing(monkeypatch):
     class Info:
         udn = "uuid:test"
         name = "Evo One"
+        location = "http://10.0.0.5:8050/d.xml"
 
-    async def fake_handoff(tracks, renderer_id, index=0, name=""):
-        assert renderer_id == "uuid:test"
-        return len(tracks)
+    async def fake_handoff(tracks, udn, location="", index=0, name=""):
+        assert (udn, location) == ("uuid:test", "http://10.0.0.5:8050/d.xml")
+        return len(tracks), "chromecast"
 
     monkeypatch.setattr(app_mod, "handoff", fake_handoff)
 

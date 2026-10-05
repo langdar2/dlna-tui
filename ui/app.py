@@ -11,6 +11,7 @@ from textual.widgets import Footer, Header, Input, ListItem, ListView, Label, St
 
 from dlna.art import to_ansi
 from dlna.crate import radio_tracks, song_key
+from dlna.vuio import handoff, media_ids
 from dlna.discovery import build_device, discover
 from dlna.models import Container, Queue, Track
 from dlna.renderer import Renderer
@@ -36,6 +37,7 @@ class DlnaApp(App):
         ("slash", "search", "Filter"),
         ("c", "crate_radio", "Radio"),
         ("f", "favorite", "Fav"),
+        ("x", "handoff", "An VuIO"),
         ("i", "info", "Info"),
         ("d", "devices", "Geräte"),
         ("q", "quit", "Quit"),
@@ -61,6 +63,7 @@ class DlnaApp(App):
         self.radio = False  # CrateMind auto-continue: keep queueing similar tracks when it empties
         self._radio_busy = False  # guard against overlapping radio fetches
         self._queue_gen = 0  # bumped when the user replaces the queue; see _append_radio
+        self.handed_off = False  # VuIO drives the playlist; we stop advancing
         self.radio_limit = int(os.environ.get("RADIO_LIMIT", "10"))  # tracks per radio fetch
         self._heard: set[str] = set()  # track ids already queued; radio skips them
 
@@ -111,6 +114,8 @@ class DlnaApp(App):
         srv = self._srv_info.name if self._srv_info else "—"
         rnd = self._rnd_info.name if self._rnd_info else "—"
         radio = "  📻 Radio" if self.radio else ""
+        if self.handed_off:
+            radio = "  ⇢ VuIO"
         self.sub_title = f"{srv} → {rnd}{radio}"
 
     async def _load_children(self, node, object_id: str) -> None:
@@ -139,6 +144,7 @@ class DlnaApp(App):
                 tracks, idx = [obj], 0
             self.queue = Queue(tracks, idx)
             self._queue_gen += 1  # strand any radio fetch still running for the old song
+            self.handed_off = False  # we're driving again
             self.radio = False  # user picked a track; stop auto-continuing
             self._update_subtitle()
             await self.renderer.play(obj)  # start audio first; the pane can lag
@@ -171,7 +177,8 @@ class DlnaApp(App):
         # Advance only on the PLAYING->STOPPED edge; level-triggering would skip
         # tracks while the renderer sits in STOPPED for several ticks before the
         # next one reports PLAYING.
-        if st.transport_state == "STOPPED" and self._last_state not in ("", "STOPPED"):
+        if (st.transport_state == "STOPPED" and self._last_state not in ("", "STOPPED")
+                and not self.handed_off):  # VuIO advances its own playlist
             nxt = self.queue.advance()
             if nxt:
                 self._spawn(self.renderer.play(nxt))
@@ -347,6 +354,32 @@ class DlnaApp(App):
         if added:
             await self._sync_queue_view()
         return added
+
+    async def action_handoff(self) -> None:
+        """Give the queue to VuIO so it survives this app closing."""
+        if not self.queue.tracks:
+            self.notify("Queue ist leer", severity="warning")
+            return
+        if not self._rnd_info:
+            self.notify("Kein Renderer gewählt (d)", severity="warning")
+            return
+        if media_ids(self.queue.tracks) is None:
+            self.notify("Queue enthält Titel, die VuIO nicht kennt", severity="warning")
+            return
+        self.notify("Übergebe Queue an VuIO…")
+        try:
+            # The DLNA renderer's UDN is also VuIO's id for it, so no lookup.
+            n = await handoff(self.queue.tracks, self._rnd_info.udn,
+                              self.queue.index, f"dlna-tui: {self.queue.current().title}")
+        except Exception as exc:  # report the failure; never claim a handoff that didn't happen
+            self.notify(f"Übergabe fehlgeschlagen: {exc}", severity="error")
+            return
+        # VuIO advances the playlist from here; two schedulers on one renderer
+        # would fight over it.
+        self.handed_off = True
+        self.radio = False
+        self._update_subtitle()
+        self.notify(f"{n} Titel an VuIO übergeben – läuft ohne die App weiter")
 
     async def action_crate_radio(self) -> None:
         seed = self._seed_track()

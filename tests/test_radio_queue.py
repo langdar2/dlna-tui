@@ -40,3 +40,57 @@ async def _recs():
 
 async def _noop(self):
     pass
+
+
+async def test_handoff_stops_the_app_advancing(monkeypatch):
+    """Once VuIO drives the playlist, this app must not also push tracks at the
+    renderer -- two schedulers on one device fight over it."""
+    played = []
+
+    class FakeRenderer:
+        def state(self):
+            from dlna.renderer import RendererState
+            return RendererState(transport_state="STOPPED")
+
+        async def update(self):
+            return True
+
+        async def play(self, track):
+            played.append(track.id)
+            return True
+
+    class Info:
+        udn = "uuid:test"
+        name = "Evo One"
+
+    async def fake_handoff(tracks, renderer_id, index=0, name=""):
+        assert renderer_id == "uuid:test"
+        return len(tracks)
+
+    monkeypatch.setattr(app_mod, "handoff", fake_handoff)
+
+    class T(DlnaApp):
+        async def on_mount(self):
+            pass
+
+    a = T(store=None, requester=None, event_handler=None)
+    async with a.run_test() as pilot:
+        a.queue = Queue([Track(id="1", title="A"), Track(id="2", title="B")])
+        a.renderer = FakeRenderer()
+        a._rnd_info = Info()
+
+        a._last_state = "PLAYING"      # app still in charge: the edge advances
+        a._refresh_state()
+        await pilot.pause()            # _refresh_state spawns play() as a task
+        assert played == ["2"]
+
+        await a.action_handoff()
+        assert a.handed_off is True
+        assert a.radio is False
+
+        played.clear()
+        a.queue.index = 0
+        a._last_state = "PLAYING"      # same edge, now VuIO's job
+        a._refresh_state()
+        await pilot.pause()
+        assert played == []

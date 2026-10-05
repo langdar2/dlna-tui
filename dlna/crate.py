@@ -7,17 +7,16 @@ CrateMind and VuIO index the same files; the basename is the bridge.
 """
 from __future__ import annotations
 
-import json
 import os
 import re
 
 import aiohttp
 
 from .models import Track
+from .vuio import call as vuio_call
 
 CRATE_URL = os.environ.get("CRATE_URL", "http://192.168.0.3:8008")
-VUIO_URL = os.environ.get("VUIO_URL", "http://192.168.0.3:8080")
-_MCP_VERSION = "2026-07-28"
+
 
 def _basename(path: str) -> str:
     return path.rsplit("/", 1)[-1]
@@ -112,25 +111,8 @@ def _match_file(files: list[dict], crate_path: str) -> dict | None:
     return files[0] if files else None
 
 
-async def _vuio_call(session: aiohttp.ClientSession, tool: str, args: dict) -> dict:
-    body = {
-        "jsonrpc": "2.0", "id": 1, "method": "tools/call",
-        "params": {
-            "name": tool, "arguments": args,
-            "_meta": {"io.modelcontextprotocol/protocolVersion": _MCP_VERSION},
-        },
-    }
-    headers = {"MCP-Protocol-Version": _MCP_VERSION,
-               "Mcp-Method": "tools/call", "Mcp-Name": tool}
-    async with session.post(f"{VUIO_URL}/mcp", json=body, headers=headers) as r:
-        r.raise_for_status()
-        payload = await r.json()
-    result = payload["result"]
-    return result.get("structuredContent") or json.loads(result["content"][0]["text"])
-
-
 async def _vuio_search(session: aiohttp.ClientSession, query: str) -> list[dict]:
-    data = await _vuio_call(session, "search_media",
+    data = await vuio_call(session, "search_media",
                             {"query": query, "category": "audio", "limit": 10})
     return data.get("files", [])
 
@@ -139,7 +121,7 @@ async def _vuio_path(session: aiohttp.ClientSession, media_id: str) -> str:
     """Exact host path for a VuIO id. Prefix-swapped this IS CrateMind's track key,
     so the seed needs no searching or guessing by title."""
     try:
-        data = await _vuio_call(session, "get_media_info", {"file_id": int(media_id)})
+        data = await vuio_call(session, "get_media_info", {"file_id": int(media_id)})
     except Exception:  # ponytail: best-effort; title search stays the fallback
         return ""
     return data.get("path", "")

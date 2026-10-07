@@ -237,7 +237,7 @@
       "label": "_preview()",
       "file_type": "code",
       "source_file": "dlna/crate.py",
-      "source_location": "L142",
+      "source_location": "L144",
       "_origin": "ast",
       "id": "dlna_crate_preview",
       "community": 7,
@@ -247,7 +247,7 @@
       "label": "radio_tracks()",
       "file_type": "code",
       "source_file": "dlna/crate.py",
-      "source_location": "L152",
+      "source_location": "L154",
       "_origin": "ast",
       "id": "dlna_crate_radio_tracks",
       "community": 7,
@@ -257,7 +257,7 @@
       "label": "_selfcheck()",
       "file_type": "code",
       "source_file": "dlna/crate.py",
-      "source_location": "L192",
+      "source_location": "L194",
       "_origin": "ast",
       "id": "dlna_crate_selfcheck",
       "community": 7,
@@ -357,9 +357,9 @@
       "label": "Similarity recommendations for one seed path. [] if CrateMind can't seed it.",
       "file_type": "rationale",
       "source_file": "dlna/crate.py",
-      "source_location": "L143",
+      "source_location": "L145",
       "_origin": "ast",
-      "id": "dlna_crate_rationale_143",
+      "id": "dlna_crate_rationale_145",
       "community": 7,
       "norm_label": "similarity recommendations for one seed path. [] if cratemind can't seed it."
     },
@@ -367,9 +367,9 @@
       "label": "Tracks similar to the given one, as playable Tracks (unresolved ones dropped).",
       "file_type": "rationale",
       "source_file": "dlna/crate.py",
-      "source_location": "L154",
+      "source_location": "L156",
       "_origin": "ast",
-      "id": "dlna_crate_rationale_154",
+      "id": "dlna_crate_rationale_156",
       "community": 7,
       "norm_label": "tracks similar to the given one, as playable tracks (unresolved ones dropped)."
     },
@@ -3191,6 +3191,17 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "dlna/crate.py",
+      "source_location": "L138",
+      "weight": 1.0,
+      "source": "dlna_crate_resolve",
+      "target": "dlna_crate_crate_query",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "dlna/crate.py",
       "source_location": "L168",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -3525,21 +3536,21 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "dlna/crate.py",
-      "source_location": "L143",
+      "source_location": "L145",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "dlna_crate_rationale_143",
-      "target": "dlna_crate_preview"
+      "source": "dlna_crate_rationale_145",
+      "target": "dlna_crate_preview",
+      "confidence_score": 1.0
     },
     {
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "dlna/crate.py",
-      "source_location": "L154",
+      "source_location": "L156",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "dlna_crate_rationale_154",
-      "target": "dlna_crate_radio_tracks"
+      "source": "dlna_crate_rationale_156",
+      "target": "dlna_crate_radio_tracks",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -6275,9 +6286,9 @@
       "source_file": "dlna/vuio.py",
       "source_location": "L68",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_vuio",
-      "target": "dlna_vuio_pick_renderer",
-      "confidence_score": 1.0
+      "target": "dlna_vuio_pick_renderer"
     },
     {
       "relation": "contains",
@@ -6339,9 +6350,9 @@
       "source_file": "dlna/vuio.py",
       "source_location": "L72",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_vuio_pick_renderer",
-      "target": "dlna_vuio_call",
-      "confidence_score": 1.0
+      "target": "dlna_vuio_call"
     },
     {
       "relation": "rationale_for",
@@ -6349,9 +6360,9 @@
       "source_file": "dlna/vuio.py",
       "source_location": "L21",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_vuio_rationale_21",
-      "target": "dlna_vuio_call",
-      "confidence_score": 1.0
+      "target": "dlna_vuio_call"
     },
     {
       "relation": "calls",
@@ -6371,9 +6382,9 @@
       "source_file": "dlna/vuio.py",
       "source_location": "L68",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_vuio_pick_renderer",
-      "target": "dlna_vuio_py_clientsession",
-      "confidence_score": 1.0
+      "target": "dlna_vuio_py_clientsession"
     },
     {
       "relation": "calls",
@@ -6392,9 +6403,9 @@
       "source_file": "dlna/vuio.py",
       "source_location": "L47",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_vuio_rationale_47",
-      "target": "dlna_vuio_media_ids",
-      "confidence_score": 1.0
+      "target": "dlna_vuio_media_ids"
     },
     {
       "relation": "calls",
@@ -6436,9 +6447,9 @@
       "source_file": "dlna/vuio.py",
       "source_location": "L93",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_vuio_handoff",
-      "target": "dlna_vuio_pick_renderer",
-      "confidence_score": 1.0
+      "target": "dlna_vuio_pick_renderer"
     },
     {
       "relation": "rationale_for",
@@ -6446,9 +6457,9 @@
       "source_file": "dlna/vuio.py",
       "source_location": "L70",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_vuio_rationale_70",
-      "target": "dlna_vuio_pick_renderer",
-      "confidence_score": 1.0
+      "target": "dlna_vuio_pick_renderer"
     },
     {
       "relation": "calls",
@@ -6457,9 +6468,9 @@
       "source_file": "dlna/vuio.py",
       "source_location": "L138",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_vuio_selfcheck",
-      "target": "dlna_vuio_pick_renderer",
-      "confidence_score": 1.0
+      "target": "dlna_vuio_pick_renderer"
     },
     {
       "relation": "rationale_for",
@@ -6467,9 +6478,9 @@
       "source_file": "dlna/vuio.py",
       "source_location": "L84",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_vuio_rationale_84",
-      "target": "dlna_vuio_handoff",
-      "confidence_score": 1.0
+      "target": "dlna_vuio_handoff"
     },
     {
       "relation": "imports",
@@ -8827,5 +8838,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "6ec08d4856c02d87281c10fb4c5c6af1ac270fac"
+  "built_at_commit": "c7b98026aa9dfc6db0d409b6adb82be570101261"
 }

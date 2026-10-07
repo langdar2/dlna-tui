@@ -133,8 +133,10 @@ async def _resolve(session: aiohttp.ClientSession, path: str) -> Track | None:
     if not f:
         return None
     return Track(
-        id=str(f["id"]), title=f.get("title") or _basename(path),
-        artist=f.get("artist", ""), album=f.get("album", ""),
+        # Untagged files carry null, not a missing key, so a .get default would
+        # not fire and "None" would end up on screen and in the dedup key.
+        id=str(f["id"]), title=f.get("title") or _crate_query(_basename(path), ""),
+        artist=f.get("artist") or "", album=f.get("album") or "",
         media_url=f["stream_url"],  # directly playable; no DIDL needed
     )
 
@@ -234,6 +236,9 @@ def _selfcheck() -> None:
     assert _crate_query("03. 4 Non Blondes - What's Up.m4a", "What's Up?") \
         == "4 Non Blondes - What's Up"
     assert _crate_query("", "Fallback Title") == "Fallback Title"
+    # untagged file: no "None" artist, and the fallback title loses number+suffix
+    assert _crate_query("08 - This Is The Life (Live).flac", "") == "This Is The Life (Live)"
+    assert song_key(None or "", "x") == song_key("", "x")
     print("ok")
 
 

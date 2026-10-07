@@ -1,16 +1,16 @@
-# Graph Report - dlna TerminalClient  (2026-10-05)
+# Graph Report - dlna TerminalClient  (2026-10-07)
 
 ## Corpus Check
-- 21 files · ~10,969 words
+- 21 files · ~11,036 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 260 nodes · 596 edges · 14 communities
+- 260 nodes · 597 edges · 14 communities
 - Extraction: 81% EXTRACTED · 19% INFERRED · 0% AMBIGUOUS · INFERRED: 114 edges (avg confidence: 0.5)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `6ec08d48`
+- Built from commit: `c7b98026`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -110,7 +110,7 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `DlnaApp` connect `Community 2` to `Community 0`, `Community 1`, `Community 3`, `Community 4`, `Community 8`, `Community 12`, `Community 13`?**
   _High betweenness centrality (0.253) - this node is a cross-community bridge._
 - **Why does `Track` connect `Community 0` to `Community 1`, `Community 2`, `Community 3`, `Community 4`, `Community 7`, `Community 8`, `Community 12`?**
-  _High betweenness centrality (0.172) - this node is a cross-community bridge._
+  _High betweenness centrality (0.173) - this node is a cross-community bridge._
 - **Why does `Renderer` connect `Community 3` to `Community 0`, `Community 1`, `Community 2`, `Community 4`, `Community 12`?**
   _High betweenness centrality (0.110) - this node is a cross-community bridge._
 - **Are the 8 inferred relationships involving `DlnaApp` (e.g. with `ComposeResult` and `Container`) actually correct?**

@@ -10,7 +10,7 @@ from textual.screen import ModalScreen
 from textual.widgets import Footer, Header, Input, ListItem, ListView, Label, Static, Tree
 
 from dlna.art import to_ansi
-from dlna.crate import radio_tracks, rate, song_key
+from dlna.crate import count_play, radio_tracks, rate, song_key
 from dlna.vuio import handoff, media_ids
 from dlna.discovery import build_device, discover
 from dlna.models import Container, Queue, Track
@@ -21,6 +21,12 @@ from .widgets import NowPlaying
 
 
 QUEUE_VIEW_MAX = 200  # queue rows to render; see _sync_queue_view
+
+# Seconds of playback that make a play count. Scrobblers use "half the track",
+# but VuIO reports duration 0 for m4a, so a fraction is not available; 30s is
+# the usual absolute fallback and is long enough that skipping past a track
+# does not score it.
+PLAY_THRESHOLD_SECONDS = 30
 
 
 class DlnaApp(App):
@@ -58,6 +64,10 @@ class DlnaApp(App):
         self._node_obj: dict = {}  # ponytail: grows unbounded on re-search; prune if it matters
         self._last_state = ""
         self._marked = -1  # queue row currently showing the ▶ marker
+        self._heard_seconds = 0  # how long the current track has been playing
+        self._play_counted = False  # already reported to CrateMind
+        self._playing_key = None  # (id, index) of the track the timer belongs to
+        self._playing_track: Track | None = None
         self._tasks: set = set()  # keep create_task refs alive (else GC can cancel them)
         self._filter_node = None  # tree node being filtered in place; None = not filtering
         self._filter_cache: dict[str, list] = {}  # cid -> children (one browse per folder)
@@ -160,7 +170,50 @@ class DlnaApp(App):
         # Interval tick: refresh cached position/volume, then redraw.
         if self.renderer:
             await self.renderer.update()
+            self._tick_play_time()
         self._refresh_state()
+
+    def _tick_play_time(self) -> None:
+        """Count listening time and report a play once it passes the threshold.
+
+        Driven by the one-second poll rather than by position, which stalls at
+        0 on streams whose duration VuIO reports as 0, and jumps on a seek.
+        """
+        self._note_track_change()
+        if self.handed_off or self.renderer.state().transport_state != "PLAYING":
+            return
+        self._heard_seconds += 1
+        track = self.queue.current()
+        if (not self._play_counted and track
+                and self._heard_seconds >= PLAY_THRESHOLD_SECONDS):
+            self._play_counted = True  # set first: the report is slow and async
+            self._spawn(self._report_play(track, skipped=False))
+
+    def _note_track_change(self) -> None:
+        """Restart the play timer when the current track changed, and report
+        the one being left as skipped if it never reached the threshold.
+
+        Hooked into the poll rather than into each play() call: advance, n/p,
+        radio and picking from the tree all move the queue, and one place that
+        notices the result cannot be forgotten at a new call site.
+        """
+        track = self.queue.current()
+        now = (track.id, self.queue.index) if track else None
+        if now == self._playing_key:
+            return
+        left = self._playing_track
+        if left and not self._play_counted and self._heard_seconds > 0:
+            self._spawn(self._report_play(left, skipped=True))
+        self._playing_key, self._playing_track = now, track
+        self._heard_seconds = 0
+        self._play_counted = False
+
+    async def _report_play(self, track: Track, skipped: bool) -> None:
+        try:
+            await count_play(track.media_url, skipped, track.title,
+                             track.artist, track.album)
+        except Exception:
+            pass  # ponytail: a lost playcount is not worth interrupting playback
 
     def _refresh_state(self) -> None:
         if not self.renderer:

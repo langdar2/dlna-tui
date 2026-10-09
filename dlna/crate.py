@@ -151,6 +151,25 @@ async def _preview(s: aiohttp.ClientSession, seed: str, limit: int) -> list[dict
         return (await r.json()).get("tracks", [])
 
 
+async def count_play(media_url: str, skipped: bool = False, title: str = "",
+                     artist: str = "", album: str = "") -> bool:
+    """Tell CrateMind this track was played (or skipped), so it feeds taste.
+
+    False when CrateMind doesn't know the file — nothing to count against.
+    """
+    async with aiohttp.ClientSession(raise_for_status=False,
+                                     timeout=aiohttp.ClientTimeout(total=15)) as s:
+        path = await _crate_path_of(s, media_url, title, artist, album)
+        if not path:
+            return False
+        async with s.post(f"{CRATE_URL}/api/plays",
+                          json={"path": path, "skipped": skipped}) as r:
+            if r.status == 404:
+                return False
+            r.raise_for_status()
+    return True
+
+
 async def rate(media_url: str, rating: int, title: str = "",
                artist: str = "", album: str = "") -> bool:
     """Tell CrateMind the user liked (+1) / banned (-1) / un-rated (0) a track.

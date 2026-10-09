@@ -10,7 +10,7 @@ from textual.screen import ModalScreen
 from textual.widgets import Footer, Header, Input, ListItem, ListView, Label, Static, Tree
 
 from dlna.art import to_ansi
-from dlna.crate import radio_tracks, song_key
+from dlna.crate import radio_tracks, rate, song_key
 from dlna.vuio import handoff, media_ids
 from dlna.discovery import build_device, discover
 from dlna.models import Container, Queue, Track
@@ -36,7 +36,8 @@ class DlnaApp(App):
         ("left", "seek_back", "Seek-"),
         ("slash", "search", "Filter"),
         ("c", "crate_radio", "Radio"),
-        ("f", "favorite", "Fav"),
+        ("f", "favorite", "Fav ★"),
+        ("b", "ban", "Ban ✗"),
         ("x", "handoff", "An VuIO"),
         ("i", "info", "Info"),
         ("d", "devices", "Geräte"),
@@ -303,8 +304,11 @@ class DlnaApp(App):
         return obj if isinstance(obj, Track) else self.queue.current()
 
     def _queue_label(self, i: int) -> str:
+        t = self.queue.tracks[i]
         # Pad the others so titles stay aligned when the marker moves.
-        return f"{'▶ ' if i == self.queue.index else '  '}{self.queue.tracks[i].title}"
+        mark = "▶ " if i == self.queue.index else "  "
+        rating = {1: " ★", -1: " ✗"}.get(self.store.rating_of(t.id), "")
+        return f"{mark}{t.title}{rating}"
 
     async def _sync_queue_view(self) -> None:
         qview = self.query_one("#queue", ListView)
@@ -318,10 +322,12 @@ class DlnaApp(App):
             qview.append(ListItem(Label(self._queue_label(i))))
         self._marked = self.queue.index
 
-    def _mark_current(self) -> None:
+    def _mark_current(self, force: bool = False) -> None:
         """Move the ▶ marker to the playing track. Touches only the two rows
-        that change, so browsing the queue isn't interrupted by a redraw."""
-        if self._marked == self.queue.index:
+        that change, so browsing the queue isn't interrupted by a redraw.
+        `force` also redraws when the index is unchanged but a label is not —
+        after a rating, whose ★/✗ sits in the same row."""
+        if self._marked == self.queue.index and not force:
             return
         items = list(self.query_one("#queue", ListView).children)
         if len(items) != len(self.queue.tracks):
@@ -420,14 +426,40 @@ class DlnaApp(App):
         finally:
             self._radio_busy = False
 
-    async def action_favorite(self) -> None:
+    def _rating_target(self) -> Track | None:
+        """What to rate: the cursor track, else what's playing."""
         node = self.query_one("#browser", Tree).cursor_node
         obj = self._node_obj.get(node.id) if node else None
-        if isinstance(obj, Track):
-            self.store.favorites.append({"id": obj.id, "title": obj.title,
-                                         "media_url": obj.media_url, "didl": obj.didl})
-            self.store.save()
-            self.notify(f"Favorit: {obj.title}")
+        return obj if isinstance(obj, Track) else self.queue.current()
+
+    async def _rate(self, wanted: int, word: str) -> None:
+        """Rate the current track, or clear the rating if it already has it."""
+        obj = self._rating_target()
+        if not obj:
+            self.notify("Kein Track gewählt", severity="warning")
+            return
+        rating = 0 if self.store.rating_of(obj.id) == wanted else wanted
+        try:
+            known = await rate(obj.media_url, rating, obj.title, obj.artist, obj.album)
+        except Exception as exc:
+            self.notify(f"CrateMind nicht erreicht: {exc}", severity="error")
+            return
+        # Store locally either way: the rating still shows in the player, and
+        # CrateMind simply has no analysis to attach it to.
+        self.store.set_rating(obj.id, rating, obj.title)
+        self._mark_current(force=True)
+        if rating == 0:
+            self.notify(f"Bewertung entfernt: {obj.title}")
+        else:
+            self.notify(f"{word}: {obj.title}"
+                        + ("" if known else " (CrateMind kennt ihn nicht)"),
+                        severity="information" if known else "warning")
+
+    async def action_favorite(self) -> None:
+        await self._rate(1, "Favorit ★")
+
+    async def action_ban(self) -> None:
+        await self._rate(-1, "Nicht mehr spielen ✗")
 
     async def action_info(self) -> None:
         node = self.query_one("#browser", Tree).cursor_node

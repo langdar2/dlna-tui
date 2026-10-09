@@ -151,6 +151,46 @@ async def _preview(s: aiohttp.ClientSession, seed: str, limit: int) -> list[dict
         return (await r.json()).get("tracks", [])
 
 
+async def rate(media_url: str, rating: int, title: str = "",
+               artist: str = "", album: str = "") -> bool:
+    """Tell CrateMind the user liked (+1) / banned (-1) / un-rated (0) a track.
+
+    CrateMind keys tracks by path, so resolve the VuIO id in the stream URL to
+    one the way radio does. Returns False when the file isn't one CrateMind
+    analysed — there is nothing to rate then, and the caller should say so.
+    """
+    async with aiohttp.ClientSession(raise_for_status=False,
+                                     timeout=aiohttp.ClientTimeout(total=15)) as s:
+        path = await _crate_path_of(s, media_url, title, artist, album)
+        if not path:
+            return False
+        async with s.put(f"{CRATE_URL}/api/ratings",
+                         json={"path": path, "rating": rating}) as r:
+            if r.status == 404:  # analysed by VuIO but not by CrateMind
+                return False
+            r.raise_for_status()
+    return True
+
+
+async def _crate_path_of(s: aiohttp.ClientSession, media_url: str, title: str,
+                         artist: str, album: str) -> str:
+    """This track's path as CrateMind knows it, or "" if it doesn't."""
+    mid = _media_id(media_url)
+    vuio_path = await _vuio_path(s, mid) if mid else ""
+    async with s.get(f"{CRATE_URL}/api/tracks",
+                     params={"q": _crate_query(_basename(vuio_path), title),
+                             "limit": 20}) as r:
+        r.raise_for_status()
+        candidates = [c["path"] for c in (await r.json()).get("tracks", [])]
+    exact = _best_match(candidates, vuio_path)
+    if exact:
+        return exact
+    # No exact file: rating another copy of the same song is still right, since
+    # taste is about the song. Ranked, so it is the most plausible copy.
+    ranked = _rank_seeds([{"path": p} for p in candidates], artist, album)
+    return ranked[0] if ranked else ""
+
+
 async def radio_tracks(title: str, artist: str = "", limit: int = 10,
                        album: str = "", media_url: str = "") -> list[Track]:
     """Tracks similar to the given one, as playable Tracks (unresolved ones dropped)."""

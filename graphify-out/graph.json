@@ -60,7 +60,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "dlna_art",
-      "community": 12,
+      "community": 13,
       "norm_label": "art.py"
     },
     {
@@ -70,7 +70,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "dlna_art_to_ansi",
-      "community": 12,
+      "community": 13,
       "norm_label": "to_ansi()"
     },
     {
@@ -80,7 +80,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "text",
-      "community": 12,
+      "community": 13,
       "norm_label": "text"
     },
     {
@@ -90,7 +90,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "dlna_art_rationale_10",
-      "community": 12,
+      "community": 13,
       "norm_label": "decode an image into a colored rich renderable.      each character cell is a '\u2580"
     },
     {
@@ -820,7 +820,7 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "dlna_renderer_renderer_state",
-      "community": 4,
+      "community": 3,
       "norm_label": ".state()"
     },
     {
@@ -1000,7 +1000,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "dlna_store",
-      "community": 12,
+      "community": 8,
       "norm_label": "store.py"
     },
     {
@@ -1010,7 +1010,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "dlna_store_default_path",
-      "community": 12,
+      "community": 8,
       "norm_label": "default_path()"
     },
     {
@@ -1020,7 +1020,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "path",
-      "community": 12,
+      "community": 8,
       "norm_label": "path"
     },
     {
@@ -1030,7 +1030,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "dlna_store_store",
-      "community": 12,
+      "community": 8,
       "norm_label": "store"
     },
     {
@@ -1040,7 +1040,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "dlna_store_store_init",
-      "community": 12,
+      "community": 8,
       "norm_label": ".__init__()"
     },
     {
@@ -1050,7 +1050,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "dlna_store_store_load",
-      "community": 12,
+      "community": 8,
       "norm_label": "._load()"
     },
     {
@@ -1060,7 +1060,7 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "dlna_store_store_rating_of",
-      "community": 12,
+      "community": 8,
       "norm_label": ".rating_of()"
     },
     {
@@ -1070,7 +1070,7 @@
       "source_location": "L38",
       "_origin": "ast",
       "id": "dlna_store_store_set_rating",
-      "community": 12,
+      "community": 8,
       "norm_label": ".set_rating()"
     },
     {
@@ -1080,7 +1080,7 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "dlna_store_store_save",
-      "community": 12,
+      "community": 8,
       "norm_label": ".save()"
     },
     {
@@ -1430,7 +1430,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_test_radio_queue",
-      "community": 4,
+      "community": 0,
       "norm_label": "test_radio_queue.py"
     },
     {
@@ -1440,7 +1440,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "tests_test_radio_queue_app",
-      "community": 4,
+      "community": 0,
       "norm_label": "_app()"
     },
     {
@@ -1450,7 +1450,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "tests_test_radio_queue_test_radio_results_dropped_when_user_picks_another_track",
-      "community": 4,
+      "community": 0,
       "norm_label": "test_radio_results_dropped_when_user_picks_another_track()"
     },
     {
@@ -1460,7 +1460,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "tests_test_radio_queue_test_radio_results_kept_when_queue_untouched",
-      "community": 4,
+      "community": 0,
       "norm_label": "test_radio_results_kept_when_queue_untouched()"
     },
     {
@@ -1470,7 +1470,7 @@
       "source_location": "L37",
       "_origin": "ast",
       "id": "tests_test_radio_queue_recs",
-      "community": 4,
+      "community": 0,
       "norm_label": "_recs()"
     },
     {
@@ -1480,7 +1480,7 @@
       "source_location": "L41",
       "_origin": "ast",
       "id": "tests_test_radio_queue_noop",
-      "community": 4,
+      "community": 0,
       "norm_label": "_noop()"
     },
     {
@@ -1500,7 +1500,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "tests_test_radio_queue_rationale_13",
-      "community": 4,
+      "community": 0,
       "norm_label": "a radio fetch takes a second or two. if the user picks a new song while     it r"
     },
     {
@@ -1660,7 +1660,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "tests_test_store",
-      "community": 12,
+      "community": 8,
       "norm_label": "test_store.py"
     },
     {
@@ -1670,7 +1670,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "tests_test_store_test_roundtrip",
-      "community": 12,
+      "community": 8,
       "norm_label": "test_roundtrip()"
     },
     {
@@ -1680,7 +1680,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "tests_test_store_test_rating_toggles_off_and_is_persisted",
-      "community": 12,
+      "community": 8,
       "norm_label": "test_rating_toggles_off_and_is_persisted()"
     },
     {
@@ -1690,7 +1690,7 @@
       "source_location": "L33",
       "_origin": "ast",
       "id": "tests_test_store_test_old_favourites_file_becomes_ratings",
-      "community": 12,
+      "community": 8,
       "norm_label": "test_old_favourites_file_becomes_ratings()"
     },
     {
@@ -1700,7 +1700,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "tests_test_store_test_corrupt_file_is_ignored",
-      "community": 12,
+      "community": 8,
       "norm_label": "test_corrupt_file_is_ignored()"
     },
     {
@@ -1710,7 +1710,7 @@
       "source_location": "L54",
       "_origin": "ast",
       "id": "tests_test_store_test_missing_file",
-      "community": 12,
+      "community": 8,
       "norm_label": "test_missing_file()"
     },
     {
@@ -1720,7 +1720,7 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "tests_test_store_rationale_34",
-      "community": 12,
+      "community": 8,
       "norm_label": "stores written before ratings existed must not lose their favourites."
     },
     {
@@ -1740,7 +1740,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "ui_app",
-      "community": 12,
+      "community": 13,
       "norm_label": "app.py"
     },
     {
@@ -2280,7 +2280,7 @@
       "source_location": "L517",
       "_origin": "ast",
       "id": "ui_app_dlnaapp_action_info",
-      "community": 1,
+      "community": 2,
       "norm_label": ".action_info()"
     },
     {
@@ -2310,7 +2310,7 @@
       "source_location": "L535",
       "_origin": "ast",
       "id": "ui_app_http_get",
-      "community": 12,
+      "community": 13,
       "norm_label": "_http_get()"
     },
     {
@@ -2360,7 +2360,7 @@
       "source_location": "L567",
       "_origin": "ast",
       "id": "ui_app_trackinfoscreen_on_mount",
-      "community": 1,
+      "community": 13,
       "norm_label": ".on_mount()"
     },
     {
@@ -2622,6 +2622,66 @@
       "id": "ui_widgets_nowplaying_render",
       "community": 4,
       "norm_label": ".render()"
+    },
+    {
+      "label": "README.md",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "readme",
+      "community": 14,
+      "norm_label": "readme.md"
+    },
+    {
+      "label": "dlna-tui",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "readme_dlna_tui",
+      "community": 14,
+      "norm_label": "dlna-tui"
+    },
+    {
+      "label": "Running",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "readme_running",
+      "community": 14,
+      "norm_label": "running"
+    },
+    {
+      "label": "Keys",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "readme_keys",
+      "community": 14,
+      "norm_label": "keys"
+    },
+    {
+      "label": "Settings",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L40",
+      "_origin": "ast",
+      "id": "readme_settings",
+      "community": 14,
+      "norm_label": "settings"
+    },
+    {
+      "label": "Notes",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L51",
+      "_origin": "ast",
+      "id": "readme_notes",
+      "community": 14,
+      "norm_label": "notes"
     },
     {
       "label": "2026-10-01-dlna-tui.md",
@@ -3436,9 +3496,9 @@
       "source_file": "dlna/crate.py",
       "source_location": "L34",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_crate_rationale_34",
-      "target": "dlna_crate_common_tail",
-      "confidence_score": 1.0
+      "target": "dlna_crate_common_tail"
     },
     {
       "relation": "calls",
@@ -3490,9 +3550,9 @@
       "source_file": "dlna/crate.py",
       "source_location": "L45",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_crate_rationale_45",
-      "target": "dlna_crate_best_match",
-      "confidence_score": 1.0
+      "target": "dlna_crate_best_match"
     },
     {
       "relation": "calls",
@@ -3533,9 +3593,9 @@
       "source_file": "dlna/crate.py",
       "source_location": "L64",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_crate_rationale_64",
-      "target": "dlna_crate_media_id",
-      "confidence_score": 1.0
+      "target": "dlna_crate_media_id"
     },
     {
       "relation": "calls",
@@ -3576,9 +3636,9 @@
       "source_file": "dlna/crate.py",
       "source_location": "L70",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_crate_rationale_70",
-      "target": "dlna_crate_crate_query",
-      "confidence_score": 1.0
+      "target": "dlna_crate_crate_query"
     },
     {
       "relation": "calls",
@@ -3630,9 +3690,9 @@
       "source_file": "dlna/crate.py",
       "source_location": "L85",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_crate_rationale_85",
-      "target": "dlna_crate_song_key",
-      "confidence_score": 1.0
+      "target": "dlna_crate_song_key"
     },
     {
       "relation": "calls",
@@ -3706,9 +3766,9 @@
       "source_file": "dlna/crate.py",
       "source_location": "L96",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_crate_rationale_96",
-      "target": "dlna_crate_rank_seeds",
-      "confidence_score": 1.0
+      "target": "dlna_crate_rank_seeds"
     },
     {
       "relation": "calls",
@@ -3727,9 +3787,9 @@
       "source_file": "dlna/crate.py",
       "source_location": "L111",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_crate_rationale_111",
-      "target": "dlna_crate_match_file",
-      "confidence_score": 1.0
+      "target": "dlna_crate_match_file"
     },
     {
       "relation": "calls",
@@ -3901,9 +3961,9 @@
       "source_file": "dlna/crate.py",
       "source_location": "L129",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_crate_rationale_129",
-      "target": "dlna_crate_vuio_path",
-      "confidence_score": 1.0
+      "target": "dlna_crate_vuio_path"
     },
     {
       "relation": "calls",
@@ -3987,9 +4047,9 @@
       "source_file": "dlna/crate.py",
       "source_location": "L153",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_crate_rationale_153",
-      "target": "dlna_crate_preview",
-      "confidence_score": 1.0
+      "target": "dlna_crate_preview"
     },
     {
       "relation": "calls",
@@ -4008,9 +4068,9 @@
       "source_file": "dlna/crate.py",
       "source_location": "L165",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_crate_rationale_165",
-      "target": "dlna_crate_count_play",
-      "confidence_score": 1.0
+      "target": "dlna_crate_count_play"
     },
     {
       "relation": "imports",
@@ -4051,9 +4111,9 @@
       "source_file": "dlna/crate.py",
       "source_location": "L184",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_crate_rationale_184",
-      "target": "dlna_crate_rate",
-      "confidence_score": 1.0
+      "target": "dlna_crate_rate"
     },
     {
       "relation": "imports",
@@ -4083,9 +4143,9 @@
       "source_file": "dlna/crate.py",
       "source_location": "L205",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_crate_rationale_205",
-      "target": "dlna_crate_crate_path_of",
-      "confidence_score": 1.0
+      "target": "dlna_crate_crate_path_of"
     },
     {
       "relation": "rationale_for",
@@ -4093,9 +4153,9 @@
       "source_file": "dlna/crate.py",
       "source_location": "L224",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_crate_rationale_224",
-      "target": "dlna_crate_radio_tracks",
-      "confidence_score": 1.0
+      "target": "dlna_crate_radio_tracks"
     },
     {
       "relation": "imports",
@@ -9833,6 +9893,56 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "readme",
+      "target": "readme_dlna_tui",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "readme_dlna_tui",
+      "target": "readme_keys",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L51",
+      "weight": 1.0,
+      "source": "readme_dlna_tui",
+      "target": "readme_notes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "readme_dlna_tui",
+      "target": "readme_running",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L40",
+      "weight": 1.0,
+      "source": "readme_dlna_tui",
+      "target": "readme_settings",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "docs/superpowers/plans/2026-10-01-dlna-tui.md",
       "source_location": "L1",
       "weight": 1.0,
@@ -10112,5 +10222,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "db05f4b6faa2cabdfdb0d45151028a034d1709f4"
+  "built_at_commit": "03995a67fd0801b3a8c0fadd9fb8caa60b8100ae"
 }

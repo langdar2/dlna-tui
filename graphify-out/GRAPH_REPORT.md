@@ -1,16 +1,16 @@
 # Graph Report - dlna TerminalClient  (2026-10-09)
 
 ## Corpus Check
-- 22 files · ~12,352 words
+- 23 files · ~12,705 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 292 nodes · 687 edges · 13 communities
+- 298 nodes · 692 edges · 15 communities
 - Extraction: 83% EXTRACTED · 17% INFERRED · 0% AMBIGUOUS · INFERRED: 119 edges (avg confidence: 0.51)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `db05f4b6`
+- Built from commit: `03995a67`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -23,8 +23,10 @@
 - [[_COMMUNITY_Community 5|Community 5]]
 - [[_COMMUNITY_Community 6|Community 6]]
 - [[_COMMUNITY_Community 7|Community 7]]
+- [[_COMMUNITY_Community 8|Community 8]]
 - [[_COMMUNITY_Community 12|Community 12]]
 - [[_COMMUNITY_Community 13|Community 13]]
+- [[_COMMUNITY_Community 14|Community 14]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `DlnaApp` - 64 edges
@@ -53,27 +55,27 @@
 ## Import Cycles
 - None detected.
 
-## Communities (13 total, 0 thin omitted)
+## Communities (15 total, 0 thin omitted)
 
 ### Community 0 - "Community 0"
-Cohesion: 0.13
-Nodes (20): _first_res(), _first_res_duration(), _first_res_uri(), from_didl(), _is_audio(), _media_info(), Queue, Forget what's queued behind the current track, keeping it playing.         Switc (+12 more)
+Cohesion: 0.10
+Nodes (25): _first_res(), _first_res_duration(), _first_res_uri(), from_didl(), _is_audio(), _media_info(), Queue, Forget what's queued behind the current track, keeping it playing.         Switc (+17 more)
 
 ### Community 1 - "Community 1"
-Cohesion: 0.12
+Cohesion: 0.13
 Nodes (23): Changed, ComposeResult, Container, Container, Already-parsed didl_lite objects -> our models (Descriptors dropped).      Conta, to_models(), Track, MusicServer (+15 more)
 
 ### Community 2 - "Community 2"
-Cohesion: 0.07
+Cohesion: 0.06
 Nodes (12): App, ListItem, DlnaApp, Count listening time and report a play once it passes the threshold.          Dr, Restart the play timer when the current track changed, and report         the on, The tree node whose children are 'the current folder' for filtering., Move focus from the filter box onto the first result so it's playable., What to base radio on: the cursor track, else what's playing. (+4 more)
 
 ### Community 3 - "Community 3"
-Cohesion: 0.15
+Cohesion: 0.14
 Nodes (6): Track, Renderer, FakeProfile, test_play_sets_uri(), test_safe_call_swallows_errors_and_reports(), test_state_snapshot()
 
 ### Community 4 - "Community 4"
-Cohesion: 0.14
-Nodes (17): RendererState, _app(), FakeRenderer, _listen(), test_moving_on_after_a_full_listen_is_not_a_skip(), test_paused_and_handed_off_playback_does_not_accrue(), test_play_counts_once_past_the_threshold(), test_replaying_the_same_track_counts_again() (+9 more)
+Cohesion: 0.22
+Nodes (12): RendererState, _app(), FakeRenderer, _listen(), test_moving_on_after_a_full_listen_is_not_a_skip(), test_paused_and_handed_off_playback_does_not_accrue(), test_play_counts_once_past_the_threshold(), test_replaying_the_same_track_counts_again() (+4 more)
 
 ### Community 5 - "Community 5"
 Cohesion: 0.12
@@ -87,27 +89,35 @@ Nodes (13): Bekannte Risiken (am Gerät verifizieren), Dateistruktur, DLNA TUI I
 Cohesion: 0.13
 Nodes (33): _basename(), _best_match(), _common_tail(), count_play(), _crate_path_of(), _crate_query(), _match_file(), _media_id() (+25 more)
 
+### Community 8 - "Community 8"
+Cohesion: 0.21
+Nodes (9): default_path(), Store, Path, Stores written before ratings existed must not lose their favourites., test_corrupt_file_is_ignored(), test_missing_file(), test_old_favourites_file_becomes_ratings(), test_rating_toggles_off_and_is_persisted() (+1 more)
+
 ### Community 12 - "Community 12"
-Cohesion: 0.09
-Nodes (26): DeviceInfo, Decode an image into a colored Rich renderable.      Each character cell is a '▀, to_ansi(), build_device(), discover(), _discover_kind(), _friendly_name(), _lan_sources() (+18 more)
+Cohesion: 0.21
+Nodes (14): DeviceInfo, build_device(), discover(), _discover_kind(), _friendly_name(), _lan_sources(), SSDP source addresses for broadcast-capable IPv4 interfaces.      Excludes loopb, Pull <friendlyName> from the device description XML. None on any failure. (+6 more)
 
 ### Community 13 - "Community 13"
-Cohesion: 0.24
-Nodes (12): call(), handoff(), media_ids(), pick_renderer(), ClientSession, Talking to VuIO over its MCP endpoint, and handing playback over to it.  VuIO se, Invoke one VuIO MCP tool over HTTP and return its parsed result., Queue as VuIO file ids, or None if any track isn't one of VuIO's.      A DLNA ob (+4 more)
+Cohesion: 0.15
+Nodes (15): Decode an image into a colored Rich renderable.      Each character cell is a '▀, to_ansi(), call(), handoff(), media_ids(), pick_renderer(), ClientSession, Talking to VuIO over its MCP endpoint, and handing playback over to it.  VuIO se (+7 more)
+
+### Community 14 - "Community 14"
+Cohesion: 0.33
+Nodes (5): dlna-tui, Keys, Notes, Running, Settings
 
 ## Knowledge Gaps
-- **25 isolated node(s):** `Text`, `Task 0: Projekt-Setup`, `Task 1: Modelle + DIDL-Adapter`, `Task 2: Queue-Logik (rein)`, `Task 3: Store (Favoriten + Session)` (+20 more)
+- **29 isolated node(s):** `Text`, `Running`, `Keys`, `Settings`, `Notes` (+24 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `DlnaApp` connect `Community 2` to `Community 0`, `Community 1`, `Community 3`, `Community 4`, `Community 12`, `Community 13`?**
-  _High betweenness centrality (0.278) - this node is a cross-community bridge._
-- **Why does `Track` connect `Community 1` to `Community 0`, `Community 2`, `Community 3`, `Community 4`, `Community 7`, `Community 12`?**
-  _High betweenness centrality (0.166) - this node is a cross-community bridge._
-- **Why does `Renderer` connect `Community 3` to `Community 1`, `Community 2`, `Community 4`, `Community 12`?**
-  _High betweenness centrality (0.100) - this node is a cross-community bridge._
+- **Why does `DlnaApp` connect `Community 2` to `Community 0`, `Community 1`, `Community 3`, `Community 4`, `Community 8`, `Community 12`, `Community 13`?**
+  _High betweenness centrality (0.267) - this node is a cross-community bridge._
+- **Why does `Track` connect `Community 1` to `Community 0`, `Community 2`, `Community 3`, `Community 4`, `Community 7`, `Community 13`?**
+  _High betweenness centrality (0.159) - this node is a cross-community bridge._
+- **Why does `Renderer` connect `Community 3` to `Community 1`, `Community 2`, `Community 4`, `Community 13`?**
+  _High betweenness centrality (0.096) - this node is a cross-community bridge._
 - **Are the 9 inferred relationships involving `DlnaApp` (e.g. with `FakeRenderer` and `ComposeResult`) actually correct?**
   _`DlnaApp` has 9 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 22 inferred relationships involving `Track` (e.g. with `Changed` and `ComposeResult`) actually correct?**

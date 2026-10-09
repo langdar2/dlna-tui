@@ -16,6 +16,9 @@ from .models import Track
 from .vuio import call as vuio_call
 
 CRATE_URL = os.environ.get("CRATE_URL", "http://192.168.0.3:8008")
+# Share of each radio batch reserved for recently imported music. CrateMind
+# has its own default; this makes it tunable per player without a rebuild.
+FRESH_SHARE = float(os.environ.get("RADIO_FRESH_SHARE", "0.15"))
 
 
 def _basename(path: str) -> str:
@@ -144,7 +147,8 @@ async def _resolve(session: aiohttp.ClientSession, path: str) -> Track | None:
 async def _preview(s: aiohttp.ClientSession, seed: str, limit: int) -> list[dict]:
     """Similarity recommendations for one seed path. [] if CrateMind can't seed it."""
     async with s.post(f"{CRATE_URL}/api/playlists/preview",
-                      json={"mode": "seed", "seed_path": seed, "limit": limit}) as r:
+                      json={"mode": "seed", "seed_path": seed, "limit": limit,
+                            "fresh_share": FRESH_SHARE}) as r:
         if r.status == 404:  # seed not among analysed tracks -> let caller try the next
             return []
         r.raise_for_status()

@@ -107,7 +107,7 @@
       "label": "_basename()",
       "file_type": "code",
       "source_file": "dlna/crate.py",
-      "source_location": "L21",
+      "source_location": "L24",
       "_origin": "ast",
       "id": "dlna_crate_basename",
       "community": 7,
@@ -117,7 +117,7 @@
       "label": "_common_tail()",
       "file_type": "code",
       "source_file": "dlna/crate.py",
-      "source_location": "L25",
+      "source_location": "L28",
       "_origin": "ast",
       "id": "dlna_crate_common_tail",
       "community": 7,
@@ -127,7 +127,7 @@
       "label": "_best_match()",
       "file_type": "code",
       "source_file": "dlna/crate.py",
-      "source_location": "L36",
+      "source_location": "L39",
       "_origin": "ast",
       "id": "dlna_crate_best_match",
       "community": 7,
@@ -137,7 +137,7 @@
       "label": "_media_id()",
       "file_type": "code",
       "source_file": "dlna/crate.py",
-      "source_location": "L55",
+      "source_location": "L58",
       "_origin": "ast",
       "id": "dlna_crate_media_id",
       "community": 7,
@@ -147,7 +147,7 @@
       "label": "_crate_query()",
       "file_type": "code",
       "source_file": "dlna/crate.py",
-      "source_location": "L61",
+      "source_location": "L64",
       "_origin": "ast",
       "id": "dlna_crate_crate_query",
       "community": 7,
@@ -157,7 +157,7 @@
       "label": "song_key()",
       "file_type": "code",
       "source_file": "dlna/crate.py",
-      "source_location": "L76",
+      "source_location": "L79",
       "_origin": "ast",
       "id": "dlna_crate_song_key",
       "community": 7,
@@ -167,7 +167,7 @@
       "label": "_rank_seeds()",
       "file_type": "code",
       "source_file": "dlna/crate.py",
-      "source_location": "L87",
+      "source_location": "L90",
       "_origin": "ast",
       "id": "dlna_crate_rank_seeds",
       "community": 7,
@@ -177,7 +177,7 @@
       "label": "_match_file()",
       "file_type": "code",
       "source_file": "dlna/crate.py",
-      "source_location": "L102",
+      "source_location": "L105",
       "_origin": "ast",
       "id": "dlna_crate_match_file",
       "community": 7,
@@ -187,7 +187,7 @@
       "label": "_vuio_search()",
       "file_type": "code",
       "source_file": "dlna/crate.py",
-      "source_location": "L114",
+      "source_location": "L117",
       "_origin": "ast",
       "id": "dlna_crate_vuio_search",
       "community": 7,
@@ -197,7 +197,7 @@
       "label": "ClientSession",
       "file_type": "code",
       "source_file": "dlna/crate.py",
-      "source_location": "L114",
+      "source_location": "L117",
       "_origin": "ast",
       "id": "dlna_crate_py_clientsession",
       "community": 7,
@@ -207,7 +207,7 @@
       "label": "_vuio_path()",
       "file_type": "code",
       "source_file": "dlna/crate.py",
-      "source_location": "L120",
+      "source_location": "L123",
       "_origin": "ast",
       "id": "dlna_crate_vuio_path",
       "community": 7,
@@ -217,7 +217,7 @@
       "label": "_resolve()",
       "file_type": "code",
       "source_file": "dlna/crate.py",
-      "source_location": "L130",
+      "source_location": "L133",
       "_origin": "ast",
       "id": "dlna_crate_resolve",
       "community": 7,
@@ -227,7 +227,7 @@
       "label": "Track",
       "file_type": "code",
       "source_file": "dlna/crate.py",
-      "source_location": "L130",
+      "source_location": "L133",
       "_origin": "ast",
       "id": "dlna_crate_py_track",
       "community": 7,
@@ -237,7 +237,7 @@
       "label": "_preview()",
       "file_type": "code",
       "source_file": "dlna/crate.py",
-      "source_location": "L144",
+      "source_location": "L147",
       "_origin": "ast",
       "id": "dlna_crate_preview",
       "community": 7,
@@ -247,7 +247,7 @@
       "label": "count_play()",
       "file_type": "code",
       "source_file": "dlna/crate.py",
-      "source_location": "L154",
+      "source_location": "L158",
       "_origin": "ast",
       "id": "dlna_crate_count_play",
       "community": 7,
@@ -257,7 +257,7 @@
       "label": "rate()",
       "file_type": "code",
       "source_file": "dlna/crate.py",
-      "source_location": "L173",
+      "source_location": "L177",
       "_origin": "ast",
       "id": "dlna_crate_rate",
       "community": 7,
@@ -267,7 +267,7 @@
       "label": "_crate_path_of()",
       "file_type": "code",
       "source_file": "dlna/crate.py",
-      "source_location": "L194",
+      "source_location": "L198",
       "_origin": "ast",
       "id": "dlna_crate_crate_path_of",
       "community": 7,
@@ -277,7 +277,7 @@
       "label": "radio_tracks()",
       "file_type": "code",
       "source_file": "dlna/crate.py",
-      "source_location": "L213",
+      "source_location": "L217",
       "_origin": "ast",
       "id": "dlna_crate_radio_tracks",
       "community": 7,
@@ -287,7 +287,7 @@
       "label": "_selfcheck()",
       "file_type": "code",
       "source_file": "dlna/crate.py",
-      "source_location": "L253",
+      "source_location": "L257",
       "_origin": "ast",
       "id": "dlna_crate_selfcheck",
       "community": 7,
@@ -307,9 +307,9 @@
       "label": "How many trailing path components two paths share.",
       "file_type": "rationale",
       "source_file": "dlna/crate.py",
-      "source_location": "L26",
+      "source_location": "L29",
       "_origin": "ast",
-      "id": "dlna_crate_rationale_26",
+      "id": "dlna_crate_rationale_29",
       "community": 7,
       "norm_label": "how many trailing path components two paths share."
     },
@@ -317,9 +317,9 @@
       "label": "The path that is the same file as `want`, across differently-mounted roots.",
       "file_type": "rationale",
       "source_file": "dlna/crate.py",
-      "source_location": "L37",
+      "source_location": "L40",
       "_origin": "ast",
-      "id": "dlna_crate_rationale_37",
+      "id": "dlna_crate_rationale_40",
       "community": 7,
       "norm_label": "the path that is the same file as `want`, across differently-mounted roots."
     },
@@ -327,9 +327,9 @@
       "label": "Numeric VuIO id from a stream/media URL (.../media/42380 or .../media/42380.m4a)",
       "file_type": "rationale",
       "source_file": "dlna/crate.py",
-      "source_location": "L56",
+      "source_location": "L59",
       "_origin": "ast",
-      "id": "dlna_crate_rationale_56",
+      "id": "dlna_crate_rationale_59",
       "community": 7,
       "norm_label": "numeric vuio id from a stream/media url (.../media/42380 or .../media/42380.m4a)"
     },
@@ -337,9 +337,9 @@
       "label": "CrateMind matches on the file PATH, so the basename is the reliable key;     the",
       "file_type": "rationale",
       "source_file": "dlna/crate.py",
-      "source_location": "L62",
+      "source_location": "L65",
       "_origin": "ast",
-      "id": "dlna_crate_rationale_62",
+      "id": "dlna_crate_rationale_65",
       "community": 7,
       "norm_label": "cratemind matches on the file path, so the basename is the reliable key;     the"
     },
@@ -347,9 +347,9 @@
       "label": "Identity of a song regardless of which album it came off.      Radio otherwise f",
       "file_type": "rationale",
       "source_file": "dlna/crate.py",
-      "source_location": "L77",
+      "source_location": "L80",
       "_origin": "ast",
-      "id": "dlna_crate_rationale_77",
+      "id": "dlna_crate_rationale_80",
       "community": 7,
       "norm_label": "identity of a song regardless of which album it came off.      radio otherwise f"
     },
@@ -357,9 +357,9 @@
       "label": "Candidate /music/... paths ordered best-first: artist+album, then artist,     th",
       "file_type": "rationale",
       "source_file": "dlna/crate.py",
-      "source_location": "L88",
+      "source_location": "L91",
       "_origin": "ast",
-      "id": "dlna_crate_rationale_88",
+      "id": "dlna_crate_rationale_91",
       "community": 7,
       "norm_label": "candidate /music/... paths ordered best-first: artist+album, then artist,     th"
     },
@@ -367,9 +367,9 @@
       "label": "VuIO search returns fuzzy hits. Take the one that is this exact file,     else a",
       "file_type": "rationale",
       "source_file": "dlna/crate.py",
-      "source_location": "L103",
+      "source_location": "L106",
       "_origin": "ast",
-      "id": "dlna_crate_rationale_103",
+      "id": "dlna_crate_rationale_106",
       "community": 7,
       "norm_label": "vuio search returns fuzzy hits. take the one that is this exact file,     else a"
     },
@@ -377,9 +377,9 @@
       "label": "Exact host path for a VuIO id. Prefix-swapped this IS CrateMind's track key,",
       "file_type": "rationale",
       "source_file": "dlna/crate.py",
-      "source_location": "L121",
+      "source_location": "L124",
       "_origin": "ast",
-      "id": "dlna_crate_rationale_121",
+      "id": "dlna_crate_rationale_124",
       "community": 7,
       "norm_label": "exact host path for a vuio id. prefix-swapped this is cratemind's track key,"
     },
@@ -387,9 +387,9 @@
       "label": "Similarity recommendations for one seed path. [] if CrateMind can't seed it.",
       "file_type": "rationale",
       "source_file": "dlna/crate.py",
-      "source_location": "L145",
+      "source_location": "L148",
       "_origin": "ast",
-      "id": "dlna_crate_rationale_145",
+      "id": "dlna_crate_rationale_148",
       "community": 7,
       "norm_label": "similarity recommendations for one seed path. [] if cratemind can't seed it."
     },
@@ -397,9 +397,9 @@
       "label": "Tell CrateMind this track was played (or skipped), so it feeds taste.      False",
       "file_type": "rationale",
       "source_file": "dlna/crate.py",
-      "source_location": "L156",
+      "source_location": "L160",
       "_origin": "ast",
-      "id": "dlna_crate_rationale_156",
+      "id": "dlna_crate_rationale_160",
       "community": 7,
       "norm_label": "tell cratemind this track was played (or skipped), so it feeds taste.      false"
     },
@@ -407,9 +407,9 @@
       "label": "Tell CrateMind the user liked (+1) / banned (-1) / un-rated (0) a track.      Cr",
       "file_type": "rationale",
       "source_file": "dlna/crate.py",
-      "source_location": "L175",
+      "source_location": "L179",
       "_origin": "ast",
-      "id": "dlna_crate_rationale_175",
+      "id": "dlna_crate_rationale_179",
       "community": 7,
       "norm_label": "tell cratemind the user liked (+1) / banned (-1) / un-rated (0) a track.      cr"
     },
@@ -417,9 +417,9 @@
       "label": "This track's path as CrateMind knows it, or \"\" if it doesn't.",
       "file_type": "rationale",
       "source_file": "dlna/crate.py",
-      "source_location": "L196",
+      "source_location": "L200",
       "_origin": "ast",
-      "id": "dlna_crate_rationale_196",
+      "id": "dlna_crate_rationale_200",
       "community": 7,
       "norm_label": "this track's path as cratemind knows it, or \"\" if it doesn't."
     },
@@ -427,9 +427,9 @@
       "label": "Tracks similar to the given one, as playable Tracks (unresolved ones dropped).",
       "file_type": "rationale",
       "source_file": "dlna/crate.py",
-      "source_location": "L215",
+      "source_location": "L219",
       "_origin": "ast",
-      "id": "dlna_crate_rationale_215",
+      "id": "dlna_crate_rationale_219",
       "community": 7,
       "norm_label": "tracks similar to the given one, as playable tracks (unresolved ones dropped)."
     },
@@ -3165,9 +3165,9 @@
       "source_file": "dlna/crate.py",
       "source_location": "L154",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_crate",
-      "target": "dlna_crate_count_play",
-      "confidence_score": 1.0
+      "target": "dlna_crate_count_play"
     },
     {
       "relation": "contains",
@@ -3434,11 +3434,11 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "dlna/crate.py",
-      "source_location": "L26",
+      "source_location": "L29",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "dlna_crate_rationale_26",
-      "target": "dlna_crate_common_tail"
+      "source": "dlna_crate_rationale_29",
+      "target": "dlna_crate_common_tail",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -3488,11 +3488,11 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "dlna/crate.py",
-      "source_location": "L37",
+      "source_location": "L40",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "dlna_crate_rationale_37",
-      "target": "dlna_crate_best_match"
+      "source": "dlna_crate_rationale_40",
+      "target": "dlna_crate_best_match",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -3531,11 +3531,11 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "dlna/crate.py",
-      "source_location": "L56",
+      "source_location": "L59",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "dlna_crate_rationale_56",
-      "target": "dlna_crate_media_id"
+      "source": "dlna_crate_rationale_59",
+      "target": "dlna_crate_media_id",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -3574,11 +3574,11 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "dlna/crate.py",
-      "source_location": "L62",
+      "source_location": "L65",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "dlna_crate_rationale_62",
-      "target": "dlna_crate_crate_query"
+      "source": "dlna_crate_rationale_65",
+      "target": "dlna_crate_crate_query",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -3628,11 +3628,11 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "dlna/crate.py",
-      "source_location": "L77",
+      "source_location": "L80",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "dlna_crate_rationale_77",
-      "target": "dlna_crate_song_key"
+      "source": "dlna_crate_rationale_80",
+      "target": "dlna_crate_song_key",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -3704,11 +3704,11 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "dlna/crate.py",
-      "source_location": "L88",
+      "source_location": "L91",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "dlna_crate_rationale_88",
-      "target": "dlna_crate_rank_seeds"
+      "source": "dlna_crate_rationale_91",
+      "target": "dlna_crate_rank_seeds",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -3725,11 +3725,11 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "dlna/crate.py",
-      "source_location": "L103",
+      "source_location": "L106",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "dlna_crate_rationale_103",
-      "target": "dlna_crate_match_file"
+      "source": "dlna_crate_rationale_106",
+      "target": "dlna_crate_match_file",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -3793,9 +3793,9 @@
       "source_file": "dlna/crate.py",
       "source_location": "L160",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_crate_count_play",
-      "target": "dlna_crate_py_clientsession",
-      "confidence_score": 1.0
+      "target": "dlna_crate_py_clientsession"
     },
     {
       "relation": "references",
@@ -3899,11 +3899,11 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "dlna/crate.py",
-      "source_location": "L121",
+      "source_location": "L124",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "dlna_crate_rationale_121",
-      "target": "dlna_crate_vuio_path"
+      "source": "dlna_crate_rationale_124",
+      "target": "dlna_crate_vuio_path",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -3985,11 +3985,11 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "dlna/crate.py",
-      "source_location": "L145",
+      "source_location": "L148",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "dlna_crate_rationale_145",
-      "target": "dlna_crate_preview"
+      "source": "dlna_crate_rationale_148",
+      "target": "dlna_crate_preview",
+      "confidence_score": 1.0
     },
     {
       "relation": "calls",
@@ -3998,17 +3998,17 @@
       "source_file": "dlna/crate.py",
       "source_location": "L162",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "dlna_crate_count_play",
-      "target": "dlna_crate_crate_path_of",
-      "confidence_score": 1.0
+      "target": "dlna_crate_crate_path_of"
     },
     {
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "dlna/crate.py",
-      "source_location": "L156",
+      "source_location": "L160",
       "weight": 1.0,
-      "source": "dlna_crate_rationale_156",
+      "source": "dlna_crate_rationale_160",
       "target": "dlna_crate_count_play",
       "confidence_score": 1.0
     },
@@ -4019,9 +4019,9 @@
       "source_file": "ui/app.py",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app",
-      "target": "dlna_crate_count_play",
-      "confidence_score": 1.0
+      "target": "dlna_crate_count_play"
     },
     {
       "relation": "calls",
@@ -4049,19 +4049,9 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "dlna/crate.py",
-      "source_location": "L156",
+      "source_location": "L179",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "dlna_crate_rationale_156",
-      "target": "dlna_crate_rate"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "source_file": "dlna/crate.py",
-      "source_location": "L175",
-      "weight": 1.0,
-      "source": "dlna_crate_rationale_175",
+      "source": "dlna_crate_rationale_179",
       "target": "dlna_crate_rate",
       "confidence_score": 1.0
     },
@@ -4091,9 +4081,9 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "dlna/crate.py",
-      "source_location": "L196",
+      "source_location": "L200",
       "weight": 1.0,
-      "source": "dlna_crate_rationale_196",
+      "source": "dlna_crate_rationale_200",
       "target": "dlna_crate_crate_path_of",
       "confidence_score": 1.0
     },
@@ -4101,29 +4091,9 @@
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "dlna/crate.py",
-      "source_location": "L156",
+      "source_location": "L219",
       "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "dlna_crate_rationale_156",
-      "target": "dlna_crate_radio_tracks"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "source_file": "dlna/crate.py",
-      "source_location": "L196",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "dlna_crate_rationale_196",
-      "target": "dlna_crate_radio_tracks"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "source_file": "dlna/crate.py",
-      "source_location": "L215",
-      "weight": 1.0,
-      "source": "dlna_crate_rationale_215",
+      "source": "dlna_crate_rationale_219",
       "target": "dlna_crate_radio_tracks",
       "confidence_score": 1.0
     },
@@ -4574,9 +4544,9 @@
       "source_file": "tests/test_playcount.py",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_playcount",
-      "target": "dlna_models",
-      "confidence_score": 1.0
+      "target": "dlna_models"
     },
     {
       "relation": "imports_from",
@@ -5074,9 +5044,9 @@
       "source_file": "tests/test_playcount.py",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_playcount",
-      "target": "dlna_models_track",
-      "confidence_score": 1.0
+      "target": "dlna_models_track"
     },
     {
       "relation": "calls",
@@ -5085,9 +5055,9 @@
       "source_file": "tests/test_playcount.py",
       "source_location": "L27",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_playcount_app",
-      "target": "dlna_models_track",
-      "confidence_score": 1.0
+      "target": "dlna_models_track"
     },
     {
       "relation": "uses",
@@ -5095,9 +5065,9 @@
       "source_file": "tests/test_playcount.py",
       "source_location": "L3",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "tests_test_playcount_fakerenderer",
-      "target": "dlna_models_track",
-      "confidence_score": 0.5
+      "target": "dlna_models_track"
     },
     {
       "relation": "imports",
@@ -5527,9 +5497,9 @@
       "source_file": "tests/test_playcount.py",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_playcount",
-      "target": "dlna_models_queue",
-      "confidence_score": 1.0
+      "target": "dlna_models_queue"
     },
     {
       "relation": "calls",
@@ -5538,9 +5508,9 @@
       "source_file": "tests/test_playcount.py",
       "source_location": "L27",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_playcount_app",
-      "target": "dlna_models_queue",
-      "confidence_score": 1.0
+      "target": "dlna_models_queue"
     },
     {
       "relation": "uses",
@@ -5548,9 +5518,9 @@
       "source_file": "tests/test_playcount.py",
       "source_location": "L3",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "tests_test_playcount_fakerenderer",
-      "target": "dlna_models_queue",
-      "confidence_score": 0.5
+      "target": "dlna_models_queue"
     },
     {
       "relation": "imports",
@@ -5813,9 +5783,9 @@
       "source_file": "tests/test_playcount.py",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_playcount",
-      "target": "dlna_renderer",
-      "confidence_score": 1.0
+      "target": "dlna_renderer"
     },
     {
       "relation": "imports_from",
@@ -5868,9 +5838,9 @@
       "source_file": "tests/test_playcount.py",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_playcount",
-      "target": "dlna_renderer_rendererstate",
-      "confidence_score": 1.0
+      "target": "dlna_renderer_rendererstate"
     },
     {
       "relation": "uses",
@@ -5878,9 +5848,9 @@
       "source_file": "tests/test_playcount.py",
       "source_location": "L4",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "tests_test_playcount_fakerenderer",
-      "target": "dlna_renderer_rendererstate",
-      "confidence_score": 0.5
+      "target": "dlna_renderer_rendererstate"
     },
     {
       "relation": "calls",
@@ -5900,9 +5870,9 @@
       "source_file": "tests/test_playcount.py",
       "source_location": "L76",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_playcount_test_paused_and_handed_off_playback_does_not_accrue",
-      "target": "dlna_renderer_rendererstate",
-      "confidence_score": 1.0
+      "target": "dlna_renderer_rendererstate"
     },
     {
       "relation": "imports",
@@ -7390,9 +7360,9 @@
       "source_file": "tests/test_playcount.py",
       "source_location": "L17",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_playcount",
-      "target": "tests_test_playcount_app",
-      "confidence_score": 1.0
+      "target": "tests_test_playcount_app"
     },
     {
       "relation": "contains",
@@ -7400,9 +7370,9 @@
       "source_file": "tests/test_playcount.py",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_playcount",
-      "target": "tests_test_playcount_fakerenderer",
-      "confidence_score": 1.0
+      "target": "tests_test_playcount_fakerenderer"
     },
     {
       "relation": "contains",
@@ -7410,9 +7380,9 @@
       "source_file": "tests/test_playcount.py",
       "source_location": "L31",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_playcount",
-      "target": "tests_test_playcount_listen",
-      "confidence_score": 1.0
+      "target": "tests_test_playcount_listen"
     },
     {
       "relation": "contains",
@@ -7420,9 +7390,9 @@
       "source_file": "tests/test_playcount.py",
       "source_location": "L63",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_playcount",
-      "target": "tests_test_playcount_test_moving_on_after_a_full_listen_is_not_a_skip",
-      "confidence_score": 1.0
+      "target": "tests_test_playcount_test_moving_on_after_a_full_listen_is_not_a_skip"
     },
     {
       "relation": "contains",
@@ -7430,9 +7400,9 @@
       "source_file": "tests/test_playcount.py",
       "source_location": "L73",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_playcount",
-      "target": "tests_test_playcount_test_paused_and_handed_off_playback_does_not_accrue",
-      "confidence_score": 1.0
+      "target": "tests_test_playcount_test_paused_and_handed_off_playback_does_not_accrue"
     },
     {
       "relation": "contains",
@@ -7440,9 +7410,9 @@
       "source_file": "tests/test_playcount.py",
       "source_location": "L37",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_playcount",
-      "target": "tests_test_playcount_test_play_counts_once_past_the_threshold",
-      "confidence_score": 1.0
+      "target": "tests_test_playcount_test_play_counts_once_past_the_threshold"
     },
     {
       "relation": "contains",
@@ -7450,9 +7420,9 @@
       "source_file": "tests/test_playcount.py",
       "source_location": "L86",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_playcount",
-      "target": "tests_test_playcount_test_replaying_the_same_track_counts_again",
-      "confidence_score": 1.0
+      "target": "tests_test_playcount_test_replaying_the_same_track_counts_again"
     },
     {
       "relation": "contains",
@@ -7460,9 +7430,9 @@
       "source_file": "tests/test_playcount.py",
       "source_location": "L50",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_playcount",
-      "target": "tests_test_playcount_test_skipping_early_reports_a_skip_not_a_play",
-      "confidence_score": 1.0
+      "target": "tests_test_playcount_test_skipping_early_reports_a_skip_not_a_play"
     },
     {
       "relation": "imports_from",
@@ -7471,9 +7441,9 @@
       "source_file": "tests/test_playcount.py",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_playcount",
-      "target": "ui_app",
-      "confidence_score": 1.0
+      "target": "ui_app"
     },
     {
       "relation": "imports",
@@ -7482,9 +7452,9 @@
       "source_file": "tests/test_playcount.py",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_playcount",
-      "target": "ui_app_dlnaapp",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp"
     },
     {
       "relation": "calls",
@@ -7493,9 +7463,9 @@
       "source_file": "tests/test_playcount.py",
       "source_location": "L26",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_playcount_app",
-      "target": "tests_test_playcount_fakerenderer",
-      "confidence_score": 1.0
+      "target": "tests_test_playcount_fakerenderer"
     },
     {
       "relation": "method",
@@ -7503,9 +7473,9 @@
       "source_file": "tests/test_playcount.py",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_playcount_fakerenderer",
-      "target": "tests_test_playcount_fakerenderer_init",
-      "confidence_score": 1.0
+      "target": "tests_test_playcount_fakerenderer_init"
     },
     {
       "relation": "method",
@@ -7513,9 +7483,9 @@
       "source_file": "tests/test_playcount.py",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_playcount_fakerenderer",
-      "target": "tests_test_playcount_fakerenderer_state",
-      "confidence_score": 1.0
+      "target": "tests_test_playcount_fakerenderer_state"
     },
     {
       "relation": "uses",
@@ -7523,9 +7493,9 @@
       "source_file": "tests/test_playcount.py",
       "source_location": "L6",
       "weight": 0.8,
+      "confidence_score": 0.5,
       "source": "tests_test_playcount_fakerenderer",
-      "target": "ui_app_dlnaapp",
-      "confidence_score": 0.5
+      "target": "ui_app_dlnaapp"
     },
     {
       "relation": "calls",
@@ -7545,9 +7515,9 @@
       "source_file": "tests/test_playcount.py",
       "source_location": "L25",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_playcount_app",
-      "target": "ui_app_dlnaapp",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp"
     },
     {
       "relation": "calls",
@@ -7556,9 +7526,9 @@
       "source_file": "tests/test_playcount.py",
       "source_location": "L64",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_playcount_test_moving_on_after_a_full_listen_is_not_a_skip",
-      "target": "tests_test_playcount_app",
-      "confidence_score": 1.0
+      "target": "tests_test_playcount_app"
     },
     {
       "relation": "calls",
@@ -7567,9 +7537,9 @@
       "source_file": "tests/test_playcount.py",
       "source_location": "L74",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_playcount_test_paused_and_handed_off_playback_does_not_accrue",
-      "target": "tests_test_playcount_app",
-      "confidence_score": 1.0
+      "target": "tests_test_playcount_app"
     },
     {
       "relation": "calls",
@@ -7578,9 +7548,9 @@
       "source_file": "tests/test_playcount.py",
       "source_location": "L38",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_playcount_test_play_counts_once_past_the_threshold",
-      "target": "tests_test_playcount_app",
-      "confidence_score": 1.0
+      "target": "tests_test_playcount_app"
     },
     {
       "relation": "calls",
@@ -7589,9 +7559,9 @@
       "source_file": "tests/test_playcount.py",
       "source_location": "L87",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_playcount_test_replaying_the_same_track_counts_again",
-      "target": "tests_test_playcount_app",
-      "confidence_score": 1.0
+      "target": "tests_test_playcount_app"
     },
     {
       "relation": "calls",
@@ -7600,9 +7570,9 @@
       "source_file": "tests/test_playcount.py",
       "source_location": "L51",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_playcount_test_skipping_early_reports_a_skip_not_a_play",
-      "target": "tests_test_playcount_app",
-      "confidence_score": 1.0
+      "target": "tests_test_playcount_app"
     },
     {
       "relation": "calls",
@@ -7611,9 +7581,9 @@
       "source_file": "tests/test_playcount.py",
       "source_location": "L66",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_playcount_test_moving_on_after_a_full_listen_is_not_a_skip",
-      "target": "tests_test_playcount_listen",
-      "confidence_score": 1.0
+      "target": "tests_test_playcount_listen"
     },
     {
       "relation": "calls",
@@ -7622,9 +7592,9 @@
       "source_file": "tests/test_playcount.py",
       "source_location": "L77",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_playcount_test_paused_and_handed_off_playback_does_not_accrue",
-      "target": "tests_test_playcount_listen",
-      "confidence_score": 1.0
+      "target": "tests_test_playcount_listen"
     },
     {
       "relation": "calls",
@@ -7633,9 +7603,9 @@
       "source_file": "tests/test_playcount.py",
       "source_location": "L40",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_playcount_test_play_counts_once_past_the_threshold",
-      "target": "tests_test_playcount_listen",
-      "confidence_score": 1.0
+      "target": "tests_test_playcount_listen"
     },
     {
       "relation": "calls",
@@ -7644,9 +7614,9 @@
       "source_file": "tests/test_playcount.py",
       "source_location": "L89",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_playcount_test_replaying_the_same_track_counts_again",
-      "target": "tests_test_playcount_listen",
-      "confidence_score": 1.0
+      "target": "tests_test_playcount_listen"
     },
     {
       "relation": "calls",
@@ -7655,9 +7625,9 @@
       "source_file": "tests/test_playcount.py",
       "source_location": "L53",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "tests_test_playcount_test_skipping_early_reports_a_skip_not_a_play",
-      "target": "tests_test_playcount_listen",
-      "confidence_score": 1.0
+      "target": "tests_test_playcount_listen"
     },
     {
       "relation": "contains",
@@ -8387,9 +8357,9 @@
       "source_file": "ui/app.py",
       "source_location": "L192",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp",
-      "target": "ui_app_dlnaapp_note_track_change",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_note_track_change"
     },
     {
       "relation": "method",
@@ -8517,9 +8487,9 @@
       "source_file": "ui/app.py",
       "source_location": "L211",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp",
-      "target": "ui_app_dlnaapp_report_play",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_report_play"
     },
     {
       "relation": "method",
@@ -8577,9 +8547,9 @@
       "source_file": "ui/app.py",
       "source_location": "L176",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp",
-      "target": "ui_app_dlnaapp_tick_play_time",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_tick_play_time"
     },
     {
       "relation": "method",
@@ -9011,9 +8981,9 @@
       "source_file": "ui/app.py",
       "source_location": "L206",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp_note_track_change",
-      "target": "ui_app_dlnaapp_spawn",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_spawn"
     },
     {
       "relation": "calls",
@@ -9033,9 +9003,9 @@
       "source_file": "ui/app.py",
       "source_location": "L190",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp_tick_play_time",
-      "target": "ui_app_dlnaapp_spawn",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_spawn"
     },
     {
       "relation": "calls",
@@ -9055,9 +9025,9 @@
       "source_file": "ui/app.py",
       "source_location": "L173",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp_poll",
-      "target": "ui_app_dlnaapp_tick_play_time",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_tick_play_time"
     },
     {
       "relation": "calls",
@@ -9066,9 +9036,9 @@
       "source_file": "ui/app.py",
       "source_location": "L182",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp_tick_play_time",
-      "target": "ui_app_dlnaapp_note_track_change",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_note_track_change"
     },
     {
       "relation": "calls",
@@ -9077,9 +9047,9 @@
       "source_file": "ui/app.py",
       "source_location": "L190",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp_tick_play_time",
-      "target": "ui_app_dlnaapp_report_play",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_report_play"
     },
     {
       "relation": "rationale_for",
@@ -9087,9 +9057,9 @@
       "source_file": "ui/app.py",
       "source_location": "L177",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_rationale_177",
-      "target": "ui_app_dlnaapp_tick_play_time",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_tick_play_time"
     },
     {
       "relation": "calls",
@@ -9098,9 +9068,9 @@
       "source_file": "ui/app.py",
       "source_location": "L206",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp_note_track_change",
-      "target": "ui_app_dlnaapp_report_play",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_report_play"
     },
     {
       "relation": "rationale_for",
@@ -9108,9 +9078,9 @@
       "source_file": "ui/app.py",
       "source_location": "L193",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_rationale_193",
-      "target": "ui_app_dlnaapp_note_track_change",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_note_track_change"
     },
     {
       "relation": "references",
@@ -9119,9 +9089,9 @@
       "source_file": "ui/app.py",
       "source_location": "L211",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_dlnaapp_report_play",
-      "target": "ui_app_py_track",
-      "confidence_score": 1.0
+      "target": "ui_app_py_track"
     },
     {
       "relation": "references",
@@ -9238,9 +9208,9 @@
       "source_file": "ui/app.py",
       "source_location": "L296",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_rationale_296",
-      "target": "ui_app_dlnaapp_current_container_node",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_current_container_node"
     },
     {
       "relation": "calls",
@@ -9356,9 +9326,9 @@
       "source_file": "ui/app.py",
       "source_location": "L341",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_rationale_341",
-      "target": "ui_app_dlnaapp_focus_results",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_focus_results"
     },
     {
       "relation": "calls",
@@ -9377,9 +9347,9 @@
       "source_file": "ui/app.py",
       "source_location": "L354",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_rationale_354",
-      "target": "ui_app_dlnaapp_seed_track",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_seed_track"
     },
     {
       "relation": "calls",
@@ -9442,9 +9412,9 @@
       "source_file": "ui/app.py",
       "source_location": "L379",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_rationale_379",
-      "target": "ui_app_dlnaapp_mark_current",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_mark_current"
     },
     {
       "relation": "calls",
@@ -9495,9 +9465,9 @@
       "source_file": "ui/app.py",
       "source_location": "L394",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_rationale_394",
-      "target": "ui_app_dlnaapp_append_radio",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_append_radio"
     },
     {
       "relation": "rationale_for",
@@ -9505,9 +9475,9 @@
       "source_file": "ui/app.py",
       "source_location": "L418",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_rationale_418",
-      "target": "ui_app_dlnaapp_action_handoff",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_action_handoff"
     },
     {
       "relation": "calls",
@@ -9526,9 +9496,9 @@
       "source_file": "ui/app.py",
       "source_location": "L483",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_rationale_483",
-      "target": "ui_app_dlnaapp_rating_target",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_rating_target"
     },
     {
       "relation": "calls",
@@ -9558,9 +9528,9 @@
       "source_file": "ui/app.py",
       "source_location": "L489",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "ui_app_rationale_489",
-      "target": "ui_app_dlnaapp_rate",
-      "confidence_score": 1.0
+      "target": "ui_app_dlnaapp_rate"
     },
     {
       "relation": "calls",
@@ -10142,5 +10112,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "6e1bcd98fd24665262c165d2f154eb4aafba1f89"
+  "built_at_commit": "b9a116b357b24f049b9e6667c071d2f9284c85dc"
 }

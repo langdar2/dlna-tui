@@ -1,16 +1,16 @@
 # Graph Report - dlna TerminalClient  (2026-10-09)
 
 ## Corpus Check
-- 22 files · ~12,288 words
+- 22 files · ~12,320 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 292 nodes · 690 edges · 13 communities
+- 292 nodes · 687 edges · 13 communities
 - Extraction: 83% EXTRACTED · 17% INFERRED · 0% AMBIGUOUS · INFERRED: 119 edges (avg confidence: 0.51)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `6e1bcd98`
+- Built from commit: `b9a116b3`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -36,7 +36,7 @@
 7. `Container` - 22 edges
 8. `MusicServer` - 22 edges
 9. `NowPlaying` - 18 edges
-10. `radio_tracks()` - 17 edges
+10. `DeviceScreen` - 16 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `DlnaApp` --uses--> `Container`  [INFERRED]
@@ -84,7 +84,7 @@ Cohesion: 0.14
 Nodes (13): Bekannte Risiken (am Gerät verifizieren), Dateistruktur, DLNA TUI Implementation Plan, Self-Review (durchgeführt), Task 0: Projekt-Setup, Task 1: Modelle + DIDL-Adapter, Task 2: Queue-Logik (rein), Task 3: Store (Favoriten + Session) (+5 more)
 
 ### Community 7 - "Community 7"
-Cohesion: 0.14
+Cohesion: 0.13
 Nodes (33): _basename(), _best_match(), _common_tail(), count_play(), _crate_path_of(), _crate_query(), _match_file(), _media_id() (+25 more)
 
 ### Community 12 - "Community 12"
@@ -105,7 +105,7 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `DlnaApp` connect `Community 2` to `Community 0`, `Community 1`, `Community 3`, `Community 4`, `Community 12`, `Community 13`?**
   _High betweenness centrality (0.278) - this node is a cross-community bridge._
 - **Why does `Track` connect `Community 1` to `Community 0`, `Community 2`, `Community 3`, `Community 4`, `Community 7`, `Community 12`?**
-  _High betweenness centrality (0.165) - this node is a cross-community bridge._
+  _High betweenness centrality (0.166) - this node is a cross-community bridge._
 - **Why does `Renderer` connect `Community 3` to `Community 1`, `Community 2`, `Community 4`, `Community 12`?**
   _High betweenness centrality (0.100) - this node is a cross-community bridge._
 - **Are the 9 inferred relationships involving `DlnaApp` (e.g. with `FakeRenderer` and `ComposeResult`) actually correct?**

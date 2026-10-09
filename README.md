@@ -39,12 +39,13 @@ while CrateMind is unreachable, and nothing breaks either.
 
 ## Settings
 
-All optional; the defaults match the home setup.
+All optional. The defaults point at the host these services run on;
+set them if yours live elsewhere.
 
 | Variable | Default | Meaning |
 |----------|---------|---------|
-| `CRATE_URL` | `http://192.168.0.3:8008` | CrateMind2 |
-| `VUIO_URL` | `http://192.168.0.3:8080` | VuIO media server |
+| `CRATE_URL` | `http://minime-3.local:8008` | CrateMind2 |
+| `VUIO_URL` | `http://minime-3.local:8080` | VuIO media server |
 | `RADIO_LIMIT` | `10` | Tracks fetched per radio batch |
 | `RADIO_FRESH_SHARE` | `0.15` | Share of a radio batch reserved for recently imported music |
 

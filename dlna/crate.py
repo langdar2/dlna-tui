@@ -15,7 +15,7 @@ import aiohttp
 from .models import Track
 from .vuio import call as vuio_call
 
-CRATE_URL = os.environ.get("CRATE_URL", "http://192.168.0.3:8008")
+CRATE_URL = os.environ.get("CRATE_URL", "http://minime-3.local:8008")
 # Share of each radio batch reserved for recently imported music. CrateMind
 # has its own default; this makes it tunable per player without a rebuild.
 FRESH_SHARE = float(os.environ.get("RADIO_FRESH_SHARE", "0.15"))

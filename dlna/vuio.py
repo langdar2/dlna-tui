@@ -13,7 +13,7 @@ from urllib.parse import urlparse
 
 import aiohttp
 
-VUIO_URL = os.environ.get("VUIO_URL", "http://192.168.0.3:8080")
+VUIO_URL = os.environ.get("VUIO_URL", "http://minime-3.local:8080")
 _MCP_VERSION = "2026-07-28"
 
 
@@ -121,10 +121,10 @@ def _selfcheck() -> None:
     # same box over three protocols -> chromecast wins; a stranger is ignored
     found = {"renderers": [
         {"id": "uuid:evo", "protocol": "dlna",
-         "location": "http://192.168.0.23:8050/x/description.xml"},
-        {"id": "airplay:aa", "protocol": "airplay", "location": "airplay://192.168.0.23:7000"},
-        {"id": "chromecast:cc", "protocol": "chromecast", "location": "cast://192.168.0.23:8009"},
-        {"id": "chromecast:other", "protocol": "chromecast", "location": "cast://192.168.0.99:8009"},
+         "location": "http://203.0.113.5:8050/x/description.xml"},
+        {"id": "airplay:aa", "protocol": "airplay", "location": "airplay://203.0.113.5:7000"},
+        {"id": "chromecast:cc", "protocol": "chromecast", "location": "cast://203.0.113.5:8009"},
+        {"id": "chromecast:other", "protocol": "chromecast", "location": "cast://203.0.113.9:8009"},
     ]}
 
     async def fake_call(_s, _tool, _args):
@@ -134,7 +134,7 @@ def _selfcheck() -> None:
     global call
     real, call = call, fake_call
     try:
-        loc = "http://192.168.0.23:8050/x/description.xml"
+        loc = "http://203.0.113.5:8050/x/description.xml"
         assert _a.run(pick_renderer(None, "uuid:evo", loc)) == "chromecast:cc"
         # unknown device -> fall back to the id we already have
         assert _a.run(pick_renderer(None, "uuid:nope", "http://10.0.0.1:1/d.xml")) == "uuid:nope"

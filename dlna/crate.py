@@ -20,6 +20,11 @@ CRATE_URL = os.environ.get("CRATE_URL", "http://192.168.0.3:8008")
 # has its own default; this makes it tunable per player without a rebuild.
 FRESH_SHARE = float(os.environ.get("RADIO_FRESH_SHARE", "0.15"))
 
+# 404: CrateMind doesn't know this track. 404/405 on the endpoint itself: an
+# older CrateMind that predates it. Both mean "nothing to record there",
+# which is not an error worth interrupting the listener for.
+_NO_SUCH_TARGET = (404, 405)
+
 
 def _basename(path: str) -> str:
     return path.rsplit("/", 1)[-1]
@@ -168,7 +173,7 @@ async def count_play(media_url: str, skipped: bool = False, title: str = "",
             return False
         async with s.post(f"{CRATE_URL}/api/plays",
                           json={"path": path, "skipped": skipped}) as r:
-            if r.status == 404:
+            if r.status in _NO_SUCH_TARGET:
                 return False
             r.raise_for_status()
     return True
@@ -189,7 +194,7 @@ async def rate(media_url: str, rating: int, title: str = "",
             return False
         async with s.put(f"{CRATE_URL}/api/ratings",
                          json={"path": path, "rating": rating}) as r:
-            if r.status == 404:  # analysed by VuIO but not by CrateMind
+            if r.status in _NO_SUCH_TARGET:
                 return False
             r.raise_for_status()
     return True

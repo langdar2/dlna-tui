@@ -42,6 +42,30 @@ _FONT_CANDIDATES = (
 )
 
 
+def import_idotmatrix():
+    """Import the library without letting it take over logging.
+
+    idotmatrix calls logging.basicConfig(level=DEBUG) when imported, which
+    switches the whole process to DEBUG and prints every UPnP request and
+    Bluetooth packet straight over the full-screen UI. basicConfig does
+    nothing when the root logger already has a handler, so give it one that
+    discards everything, import, and only then restore the previous state.
+    """
+    import sys
+    if "idotmatrix" in sys.modules:
+        return sys.modules["idotmatrix"]
+    root = logging.getLogger()
+    saved_handlers, saved_level = root.handlers[:], root.level
+    root.handlers = [logging.NullHandler()]
+    try:
+        import idotmatrix
+    finally:
+        root.handlers = saved_handlers
+        root.setLevel(saved_level)
+    # The library's own loggers inherit from root, so they follow it now.
+    return idotmatrix
+
+
 def _font(size: int) -> ImageFont.ImageFont:
     for path in _FONT_CANDIDATES:
         try:
@@ -166,8 +190,8 @@ class PixelDisplay:
 
     def _import(self):
         if self._lib is None:
-            from idotmatrix import Common, ConnectionManager, Gif, Image as Img
-            self._lib = (Common, ConnectionManager, Gif, Img)
+            lib = import_idotmatrix()
+            self._lib = (lib.Common, lib.ConnectionManager, lib.Gif, lib.Image)
         return self._lib
 
     async def connect(self) -> bool:
@@ -266,7 +290,7 @@ def get_display() -> PixelDisplay | None:
     if not target:
         return None
     try:
-        import idotmatrix  # noqa: F401
+        import_idotmatrix()
     except ImportError:
         log.warning("DLNA_TUI_IDM is set but 'idotmatrix' is not installed "
                     "(pip install idotmatrix)")

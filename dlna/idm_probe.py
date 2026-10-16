@@ -1,23 +1,35 @@
-"""Find the iDotMatrix display and put a test picture on it.
+"""Find the iDotMatrix display and put test pictures on it.
 
     python3 -m dlna.idm_probe [address-or-name]
 
-Prints every display in range, then shows a cover tile with a half-filled
-progress bar and a scrolling line of text, so you can check the connection
-before running the player with DLNA_TUI_IDM.
+Prints every display in range, then walks through the same sequence the player
+uses on a track change, pausing between steps so you can see what appears:
+
+  1. cover with a half-full progress bar
+  2. a scrolling line of text (a GIF)
+  3. the cover again   <- the step that has to switch back from the GIF
+
+Say which step first fails to show.
 """
 import asyncio
 import os
 import sys
+from io import BytesIO
 
 from PIL import Image, ImageDraw
 
 from .display import PixelDisplay, cover_frame, scroll_frames
 
 
+def _png(img) -> bytes:
+    buf = BytesIO()
+    img.save(buf, format="PNG")
+    return buf.getvalue()
+
+
 async def main(target: str) -> int:
-    from idotmatrix import ConnectionManager
-    found = await ConnectionManager.scan()
+    from .display import import_idotmatrix
+    found = await import_idotmatrix().ConnectionManager.scan()
     print("displays in range:", found or "none")
     if not target:
         if not found:
@@ -29,20 +41,23 @@ async def main(target: str) -> int:
         return 1
     tile = Image.new("RGB", (64, 64), (30, 60, 160))
     ImageDraw.Draw(tile).ellipse((12, 12, 52, 52), fill=(240, 200, 40))
-    await d._send_png(cover_frame(_png(tile), 16))
-    await asyncio.sleep(3)
+    cover = cover_frame(_png(tile), 16)
+
+    print("1. cover + progress bar (blue square, yellow disc, green bar)")
+    await d._send_png(cover)
+    await asyncio.sleep(4)
+
+    print("2. scrolling text")
     await d._send_gif(scroll_frames("dlna-tui test"))
-    await asyncio.sleep(6)
+    await asyncio.sleep(8)
+
+    print("3. cover again (should return to the blue square)")
+    await d._send_png(cover)
+    await asyncio.sleep(5)
+
     await d.close()
-    print("ok")
+    print("done")
     return 0
-
-
-def _png(img):
-    from io import BytesIO
-    buf = BytesIO()
-    img.save(buf, format="PNG")
-    return buf.getvalue()
 
 
 if __name__ == "__main__":

@@ -122,3 +122,47 @@ def test_a_long_title_cannot_blow_up_the_bluetooth_upload():
     # a short title keeps its smooth step instead of being thinned out
     assert len(short) > 20
     assert MAX_SCROLL_CHARS < 100
+
+
+def test_importing_idotmatrix_does_not_switch_the_app_to_debug_logging(monkeypatch):
+    """idotmatrix runs logging.basicConfig(level=DEBUG) on import. In a
+    full-screen UI that printed every UPnP request over the interface."""
+    import logging
+    import sys
+    import types
+
+    def fake_library():
+        # what the real package does at import time
+        logging.basicConfig(level=logging.DEBUG, handlers=[logging.StreamHandler()])
+        return types.ModuleType("idotmatrix")
+
+    root = logging.getLogger()
+    # Pytest puts its own capture handlers on the root logger, and basicConfig
+    # does nothing once the root has a handler -- so under pytest the library
+    # would look harmless. Put the root in the state of the real app (no
+    # handlers, WARNING) so the test sees what the user saw.
+    monkeypatch.setattr(root, "handlers", [])
+    monkeypatch.setattr(root, "level", logging.WARNING)
+    before = (root.level, root.handlers[:])
+    monkeypatch.delitem(sys.modules, "idotmatrix", raising=False)
+    monkeypatch.setattr("builtins.__import__", _import_hook(fake_library), raising=True)
+    try:
+        display.import_idotmatrix()
+        after = (root.level, root.handlers[:])   # read before monkeypatch restores
+    finally:
+        monkeypatch.undo()
+        sys.modules.pop("idotmatrix", None)
+    assert after == before
+
+
+def _import_hook(factory):
+    import builtins
+    real = builtins.__import__
+
+    def hook(name, *a, **k):
+        if name == "idotmatrix":
+            import sys
+            sys.modules["idotmatrix"] = factory()
+            return sys.modules["idotmatrix"]
+        return real(name, *a, **k)
+    return hook

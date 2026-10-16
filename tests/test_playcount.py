@@ -93,3 +93,35 @@ async def test_replaying_the_same_track_counts_again(monkeypatch):
     await _listen(a, PLAY_THRESHOLD_SECONDS)
 
     assert reported == [("A", False), ("B", False), ("A", False)]
+
+
+def test_threshold_follows_the_scrobble_rule():
+    from ui.app import play_threshold
+    assert play_threshold(0) == 30          # no duration (m4a): flat fallback
+    assert play_threshold(360) == 180       # 6 min: half the track
+    assert play_threshold(600) == 240       # 10 min: capped at 4 min
+    assert play_threshold(90) == 45
+    assert play_threshold(30) is None       # too short to count at all
+    assert play_threshold(12) is None
+
+
+async def test_long_track_needs_half_its_length(monkeypatch):
+    a, reported = _app(monkeypatch)
+    a.queue = Queue([Track(id="1", title="Long", duration="0:06:00")])
+
+    await _listen(a, 179)
+    assert reported == []                   # 30s rule would have counted long ago
+    await _listen(a, 1)
+    assert reported == [("Long", False)]
+
+
+async def test_a_short_interlude_is_neither_a_play_nor_a_skip(monkeypatch):
+    a, reported = _app(monkeypatch)
+    a.queue = Queue([Track(id="1", title="Intro", duration="0:00:20"),
+                     Track(id="2", title="Song", duration="0:03:00")])
+
+    await _listen(a, 20)
+    a.queue.advance()
+    a._tick_play_time()
+    await asyncio.sleep(0)
+    assert reported == []

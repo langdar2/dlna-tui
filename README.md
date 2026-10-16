@@ -35,7 +35,9 @@ It picks up the server and renderer used last time (remembered in
 Ratings and plays go to CrateMind, where they steer how playlists are built:
 a favourite ranks like the best-liked music in the library, a thumbs-down is
 dropped from playlists entirely (but can still seed radio). A track counts as
-played after 30 seconds; leaving earlier counts as a skip. Nothing is recorded
+played after half its length or 4 minutes, whichever is first (30 seconds
+when the server reports no length); leaving earlier counts as a skip, and
+tracks of 30 seconds or less never count. Nothing is recorded
 while CrateMind is unreachable, and nothing breaks either.
 
 ## Settings

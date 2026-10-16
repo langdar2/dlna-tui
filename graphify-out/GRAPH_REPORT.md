@@ -1,16 +1,16 @@
 # Graph Report - dlna TerminalClient  (2026-10-16)
 
 ## Corpus Check
-- 26 files · ~14,548 words
+- 26 files · ~14,777 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 357 nodes · 827 edges · 15 communities
+- 362 nodes · 847 edges · 15 communities (14 shown, 1 thin omitted)
 - Extraction: 83% EXTRACTED · 17% INFERRED · 0% AMBIGUOUS · INFERRED: 143 edges (avg confidence: 0.51)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `e6c10d68`
+- Built from commit: `b29164a2`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -30,8 +30,8 @@
 
 ## God Nodes (most connected - your core abstractions)
 1. `DlnaApp` - 74 edges
-2. `Track` - 56 edges
-3. `Queue` - 43 edges
+2. `Track` - 58 edges
+3. `Queue` - 45 edges
 4. `Renderer` - 36 edges
 5. `Store` - 29 edges
 6. `ComposeResult` - 26 edges
@@ -43,39 +43,35 @@
 ## Surprising Connections (you probably didn't know these)
 - `DlnaApp` --uses--> `Container`  [INFERRED]
   ui/app.py → dlna/models.py
-- `FakeRenderer` --uses--> `Track`  [INFERRED]
-  tests/test_playcount.py → dlna/models.py
-- `_App` --uses--> `Track`  [INFERRED]
-  tests/test_regressions.py → dlna/models.py
-- `_Renderer` --uses--> `Track`  [INFERRED]
-  tests/test_regressions.py → dlna/models.py
-- `FakeProfile` --uses--> `Track`  [INFERRED]
-  tests/test_renderer.py → dlna/models.py
+- `Changed` --uses--> `Track`  [INFERRED]
+  ui/app.py → dlna/models.py
+- `ComposeResult` --uses--> `Track`  [INFERRED]
+  ui/app.py → dlna/models.py
+- `NodeExpanded` --uses--> `Track`  [INFERRED]
+  ui/app.py → dlna/models.py
+- `NodeSelected` --uses--> `Track`  [INFERRED]
+  ui/app.py → dlna/models.py
 
 ## Import Cycles
 - None detected.
 
-## Communities (15 total, 0 thin omitted)
+## Communities (15 total, 1 thin omitted)
 
 ### Community 0 - "Community 0"
-Cohesion: 0.10
-Nodes (27): _first_res(), _first_res_duration(), _first_res_uri(), from_didl(), _is_audio(), _media_info(), Queue, Forget what's queued behind the current track, keeping it playing.         Switc (+19 more)
+Cohesion: 0.12
+Nodes (22): _first_res(), _first_res_duration(), _first_res_uri(), from_didl(), _is_audio(), _media_info(), Queue, Forget what's queued behind the current track, keeping it playing.         Switc (+14 more)
 
 ### Community 1 - "Community 1"
-Cohesion: 0.13
-Nodes (25): Changed, ComposeResult, Container, Container, Already-parsed didl_lite objects -> our models (Descriptors dropped).      Conta, to_models(), Track, MusicServer (+17 more)
+Cohesion: 0.08
+Nodes (31): Changed, ComposeResult, Container, Container, MusicServer, Track, default_path(), Path (+23 more)
 
 ### Community 2 - "Community 2"
 Cohesion: 0.06
-Nodes (14): ListItem, DlnaApp, Send current playback info to optional pixel display., Count listening time and report a play once it passes the threshold.          Dr, Restart the play timer when the current track changed, and report         the on, The tree node whose children are 'the current folder' for filtering., Move focus from the filter box onto the first result so it's playable., Empty the filter box and put the filtered folder back in full.          Restored (+6 more)
-
-### Community 3 - "Community 3"
-Cohesion: 0.15
-Nodes (6): Track, Renderer, FakeProfile, test_play_sets_uri(), test_safe_call_swallows_errors_and_reports(), test_state_snapshot()
+Nodes (20): build_device(), DeviceInfo -> concrete UpnpDevice (for MusicServer/Renderer).      Pass a shared, ListItem, test_threshold_follows_the_scrobble_rule(), DlnaApp, _hms_seconds(), play_threshold(), Send current playback info to optional pixel display. (+12 more)
 
 ### Community 4 - "Community 4"
-Cohesion: 0.09
-Nodes (21): RendererState, _app(), FakeRenderer, _listen(), test_moving_on_after_a_full_listen_is_not_a_skip(), test_paused_and_handed_off_playback_does_not_accrue(), test_play_counts_once_past_the_threshold(), test_replaying_the_same_track_counts_again() (+13 more)
+Cohesion: 0.07
+Nodes (35): Track, RendererState, _app(), FakeRenderer, _listen(), test_a_short_interlude_is_neither_a_play_nor_a_skip(), test_long_track_needs_half_its_length(), test_moving_on_after_a_full_listen_is_not_a_skip() (+27 more)
 
 ### Community 5 - "Community 5"
 Cohesion: 0.12
@@ -90,12 +86,12 @@ Cohesion: 0.13
 Nodes (33): _basename(), _best_match(), _common_tail(), count_play(), _crate_path_of(), _crate_query(), _match_file(), _media_id() (+25 more)
 
 ### Community 12 - "Community 12"
-Cohesion: 0.11
-Nodes (23): DeviceInfo, build_device(), discover(), _discover_kind(), _friendly_name(), _lan_sources(), SSDP source addresses for broadcast-capable IPv4 interfaces.      Excludes loopb, Pull <friendlyName> from the device description XML. None on any failure. (+15 more)
+Cohesion: 0.24
+Nodes (12): DeviceInfo, discover(), _discover_kind(), _friendly_name(), _lan_sources(), SSDP source addresses for broadcast-capable IPv4 interfaces.      Excludes loopb, Pull <friendlyName> from the device description XML. None on any failure., SSDP scan. Returns (servers, renderers). Names are filled in on connect. (+4 more)
 
 ### Community 13 - "Community 13"
 Cohesion: 0.09
-Nodes (27): Decode an image into a colored Rich renderable.      Each character cell is a '▀, to_ansi(), call(), handoff(), media_ids(), pick_renderer(), ClientSession, Talking to VuIO over its MCP endpoint, and handing playback over to it.  VuIO se (+19 more)
+Nodes (26): Decode an image into a colored Rich renderable.      Each character cell is a '▀, to_ansi(), call(), handoff(), media_ids(), pick_renderer(), ClientSession, Talking to VuIO over its MCP endpoint, and handing playback over to it.  VuIO se (+18 more)
 
 ### Community 14 - "Community 14"
 Cohesion: 0.33
@@ -108,16 +104,17 @@ Nodes (8): get_display(), PixelDisplay, Pixel-Display Integration für dlna-tui.
 ## Knowledge Gaps
 - **29 isolated node(s):** `Text`, `Running`, `Keys`, `Settings`, `Notes` (+24 more)
   These have ≤1 connection - possible missing edges or undocumented components.
+- **1 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `DlnaApp` connect `Community 2` to `Community 0`, `Community 1`, `Community 3`, `Community 4`, `Community 12`, `Community 13`, `Community 15`?**
-  _High betweenness centrality (0.271) - this node is a cross-community bridge._
-- **Why does `Track` connect `Community 1` to `Community 0`, `Community 2`, `Community 3`, `Community 4`, `Community 7`, `Community 13`?**
-  _High betweenness centrality (0.154) - this node is a cross-community bridge._
+  _High betweenness centrality (0.263) - this node is a cross-community bridge._
+- **Why does `Track` connect `Community 4` to `Community 0`, `Community 1`, `Community 2`, `Community 3`, `Community 7`, `Community 13`?**
+  _High betweenness centrality (0.156) - this node is a cross-community bridge._
 - **Why does `Renderer` connect `Community 3` to `Community 1`, `Community 2`, `Community 4`, `Community 13`?**
-  _High betweenness centrality (0.083) - this node is a cross-community bridge._
+  _High betweenness centrality (0.082) - this node is a cross-community bridge._
 - **Are the 10 inferred relationships involving `DlnaApp` (e.g. with `FakeRenderer` and `_Renderer`) actually correct?**
   _`DlnaApp` has 10 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 26 inferred relationships involving `Track` (e.g. with `Changed` and `ComposeResult`) actually correct?**

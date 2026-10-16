@@ -38,11 +38,23 @@ log = logging.getLogger(__name__)
 
 QUEUE_VIEW_MAX = 200  # queue rows to render; see _sync_queue_view
 
-# Seconds of playback that make a play count. Scrobblers use "half the track",
-# but VuIO reports duration 0 for m4a, so a fraction is not available; 30s is
-# the usual absolute fallback and is long enough that skipping past a track
-# does not score it.
+# When a play counts, after the Last.fm / ListenBrainz scrobble rule: half the
+# track or 4 minutes, whichever is first, and tracks of 30s or less never
+# count. The server sends no duration for m4a (measured: 0 of 228 mp4 tracks,
+# all 583 flac), so those fall back to a flat 30s -- lenient for long tracks,
+# but long enough that skipping past one does not score it.
 PLAY_THRESHOLD_SECONDS = 30
+PLAY_CAP_SECONDS = 240
+MIN_SCORABLE_SECONDS = 30
+
+
+def play_threshold(duration_s: int) -> int | None:
+    """Seconds of listening that make a play; None if this track never counts."""
+    if duration_s <= 0:
+        return PLAY_THRESHOLD_SECONDS
+    if duration_s <= MIN_SCORABLE_SECONDS:
+        return None
+    return min(PLAY_CAP_SECONDS, duration_s // 2)
 
 
 class DlnaApp(App):
@@ -234,8 +246,10 @@ class DlnaApp(App):
             return
         self._heard_seconds += 1
         track = self.queue.current()
-        if (not self._play_counted and track
-                and self._heard_seconds >= PLAY_THRESHOLD_SECONDS):
+        if not track or self._play_counted:
+            return
+        need = play_threshold(_hms_seconds(track.duration))
+        if need is not None and self._heard_seconds >= need:
             self._play_counted = True  # set first: the report is slow and async
             self._spawn(self._report_play(track, skipped=False))
 
@@ -252,7 +266,8 @@ class DlnaApp(App):
         if now == self._playing_key:
             return
         left = self._playing_track
-        if left and not self._play_counted and self._heard_seconds > 0:
+        if (left and not self._play_counted and self._heard_seconds > 0
+                and play_threshold(_hms_seconds(left.duration)) is not None):
             self._spawn(self._report_play(left, skipped=True))
         self._playing_key, self._playing_track = now, track
         self._heard_seconds = 0
@@ -737,8 +752,8 @@ class HelpScreen(ModalScreen):
             yield Label("[b]Tastenbelegung[/]\n")
             yield Static(table)
             yield Label("\n[dim]Bewertungen und Plays gehen an CrateMind. Ein Titel "
-                        "zählt nach 30 s als gespielt, früheres Weiterschalten "
-                        "als Skip.[/]")
+                        "zählt nach der Hälfte (höchstens 4 min, ohne Längenangabe "
+                        "30 s) als gespielt, früheres Weiterschalten als Skip.[/]")
             yield Label("[dim]Esc / ? schließt[/]")
 
     def action_close(self) -> None:

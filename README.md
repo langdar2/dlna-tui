@@ -29,6 +29,7 @@ It picks up the server and renderer used last time (remembered in
 | `x` | Hand the queue to VuIO, so it keeps playing after you quit |
 | `i` | Track info |
 | `d` | Pick server / renderer |
+| `?` | Help: every key with an explanation |
 | `q` | Quit |
 
 Ratings and plays go to CrateMind, where they steer how playlists are built:

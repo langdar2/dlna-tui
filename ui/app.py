@@ -4,6 +4,7 @@ import asyncio
 import os
 
 from async_upnp_client.profiles.dlna import DmrDevice, DmsDevice
+from rich.table import Table as RichTable
 from textual.app import App, ComposeResult
 from textual.containers import Horizontal, Vertical
 from textual.screen import ModalScreen
@@ -47,6 +48,7 @@ class DlnaApp(App):
         ("x", "handoff", "An VuIO"),
         ("i", "info", "Info"),
         ("d", "devices", "Geräte"),
+        ("question_mark", "help", "Hilfe"),
         ("q", "quit", "Quit"),
     ]
 
@@ -514,6 +516,9 @@ class DlnaApp(App):
     async def action_ban(self) -> None:
         await self._rate(-1, "Nicht mehr spielen ✗")
 
+    async def action_help(self) -> None:
+        await self.push_screen(HelpScreen(self.BINDINGS))
+
     async def action_info(self) -> None:
         node = self.query_one("#browser", Tree).cursor_node
         obj = self._node_obj.get(node.id) if node else None
@@ -538,6 +543,74 @@ def _http_get(url: str) -> bytes:
     import urllib.request
     with urllib.request.urlopen(url, timeout=5) as resp:
         return resp.read()
+
+
+# What each key does, for the help screen. Keyed by action, so the screen is
+# built from BINDINGS and a key added there without an entry here fails
+# test_every_binding_is_explained instead of silently missing from the help.
+HELP_TEXT = {
+    "toggle": "Wiedergabe starten oder pausieren",
+    "next": "Nächster Titel der Queue",
+    "prev": "Vorheriger Titel der Queue",
+    "enqueue": "Gewählten Titel hinten an die Queue hängen",
+    "vol_up": "Lauter",
+    "vol_down": "Leiser",
+    "seek_fwd": "Im Titel vorspulen",
+    "seek_back": "Im Titel zurückspulen",
+    "search": "Ordner im Baum filtern",
+    "crate_radio": "Radio: Rest der Queue durch ähnliche Titel aus CrateMind "
+                   "ersetzen und automatisch weiterspielen",
+    "favorite": "Als Favorit markieren ★ (nochmal drücken hebt es auf); "
+                "bevorzugt den Titel in CrateMind-Playlists",
+    "ban": "Nie mehr spielen ✗ (nochmal drücken hebt es auf); "
+           "entfernt den Titel aus CrateMind-Playlists",
+    "handoff": "Queue an VuIO übergeben, damit sie nach dem Beenden weiterläuft",
+    "info": "Details und Cover zum gewählten Titel",
+    "devices": "Server und Renderer auswählen",
+    "help": "Diese Hilfe",
+    "quit": "Beenden",
+}
+
+_KEY_NAMES = {"space": "Leertaste", "plus": "+", "minus": "-", "right": "→",
+              "left": "←", "slash": "/", "question_mark": "?"}
+
+
+def help_rows(bindings) -> list[tuple[str, str]]:
+    """(key as shown, explanation) for every binding, in binding order."""
+    return [(_KEY_NAMES.get(key, key), HELP_TEXT.get(action, label))
+            for key, action, label in bindings]
+
+
+class HelpScreen(ModalScreen):
+    BINDINGS = [("escape", "close", "Schließen"),
+                ("question_mark", "close", "Schließen")]
+    CSS = ("HelpScreen { align: center middle; } "
+           "#help_box { width: 80%; max-width: 90; height: auto; max-height: 90%; "
+           "border: round $accent; padding: 1 2; } "
+           "#help_box Static { width: 1fr; }")
+
+    def __init__(self, bindings):
+        super().__init__()
+        self.rows = help_rows(bindings)
+
+    def compose(self) -> ComposeResult:
+        # A grid rather than padded text, so a long explanation wraps within
+        # its own column instead of under the key.
+        table = RichTable.grid(padding=(0, 2))
+        table.add_column(style="bold", no_wrap=True)
+        table.add_column()
+        for key, text in self.rows:
+            table.add_row(key, text)
+        with Vertical(id="help_box"):
+            yield Label("[b]Tastenbelegung[/]\n")
+            yield Static(table)
+            yield Label("\n[dim]Bewertungen und Plays gehen an CrateMind. Ein Titel "
+                        "zählt nach 30 s als gespielt, früheres Weiterschalten "
+                        "als Skip.[/]")
+            yield Label("[dim]Esc / ? schließt[/]")
+
+    def action_close(self) -> None:
+        self.dismiss()
 
 
 class TrackInfoScreen(ModalScreen):

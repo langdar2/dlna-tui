@@ -1,9 +1,16 @@
 from __future__ import annotations
 
 import asyncio
+import logging
 import os
+from pathlib import Path
 
 from async_upnp_client.profiles.dlna import DmrDevice, DmsDevice
+try:
+    from dlna.display import get_display
+except ImportError:
+    get_display = None
+
 from rich.table import Table as RichTable
 from textual.app import App, ComposeResult
 from textual.containers import Horizontal, Vertical
@@ -19,6 +26,14 @@ from dlna.renderer import Renderer
 from dlna.server import MusicServer
 from dlna.store import Store
 from .widgets import NowPlaying
+
+# Lokales Cache-Verzeichnis für Cover-Bilder. Angelegt erst beim ersten
+# Schreiben, nicht beim Import -- sonst legt schon jeder Testlauf es an.
+_COVER_CACHE = Path.home() / ".cache" / "dlna-tui" / "covers"
+_MAX_COVER_CACHE_SIZE = 50  # Max number of cover files to keep
+
+# Logger
+log = logging.getLogger(__name__)
 
 
 QUEUE_VIEW_MAX = 200  # queue rows to render; see _sync_queue_view
@@ -79,6 +94,13 @@ class DlnaApp(App):
         self.handed_off = False  # VuIO drives the playlist; we stop advancing
         self.radio_limit = int(os.environ.get("RADIO_LIMIT", "10"))  # tracks per radio fetch
         self._heard: set[str] = set()  # track ids already queued; radio skips them
+        # Optional OLED. Not "self.display": Textual's App already has a
+        # display property that is always True, which would bypass the check.
+        self.pixel_display = None
+        if get_display is not None:
+            dev = get_display()
+            if dev is not None and dev.is_available():
+                self.pixel_display = dev
 
     def compose(self) -> ComposeResult:
         yield Header()
@@ -126,7 +148,12 @@ class DlnaApp(App):
     def _update_subtitle(self) -> None:
         srv = self._srv_info.name if self._srv_info else "—"
         rnd = self._rnd_info.name if self._rnd_info else "—"
-        radio = "  📻 Radio" if self.radio else ""
+        # Queue length always; the radio badge only while radio is on, so the
+        # icon never claims radio is running when it is not.
+        n = len(self.queue.tracks)
+        radio = f"  ({n} Titel)" if n else ""
+        if self.radio:
+            radio = f"  📻 Radio{' ⏳' if self._radio_busy else ''} ({n})"
         if self.handed_off:
             radio = "  ⇢ VuIO"
         self.sub_title = f"{srv} → {rnd}{radio}"
@@ -174,6 +201,27 @@ class DlnaApp(App):
             await self.renderer.update()
             self._tick_play_time()
         self._refresh_state()
+        self._update_display()
+
+    def _update_display(self) -> None:
+        """Send current playback info to optional pixel display."""
+        if not self.pixel_display or not self.renderer or not self.queue.current():
+            return
+
+        track = self.queue.current()
+        state = self.renderer.state()
+
+        # Progress 0..1. Track.duration is DIDL's "H:MM:SS" string, so prefer
+        # the renderer's own seconds, and fall back to parsing the string.
+        total = state.duration or _hms_seconds(track.duration)
+        progress = min(state.position / total, 1.0) if total > 0 else 0.0
+
+        # Show basic playback info
+        self.pixel_display.show_now_playing(
+            title=track.title[:16],  # limited width for small display
+            artist=track.artist[:10],
+            progress=progress
+        )
 
     def _tick_play_time(self) -> None:
         """Count listening time and report a play once it passes the threshold.
@@ -327,13 +375,16 @@ class DlnaApp(App):
             return
         q = event.value.strip().lower()
         if not q:  # cleared: restore the folder's full contents in place
-            node, self._filter_node = self._filter_node, None
-            if node is not None:
-                await self._fill(node, self._container_id_of(node))
+            await self._restore_filtered_folder()
             return
         if self._filter_node is None:  # keep ancestors; filter only this folder's node
             self._filter_node = self._current_container_node()
         await self._fill(self._filter_node, self._container_id_of(self._filter_node), q)
+
+    async def _restore_filtered_folder(self) -> None:
+        node, self._filter_node = self._filter_node, None
+        if node is not None:
+            await self._fill(node, self._container_id_of(node))
 
     async def on_input_submitted(self, event: Input.Submitted) -> None:
         if event.input.id == "filter":  # Enter: jump into the filtered results
@@ -351,12 +402,36 @@ class DlnaApp(App):
         if event.key == "down" and getattr(self.focused, "id", None) == "filter":
             event.stop()
             self._focus_results()
+        if event.key == "escape" and getattr(self.focused, "id", None) == "filter":
+            event.stop()
+            self._spawn(self._clear_filter())
+
+    async def _clear_filter(self) -> None:
+        """Empty the filter box and put the filtered folder back in full.
+
+        Restored directly rather than via Input.Changed: setting an already
+        empty box raises no event, yet the folder may still be filtered.
+        """
+        self.query_one("#filter", Input).value = ""
+        await self._restore_filtered_folder()
+
+    def _get_target_track(self, cursor_only: bool = True) -> Track | None:
+        """Get the track to act on: cursor track or current queue track.
+        
+        Args:
+            cursor_only: If True, only check tree cursor. If False, fall back to
+                        queue current track.
+        """
+        tree = self.query_one("#browser", Tree)
+        node = tree.cursor_node
+        obj = self._node_obj.get(node.id) if node else None
+        if isinstance(obj, Track):
+            return obj
+        return self.queue.current() if not cursor_only else None
 
     def _seed_track(self) -> Track | None:
         """What to base radio on: the cursor track, else what's playing."""
-        node = self.query_one("#browser", Tree).cursor_node
-        obj = self._node_obj.get(node.id) if node else None
-        return obj if isinstance(obj, Track) else self.queue.current()
+        return self._get_target_track(cursor_only=False)
 
     def _queue_label(self, i: int) -> str:
         t = self.queue.tracks[i]
@@ -403,7 +478,7 @@ class DlnaApp(App):
         recs = await radio_tracks(seed.title, seed.artist, self.radio_limit,
                                   seed.album, seed.media_url)
         if gen != self._queue_gen:
-            return None  # these belong to a song the user has since moved on from
+            return None  # user replaced queue during fetch
         added = 0
         for t in recs:
             key = song_key(t.artist, t.title)
@@ -456,7 +531,13 @@ class DlnaApp(App):
         idle = self.queue.current() is None
         self._heard.update(song_key(t.artist, t.title) for t in self.queue.tracks)
         self.queue.drop_after_current()
-        n = await self._append_radio(seed)
+        if self._radio_busy:  # auto-continue is already fetching
+            return
+        self._radio_busy = True
+        try:
+            n = await self._append_radio(seed)
+        finally:
+            self._radio_busy = False
         if n is None:  # user picked another track meanwhile; don't hijack its queue
             return
         self.radio = True  # keep going automatically when the queue later empties
@@ -481,15 +562,9 @@ class DlnaApp(App):
         finally:
             self._radio_busy = False
 
-    def _rating_target(self) -> Track | None:
-        """What to rate: the cursor track, else what's playing."""
-        node = self.query_one("#browser", Tree).cursor_node
-        obj = self._node_obj.get(node.id) if node else None
-        return obj if isinstance(obj, Track) else self.queue.current()
-
     async def _rate(self, wanted: int, word: str) -> None:
         """Rate the current track, or clear the rating if it already has it."""
-        obj = self._rating_target()
+        obj = self._get_target_track(cursor_only=False)
         if not obj:
             self.notify("Kein Track gewählt", severity="warning")
             return
@@ -537,12 +612,69 @@ class DlnaApp(App):
         self.exit()
 
 
+def _hms_seconds(text: str) -> int:
+    """Seconds from DIDL's "H:MM:SS[.fff]"; 0 when missing or unreadable."""
+    try:
+        h, m, sec = (text or "").split(":")
+        return int(h) * 3600 + int(m) * 60 + int(float(sec))
+    except ValueError:
+        return 0
+
+
+def _get_cover_path(art_uri: str) -> Path:
+    """Lokalen Cache-Pfad für ein Cover basierend auf der URI ermitteln."""
+    import hashlib
+    uri_hash = hashlib.md5(art_uri.encode()).hexdigest()
+    return _COVER_CACHE / f"{uri_hash}.jpg"
+
+
+def _cleanup_cover_cache() -> None:
+    """Remove oldest cover files if cache exceeds max size."""
+    if not _COVER_CACHE.is_dir():
+        return
+    files = sorted(_COVER_CACHE.iterdir(), key=os.path.getmtime)
+    while len(files) > _MAX_COVER_CACHE_SIZE:
+        try:
+            files[0].unlink()
+            files = files[1:]
+        except OSError:
+            break
+
+
 def _http_get(url: str) -> bytes:
     # Binary-safe, stdlib: AiohttpRequester decodes bodies to text, which
     # corrupts image bytes. Run under asyncio.to_thread (blocking urlopen).
     import urllib.request
     with urllib.request.urlopen(url, timeout=5) as resp:
         return resp.read()
+
+
+async def _get_cover_data(art_uri: str, width: int) -> object:
+    """Cover als ANSI-Renderable, mit lokalem Cache; sonst ein Hinweistext."""
+    if not art_uri:
+        return "(kein Cover)"
+    cover_path = _get_cover_path(art_uri)
+    if cover_path.exists():
+        try:
+            art = to_ansi(cover_path.read_bytes(), width=width)
+            os.utime(cover_path)  # mark as recently used for eviction
+            return art
+        except Exception:
+            pass  # unreadable cache entry: fetch it again
+    try:
+        data = await asyncio.to_thread(_http_get, art_uri)
+    except Exception as exc:  # ponytail: cover is best-effort, never fatal
+        return f"(Cover fehlgeschlagen: {exc})"
+    try:
+        _COVER_CACHE.mkdir(parents=True, exist_ok=True)
+        cover_path.write_bytes(data)
+        _cleanup_cover_cache()
+    except OSError:
+        pass  # cache is an optimisation; showing the cover still works
+    try:
+        return to_ansi(data, width=width)
+    except Exception as exc:  # undecodable image
+        return f"(Cover fehlgeschlagen: {exc})"
 
 
 # What each key does, for the help screen. Keyed by action, so the screen is
@@ -644,11 +776,7 @@ class TrackInfoScreen(ModalScreen):
         # border + padding, so it fills the modal on any size without overflowing.
         box_w = min(int(self.app.size.width * 0.8), 100)
         cover_w = max(20, box_w - 6)
-        try:
-            data = await asyncio.to_thread(_http_get, self.track.art_uri)
-            art = to_ansi(data, width=cover_w)
-        except Exception as exc:  # ponytail: cover is best-effort, never fatal
-            art = f"(Cover fehlgeschlagen: {exc})"
+        art = await _get_cover_data(self.track.art_uri, cover_w)
         self.query_one("#cover", Static).update(art)
 
     def action_close(self) -> None:

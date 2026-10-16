@@ -1,16 +1,16 @@
-# Graph Report - dlna TerminalClient  (2026-10-09)
+# Graph Report - dlna TerminalClient  (2026-10-16)
 
 ## Corpus Check
-- 23 files · ~12,715 words
+- 26 files · ~14,548 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 298 nodes · 692 edges · 15 communities
-- Extraction: 83% EXTRACTED · 17% INFERRED · 0% AMBIGUOUS · INFERRED: 119 edges (avg confidence: 0.51)
+- 357 nodes · 827 edges · 15 communities
+- Extraction: 83% EXTRACTED · 17% INFERRED · 0% AMBIGUOUS · INFERRED: 143 edges (avg confidence: 0.51)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `75296252`
+- Built from commit: `e6c10d68`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -23,34 +23,34 @@
 - [[_COMMUNITY_Community 5|Community 5]]
 - [[_COMMUNITY_Community 6|Community 6]]
 - [[_COMMUNITY_Community 7|Community 7]]
-- [[_COMMUNITY_Community 8|Community 8]]
 - [[_COMMUNITY_Community 12|Community 12]]
 - [[_COMMUNITY_Community 13|Community 13]]
 - [[_COMMUNITY_Community 14|Community 14]]
+- [[_COMMUNITY_Community 15|Community 15]]
 
 ## God Nodes (most connected - your core abstractions)
-1. `DlnaApp` - 64 edges
-2. `Track` - 46 edges
-3. `Renderer` - 34 edges
-4. `Queue` - 33 edges
-5. `Store` - 27 edges
-6. `ComposeResult` - 23 edges
-7. `Container` - 22 edges
-8. `MusicServer` - 22 edges
-9. `NowPlaying` - 18 edges
-10. `DeviceScreen` - 16 edges
+1. `DlnaApp` - 74 edges
+2. `Track` - 56 edges
+3. `Queue` - 43 edges
+4. `Renderer` - 36 edges
+5. `Store` - 29 edges
+6. `ComposeResult` - 26 edges
+7. `Container` - 24 edges
+8. `MusicServer` - 24 edges
+9. `NowPlaying` - 20 edges
+10. `RendererState` - 17 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `DlnaApp` --uses--> `Container`  [INFERRED]
   ui/app.py → dlna/models.py
 - `FakeRenderer` --uses--> `Track`  [INFERRED]
   tests/test_playcount.py → dlna/models.py
+- `_App` --uses--> `Track`  [INFERRED]
+  tests/test_regressions.py → dlna/models.py
+- `_Renderer` --uses--> `Track`  [INFERRED]
+  tests/test_regressions.py → dlna/models.py
 - `FakeProfile` --uses--> `Track`  [INFERRED]
   tests/test_renderer.py → dlna/models.py
-- `DlnaApp` --uses--> `Track`  [INFERRED]
-  ui/app.py → dlna/models.py
-- `Changed` --uses--> `Queue`  [INFERRED]
-  ui/app.py → dlna/models.py
 
 ## Import Cycles
 - None detected.
@@ -59,23 +59,23 @@
 
 ### Community 0 - "Community 0"
 Cohesion: 0.10
-Nodes (25): _first_res(), _first_res_duration(), _first_res_uri(), from_didl(), _is_audio(), _media_info(), Queue, Forget what's queued behind the current track, keeping it playing.         Switc (+17 more)
+Nodes (27): _first_res(), _first_res_duration(), _first_res_uri(), from_didl(), _is_audio(), _media_info(), Queue, Forget what's queued behind the current track, keeping it playing.         Switc (+19 more)
 
 ### Community 1 - "Community 1"
 Cohesion: 0.13
-Nodes (23): Changed, ComposeResult, Container, Container, Already-parsed didl_lite objects -> our models (Descriptors dropped).      Conta, to_models(), Track, MusicServer (+15 more)
+Nodes (25): Changed, ComposeResult, Container, Container, Already-parsed didl_lite objects -> our models (Descriptors dropped).      Conta, to_models(), Track, MusicServer (+17 more)
 
 ### Community 2 - "Community 2"
 Cohesion: 0.06
-Nodes (12): App, ListItem, DlnaApp, Count listening time and report a play once it passes the threshold.          Dr, Restart the play timer when the current track changed, and report         the on, The tree node whose children are 'the current folder' for filtering., Move focus from the filter box onto the first result so it's playable., What to base radio on: the cursor track, else what's playing. (+4 more)
+Nodes (14): ListItem, DlnaApp, Send current playback info to optional pixel display., Count listening time and report a play once it passes the threshold.          Dr, Restart the play timer when the current track changed, and report         the on, The tree node whose children are 'the current folder' for filtering., Move focus from the filter box onto the first result so it's playable., Empty the filter box and put the filtered folder back in full.          Restored (+6 more)
 
 ### Community 3 - "Community 3"
-Cohesion: 0.14
+Cohesion: 0.15
 Nodes (6): Track, Renderer, FakeProfile, test_play_sets_uri(), test_safe_call_swallows_errors_and_reports(), test_state_snapshot()
 
 ### Community 4 - "Community 4"
-Cohesion: 0.22
-Nodes (12): RendererState, _app(), FakeRenderer, _listen(), test_moving_on_after_a_full_listen_is_not_a_skip(), test_paused_and_handed_off_playback_does_not_accrue(), test_play_counts_once_past_the_threshold(), test_replaying_the_same_track_counts_again() (+4 more)
+Cohesion: 0.09
+Nodes (21): RendererState, _app(), FakeRenderer, _listen(), test_moving_on_after_a_full_listen_is_not_a_skip(), test_paused_and_handed_off_playback_does_not_accrue(), test_play_counts_once_past_the_threshold(), test_replaying_the_same_track_counts_again() (+13 more)
 
 ### Community 5 - "Community 5"
 Cohesion: 0.12
@@ -89,21 +89,21 @@ Nodes (13): Bekannte Risiken (am Gerät verifizieren), Dateistruktur, DLNA TUI I
 Cohesion: 0.13
 Nodes (33): _basename(), _best_match(), _common_tail(), count_play(), _crate_path_of(), _crate_query(), _match_file(), _media_id() (+25 more)
 
-### Community 8 - "Community 8"
-Cohesion: 0.21
-Nodes (9): default_path(), Store, Path, Stores written before ratings existed must not lose their favourites., test_corrupt_file_is_ignored(), test_missing_file(), test_old_favourites_file_becomes_ratings(), test_rating_toggles_off_and_is_persisted() (+1 more)
-
 ### Community 12 - "Community 12"
-Cohesion: 0.21
-Nodes (14): DeviceInfo, build_device(), discover(), _discover_kind(), _friendly_name(), _lan_sources(), SSDP source addresses for broadcast-capable IPv4 interfaces.      Excludes loopb, Pull <friendlyName> from the device description XML. None on any failure. (+6 more)
+Cohesion: 0.11
+Nodes (23): DeviceInfo, build_device(), discover(), _discover_kind(), _friendly_name(), _lan_sources(), SSDP source addresses for broadcast-capable IPv4 interfaces.      Excludes loopb, Pull <friendlyName> from the device description XML. None on any failure. (+15 more)
 
 ### Community 13 - "Community 13"
-Cohesion: 0.15
-Nodes (15): Decode an image into a colored Rich renderable.      Each character cell is a '▀, to_ansi(), call(), handoff(), media_ids(), pick_renderer(), ClientSession, Talking to VuIO over its MCP endpoint, and handing playback over to it.  VuIO se (+7 more)
+Cohesion: 0.09
+Nodes (27): Decode an image into a colored Rich renderable.      Each character cell is a '▀, to_ansi(), call(), handoff(), media_ids(), pick_renderer(), ClientSession, Talking to VuIO over its MCP endpoint, and handing playback over to it.  VuIO se (+19 more)
 
 ### Community 14 - "Community 14"
 Cohesion: 0.33
 Nodes (5): dlna-tui, Keys, Notes, Running, Settings
+
+### Community 15 - "Community 15"
+Cohesion: 0.14
+Nodes (8): get_display(), PixelDisplay, Pixel-Display Integration für dlna-tui.  Unterstützt kleine OLED-Displays (z.B., Ob ein funktionierendes Display zur Verfügung steht., Holt die globale Display-Instanz., Abstraktion für kleines Pixel-Display.          Unterstützt grundlegende Textaus, Zeigt aktuelle Wiedergabe.                  Args:             title: Track-Titel, Zeigt kleines Cover (muss Device-Größe haben).                  Args:
 
 ## Knowledge Gaps
 - **29 isolated node(s):** `Text`, `Running`, `Keys`, `Settings`, `Notes` (+24 more)
@@ -112,17 +112,17 @@ Nodes (5): dlna-tui, Keys, Notes, Running, Settings
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `DlnaApp` connect `Community 2` to `Community 0`, `Community 1`, `Community 3`, `Community 4`, `Community 8`, `Community 12`, `Community 13`?**
-  _High betweenness centrality (0.267) - this node is a cross-community bridge._
+- **Why does `DlnaApp` connect `Community 2` to `Community 0`, `Community 1`, `Community 3`, `Community 4`, `Community 12`, `Community 13`, `Community 15`?**
+  _High betweenness centrality (0.271) - this node is a cross-community bridge._
 - **Why does `Track` connect `Community 1` to `Community 0`, `Community 2`, `Community 3`, `Community 4`, `Community 7`, `Community 13`?**
-  _High betweenness centrality (0.159) - this node is a cross-community bridge._
+  _High betweenness centrality (0.154) - this node is a cross-community bridge._
 - **Why does `Renderer` connect `Community 3` to `Community 1`, `Community 2`, `Community 4`, `Community 13`?**
-  _High betweenness centrality (0.096) - this node is a cross-community bridge._
-- **Are the 9 inferred relationships involving `DlnaApp` (e.g. with `FakeRenderer` and `ComposeResult`) actually correct?**
-  _`DlnaApp` has 9 INFERRED edges - model-reasoned connections that need verification._
-- **Are the 22 inferred relationships involving `Track` (e.g. with `Changed` and `ComposeResult`) actually correct?**
-  _`Track` has 22 INFERRED edges - model-reasoned connections that need verification._
-- **Are the 14 inferred relationships involving `Renderer` (e.g. with `Changed` and `ComposeResult`) actually correct?**
-  _`Renderer` has 14 INFERRED edges - model-reasoned connections that need verification._
-- **Are the 13 inferred relationships involving `Queue` (e.g. with `Changed` and `ComposeResult`) actually correct?**
-  _`Queue` has 13 INFERRED edges - model-reasoned connections that need verification._
+  _High betweenness centrality (0.083) - this node is a cross-community bridge._
+- **Are the 10 inferred relationships involving `DlnaApp` (e.g. with `FakeRenderer` and `_Renderer`) actually correct?**
+  _`DlnaApp` has 10 INFERRED edges - model-reasoned connections that need verification._
+- **Are the 26 inferred relationships involving `Track` (e.g. with `Changed` and `ComposeResult`) actually correct?**
+  _`Track` has 26 INFERRED edges - model-reasoned connections that need verification._
+- **Are the 17 inferred relationships involving `Queue` (e.g. with `Changed` and `ComposeResult`) actually correct?**
+  _`Queue` has 17 INFERRED edges - model-reasoned connections that need verification._
+- **Are the 16 inferred relationships involving `Renderer` (e.g. with `Changed` and `ComposeResult`) actually correct?**
+  _`Renderer` has 16 INFERRED edges - model-reasoned connections that need verification._

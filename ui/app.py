@@ -21,6 +21,7 @@ from dlna.art import to_ansi
 from dlna.crate import count_play, radio_tracks, rate, song_key
 from dlna.vuio import handoff, media_ids
 from dlna.discovery import build_device, discover
+from dlna.length import mp4_seconds
 from dlna.models import Container, Queue, Track
 from dlna.renderer import Renderer
 from dlna.server import MusicServer
@@ -97,6 +98,7 @@ class DlnaApp(App):
         self._play_counted = False  # already reported to CrateMind
         self._playing_key = None  # (id, index) of the track the timer belongs to
         self._playing_track: Track | None = None
+        self._length_asked: set = set()  # track ids whose length we already looked up
         self._tasks: set = set()  # keep create_task refs alive (else GC can cancel them)
         self._filter_node = None  # tree node being filtered in place; None = not filtering
         self._filter_cache: dict[str, list] = {}  # cid -> children (one browse per folder)
@@ -262,6 +264,25 @@ class DlnaApp(App):
             self._play_counted = True  # set first: the report is slow and async
             self._spawn(self._report_play(track, skipped=False))
 
+    def _ensure_length(self, track: Track | None) -> None:
+        """Fill in a missing length from the file's own header, once per track.
+
+        The server sends none for m4a and the renderer then reports none over
+        UPnP either, even though it shows the right length itself. Setting it on
+        the Track makes the title bar, the LED display and the play threshold
+        all see the same number.
+        """
+        if (not track or track.duration or not track.media_url
+                or track.id in self._length_asked):
+            return
+        self._length_asked.add(track.id)
+        self._spawn(self._fetch_length(track))
+
+    async def _fetch_length(self, track: Track) -> None:
+        seconds = await asyncio.to_thread(mp4_seconds, track.media_url)
+        if seconds > 0:
+            track.duration = f"{seconds // 3600}:{seconds % 3600 // 60:02d}:{seconds % 60:02d}"
+
     def _note_track_change(self) -> None:
         """Restart the play timer when the current track changed, and report
         the one being left as skipped if it never reached the threshold.
@@ -281,6 +302,7 @@ class DlnaApp(App):
         self._playing_key, self._playing_track = now, track
         self._heard_seconds = 0
         self._play_counted = False
+        self._ensure_length(track)
 
     async def _report_play(self, track: Track, skipped: bool) -> None:
         try:
@@ -300,6 +322,8 @@ class DlnaApp(App):
             if not st.title:
                 st.title = current.title
             st.info = current.info
+            if not st.duration:  # renderer reports none for these streams
+                st.duration = _hms_seconds(current.duration)
         self.query_one("#now", NowPlaying).st = st
         self._mark_current()  # every index change lands here, whoever caused it
         # Advance only on the PLAYING->STOPPED edge; level-triggering would skip

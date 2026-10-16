@@ -109,6 +109,7 @@ class DlnaApp(App):
         # Optional OLED. Not "self.display": Textual's App already has a
         # display property that is always True, which would bypass the check.
         self.pixel_display = None
+        self._display_cover: tuple = (None, None)  # (track key, raw cover bytes)
         if get_display is not None:
             dev = get_display()
             if dev is not None and dev.is_available():
@@ -216,24 +217,32 @@ class DlnaApp(App):
         self._update_display()
 
     def _update_display(self) -> None:
-        """Send current playback info to optional pixel display."""
+        """Hand the playing track to the LED display without waiting for it.
+
+        Bluetooth uploads take far longer than the one-second tick, so this
+        only schedules the work; the display skips a tick while a previous
+        upload is still running and sends nothing when the picture is the same.
+        """
         if not self.pixel_display or not self.renderer or not self.queue.current():
             return
-
         track = self.queue.current()
         state = self.renderer.state()
-
-        # Progress 0..1. Track.duration is DIDL's "H:MM:SS" string, so prefer
-        # the renderer's own seconds, and fall back to parsing the string.
+        # Prefer the renderer's own seconds; Track.duration is DIDL's
+        # "H:MM:SS" string, empty for m4a.
         total = state.duration or _hms_seconds(track.duration)
-        progress = min(state.position / total, 1.0) if total > 0 else 0.0
+        self._spawn(self._push_display(track, state.position, total))
 
-        # Show basic playback info
-        self.pixel_display.show_now_playing(
-            title=track.title[:16],  # limited width for small display
-            artist=track.artist[:10],
-            progress=progress
-        )
+    async def _push_display(self, track: Track, position: float, total: float) -> None:
+        key = (track.id, self.queue.index)
+        cover = None
+        if track.art_uri and self._display_cover[0] != key:
+            try:  # best effort: no cover just means the plain tile
+                cover = await asyncio.to_thread(_http_get, track.art_uri)
+            except Exception:
+                cover = b""
+            self._display_cover = (key, cover)
+        await self.pixel_display.update(key, track.title, track.artist,
+                                        position, total, cover)
 
     def _tick_play_time(self) -> None:
         """Count listening time and report a play once it passes the threshold.
@@ -624,6 +633,8 @@ class DlnaApp(App):
 
     async def action_quit(self) -> None:
         self.store.save()
+        if self.pixel_display:  # don't leave the last frame glowing after we are gone
+            await self.pixel_display.close()
         self.exit()
 
 

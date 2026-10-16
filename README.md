@@ -51,6 +51,7 @@ set them if yours live elsewhere.
 | `VUIO_URL` | `http://minime-3.local:8080` | VuIO media server |
 | `RADIO_LIMIT` | `10` | Tracks fetched per radio batch |
 | `RADIO_FRESH_SHARE` | `0.15` | Share of a radio batch reserved for recently imported music |
+| `DLNA_TUI_IDM` | unset | iDotMatrix display: its address, its name (`IDM-xxxxxx`) or `auto` |
 
 ## Notes
 
@@ -59,3 +60,20 @@ set them if yours live elsewhere.
   0,4,3,4,2,3,4). Casting the same playlist to the same device over
   Chromecast plays it in order.
 - Tests: `python3 -m pytest`
+
+## LED display (optional)
+
+A 32x32 iDotMatrix display shows the cover with a progress bar along the
+bottom; when the track changes, title and artist scroll past once.
+
+```bash
+pip install idotmatrix
+python3 -m dlna.idm_probe            # find it and show a test picture
+DLNA_TUI_IDM=<address> python3 .     # use it
+```
+
+On macOS the address is a UUID that is only valid for that Mac. The display
+takes one Bluetooth connection at a time, so close the phone app first. The
+terminal you run this in must be allowed to use Bluetooth (System Settings,
+Privacy and Security, Bluetooth); it is asked the first time. The display is
+switched off when you quit with `q`.
